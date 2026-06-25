@@ -1,0 +1,14 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "identifier": "crm:P1_is_identified_by",
+    "measurementOf": {
+      "@id": "crm:P39_measured",
+      "@type": "@id"
+    },
+    "observedProperty": {
+      "@id": "crm:P40_observed_dimension",
+      "@type": "@id"
+    }
+  }
+}

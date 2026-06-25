@@ -1,0 +1,17 @@
+examples:
+  - title: A Europeana/ECCCH aggregation for a heritage object
+    content: >-
+      An aggregation wrapping the Great Gallery ceiling painting with its primary display
+      image, a landing page at the holding institution, and the provider/rights metadata
+      Europeana requires for ingestion.
+    snippets:
+      - language: json
+        ref: examples/great-gallery-painting.json
+
+  - title: A minimal aggregation
+    content: >-
+      Only `aggregatedCHO` is required — the rest can be filled in incrementally as the object
+      is prepared for publishing.
+    snippets:
+      - language: json
+        ref: examples/minimal.json

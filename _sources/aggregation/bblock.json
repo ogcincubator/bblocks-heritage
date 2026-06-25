@@ -1,0 +1,23 @@
+{
+  "name": "Aggregation",
+  "abstract": "An EDM/ORE aggregation wrapping a heritage object together with its digital representations and the provider/rights metadata required to publish it to Europeana / ECCCH, modelled as edm:Aggregation (ore:Aggregation).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.openarchives.org/ore/terms/Aggregation"
+  ],
+  "sources": [
+    {
+      "title": "Europeana Data Model (EDM)",
+      "link": "https://pro.europeana.eu/page/edm-documentation"
+    },
+    {
+      "title": "OAI-ORE",
+      "link": "http://www.openarchives.org/ore/1.0/datamodel"
+    }
+  ],
+  "tags": ["edm", "heritage", "aggregation", "europeana"],
+  "group": "Core"
+}

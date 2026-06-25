@@ -1,0 +1,21 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+
+<#AggregationShape>
+    a sh:NodeShape ;
+    sh:targetClass ore:Aggregation ;
+    sh:property [
+        sh:path edm:aggregatedCHO ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "aggregatedCHO is required and must uplift to an IRI (the heritage-object this aggregation wraps)." ;
+    ], [
+        sh:path edm:isShownBy ;
+        sh:nodeKind sh:IRI ;
+        sh:message "isShownBy must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ], [
+        sh:path edm:rights ;
+        sh:nodeKind sh:IRI ;
+        sh:message "rights must uplift to an IRI (e.g. a rightsstatements.org URI)" ;
+    ] .

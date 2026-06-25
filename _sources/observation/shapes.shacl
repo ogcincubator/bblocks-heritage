@@ -1,0 +1,24 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# As with `place`, `actor` and `event`, an Observation's rdf:type comes from PROV-O
+# (prov:Activity) rather than crm:E16_Measurement, so this shape targets by predicate rather
+# than by class.
+<#ObservationMeasurementOfIsIRI>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P39_measured ;
+    sh:property [
+        sh:path crm:P39_measured ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "measurementOf is required and must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] .
+
+<#ObservationObservedPropertyIsIRI>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P40_observed_dimension ;
+    sh:property [
+        sh:path crm:P40_observed_dimension ;
+        sh:nodeKind sh:IRI ;
+        sh:message "observedProperty must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] .

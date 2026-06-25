@@ -1,0 +1,32 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Observation
+description: |
+  A scientific observation or measurement, modelled as a CIDOC-CRM E16 Measurement. Profiles
+  PROV-O's Activity: `startedAtTime`/`endedAtTime` carry the time of observation, `used` the
+  sensor or instrument involved (CIDOC-CRM P16_used_specific_object), `generated` the OGC
+  SensorThings API `Observation` resource holding the actual reading (CIDOC-CRM
+  P108_has_produced), `wasAssociatedWith` the operator or monitoring system responsible, and
+  `atLocation` where the observation took place. This block adds a local identifier, the
+  heritage object or place being measured, and the property observed.
+x-jsonld-context: context.jsonld
+allOf:
+  - "$ref": bblocks://ogc.ogc-utils.prov-activity
+  - type: object
+    required:
+      - measurementOf
+    properties:
+      identifier:
+        type: string
+        description: A local identifier for this observation (CIDOC-CRM P1_is_identified_by).
+      measurementOf:
+        type: string
+        format: uri
+        description: >-
+          URI of the `heritage-object` or `place` being measured (CIDOC-CRM P39_measured).
+      observedProperty:
+        type: string
+        format: uri
+        description: >-
+          The property or phenomenon observed, typically a GEOSS Essential Variable or Getty
+          AAT concept URI, e.g. relative humidity or surface temperature (CIDOC-CRM
+          P40_observed_dimension).

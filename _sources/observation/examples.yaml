@@ -1,0 +1,17 @@
+examples:
+  - title: A relative humidity reading linked back to its CIDOC-CRM context
+    content: >-
+      A humidity measurement of the Great Gallery, taken by a SensorThings API `Sensor` and
+      recorded as a SensorThings API `Observation` — this block carries the CRM-side context
+      (what was measured, what property, by whom) while the reading itself stays in STA.
+    snippets:
+      - language: json
+        ref: examples/humidity-reading.json
+
+  - title: A minimal record for an undated legacy reading
+    content: >-
+      Only `identifier` and `measurementOf` are required — useful for migrating legacy
+      monitoring logs that predate the SensorThings API deployment.
+    snippets:
+      - language: json
+        ref: examples/minimal.json

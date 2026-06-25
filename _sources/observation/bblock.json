@@ -1,0 +1,28 @@
+{
+  "name": "Observation",
+  "abstract": "A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — modelled as a CIDOC-CRM E16 Measurement (the entry point CRMsci specialises for scientific observation) and profiling the PROV-O Activity. Bridges sensor data recorded via the OGC SensorThings API back into the CIDOC-CRM graph.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E16_Measurement"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "CRMsci",
+      "link": "https://www.cidoc-crm.org/crmsci/"
+    },
+    {
+      "title": "PROV-O",
+      "link": "https://www.w3.org/TR/prov-o/"
+    }
+  ],
+  "tags": ["cidoc-crm", "crmsci", "heritage", "observation", "prov", "sta"],
+  "group": "Core",
+  "isProfileOf": "bblocks://ogc.ogc-utils.prov-activity"
+}

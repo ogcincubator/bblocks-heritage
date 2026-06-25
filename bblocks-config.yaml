@@ -1,18 +1,20 @@
 # A short, descriptive name of this building block collection
-name: My OGC Building Blocks repository
+name: Cultural Heritage Building Blocks
 
 # Short abstract for this collection (optional)
 abstract: |
-  This is an example text for the abstract. It should be short and to the point.
-  A "Tell me more" link will appear if there is an additional description with a longer explanation.
+  Reusable OGC Building Blocks for modelling cultural heritage data, covering heritage objects,
+  digital representations, provenance, sensor observations and dataset metadata.
 
 # Description for this collection (optional)
 description: |
-  The description can be longer. Both **the abstract** *and the description* support Markdown,
-  including [links](https://google.es).
+  This register defines reusable, machine-readable specification components for the cultural
+  heritage domain, building on CIDOC-CRM, PROV-O, SOSA/SSN, EDM and DCAT. It originated from the
+  standards profiling work of the [HERITALISE](https://heritalise.eu) project (deliverables D8.1
+  and D8.2), but is intended as a general-purpose register usable beyond that project.
 
 # Customize the following prefix (will be prepended to the path of the building blocks):
-identifier-prefix: ogc.bbr.template.
+identifier-prefix: ogc.heritage.
 
 # List of imports ("default" is an alias for the main OGC Building Blocks Register)
 imports:

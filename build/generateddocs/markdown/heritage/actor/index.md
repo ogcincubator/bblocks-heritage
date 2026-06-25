@@ -1,0 +1,816 @@
+
+# Actor (Schema)
+
+`ogc.heritage.actor` *v0.1*
+
+A person or organization associated with cultural heritage objects, events or activities — creators, custodians, restorers — modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.
+
+[*Status*](http://www.opengis.net/def/status): Under development
+
+## Description
+
+## Actor
+
+An `Actor` is a person or organization associated with cultural heritage objects, events or
+activities — a creator, custodian, restorer, donor — modelled as a CIDOC-CRM `E39_Actor`.
+
+Rather than reinventing agent identity, this block profiles
+[`ogc.ogc-utils.prov-agent`](https://ogcincubator.github.io/bblock-prov-schema/register/bblock/ogc.ogc-utils.prov-agent):
+an `Actor` *is* a PROV-O Agent. `agentType` discriminates `Person` / `Organization` /
+`SoftwareAgent` (mapped to PROV-O's corresponding RDF classes), `name` and `id` carry identity,
+and `actedOnBehalfOf` expresses delegation (e.g. a conservator acting for a museum). This block
+adds two CIDOC-CRM-specific properties: `identifier` (a local authority/catalogue number) and
+`sameAs` (a link to an external authority record, typically Getty ULAN).
+
+As with [`place`](../place), profiling an external vocabulary means the uplifted `rdf:type` comes
+from PROV-O (`prov:Person`, `prov:Organization`...) rather than `crm:E39_Actor` — the SHACL shape
+here targets by predicate (`sh:targetSubjectsOf`) rather than by class.
+
+`prov-agent` requires *exactly one* of `name` or `id` (not both): `id` is for bare references to
+an agent described elsewhere, `name` is for an inline, fully-described record like the examples
+here. An `Actor` with its own resolvable URI should still set `id` — just not alongside `name` in
+the same object.
+
+Other blocks reference an `Actor` by `id`:
+
+- an `event` (production, restoration) links to the `Actor`(s) who carried it out
+- a `digital-representation`'s provenance chain can attribute creation/digitisation to an `Actor`
+  via the imported PROV blocks
+
+## Examples
+
+### A named restorer matched to a Getty ULAN authority record
+A conservation staff member, typed as a `Person`, with a local staff identifier and a Getty ULAN authority match.
+#### json
+```json
+{
+  "agentType": "Person",
+  "name": "Giulia Bianchi",
+  "identifier": "RV-STAFF-042",
+  "sameAs": "http://vocab.getty.edu/ulan/500123456"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+  "agentType": "Person",
+  "name": "Giulia Bianchi",
+  "identifier": "RV-STAFF-042",
+  "sameAs": "http://vocab.getty.edu/ulan/500123456"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] a prov:Person ;
+    rdfs:label "Giulia Bianchi" ;
+    crm:P1_is_identified_by "RV-STAFF-042" ;
+    owl:sameAs <http://vocab.getty.edu/ulan/500123456> .
+
+
+```
+
+
+### A minimal record for an unidentified creator
+PROV-O's Agent only requires a `name` or an `id` — useful for an attributed-but-unnamed workshop or studio, common in older catalogue records (UC-V-3 legacy-archive migration).
+#### json
+```json
+{
+  "name": "Workshop of an unidentified Venaria court painter"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+  "name": "Workshop of an unidentified Venaria court painter"
+}
+```
+
+#### ttl
+```ttl
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] rdfs:label "Workshop of an unidentified Venaria court painter" .
+
+
+```
+
+## Schema
+
+```yaml
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Actor
+description: 'A person or organization associated with cultural heritage objects,
+  events or activities,
+
+  modelled as a CIDOC-CRM E39 Actor. Profiles PROV-O''s Agent (`agentType` discriminates
+
+  Person/Organization/SoftwareAgent) and adds a local identifier and an external authority
+
+  match, typically Getty ULAN.
+
+  '
+allOf:
+- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml
+- type: object
+  properties:
+    identifier:
+      type: string
+      description: A local authority or catalogue identifier (CIDOC-CRM P1_is_identified_by).
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+    sameAs:
+      type: string
+      format: uri
+      description: URI of an equivalent record in an external authority, typically
+        Getty ULAN (owl:sameAs).
+      x-jsonld-id: http://www.w3.org/2002/07/owl#sameAs
+      x-jsonld-type: '@id'
+x-jsonld-prefixes:
+  crm: http://www.cidoc-crm.org/cidoc-crm/
+  owl: http://www.w3.org/2002/07/owl#
+
+```
+
+Links to the schema:
+
+* YAML version: [schema.yaml](https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml)
+
+
+# JSON-LD Context
+
+```jsonld
+{
+  "@context": {
+    "wasInfluencedBy": {
+      "@context": {
+        "links": {
+          "@id": "rdfs:seeAlso",
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        }
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "entity": {
+          "@context": {
+            "links": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "rdfs:seeAlso"
+            }
+          },
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
+    },
+    "agentType": "@type",
+    "provType": "@type",
+    "name": "rdfs:label",
+    "id": "@id",
+    "actedOnBehalfOf": {
+      "@id": "prov:actedOnBehalfOf",
+      "@type": "@id"
+    },
+    "atLocation": {
+      "@id": "prov:atLocation",
+      "@type": "@id"
+    },
+    "qualifiedDelegation": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "used": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "entity": {
+                  "@context": {
+                    "links": {
+                      "@context": {
+                        "href": {
+                          "@type": "@id",
+                          "@id": "oa:hasTarget"
+                        },
+                        "rel": {
+                          "@context": {
+                            "@base": "http://www.iana.org/assignments/relation/"
+                          },
+                          "@id": "http://www.iana.org/assignments/relation",
+                          "@type": "@id"
+                        },
+                        "type": "dct:type",
+                        "hreflang": "dct:language",
+                        "title": "rdfs:label",
+                        "length": "dct:extent"
+                      },
+                      "@id": "rdfs:seeAlso"
+                    }
+                  },
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "entity": {
+                  "@context": {
+                    "links": {
+                      "@context": {
+                        "href": {
+                          "@type": "@id",
+                          "@id": "oa:hasTarget"
+                        },
+                        "rel": {
+                          "@context": {
+                            "@base": "http://www.iana.org/assignments/relation/"
+                          },
+                          "@id": "http://www.iana.org/assignments/relation",
+                          "@type": "@id"
+                        },
+                        "type": "dct:type",
+                        "hreflang": "dct:language",
+                        "title": "rdfs:label",
+                        "length": "dct:extent"
+                      },
+                      "@id": "rdfs:seeAlso"
+                    }
+                  },
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedDelegation",
+      "@type": "@id"
+    },
+    "activityType": "@type",
+    "entityType": "@type",
+    "featureType": "@type",
+    "Activity": "prov:Activity",
+    "ActivityInfluence": "prov:ActivityInfluence",
+    "Agent": "prov:Agent",
+    "AgentInfluence": "prov:AgentInfluence",
+    "Association": "prov:Association",
+    "Attribution": "prov:Attribution",
+    "Bundle": "prov:Bundle",
+    "Collection": "prov:Collection",
+    "Communication": "prov:Communication",
+    "Delegation": "prov:Delegation",
+    "Derivation": "prov:Derivation",
+    "EmptyCollection": "prov:EmptyCollection",
+    "End": "prov:End",
+    "Entity": "prov:Entity",
+    "EntityInfluence": "prov:EntityInfluence",
+    "Generation": "prov:Generation",
+    "Influence": "prov:Influence",
+    "InstantaneousEvent": "prov:InstantaneousEvent",
+    "Invalidation": "prov:Invalidation",
+    "Location": "prov:Location",
+    "Organization": "prov:Organization",
+    "Person": "prov:Person",
+    "Plan": "prov:Plan",
+    "PrimarySource": "prov:PrimarySource",
+    "Quotation": "prov:Quotation",
+    "Revision": "prov:Revision",
+    "Role": "prov:Role",
+    "SoftwareAgent": "prov:SoftwareAgent",
+    "Start": "prov:Start",
+    "Usage": "prov:Usage",
+    "ServiceDescription": "prov:ServiceDescription",
+    "DirectQueryService": "prov:DirectQueryService",
+    "Accept": "prov:Accept",
+    "Contribute": "prov:Contribute",
+    "Contributor": "prov:Contributor",
+    "Copyright": "prov:Copyright",
+    "Create": "prov:Create",
+    "Creator": "prov:Creator",
+    "Modify": "prov:Modify",
+    "Publish": "prov:Publish",
+    "Publisher": "prov:Publisher",
+    "Replace": "prov:Replace",
+    "RightsAssignment": "prov:RightsAssignment",
+    "RightsHolder": "prov:RightsHolder",
+    "Submit": "prov:Submit",
+    "Dictionary": "prov:Dictionary",
+    "EmptyDictionary": "prov:EmptyDictionary",
+    "KeyEntityPair": "prov:KeyEntityPair",
+    "Insertion": "prov:Insertion",
+    "Removal": "prov:Removal",
+    "atTime": {
+      "@id": "prov:atTime",
+      "@type": "xsd:dateTime"
+    },
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "provenanceUriTemplate": "prov:provenanceUriTemplate",
+    "pairKey": {
+      "@id": "prov:pairKey",
+      "@type": "rdfs:Literal"
+    },
+    "removedKey": {
+      "@id": "prov:removedKey",
+      "@type": "rdfs:Literal"
+    },
+    "agent": {
+      "@id": "prov:agent",
+      "@type": "@id"
+    },
+    "alternateOf": {
+      "@id": "prov:alternateOf",
+      "@type": "@id"
+    },
+    "entity": {
+      "@id": "prov:entity",
+      "@type": "@id"
+    },
+    "generated": {
+      "@id": "prov:generated",
+      "@type": "@id"
+    },
+    "hadActivity": {
+      "@id": "prov:hadActivity",
+      "@type": "@id"
+    },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    },
+    "hadGeneration": {
+      "@id": "prov:hadGeneration",
+      "@type": "@id"
+    },
+    "hadMember": {
+      "@id": "prov:hadMember",
+      "@type": "@id"
+    },
+    "hadPlan": {
+      "@id": "prov:hadPlan",
+      "@type": "@id"
+    },
+    "hadPrimarySource": {
+      "@id": "prov:hadPrimarySource",
+      "@type": "@id"
+    },
+    "hadRole": {
+      "@id": "prov:hadRole",
+      "@type": "@id"
+    },
+    "hadUsage": {
+      "@id": "prov:hadUsage",
+      "@type": "@id"
+    },
+    "influenced": {
+      "@id": "prov:influenced",
+      "@type": "@id"
+    },
+    "influencer": {
+      "@id": "prov:influencer",
+      "@type": "@id"
+    },
+    "invalidated": {
+      "@id": "prov:invalidated",
+      "@type": "@id"
+    },
+    "qualifiedAssociation": {
+      "@id": "prov:qualifiedAssociation",
+      "@type": "@id"
+    },
+    "qualifiedAttribution": {
+      "@id": "prov:qualifiedAttribution",
+      "@type": "@id"
+    },
+    "qualifiedCommunication": {
+      "@id": "prov:qualifiedCommunication",
+      "@type": "@id"
+    },
+    "qualifiedDerivation": {
+      "@id": "prov:qualifiedDerivation",
+      "@type": "@id"
+    },
+    "qualifiedEnd": {
+      "@id": "prov:qualifiedEnd",
+      "@type": "@id"
+    },
+    "qualifiedGeneration": {
+      "@id": "prov:qualifiedGeneration",
+      "@type": "@id"
+    },
+    "qualifiedInvalidation": {
+      "@id": "prov:qualifiedInvalidation",
+      "@type": "@id"
+    },
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
+    "qualifiedStart": {
+      "@id": "prov:qualifiedStart",
+      "@type": "@id"
+    },
+    "qualifiedUsage": {
+      "@id": "prov:qualifiedUsage",
+      "@type": "@id"
+    },
+    "specializationOf": {
+      "@id": "prov:specializationOf",
+      "@type": "@id"
+    },
+    "used": {
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "wasEndedBy": {
+      "@id": "prov:wasEndedBy",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "prov:wasInformedBy",
+      "@type": "@id"
+    },
+    "wasInvalidatedBy": {
+      "@id": "prov:wasInvalidatedBy",
+      "@type": "@id"
+    },
+    "wasQuotedFrom": {
+      "@id": "prov:wasQuotedFrom",
+      "@type": "@id"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "wasStartedBy": {
+      "@id": "prov:wasStartedBy",
+      "@type": "@id"
+    },
+    "has_anchor": {
+      "@id": "prov:has_anchor",
+      "@type": "@id"
+    },
+    "has_provenance": {
+      "@id": "dct:provenance",
+      "@type": "@id"
+    },
+    "has_query_service": {
+      "@id": "prov:has_query_service",
+      "@type": "@id"
+    },
+    "describesService": {
+      "@id": "prov:describesService",
+      "@type": "@id"
+    },
+    "pingback": {
+      "@id": "prov:pingback",
+      "@type": "@id"
+    },
+    "dictionary": {
+      "@id": "prov:dictionary",
+      "@type": "@id"
+    },
+    "derivedByInsertionFrom": {
+      "@id": "prov:derivedByInsertionFrom",
+      "@type": "@id"
+    },
+    "derivedByRemovalFrom": {
+      "@id": "prov:derivedByRemovalFrom",
+      "@type": "@id"
+    },
+    "insertedKeyEntityPair": {
+      "@id": "prov:insertedKeyEntityPair",
+      "@type": "@id"
+    },
+    "hadDictionaryMember": {
+      "@id": "prov:hadDictionaryMember",
+      "@type": "@id"
+    },
+    "pairEntity": {
+      "@id": "prov:pairEntity",
+      "@type": "@id"
+    },
+    "qualifiedInsertion": {
+      "@id": "prov:qualifiedInsertion",
+      "@type": "@id"
+    },
+    "qualifiedRemoval": {
+      "@id": "prov:qualifiedRemoval",
+      "@type": "@id"
+    },
+    "asInBundle": {
+      "@id": "prov:asInBundle",
+      "@type": "@id"
+    },
+    "mentionOf": {
+      "@id": "prov:mentionOf",
+      "@type": "@id"
+    },
+    "links": "rdfs:seeAlso",
+    "identifier": "crm:P1_is_identified_by",
+    "sameAs": {
+      "@id": "owl:sameAs",
+      "@type": "@id"
+    },
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "@version": 1.1
+  }
+}
+```
+
+You can find the full JSON-LD context here:
+[context.jsonld](https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld)
+
+## Sources
+
+* [CIDOC-CRM](https://www.cidoc-crm.org/)
+* [PROV-O](https://www.w3.org/TR/prov-o/)
+
+# For developers
+
+The source code for this Building Block can be found in the following repository:
+
+* URL: [https://github.com/ogcincubator/bblocks-heritage](https://github.com/ogcincubator/bblocks-heritage)
+* Path: `_sources/actor`
+

@@ -1,0 +1,93 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.heritage-object",
+  "name": "Heritage Object",
+  "abstract": "A physical cultural heritage item \u2014 an artwork, building element, garden feature or museum object \u2014 modelled as a CIDOC-CRM E22 Man-Made Object.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "object"
+  ],
+  "group": "Core",
+  "shaclShapes": {
+    "ogc.heritage.heritage-object": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl"
+    ]
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/heritage-object/",
+  "description": "## Heritage Object\n\nA `HeritageObject` is the physical cultural heritage item itself \u2014 a painting, a building\nelement, a garden feature, a museum artefact \u2014 modelled as a CIDOC-CRM `E22_Man-Made_Object`.\n\nIt is deliberately minimal: identity (`identifier`, `title`), typing and material via Getty AAT\nURIs, current location, and an optional persistent identifier. Everything else attaches to it by\nreference:\n\n- digital assets (images, 3D models, documents) point back to it via `isAbout` in\n  [`digital-representation`](../digital-representation)\n- sensor observations point to it (or a `place` derived from it) as their feature of interest\n- provenance, events (production, restoration) and actors are modelled as separate, linked\n  entities rather than embedded here, so the same object can accumulate history over time without\n  growing an unbounded record.\n",
+  "examples": [
+    {
+      "title": "A catalogued painting with type, material and location",
+      "content": "A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materialised with Getty AAT concepts and linked to a place.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/examples/painting.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-GG-014\",\n  \"title\": \"Allegorical ceiling painting, Great Gallery\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300033618\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300014078\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-GG-014\",\n  \"title\": \"Allegorical ceiling painting, Great Gallery\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300033618\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300014078\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://example.org/heritalise/object/great-gallery-painting-014> a crm:E22_Man-Made_Object ;\n    crm:P102_has_title \"Allegorical ceiling painting, Great Gallery\" ;\n    crm:P1_is_identified_by \"RV-GG-014\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300033618> ;\n    crm:P45_consists_of <http://vocab.getty.edu/aat/300014078> ;\n    crm:P53_has_former_or_current_location <https://example.org/heritalise/place/great-gallery> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A minimal record with only the required properties",
+      "content": "Only `identifier` and `title` are required \u2014 everything else can be added incrementally as it becomes available, which matches the legacy-archive migration scenario in UC-V-3.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/examples/minimal.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_2_1.json",
+          "code": "{\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"WHM-1923.45\",\n  \"title\": \"Fishing creel\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"WHM-1923.45\",\n  \"title\": \"Fishing creel\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_2_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n[] a crm:E22_Man-Made_Object ;\n    crm:P102_has_title \"Fishing creel\" ;\n    crm:P1_is_identified_by \"WHM-1923.45\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Object\ndescription: 'A physical cultural heritage item (artwork, building element, garden\n  feature, museum object...),\n\n  modelled as a CIDOC-CRM E22 Man-Made Object.\n\n  '\ntype: object\nproperties:\n  id:\n    type: string\n    format: uri\n    description: The persistent or local URI identifying this object.\n    x-jsonld-id: '@id'\n  type:\n    const: HeritageObject\n    x-jsonld-id: '@type'\n  identifier:\n    type: string\n    description: A local catalogue or inventory number (CIDOC-CRM P1_is_identified_by).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  title:\n    type: string\n    description: A human-readable title or name for the object (CIDOC-CRM P102_has_title).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P102_has_title\n  description:\n    type: string\n    description: Free-text description or curatorial note (CIDOC-CRM P3_has_note).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n  objectType:\n    type: string\n    format: uri\n    description: The type of object, typically a Getty AAT concept URI (CIDOC-CRM\n      P2_has_type).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n    x-jsonld-type: '@id'\n  material:\n    type: array\n    description: Materials the object consists of, typically Getty AAT concept URIs\n      (CIDOC-CRM P45_consists_of).\n    items:\n      type: string\n      format: uri\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  currentLocation:\n    type: string\n    format: uri\n    description: URI of the place where the object is currently or was last located\n      (CIDOC-CRM P53_has_former_or_current_location).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location\n    x-jsonld-type: '@id'\n  persistentIdentifier:\n    type: string\n    format: uri\n    description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this object.\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    x-jsonld-type: '@id'\nrequired:\n- identifier\n- title\nx-jsonld-extra-terms:\n  HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/heritage-object"
+}

@@ -1,0 +1,102 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.actor",
+  "name": "Actor",
+  "abstract": "A person or organization associated with cultural heritage objects, events or activities \u2014 creators, custodians, restorers \u2014 modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E39_Actor"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "PROV-O",
+      "link": "https://www.w3.org/TR/prov-o/"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "actor",
+    "prov"
+  ],
+  "group": "Core",
+  "isProfileOf": "ogc.ogc-utils.prov-agent",
+  "shaclShapes": {
+    "ogc.heritage.actor": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.ogc-utils.prov-agent"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/actor/",
+  "description": "## Actor\n\nAn `Actor` is a person or organization associated with cultural heritage objects, events or\nactivities \u2014 a creator, custodian, restorer, donor \u2014 modelled as a CIDOC-CRM `E39_Actor`.\n\nRather than reinventing agent identity, this block profiles\n[`ogc.ogc-utils.prov-agent`](https://ogcincubator.github.io/bblock-prov-schema/register/bblock/ogc.ogc-utils.prov-agent):\nan `Actor` *is* a PROV-O Agent. `agentType` discriminates `Person` / `Organization` /\n`SoftwareAgent` (mapped to PROV-O's corresponding RDF classes), `name` and `id` carry identity,\nand `actedOnBehalfOf` expresses delegation (e.g. a conservator acting for a museum). This block\nadds two CIDOC-CRM-specific properties: `identifier` (a local authority/catalogue number) and\n`sameAs` (a link to an external authority record, typically Getty ULAN).\n\nAs with [`place`](../place), profiling an external vocabulary means the uplifted `rdf:type` comes\nfrom PROV-O (`prov:Person`, `prov:Organization`...) rather than `crm:E39_Actor` \u2014 the SHACL shape\nhere targets by predicate (`sh:targetSubjectsOf`) rather than by class.\n\n`prov-agent` requires *exactly one* of `name` or `id` (not both): `id` is for bare references to\nan agent described elsewhere, `name` is for an inline, fully-described record like the examples\nhere. An `Actor` with its own resolvable URI should still set `id` \u2014 just not alongside `name` in\nthe same object.\n\nOther blocks reference an `Actor` by `id`:\n\n- an `event` (production, restoration) links to the `Actor`(s) who carried it out\n- a `digital-representation`'s provenance chain can attribute creation/digitisation to an `Actor`\n  via the imported PROV blocks\n",
+  "examples": [
+    {
+      "title": "A named restorer matched to a Getty ULAN authority record",
+      "content": "A conservation staff member, typed as a `Person`, with a local staff identifier and a Getty ULAN authority match.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/examples/restorer.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_1_1.json",
+          "code": "{\n  \"agentType\": \"Person\",\n  \"name\": \"Giulia Bianchi\",\n  \"identifier\": \"RV-STAFF-042\",\n  \"sameAs\": \"http://vocab.getty.edu/ulan/500123456\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld\",\n  \"agentType\": \"Person\",\n  \"name\": \"Giulia Bianchi\",\n  \"identifier\": \"RV-STAFF-042\",\n  \"sameAs\": \"http://vocab.getty.edu/ulan/500123456\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n[] a prov:Person ;\n    rdfs:label \"Giulia Bianchi\" ;\n    crm:P1_is_identified_by \"RV-STAFF-042\" ;\n    owl:sameAs <http://vocab.getty.edu/ulan/500123456> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A minimal record for an unidentified creator",
+      "content": "PROV-O's Agent only requires a `name` or an `id` \u2014 useful for an attributed-but-unnamed workshop or studio, common in older catalogue records (UC-V-3 legacy-archive migration).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/examples/minimal.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_2_1.json",
+          "code": "{\n  \"name\": \"Workshop of an unidentified Venaria court painter\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld\",\n  \"name\": \"Workshop of an unidentified Venaria court painter\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_2_1.ttl",
+          "code": "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n[] rdfs:label \"Workshop of an unidentified Venaria court painter\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Actor\ndescription: 'A person or organization associated with cultural heritage objects,\n  events or activities,\n\n  modelled as a CIDOC-CRM E39 Actor. Profiles PROV-O''s Agent (`agentType` discriminates\n\n  Person/Organization/SoftwareAgent) and adds a local identifier and an external authority\n\n  match, typically Getty ULAN.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml\n- type: object\n  properties:\n    identifier:\n      type: string\n      description: A local authority or catalogue identifier (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    sameAs:\n      type: string\n      format: uri\n      description: URI of an equivalent record in an external authority, typically\n        Getty ULAN (owl:sameAs).\n      x-jsonld-id: http://www.w3.org/2002/07/owl#sameAs\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  owl: http://www.w3.org/2002/07/owl#\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/actor"
+}

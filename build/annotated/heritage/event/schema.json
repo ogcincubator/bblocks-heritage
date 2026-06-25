@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Event",
+  "description": "An event in the history of a heritage object \u2014 production, restoration, modification,\nacquisition \u2014 modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's Activity: `startedAtTime`/\n`endedAtTime` carry the time-span (P4_has_time-span), `wasAssociatedWith` the actors who\ncarried it out (P14_carried_out_by), `used`/`generated` the objects involved (P16_used_specific_object\n/ P108_has_produced / P31_has_modified) and `atLocation` where it took place (P7_took_place_at).\nThis block adds a local identifier and a CIDOC-CRM event type.\n",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "A local identifier for this event (CIDOC-CRM P1_is_identified_by).",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by"
+        },
+        "eventType": {
+          "type": "string",
+          "format": "uri",
+          "description": "The type of event, typically a Getty AAT concept URI, e.g. production or restoration (CIDOC-CRM P2_has_type).",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+          "x-jsonld-type": "@id"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/"
+  }
+}

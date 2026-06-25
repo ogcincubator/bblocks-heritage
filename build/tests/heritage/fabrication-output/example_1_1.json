@@ -1,0 +1,9 @@
+{
+  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-replica-01",
+  "identifier": "RV-GG-014-STL-01",
+  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "mediaType": "model/stl",
+  "wasDerivedFrom": [
+    "https://example.org/heritalise/digital/great-gallery-painting-014-model-01"
+  ]
+}

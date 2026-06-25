@@ -1,0 +1,13 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12> crm:P1_is_identified_by "RV-GG-RH-2024-03-04T12" ;
+    crm:P39_measured <https://example.org/heritalise/place/great-gallery> ;
+    crm:P40_observed_dimension <http://vocab.getty.edu/aat/300055680> ;
+    prov:endedAtTime "2024-03-04T12:00:00+00:00"^^xsd:dateTime ;
+    prov:generated <https://example.org/heritalise/sta/v1.1/Observations(98765)> ;
+    prov:startedAtTime "2024-03-04T12:00:00+00:00"^^xsd:dateTime ;
+    prov:used <https://example.org/heritalise/sta/v1.1/Sensors(12)> ;
+    prov:wasAssociatedWith <https://example.org/heritalise/actor/venaria-monitoring-system> .
+

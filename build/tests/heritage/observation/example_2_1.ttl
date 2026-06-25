@@ -1,0 +1,5 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+[] crm:P1_is_identified_by "RV-GG-RH-LEGACY-01" ;
+    crm:P39_measured <https://example.org/heritalise/place/great-gallery> .
+

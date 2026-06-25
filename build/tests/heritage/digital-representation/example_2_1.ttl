@@ -1,0 +1,4 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<https://example.org/heritalise/digital/fishing-creel-photo-01> crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> .
+

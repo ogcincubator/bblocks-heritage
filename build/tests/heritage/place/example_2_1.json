@@ -1,0 +1,14 @@
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      7.6285,
+      45.1338
+    ]
+  },
+  "properties": {
+    "identifier": "RV-SITE",
+    "name": "Reggia di Venaria"
+  }
+}

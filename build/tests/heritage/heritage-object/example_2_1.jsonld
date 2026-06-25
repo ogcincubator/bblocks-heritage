@@ -1,0 +1,6 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "type": "HeritageObject",
+  "identifier": "WHM-1923.45",
+  "title": "Fishing creel"
+}

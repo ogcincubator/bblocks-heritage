@@ -64,24 +64,24 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2026-05-07T11:37:22.648615+00:00</small>
+            <small class="datetime">Generated at 2026-06-25T14:31:16.214948+00:00</small>
                 <p class="summary fw-semibold text-success">
-                    Number of passing building blocks: 2 / 2 (100%)
+                    Number of passing building blocks: 10 / 10 (100%)
                 </p>
             <div class="text-end small" id="expand-collapse">
                 <a href="#" class="expand-all">Expand all</a>
                 <a href="#" class="collapse-all">Collapse all</a>
             </div>
                 <div class="accordion mt-2" id="bblock-reports">
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.bbr.template.mySchema" id="bblock-ogc.bbr.template.mySchema">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.aggregation" id="bblock-ogc.heritage.aggregation">
                             <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
-                                    data-bs-target="#bblock-collapse-ogc\.bbr\.template\.mySchema">
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.aggregation">
                                     <div class="flex-fill">
-                                        My Schema
-                                        <small class="ms-2 bblock-id">ogc.bbr.template.mySchema</small>
-                                        <a class="anchor" href="#bblock-ogc.bbr.template.mySchema">¶</a>
+                                        Aggregation
+                                        <small class="ms-2 bblock-id">ogc.heritage.aggregation</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.aggregation">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -90,12 +90,12 @@
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.bbr.template.mySchema">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.aggregation">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-success">
                                             Test passed: 2 / 2
                                         </p>
-                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.bbr.template.mySchema-1">
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.aggregation-1">
                                             <div class="card-body">
                                                 <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
@@ -105,46 +105,45 @@
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="../../_sources/mySchema/tests/rules-fail.json" target="_blank">rules-fail.json</a>
-                                                    <span class="badge bg-secondary test_resource">Test resource</span>
-                                                        <span class="badge text-bg-info">Requires fail</span>
-                                                    <a class="anchor" href="#item-ogc.bbr.template.mySchema-1">¶</a>
+                                                    <a href="heritage/aggregation/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.aggregation-1">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-1">
                                                     <div class="validation-text-inner">
-                                                                    <div class="font-monospace subsection-title mt-2">General</div>
-                                                                    <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using rules-fail.json from test resources</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/great-gallery-painting.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD rules-fail.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle rules-fail.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
-                                                                    <div class="font-monospace entry-message section-shacl text-danger">Validation result for _sources/mySchema/shapes.shacl:
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/aggregation/shapes.shacl:
   Validation Report
-  Conforms: False
-  Results (1):
-  Constraint Violation in LessThanConstraintComponent (http://www.w3.org/ns/shacl#LessThanConstraintComponent):
-  	Severity: sh:Violation
-  	Source Shape: [ sh:lessThan ns1:b ; sh:path ns1:c ]
-  	Focus Node: [ ns1:b Literal(&quot;23&quot;, datatype=xsd:integer) ; ns1:c Literal(&quot;25.5&quot;, datatype=xsd:double) ; rdf:type mynamespace:aThing ]
-  	Value Node: Literal(&quot;25.5&quot;, datatype=xsd:double)
-  	Result Path: ns1:c
-  	Message: Value of [ ns1:b Literal(&quot;23&quot;, datatype=xsd:integer) ; ns1:c Literal(&quot;25.5&quot;, datatype=xsd:double) ; rdf:type mynamespace:aThing ]-&gt;ns1:b &lt;= Literal(&quot;25.5&quot;, datatype=xsd:double)
+  Conforms: True
   </div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/mySchema/shapes.shacl:
- - Shape &lt;https://www.ogc.org/rules/template/#testValues&gt;: _:N7a2da5c3e2d64c859f844e5d7fffc6da
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/aggregation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/aggregation/shapes.shacl#AggregationShape&gt;: &lt;https://example.org/heritalise/aggregation/great-gallery-painting-014&gt;
 </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item " id="item-ogc.bbr.template.mySchema-2">
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.aggregation-2">
                                             <div class="card-body">
                                                 <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
@@ -154,9 +153,9 @@
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="bbr/template/mySchema/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <a href="heritage/aggregation/example_2_1.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
-                                                    <a class="anchor" href="#item-ogc.bbr.template.mySchema-2">¶</a>
+                                                    <a class="anchor" href="#item-ogc.heritage.aggregation-2">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -164,19 +163,29 @@
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-2">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/minimal.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/mySchema/shapes.shacl:
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/aggregation/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/mySchema/shapes.shacl:
- - Shape &lt;https://www.ogc.org/rules/template/#testValues&gt;: *none*
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/aggregation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/aggregation/shapes.shacl#AggregationShape&gt;: *none*
 </div>
                                                     </div>
                                                 </div>
@@ -185,15 +194,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.bbr.template.myFeature" id="bblock-ogc.bbr.template.myFeature">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.heritage-object" id="bblock-ogc.heritage.heritage-object">
                             <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
-                                    data-bs-target="#bblock-collapse-ogc\.bbr\.template\.myFeature">
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.heritage-object">
                                     <div class="flex-fill">
-                                        Custom Feature
-                                        <small class="ms-2 bblock-id">ogc.bbr.template.myFeature</small>
-                                        <a class="anchor" href="#bblock-ogc.bbr.template.myFeature">¶</a>
+                                        Heritage Object
+                                        <small class="ms-2 bblock-id">ogc.heritage.heritage-object</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.heritage-object">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -202,12 +211,12 @@
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.bbr.template.myFeature">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.heritage-object">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-success">
-                                            Test passed: 3 / 3
+                                            Test passed: 2 / 2
                                         </p>
-                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.bbr.template.myFeature-1">
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.heritage-object-1">
                                             <div class="card-body">
                                                 <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
@@ -217,64 +226,45 @@
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="../../_sources/myFeature/tests/feature-fail.json" target="_blank">feature-fail.json</a>
-                                                    <span class="badge bg-secondary test_resource">Test resource</span>
-                                                        <span class="badge text-bg-info">Requires fail</span>
-                                                    <a class="anchor" href="#item-ogc.bbr.template.myFeature-1">¶</a>
+                                                    <a href="heritage/heritage-object/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.heritage-object-1">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-3">
                                                     <div class="validation-text-inner">
-                                                                    <div class="font-monospace subsection-title mt-2">General</div>
-                                                                    <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using feature-fail.json from test resources</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/painting.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD feature-fail.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle feature-fail.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;id&#x27;: &#x27;f1&#x27;, &#x27;type&#x27;: &#x27;Feature&#x27;, &#x27;geometry&#x27;: {&#x27;type&#x27;: &#x27;LineString&#x27;, &#x27;coordinates&#x27;: [[-111.67183507997295, 40.056709946862874], [-111.71, 40.156709946862875]]}, &#x27;properties&#x27;: {&#x27;notMyProp&#x27;: &#x27;Mandatory property not present example&#x27;}} is not valid under any of the given schemas
-
-Failed validating &#x27;anyOf&#x27; in schema:
-    {&#x27;$defs&#x27;: {&#x27;MyFeature&#x27;: {&#x27;allOf&#x27;: [{&#x27;$ref&#x27;: &#x27;https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/schema.yaml&#x27;},
-                                       {&#x27;properties&#x27;: {&#x27;properties&#x27;: {&#x27;$ref&#x27;: &#x27;https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/mySchema/schema.yaml&#x27;}}}]}},
-     &#x27;$schema&#x27;: &#x27;https://json-schema.org/draft/2020-12/schema&#x27;,
-     &#x27;anyOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/MyFeature&#x27;}],
-     &#x27;description&#x27;: &#x27;Example of a simple GeoJSON Feature specialisation&#x27;}
-
-On instance:
-    {&#x27;geometry&#x27;: {&#x27;coordinates&#x27;: [[-111.67183507997295, 40.056709946862874],
-                                  [-111.71, 40.156709946862875]],
-                  &#x27;type&#x27;: &#x27;LineString&#x27;},
-     &#x27;id&#x27;: &#x27;f1&#x27;,
-     &#x27;properties&#x27;: {&#x27;notMyProp&#x27;: &#x27;Mandatory property not present example&#x27;},
-     &#x27;type&#x27;: &#x27;Feature&#x27;}</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/mySchema/shapes.shacl:
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/heritage-object/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/mySchema/shapes.shacl:
- - Shape &lt;https://www.ogc.org/rules/template/#testValues&gt;: *none*
-</div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
-  Validation Report
-  Conforms: True
-  </div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:LinkShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:FeatureShape: &lt;file:///github/workspace/f1&gt;
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/heritage-object/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs&gt;: &lt;https://example.org/heritalise/object/great-gallery-painting-014&gt;
 </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item " id="item-ogc.bbr.template.myFeature-2">
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.heritage-object-2">
                                             <div class="card-body">
                                                 <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
@@ -284,9 +274,9 @@ On instance:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="bbr/template/myFeature/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <a href="heritage/heritage-object/example_2_1.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
-                                                    <a class="anchor" href="#item-ogc.bbr.template.myFeature-2">¶</a>
+                                                    <a class="anchor" href="#item-ogc.heritage.heritage-object-2">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -294,36 +284,60 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-4">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/feature.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/minimal.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">SHACL</div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/mySchema/shapes.shacl:
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/heritage-object/shapes.shacl:
   Validation Report
   Conforms: True
   </div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/mySchema/shapes.shacl:
- - Shape &lt;https://www.ogc.org/rules/template/#testValues&gt;: &lt;http://example.com/features/f1&gt;
-</div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
-  Validation Report
-  Conforms: True
-  </div>
-                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:LinkShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:FeatureShape: &lt;http://example.com/features/f1&gt;
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:GeometryShape: *none*
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/heritage-object/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs&gt;: _:N33932019dbd74a9b836205f1263964f8
 </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item " id="item-ogc.bbr.template.myFeature-3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.event" id="bblock-ogc.heritage.event">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.event">
+                                    <div class="flex-fill">
+                                        Event
+                                        <small class="ms-2 bblock-id">ogc.heritage.event</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.event">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.event">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.event-1">
                                             <div class="card-body">
                                                 <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
@@ -333,9 +347,9 @@ On instance:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="bbr/template/myFeature/example_1_2.yaml" target="_blank">example_1_2.yaml</a>
+                                                    <a href="heritage/event/example_1_1.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
-                                                    <a class="anchor" href="#item-ogc.bbr.template.myFeature-3">¶</a>
+                                                    <a class="anchor" href="#item-ogc.heritage.event-1">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -343,9 +357,818 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-5">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using example_1_2.yaml from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/restoration.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/event/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/event/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI&gt;: &lt;https://example.org/heritalise/event/restoration-2024&gt;
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.event-2">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-6"
+                                                            aria-expanded="false" aria-controls="uid-6"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/event/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.event-2">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-6">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/minimal.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/event/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/event/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.observation" id="bblock-ogc.heritage.observation">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.observation">
+                                    <div class="flex-fill">
+                                        Observation
+                                        <small class="ms-2 bblock-id">ogc.heritage.observation</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.observation">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.observation">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.observation-1">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-7"
+                                                            aria-expanded="false" aria-controls="uid-7"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/observation/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.observation-1">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-7">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/humidity-reading.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/observation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/observation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI&gt;: &lt;https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12&gt;
+ - Shape &lt;file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI&gt;: &lt;https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12&gt;
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.observation-2">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-8"
+                                                            aria-expanded="false" aria-controls="uid-8"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/observation/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.observation-2">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-8">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/minimal.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/observation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/observation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI&gt;: _:N22dc88bfd198434cacf0f6468c039d49
+ - Shape &lt;file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI&gt;: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.digital-representation" id="bblock-ogc.heritage.digital-representation">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.digital-representation">
+                                    <div class="flex-fill">
+                                        Digital Representation
+                                        <small class="ms-2 bblock-id">ogc.heritage.digital-representation</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.digital-representation">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.digital-representation">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.digital-representation-1">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-9"
+                                                            aria-expanded="false" aria-controls="uid-9"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/digital-representation/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.digital-representation-1">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-9">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/photograph.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI&gt;: &lt;https://example.org/heritalise/digital/great-gallery-painting-014-photo-01&gt;
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.digital-representation-2">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-10"
+                                                            aria-expanded="false" aria-controls="uid-10"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/digital-representation/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.digital-representation-2">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-10">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/minimal.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI&gt;: &lt;https://example.org/heritalise/digital/fishing-creel-photo-01&gt;
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.place" id="bblock-ogc.heritage.place">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.place">
+                                    <div class="flex-fill">
+                                        Place
+                                        <small class="ms-2 bblock-id">ogc.heritage.place</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.place">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.place">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.place-1">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-11"
+                                                            aria-expanded="false" aria-controls="uid-11"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/place/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.place-1">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-11">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/great-gallery.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/place/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/place/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs&gt;: &lt;https://example.org/heritalise/place/great-gallery&gt;
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:FeatureShape: &lt;https://example.org/heritalise/place/great-gallery&gt;
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.place-2">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-12"
+                                                            aria-expanded="false" aria-controls="uid-12"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/place/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.place-2">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-12">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/minimal.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/place/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/place/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs&gt;: *none*
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:FeatureShape: _:N75f7836ba24743619568d3884d5d9bb0
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.archival-document" id="bblock-ogc.heritage.archival-document">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.archival-document">
+                                    <div class="flex-fill">
+                                        Archival Document
+                                        <small class="ms-2 bblock-id">ogc.heritage.archival-document</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.archival-document">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.archival-document">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 1 / 1
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.archival-document-1">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-13"
+                                                            aria-expanded="false" aria-controls="uid-13"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/archival-document/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.archival-document-1">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-13">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/lido.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI&gt;: &lt;https://example.org/heritalise/digital/fishing-creel-lido-record&gt;
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.fabrication-output" id="bblock-ogc.heritage.fabrication-output">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.fabrication-output">
+                                    <div class="flex-fill">
+                                        Fabrication Output
+                                        <small class="ms-2 bblock-id">ogc.heritage.fabrication-output</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.fabrication-output">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.fabrication-output">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 1 / 1
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.fabrication-output-1">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-14"
+                                                            aria-expanded="false" aria-controls="uid-14"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/fabrication-output/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.fabrication-output-1">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-14">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/stl.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/fabrication-output/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/fabrication-output/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/fabrication-output/shapes.shacl#FabricationOutputHasDerivation&gt;: &lt;https://example.org/heritalise/digital/great-gallery-painting-014-replica-01&gt;
+</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI&gt;: &lt;https://example.org/heritalise/digital/great-gallery-painting-014-replica-01&gt;
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.three-d-model" id="bblock-ogc.heritage.three-d-model">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.three-d-model">
+                                    <div class="flex-fill">
+                                        3D Model
+                                        <small class="ms-2 bblock-id">ogc.heritage.three-d-model</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.three-d-model">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.three-d-model">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 1 / 1
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.three-d-model-1">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-15"
+                                                            aria-expanded="false" aria-controls="uid-15"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/three-d-model/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.three-d-model-1">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-15">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/gltf.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI&gt;: &lt;https://example.org/heritalise/digital/great-gallery-painting-014-model-01&gt;
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.heritage.actor" id="bblock-ogc.heritage.actor">
+                            <h2 class="accordion-header bblock-title anchor-container">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.heritage\.actor">
+                                    <div class="flex-fill">
+                                        Actor
+                                        <small class="ms-2 bblock-id">ogc.heritage.actor</small>
+                                        <a class="anchor" href="#bblock-ogc.heritage.actor">¶</a>
+                                    </div>
+
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
+                                    </span>
+                                </button>
+                            </h2>
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.heritage.actor">
+                                <div class="accordion-body">
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
+                                        </p>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.actor-1">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-16"
+                                                            aria-expanded="false" aria-controls="uid-16"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/actor/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.actor-1">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-16">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/restorer.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/actor/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/actor/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI&gt;: _:N7b62537632e64f02899e4f592601771e
+</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.heritage.actor-2">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-17"
+                                                            aria-expanded="false" aria-controls="uid-17"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="heritage/actor/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.heritage.actor-2">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-17">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/minimal.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                                    <div class="font-monospace subsection-title mt-2">SHACL</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Validation result for _sources/actor/shapes.shacl:
+  Validation Report
+  Conforms: True
+  </div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-shacl ">Focus nodes for _sources/actor/shapes.shacl:
+ - Shape &lt;file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI&gt;: *none*
+</div>
                                                     </div>
                                                 </div>
                                             </div>

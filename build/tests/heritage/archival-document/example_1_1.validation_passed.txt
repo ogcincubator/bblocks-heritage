@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.archival-document - Archival Document
+Generated 2026-06-25T14:31:15.831225+00:00
+=== Files ===
+Using examples/lido.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/fishing-creel-lido-record>
+
+=== End SHACL ===
+

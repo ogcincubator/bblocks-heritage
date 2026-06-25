@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.actor - Actor
+Generated 2026-06-25T14:31:16.184981+00:00
+=== Files ===
+Using examples/restorer.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/actor/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/actor/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>: _:N7b62537632e64f02899e4f592601771e
+
+=== End SHACL ===
+

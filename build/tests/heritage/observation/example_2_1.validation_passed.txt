@@ -1,0 +1,24 @@
+Validation report for ogc.heritage.observation - Observation
+Generated 2026-06-25T14:31:14.051249+00:00
+=== Files ===
+Using examples/minimal.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/observation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/observation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI>: _:N22dc88bfd198434cacf0f6468c039d49
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI>: *none*
+
+=== End SHACL ===
+

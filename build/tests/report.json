@@ -1,113 +1,24 @@
 {
   "summary": {
-    "total": 2,
-    "passed": 2,
+    "total": 10,
+    "passed": 10,
     "failed": 0,
     "result": true
   },
   "bblocks": {
-    "ogc.bbr.template.mySchema": {
-      "title": "Validation report for ogc.bbr.template.mySchema - My Schema",
-      "bblockName": "My Schema",
-      "bblockId": "ogc.bbr.template.mySchema",
-      "generated": "2026-05-07T11:37:22.445898+00:00",
+    "ogc.heritage.aggregation": {
+      "title": "Validation report for ogc.heritage.aggregation - Aggregation",
+      "bblockName": "Aggregation",
+      "bblockId": "ogc.heritage.aggregation",
+      "generated": "2026-06-25T14:31:13.452711+00:00",
       "result": true,
       "items": [
         {
           "source": {
-            "type": "TEST_RESOURCE",
-            "requireFail": true,
-            "filename": "_sources/mySchema/tests/rules-fail.json",
-            "url": "https://opengeospatial.github.io/bblocks-template/_sources/mySchema/tests/rules-fail.json",
-            "language": "json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "GENERAL",
-              "title": "General",
-              "entries": [
-                {
-                  "op": "require-fail",
-                  "isError": false,
-                  "message": "Test was expected to fail and it did."
-                }
-              ]
-            },
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using rules-fail.json from test resources"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "rules-fail.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD rules-fail.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "rules-fail.ttl",
-                  "size": 3,
-                  "isError": false,
-                  "message": "Output Turtle rules-fail.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": true,
-                  "isError": false,
-                  "message": "Validation passed"
-                }
-              ]
-            },
-            {
-              "name": "SHACL",
-              "title": "SHACL",
-              "entries": [
-                {
-                  "op": "shacl-report",
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
-                  "graph": "@prefix mynamespace: <http://example.org/ns1/> .\n@prefix ns1: <https://example.org/my-bb-model/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a mynamespace:aThing ;\n                    ns1:b 23 ;\n                    ns1:c 2.55e+01 ] ;\n            sh:resultMessage \"Value of [ ns1:b Literal(\\\"23\\\", datatype=xsd:integer) ; ns1:c Literal(\\\"25.5\\\", datatype=xsd:double) ; rdf:type mynamespace:aThing ]->ns1:b <= Literal(\\\"25.5\\\", datatype=xsd:double)\" ;\n            sh:resultPath ns1:c ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:LessThanConstraintComponent ;\n            sh:sourceShape [ sh:lessThan ns1:b ;\n                    sh:path ns1:c ] ;\n            sh:value 2.55e+01 ] .\n\n",
-                  "isError": true,
-                  "message": "Validation result for _sources/mySchema/shapes.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in LessThanConstraintComponent (http://www.w3.org/ns/shacl#LessThanConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: [ sh:lessThan ns1:b ; sh:path ns1:c ]\n  \tFocus Node: [ ns1:b Literal(\"23\", datatype=xsd:integer) ; ns1:c Literal(\"25.5\", datatype=xsd:double) ; rdf:type mynamespace:aThing ]\n  \tValue Node: Literal(\"25.5\", datatype=xsd:double)\n  \tResult Path: ns1:c\n  \tMessage: Value of [ ns1:b Literal(\"23\", datatype=xsd:integer) ; ns1:c Literal(\"25.5\", datatype=xsd:double) ; rdf:type mynamespace:aThing ]->ns1:b <= Literal(\"25.5\", datatype=xsd:double)\n  "
-                },
-                {
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
-                  "focusNodes": {
-                    "<https://www.ogc.org/rules/template/#testValues>": {
-                      "nodes": [
-                        "_:N7a2da5c3e2d64c859f844e5d7fffc6da"
-                      ]
-                    }
-                  },
-                  "isError": false,
-                  "message": "Focus nodes for _sources/mySchema/shapes.shacl:\n - Shape <https://www.ogc.org/rules/template/#testValues>: _:N7a2da5c3e2d64c859f844e5d7fffc6da\n"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
             "type": "EXAMPLE",
             "requireFail": false,
-            "filename": "build/tests/bbr/template/mySchema/example_1_1.json",
-            "url": "https://opengeospatial.github.io/bblocks-template/build/tests/bbr/template/mySchema/example_1_1.json",
+            "filename": "build/tests/heritage/aggregation/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_1_1.json",
             "exampleIndex": 1,
             "snippetIndex": 1,
             "language": "application/json"
@@ -120,7 +31,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example.json from examples"
+                  "message": "Using examples/great-gallery-painting.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -137,7 +48,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_1_1.ttl",
-                  "size": 3,
+                  "size": 8,
                   "isError": false,
                   "message": "Output Turtle example_1_1.ttl created"
                 }
@@ -161,20 +72,100 @@
               "entries": [
                 {
                   "op": "shacl-report",
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
+                  "shaclFile": "_sources/aggregation/shapes.shacl",
                   "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
                   "isError": false,
-                  "message": "Validation result for _sources/mySchema/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                  "message": "Validation result for _sources/aggregation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
                 },
                 {
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
+                  "shaclFile": "_sources/aggregation/shapes.shacl",
                   "focusNodes": {
-                    "<https://www.ogc.org/rules/template/#testValues>": {
+                    "<file:///github/workspace/_sources/aggregation/shapes.shacl#AggregationShape>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/aggregation/great-gallery-painting-014>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/aggregation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/aggregation/shapes.shacl#AggregationShape>: <https://example.org/heritalise/aggregation/great-gallery-painting-014>\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/aggregation/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/minimal.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 1,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/aggregation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/aggregation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/aggregation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/aggregation/shapes.shacl#AggregationShape>": {
                       "nodes": []
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for _sources/mySchema/shapes.shacl:\n - Shape <https://www.ogc.org/rules/template/#testValues>: *none*\n"
+                  "message": "Focus nodes for _sources/aggregation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/aggregation/shapes.shacl#AggregationShape>: *none*\n"
                 }
               ]
             }
@@ -188,139 +179,19 @@
         "failed": 0
       }
     },
-    "ogc.bbr.template.myFeature": {
-      "title": "Validation report for ogc.bbr.template.myFeature - Custom Feature",
-      "bblockName": "Custom Feature",
-      "bblockId": "ogc.bbr.template.myFeature",
-      "generated": "2026-05-07T11:37:22.633962+00:00",
+    "ogc.heritage.heritage-object": {
+      "title": "Validation report for ogc.heritage.heritage-object - Heritage Object",
+      "bblockName": "Heritage Object",
+      "bblockId": "ogc.heritage.heritage-object",
+      "generated": "2026-06-25T14:31:13.471142+00:00",
       "result": true,
       "items": [
         {
           "source": {
-            "type": "TEST_RESOURCE",
-            "requireFail": true,
-            "filename": "_sources/myFeature/tests/feature-fail.json",
-            "url": "https://opengeospatial.github.io/bblocks-template/_sources/myFeature/tests/feature-fail.json",
-            "language": "json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "GENERAL",
-              "title": "General",
-              "entries": [
-                {
-                  "op": "require-fail",
-                  "isError": false,
-                  "message": "Test was expected to fail and it did."
-                }
-              ]
-            },
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using feature-fail.json from test resources"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "feature-fail.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD feature-fail.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "feature-fail.ttl",
-                  "size": 16,
-                  "isError": false,
-                  "message": "Output Turtle feature-fail.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": false,
-                  "exception": "ValidationError",
-                  "errorMessage": "{'id': 'f1', 'type': 'Feature', 'geometry': {'type': 'LineString', 'coordinates': [[-111.67183507997295, 40.056709946862874], [-111.71, 40.156709946862875]]}, 'properties': {'notMyProp': 'Mandatory property not present example'}} is not valid under any of the given schemas",
-                  "isError": true,
-                  "message": "ValidationError: {'id': 'f1', 'type': 'Feature', 'geometry': {'type': 'LineString', 'coordinates': [[-111.67183507997295, 40.056709946862874], [-111.71, 40.156709946862875]]}, 'properties': {'notMyProp': 'Mandatory property not present example'}} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema:\n    {'$defs': {'MyFeature': {'allOf': [{'$ref': 'https://opengeospatial.github.io/bblocks/annotated-schemas/geo/features/feature/schema.yaml'},\n                                       {'properties': {'properties': {'$ref': 'https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/mySchema/schema.yaml'}}}]}},\n     '$schema': 'https://json-schema.org/draft/2020-12/schema',\n     'anyOf': [{'$ref': '#/$defs/MyFeature'}],\n     'description': 'Example of a simple GeoJSON Feature specialisation'}\n\nOn instance:\n    {'geometry': {'coordinates': [[-111.67183507997295, 40.056709946862874],\n                                  [-111.71, 40.156709946862875]],\n                  'type': 'LineString'},\n     'id': 'f1',\n     'properties': {'notMyProp': 'Mandatory property not present example'},\n     'type': 'Feature'}"
-                }
-              ]
-            },
-            {
-              "name": "SHACL",
-              "title": "SHACL",
-              "entries": [
-                {
-                  "op": "shacl-report",
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
-                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-                  "isError": false,
-                  "message": "Validation result for _sources/mySchema/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-                },
-                {
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
-                  "focusNodes": {
-                    "<https://www.ogc.org/rules/template/#testValues>": {
-                      "nodes": []
-                    }
-                  },
-                  "isError": false,
-                  "message": "Focus nodes for _sources/mySchema/shapes.shacl:\n - Shape <https://www.ogc.org/rules/template/#testValues>: *none*\n"
-                },
-                {
-                  "op": "shacl-report",
-                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-                  "isError": false,
-                  "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-                },
-                {
-                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-                  "focusNodes": {
-                    "geojson:LinkShape": {
-                      "nodes": []
-                    },
-                    "geojson:GeometryShape/sh:or/rdf:first": {
-                      "nodes": []
-                    },
-                    "geojson:FeatureShape": {
-                      "nodes": [
-                        "<file:///github/workspace/f1>"
-                      ]
-                    },
-                    "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                      "nodes": []
-                    },
-                    "geojson:GeometryShape": {
-                      "nodes": []
-                    }
-                  },
-                  "isError": false,
-                  "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <file:///github/workspace/f1>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
             "type": "EXAMPLE",
             "requireFail": false,
-            "filename": "build/tests/bbr/template/myFeature/example_1_1.json",
-            "url": "https://opengeospatial.github.io/bblocks-template/build/tests/bbr/template/myFeature/example_1_1.json",
+            "filename": "build/tests/heritage/heritage-object/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_1_1.json",
             "exampleIndex": 1,
             "snippetIndex": 1,
             "language": "application/json"
@@ -333,7 +204,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using examples/feature.json from examples"
+                  "message": "Using examples/painting.json from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -350,7 +221,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_1_1.ttl",
-                  "size": 19,
+                  "size": 6,
                   "isError": false,
                   "message": "Output Turtle example_1_1.ttl created"
                 }
@@ -374,53 +245,22 @@
               "entries": [
                 {
                   "op": "shacl-report",
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
+                  "shaclFile": "_sources/heritage-object/shapes.shacl",
                   "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
                   "isError": false,
-                  "message": "Validation result for _sources/mySchema/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                  "message": "Validation result for _sources/heritage-object/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
                 },
                 {
-                  "shaclFile": "_sources/mySchema/shapes.shacl",
+                  "shaclFile": "_sources/heritage-object/shapes.shacl",
                   "focusNodes": {
-                    "<https://www.ogc.org/rules/template/#testValues>": {
+                    "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                       "nodes": [
-                        "<http://example.com/features/f1>"
+                        "<https://example.org/heritalise/object/great-gallery-painting-014>"
                       ]
                     }
                   },
                   "isError": false,
-                  "message": "Focus nodes for _sources/mySchema/shapes.shacl:\n - Shape <https://www.ogc.org/rules/template/#testValues>: <http://example.com/features/f1>\n"
-                },
-                {
-                  "op": "shacl-report",
-                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-                  "isError": false,
-                  "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
-                },
-                {
-                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
-                  "focusNodes": {
-                    "geojson:LinkShape": {
-                      "nodes": []
-                    },
-                    "geojson:GeometryShape/sh:or/rdf:first": {
-                      "nodes": []
-                    },
-                    "geojson:FeatureShape": {
-                      "nodes": [
-                        "<http://example.com/features/f1>"
-                      ]
-                    },
-                    "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
-                      "nodes": []
-                    },
-                    "geojson:GeometryShape": {
-                      "nodes": []
-                    }
-                  },
-                  "isError": false,
-                  "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <http://example.com/features/f1>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n"
+                  "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/object/great-gallery-painting-014>\n"
                 }
               ]
             }
@@ -430,11 +270,11 @@
           "source": {
             "type": "EXAMPLE",
             "requireFail": false,
-            "filename": "build/tests/bbr/template/myFeature/example_1_2.yaml",
-            "url": "https://opengeospatial.github.io/bblocks-template/build/tests/bbr/template/myFeature/example_1_2.yaml",
-            "exampleIndex": 1,
-            "snippetIndex": 2,
-            "language": "application/x-yaml"
+            "filename": "build/tests/heritage/heritage-object/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
           },
           "result": true,
           "sections": [
@@ -444,7 +284,26 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_2.yaml from examples"
+                  "message": "Using examples/minimal.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 3,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
                 }
               ]
             },
@@ -459,14 +318,1282 @@
                   "message": "Validation passed"
                 }
               ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/heritage-object/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/heritage-object/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/heritage-object/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
+                      "nodes": [
+                        "_:N33932019dbd74a9b836205f1263964f8"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: _:N33932019dbd74a9b836205f1263964f8\n"
+                }
+              ]
             }
           ]
         }
       ],
       "globalErrors": {},
       "counts": {
-        "total": 3,
-        "passed": 3,
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.event": {
+      "title": "Validation report for ogc.heritage.event - Event",
+      "bblockName": "Event",
+      "bblockId": "ogc.heritage.event",
+      "generated": "2026-06-25T14:31:13.740881+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/event/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/restoration.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 7,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/event/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/event/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/event/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/event/restoration-2024>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/event/shapes.shacl:\n - Shape <file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI>: <https://example.org/heritalise/event/restoration-2024>\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/event/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/minimal.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 1,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/event/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/event/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/event/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/event/shapes.shacl:\n - Shape <file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI>: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.observation": {
+      "title": "Validation report for ogc.heritage.observation - Observation",
+      "bblockName": "Observation",
+      "bblockId": "ogc.heritage.observation",
+      "generated": "2026-06-25T14:31:14.051304+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/observation/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/humidity-reading.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 8,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/observation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/observation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/observation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12>"
+                      ]
+                    },
+                    "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI>: <https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12>\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI>: <https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12>\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/observation/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/minimal.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 2,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/observation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/observation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/observation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI>": {
+                      "nodes": [
+                        "_:N22dc88bfd198434cacf0f6468c039d49"
+                      ]
+                    },
+                    "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI>: _:N22dc88bfd198434cacf0f6468c039d49\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI>: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.digital-representation": {
+      "title": "Validation report for ogc.heritage.digital-representation - Digital Representation",
+      "bblockName": "Digital Representation",
+      "bblockId": "ogc.heritage.digital-representation",
+      "generated": "2026-06-25T14:31:14.177990+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/digital-representation/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/photograph.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 5,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/digital/great-gallery-painting-014-photo-01>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/great-gallery-painting-014-photo-01>\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/digital-representation/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/minimal.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 1,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/digital/fishing-creel-photo-01>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/fishing-creel-photo-01>\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.place": {
+      "title": "Validation report for ogc.heritage.place - Place",
+      "bblockName": "Place",
+      "bblockId": "ogc.heritage.place",
+      "generated": "2026-06-25T14:31:15.674299+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/place/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/great-gallery.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 13,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/place/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/place/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/place/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/place/great-gallery>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://example.org/heritalise/place/great-gallery>\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+                  "focusNodes": {
+                    "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                      "nodes": []
+                    },
+                    "geojson:LinkShape": {
+                      "nodes": []
+                    },
+                    "geojson:FeatureShape": {
+                      "nodes": [
+                        "<https://example.org/heritalise/place/great-gallery>"
+                      ]
+                    },
+                    "geojson:GeometryShape": {
+                      "nodes": []
+                    },
+                    "geojson:GeometryShape/sh:or/rdf:first": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://example.org/heritalise/place/great-gallery>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/place/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/minimal.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 10,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/place/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/place/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/place/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: *none*\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
+                  "focusNodes": {
+                    "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                      "nodes": []
+                    },
+                    "geojson:LinkShape": {
+                      "nodes": []
+                    },
+                    "geojson:FeatureShape": {
+                      "nodes": [
+                        "_:N75f7836ba24743619568d3884d5d9bb0"
+                      ]
+                    },
+                    "geojson:GeometryShape": {
+                      "nodes": []
+                    },
+                    "geojson:GeometryShape/sh:or/rdf:first": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: _:N75f7836ba24743619568d3884d5d9bb0\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.archival-document": {
+      "title": "Validation report for ogc.heritage.archival-document - Archival Document",
+      "bblockName": "Archival Document",
+      "bblockId": "ogc.heritage.archival-document",
+      "generated": "2026-06-25T14:31:15.831291+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/archival-document/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/lido.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 4,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/digital/fishing-creel-lido-record>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/fishing-creel-lido-record>\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.fabrication-output": {
+      "title": "Validation report for ogc.heritage.fabrication-output - Fabrication Output",
+      "bblockName": "Fabrication Output",
+      "bblockId": "ogc.heritage.fabrication-output",
+      "generated": "2026-06-25T14:31:15.927415+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/fabrication-output/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/fabrication-output/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/stl.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 4,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/fabrication-output/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/fabrication-output/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/fabrication-output/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/fabrication-output/shapes.shacl#FabricationOutputHasDerivation>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/digital/great-gallery-painting-014-replica-01>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/fabrication-output/shapes.shacl:\n - Shape <file:///github/workspace/_sources/fabrication-output/shapes.shacl#FabricationOutputHasDerivation>: <https://example.org/heritalise/digital/great-gallery-painting-014-replica-01>\n"
+                },
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/digital/great-gallery-painting-014-replica-01>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/great-gallery-painting-014-replica-01>\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.three-d-model": {
+      "title": "Validation report for ogc.heritage.three-d-model - 3D Model",
+      "bblockName": "3D Model",
+      "bblockId": "ogc.heritage.three-d-model",
+      "generated": "2026-06-25T14:31:16.040288+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/three-d-model/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/gltf.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 4,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/digital-representation/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                      "nodes": [
+                        "<https://example.org/heritalise/digital/great-gallery-painting-014-model-01>"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/great-gallery-painting-014-model-01>\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0
+      }
+    },
+    "ogc.heritage.actor": {
+      "title": "Validation report for ogc.heritage.actor - Actor",
+      "bblockName": "Actor",
+      "bblockId": "ogc.heritage.actor",
+      "generated": "2026-06-25T14:31:16.189129+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/actor/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/restorer.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 4,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/actor/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/actor/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/actor/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>": {
+                      "nodes": [
+                        "_:N7b62537632e64f02899e4f592601771e"
+                      ]
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/actor/shapes.shacl:\n - Shape <file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>: _:N7b62537632e64f02899e4f592601771e\n"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/heritage/actor/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using examples/minimal.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 1,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            },
+            {
+              "name": "SHACL",
+              "title": "SHACL",
+              "entries": [
+                {
+                  "op": "shacl-report",
+                  "shaclFile": "_sources/actor/shapes.shacl",
+                  "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+                  "isError": false,
+                  "message": "Validation result for _sources/actor/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+                },
+                {
+                  "shaclFile": "_sources/actor/shapes.shacl",
+                  "focusNodes": {
+                    "<file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>": {
+                      "nodes": []
+                    }
+                  },
+                  "isError": false,
+                  "message": "Focus nodes for _sources/actor/shapes.shacl:\n - Shape <file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>: *none*\n"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 2,
+        "passed": 2,
         "failed": 0
       }
     }

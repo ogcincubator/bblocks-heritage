@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.three-d-model - 3D Model
+Generated 2026-06-25T14:31:16.040222+00:00
+=== Files ===
+Using examples/gltf.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/great-gallery-painting-014-model-01>
+
+=== End SHACL ===
+

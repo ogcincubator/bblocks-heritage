@@ -1,0 +1,34 @@
+Validation report for ogc.heritage.place - Place
+Generated 2026-06-25T14:31:15.665457+00:00
+=== Files ===
+Using examples/great-gallery.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/place/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/place/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://example.org/heritalise/place/great-gallery>
+
+Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:FeatureShape: <https://example.org/heritalise/place/great-gallery>
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+
+=== End SHACL ===
+

@@ -1,0 +1,102 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.event",
+  "name": "Event",
+  "abstract": "An event in the history of a heritage object \u2014 production, restoration, modification, acquisition \u2014 modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E5_Event"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "PROV-O",
+      "link": "https://www.w3.org/TR/prov-o/"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "event",
+    "prov"
+  ],
+  "group": "Core",
+  "isProfileOf": "ogc.ogc-utils.prov-activity",
+  "shaclShapes": {
+    "ogc.heritage.event": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/event/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/event/",
+  "description": "## Event\n\nAn `Event` is an occurrence in the history of a heritage object \u2014 its production, a restoration\nor modification campaign, an acquisition \u2014 modelled as a CIDOC-CRM `E5_Event` (which generalises\nthe more specific `E12_Production` and `E11_Modification`).\n\nLike [`actor`](../actor), this block profiles a PROV-O class rather than reinventing event\nstructure: an `Event` *is* a PROV-O `Activity`. `startedAtTime`/`endedAtTime` carry the\ntime-span, `wasAssociatedWith` the actor(s) who carried it out, `used`/`generated` the objects\nconsumed or produced, and `atLocation` where it took place. This block adds only `identifier`\n(a local reference, e.g. to a conservation log) and `eventType` (a Getty AAT concept identifying\nthe kind of event \u2014 production, restoration, acquisition...).\n\nAs with `place` and `actor`, the uplifted `rdf:type` comes from PROV-O (`prov:Activity`) rather\nthan `crm:E5_Event` \u2014 the SHACL shape here targets by predicate rather than by class.\n\nA `heritage-object`'s production or restoration history is expressed as a set of `Event`s that\nreference it via `used` (object worked on) or `generated` (object produced), rather than as an\nembedded list on the object itself \u2014 so the object record stays stable as new events accumulate.\n",
+  "examples": [
+    {
+      "title": "A documented restoration intervention",
+      "content": "A 2024 restoration of the Great Gallery ceiling painting, with a time-span, the object worked on, the conservator who carried it out, and the place where it happened.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/examples/restoration.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/event/restoration-2024\",\n  \"identifier\": \"RV-INT-2024-03\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300053683\",\n  \"startedAtTime\": \"2024-03-04T00:00:00Z\",\n  \"endedAtTime\": \"2024-06-21T00:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"atLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/event/restoration-2024\",\n  \"identifier\": \"RV-INT-2024-03\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300053683\",\n  \"startedAtTime\": \"2024-03-04T00:00:00Z\",\n  \"endedAtTime\": \"2024-06-21T00:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"atLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/event/restoration-2024> crm:P1_is_identified_by \"RV-INT-2024-03\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300053683> ;\n    prov:atLocation <https://example.org/heritalise/place/great-gallery> ;\n    prov:endedAtTime \"2024-06-21T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:startedAtTime \"2024-03-04T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    prov:wasAssociatedWith <https://example.org/heritalise/actor/giulia-bianchi> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A minimal record for an undated legacy intervention",
+      "content": "Only `identifier` is required at this level \u2014 older archive records (UC-V-3) may carry nothing more than a reference to a paper conservation log, with detail added incrementally.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/examples/minimal.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_2_1.json",
+          "code": "{\n  \"identifier\": \"RV-INT-1987-LEGACY\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"identifier\": \"RV-INT-1987-LEGACY\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_2_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n[] crm:P1_is_identified_by \"RV-INT-1987-LEGACY\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Event\ndescription: \"An event in the history of a heritage object \\u2014 production, restoration,\n  modification,\\nacquisition \\u2014 modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's\n  Activity: `startedAtTime`/\\n`endedAtTime` carry the time-span (P4_has_time-span),\n  `wasAssociatedWith` the actors who\\ncarried it out (P14_carried_out_by), `used`/`generated`\n  the objects involved (P16_used_specific_object\\n/ P108_has_produced / P31_has_modified)\n  and `atLocation` where it took place (P7_took_place_at).\\nThis block adds a local\n  identifier and a CIDOC-CRM event type.\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this event (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    eventType:\n      type: string\n      format: uri\n      description: The type of event, typically a Getty AAT concept URI, e.g. production\n        or restoration (CIDOC-CRM P2_has_type).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/event"
+}

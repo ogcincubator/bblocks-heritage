@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.aggregation - Aggregation
+Generated 2026-06-25T14:31:13.448915+00:00
+=== Files ===
+Using examples/great-gallery-painting.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/aggregation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/aggregation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/aggregation/shapes.shacl#AggregationShape>: <https://example.org/heritalise/aggregation/great-gallery-painting-014>
+
+=== End SHACL ===
+

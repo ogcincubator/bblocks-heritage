@@ -1,0 +1,102 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.digital-representation",
+  "name": "Digital Representation",
+  "abstract": "A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "PROV-O",
+      "link": "https://www.w3.org/TR/prov-o/"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "digital-representation",
+    "prov"
+  ],
+  "group": "Core",
+  "isProfileOf": "ogc.ogc-utils.prov-entity",
+  "shaclShapes": {
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.ogc-utils.prov-entity"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/digital-representation/",
+  "description": "## Digital Representation\n\nA `DigitalRepresentation` is a digital asset \u2014 an image, a 3D model, a scanned document \u2014 that\nrepresents or documents a heritage object, modelled as a CIDOC-CRM `E73_Information_Object`.\n\nLike `actor` and `event`, this block profiles a PROV-O class: a `DigitalRepresentation` *is* a\nPROV-O `Entity`, so its provenance chain (`wasAttributedTo`, `wasGeneratedBy`, `wasDerivedFrom`)\ncomes for free from `ogc.ogc-utils.prov-entity`. This block adds `isAbout` (a required link back\nto the [`heritage-object`](../heritage-object) it represents), `mediaType` and an optional\n`persistentIdentifier`.\n\n`DigitalRepresentation` is deliberately generic \u2014 it covers any digital asset type. The three\nformat-specific profiles constrain it for a particular kind of asset:\n\n- [`three-d-model`](../three-d-model) \u2014 glTF / 3D Tiles / OBJ 3D models (profile B)\n- [`archival-document`](../archival-document) \u2014 PDF/A and LIDO/XML documents with a mandatory\n  persistent identifier (profile C)\n- [`fabrication-output`](../fabrication-output) \u2014 STL/3MF outputs with a mandatory PROV\n  derivation chain back to their source 3D model (profile F)\n",
+  "examples": [
+    {
+      "title": "A documentation photograph with provenance and a persistent identifier",
+      "content": "A photograph of the Great Gallery ceiling painting, attributed to the photographer and minted with a DOI.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/photograph.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A minimal record with only the required `isAbout` link",
+      "content": "Only `id` and `isAbout` are required \u2014 media type, attribution and persistent identifiers can be added incrementally as they become available.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/minimal.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://example.org/heritalise/digital/fishing-creel-photo-01> crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Digital Representation\ndescription: 'A digital asset (image, 3D model, document...) representing or documenting\n  a heritage object,\n\n  modelled as a CIDOC-CRM E73 Information Object. Profiles PROV-O''s Entity: `wasAttributedTo`,\n\n  `wasGeneratedBy` and `wasDerivedFrom` carry its provenance chain. This block adds\n  `isAbout`\n\n  (the heritage object it represents), a media type and an optional persistent identifier.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml\n- type: object\n  required:\n  - isAbout\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    isAbout:\n      type: string\n      format: uri\n      description: URI of the heritage object (or other CRM entity) this digital asset\n        represents or documents (CIDOC-CRM P129_is_about).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about\n      x-jsonld-type: '@id'\n    mediaType:\n      type: string\n      description: The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`\n        (dct:format).\n      x-jsonld-id: http://purl.org/dc/terms/format\n    persistentIdentifier:\n      type: string\n      format: uri\n      description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this\n        asset.\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/digital-representation"
+}

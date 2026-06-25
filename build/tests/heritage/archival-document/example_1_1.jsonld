@@ -1,0 +1,8 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld",
+  "id": "https://example.org/heritalise/digital/fishing-creel-lido-record",
+  "identifier": "WHM-1923.45-LIDO",
+  "isAbout": "https://example.org/heritalise/object/fishing-creel",
+  "mediaType": "text/xml",
+  "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45"
+}

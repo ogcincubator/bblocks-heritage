@@ -1,0 +1,97 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.aggregation",
+  "name": "Aggregation",
+  "abstract": "An EDM/ORE aggregation wrapping a heritage object together with its digital representations and the provider/rights metadata required to publish it to Europeana / ECCCH, modelled as edm:Aggregation (ore:Aggregation).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.openarchives.org/ore/terms/Aggregation"
+  ],
+  "sources": [
+    {
+      "title": "Europeana Data Model (EDM)",
+      "link": "https://pro.europeana.eu/page/edm-documentation"
+    },
+    {
+      "title": "OAI-ORE",
+      "link": "http://www.openarchives.org/ore/1.0/datamodel"
+    }
+  ],
+  "tags": [
+    "edm",
+    "heritage",
+    "aggregation",
+    "europeana"
+  ],
+  "group": "Core",
+  "shaclShapes": {
+    "ogc.heritage.aggregation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/shapes.shacl"
+    ]
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld",
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/aggregation/",
+  "examples": [
+    {
+      "title": "A Europeana/ECCCH aggregation for a heritage object",
+      "content": "An aggregation wrapping the Great Gallery ceiling painting with its primary display image, a landing page at the holding institution, and the provider/rights metadata Europeana requires for ingestion.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/examples/great-gallery-painting.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/aggregation/great-gallery-painting-014\",\n  \"type\": \"Aggregation\",\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"isShownBy\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"isShownAt\": \"https://www.lavenaria.it/en/collections/great-gallery-ceiling\",\n  \"object\": \"https://example.org/heritalise/digital/great-gallery-painting-014-thumb\",\n  \"dataProvider\": \"Reggia di Venaria\",\n  \"provider\": \"ECCCH\",\n  \"rights\": \"https://rightsstatements.org/page/InC/1.0/\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/aggregation/great-gallery-painting-014\",\n  \"type\": \"Aggregation\",\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"isShownBy\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"isShownAt\": \"https://www.lavenaria.it/en/collections/great-gallery-ceiling\",\n  \"object\": \"https://example.org/heritalise/digital/great-gallery-painting-014-thumb\",\n  \"dataProvider\": \"Reggia di Venaria\",\n  \"provider\": \"ECCCH\",\n  \"rights\": \"https://rightsstatements.org/page/InC/1.0/\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_1_1.ttl",
+          "code": "@prefix edm: <http://www.europeana.eu/schemas/edm/> .\n@prefix ore: <http://www.openarchives.org/ore/terms/> .\n\n<https://example.org/heritalise/aggregation/great-gallery-painting-014> a ore:Aggregation ;\n    edm:aggregatedCHO <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    edm:dataProvider \"Reggia di Venaria\" ;\n    edm:isShownAt <https://www.lavenaria.it/en/collections/great-gallery-ceiling> ;\n    edm:isShownBy <https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> ;\n    edm:object <https://example.org/heritalise/digital/great-gallery-painting-014-thumb> ;\n    edm:provider \"ECCCH\" ;\n    edm:rights <https://rightsstatements.org/page/InC/1.0/> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A minimal aggregation",
+      "content": "Only `aggregatedCHO` is required \u2014 the rest can be filled in incrementally as the object is prepared for publishing.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/examples/minimal.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_2_1.json",
+          "code": "{\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld\",\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_2_1.ttl",
+          "code": "@prefix edm: <http://www.europeana.eu/schemas/edm/> .\n\n[] edm:aggregatedCHO <https://example.org/heritalise/object/great-gallery-painting-014> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Aggregation\ndescription: \"An EDM/ORE aggregation: the wrapper Europeana/ECCCH actually ingests,\n  pairing a\\n`heritage-object` with the `digital-representation`(s) that depict it\n  and the\\nprovider/rights metadata needed for publishing (CIDOC-CRM and PROV-O don't\n  model this \\u2014\\nit's an EDM/ORE-specific layer over the heritage object and digital\n  representation blocks).\\n\"\ntype: object\nproperties:\n  id:\n    type: string\n    format: uri\n    description: The persistent or local URI identifying this aggregation.\n    x-jsonld-id: '@id'\n  type:\n    const: Aggregation\n    x-jsonld-id: '@type'\n  aggregatedCHO:\n    type: string\n    format: uri\n    description: URI of the `heritage-object` (the \"Cultural Heritage Object\") this\n      aggregation wraps (edm:aggregatedCHO).\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/aggregatedCHO\n    x-jsonld-type: '@id'\n  isShownBy:\n    type: string\n    format: uri\n    description: URI of the primary `digital-representation` used to display the object,\n      e.g. a high-resolution image or 3D model (edm:isShownBy).\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/isShownBy\n    x-jsonld-type: '@id'\n  isShownAt:\n    type: string\n    format: uri\n    description: URI of a landing page where the object can be viewed in its original\n      context, e.g. the providing institution's own website (edm:isShownAt).\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/isShownAt\n    x-jsonld-type: '@id'\n  hasView:\n    type: array\n    description: URIs of additional `digital-representation`(s) for this object beyond\n      the primary one in `isShownBy` (edm:hasView).\n    items:\n      type: string\n      format: uri\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/hasView\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  object:\n    type: string\n    format: uri\n    description: URI of a thumbnail image representing the aggregation (edm:object).\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/object\n    x-jsonld-type: '@id'\n  dataProvider:\n    type: string\n    description: Name of the institution that physically holds the object and supplied\n      this metadata (edm:dataProvider).\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/dataProvider\n  provider:\n    type: string\n    description: Name of the aggregator that submitted the data on the data provider's\n      behalf, e.g. an ECCCH national aggregator (edm:provider).\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/provider\n  rights:\n    type: string\n    format: uri\n    description: URI of a rights statement governing reuse of the aggregated content,\n      typically from rightsstatements.org or a Creative Commons license (edm:rights).\n    x-jsonld-id: http://www.europeana.eu/schemas/edm/rights\n    x-jsonld-type: '@id'\nrequired:\n- aggregatedCHO\nx-jsonld-extra-terms:\n  Aggregation: http://www.openarchives.org/ore/terms/Aggregation\nx-jsonld-prefixes:\n  ore: http://www.openarchives.org/ore/terms/\n  edm: http://www.europeana.eu/schemas/edm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/aggregation"
+}

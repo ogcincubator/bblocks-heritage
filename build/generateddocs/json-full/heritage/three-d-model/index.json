@@ -1,0 +1,76 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.three-d-model",
+  "name": "3D Model",
+  "abstract": "A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "sources": [
+    {
+      "title": "glTF 2.0",
+      "link": "https://www.khronos.org/gltf/"
+    },
+    {
+      "title": "OGC 3D Tiles",
+      "link": "https://www.ogc.org/standard/3dtiles/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "digital-representation",
+    "3d-model",
+    "gltf"
+  ],
+  "group": "Digital representation profiles",
+  "isProfileOf": "ogc.heritage.digital-representation",
+  "shaclShapes": {
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.digital-representation"
+  ],
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/three-d-model/",
+  "description": "## 3D Model\n\nA `ThreeDModel` is a [`digital-representation`](../digital-representation) constrained to\nreal-time 3D model formats \u2014 glTF, OBJ, or an OGC 3D Tiles tileset \u2014 covering D8.2 profile B\n(3D documentation and web rendering of heritage objects, gardens and building elements).\n\nIt inherits everything from `digital-representation` (`isAbout`, PROV provenance chain,\npersistent identifier) and only adds a constrained `mediaType`.\n",
+  "examples": [
+    {
+      "title": "A glTF-binary 3D model of a painting's frame",
+      "content": "A photogrammetry-derived glTF model documenting the Great Gallery ceiling painting in 3D.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/examples/gltf.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/great-gallery-painting-014-model-01> dct:format \"model/gltf-binary\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-3D-01\" ;\n    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: 3D Model\ndescription: 'A `digital-representation` constrained to real-time 3D model formats:\n  glTF (binary or JSON),\n\n  Wavefront OBJ, or an OGC 3D Tiles tileset (D8.2 profile B).\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  properties:\n    mediaType:\n      type: string\n      enum:\n      - model/gltf-binary\n      - model/gltf+json\n      - model/obj\n      - application/json\n      description: '`model/gltf-binary` (.glb) or `model/gltf+json` (.gltf) for glTF\n        2.0, `model/obj` for Wavefront OBJ, or `application/json` for an OGC 3D Tiles\n        tileset.'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/three-d-model"
+}

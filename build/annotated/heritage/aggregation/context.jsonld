@@ -1,0 +1,37 @@
+{
+  "@context": {
+    "Aggregation": "ore:Aggregation",
+    "id": "@id",
+    "type": "@type",
+    "aggregatedCHO": {
+      "@id": "edm:aggregatedCHO",
+      "@type": "@id"
+    },
+    "isShownBy": {
+      "@id": "edm:isShownBy",
+      "@type": "@id"
+    },
+    "isShownAt": {
+      "@id": "edm:isShownAt",
+      "@type": "@id"
+    },
+    "hasView": {
+      "@id": "edm:hasView",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "object": {
+      "@id": "edm:object",
+      "@type": "@id"
+    },
+    "dataProvider": "edm:dataProvider",
+    "provider": "edm:provider",
+    "rights": {
+      "@id": "edm:rights",
+      "@type": "@id"
+    },
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "edm": "http://www.europeana.eu/schemas/edm/",
+    "@version": 1.1
+  }
+}

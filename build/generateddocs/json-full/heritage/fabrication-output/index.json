@@ -1,0 +1,75 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.fabrication-output",
+  "name": "Fabrication Output",
+  "abstract": "A digital-representation profile constrained to physical-fabrication formats (STL, 3MF), with a mandatory PROV derivation chain back to its source 3D model.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "sources": [
+    {
+      "title": "3MF",
+      "link": "https://3mf.io/specification/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "digital-representation",
+    "fabrication-output",
+    "prov"
+  ],
+  "group": "Digital representation profiles",
+  "isProfileOf": "ogc.heritage.digital-representation",
+  "shaclShapes": {
+    "ogc.heritage.fabrication-output": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/shapes.shacl"
+    ],
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.digital-representation"
+  ],
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/fabrication-output/",
+  "description": "## Fabrication Output\n\nA `FabricationOutput` is a [`digital-representation`](../digital-representation) constrained to\nphysical-fabrication formats \u2014 STL or 3MF \u2014 covering D8.2 profile F (physical replicas and\ntactile reproductions for accessibility).\n\nUnlike the other digital-representation profiles, `wasDerivedFrom` is **mandatory**: a\nfabrication output must record the PROV derivation chain back to the source\n[`three-d-model`](../three-d-model) it was generated from, so the replica stays traceable to its\ndigital original. This is enforced both in the JSON Schema (presence) and in SHACL (the value\nmust actually uplift to at least one IRI).\n",
+  "examples": [
+    {
+      "title": "An STL fabrication output derived from a 3D model",
+      "content": "An STL file for 3D printing a tactile replica of the Great Gallery ceiling painting's frame detail, derived from the glTF 3D model.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/examples/stl.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/fabrication-output/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-replica-01\",\n  \"identifier\": \"RV-GG-014-STL-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/stl\",\n  \"wasDerivedFrom\": [\n    \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\"\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/fabrication-output/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-replica-01\",\n  \"identifier\": \"RV-GG-014-STL-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/stl\",\n  \"wasDerivedFrom\": [\n    \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\"\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/fabrication-output/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/great-gallery-painting-014-replica-01> dct:format \"model/stl\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-STL-01\" ;\n    prov:wasDerivedFrom <https://example.org/heritalise/digital/great-gallery-painting-014-model-01> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Fabrication Output\ndescription: \"A `digital-representation` constrained to physical-fabrication formats\n  \\u2014 STL or 3MF \\u2014 produced\\nfrom a source 3D model, with a mandatory PROV\n  derivation chain (`wasDerivedFrom`) back to that\\nsource (D8.2 profile F: physical\n  replicas, tactile reproductions).\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  - wasDerivedFrom\n  properties:\n    mediaType:\n      type: string\n      enum:\n      - model/stl\n      - model/3mf\n      description: '`model/stl` for STL or `model/3mf` for 3D Manufacturing Format.'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/fabrication-output"
+}

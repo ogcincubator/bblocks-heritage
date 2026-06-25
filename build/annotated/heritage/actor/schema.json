@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Actor",
+  "description": "A person or organization associated with cultural heritage objects, events or activities,\nmodelled as a CIDOC-CRM E39 Actor. Profiles PROV-O's Agent (`agentType` discriminates\nPerson/Organization/SoftwareAgent) and adds a local identifier and an external authority\nmatch, typically Getty ULAN.\n",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "A local authority or catalogue identifier (CIDOC-CRM P1_is_identified_by).",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by"
+        },
+        "sameAs": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI of an equivalent record in an external authority, typically Getty ULAN (owl:sameAs).",
+          "x-jsonld-id": "http://www.w3.org/2002/07/owl#sameAs",
+          "x-jsonld-type": "@id"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "owl": "http://www.w3.org/2002/07/owl#"
+  }
+}

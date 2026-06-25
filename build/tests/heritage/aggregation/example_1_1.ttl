@@ -1,0 +1,12 @@
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+
+<https://example.org/heritalise/aggregation/great-gallery-painting-014> a ore:Aggregation ;
+    edm:aggregatedCHO <https://example.org/heritalise/object/great-gallery-painting-014> ;
+    edm:dataProvider "Reggia di Venaria" ;
+    edm:isShownAt <https://www.lavenaria.it/en/collections/great-gallery-ceiling> ;
+    edm:isShownBy <https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> ;
+    edm:object <https://example.org/heritalise/digital/great-gallery-painting-014-thumb> ;
+    edm:provider "ECCCH" ;
+    edm:rights <https://rightsstatements.org/page/InC/1.0/> .
+

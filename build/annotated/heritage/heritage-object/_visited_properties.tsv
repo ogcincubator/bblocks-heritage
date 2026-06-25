@@ -1,0 +1,10 @@
+path	@id	schema
+/id	@id	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/identifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/title	http://www.cidoc-crm.org/cidoc-crm/P102_has_title	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/description	http://www.cidoc-crm.org/cidoc-crm/P3_has_note	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/objectType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/material	http://www.cidoc-crm.org/cidoc-crm/P45_consists_of	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/currentLocation	http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/persistentIdentifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml

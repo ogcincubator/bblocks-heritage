@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.event - Event
+Generated 2026-06-25T14:31:13.740829+00:00
+=== Files ===
+Using examples/minimal.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/event/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/event/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI>: *none*
+
+=== End SHACL ===
+

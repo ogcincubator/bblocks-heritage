@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Aggregation",
+  "description": "An EDM/ORE aggregation: the wrapper Europeana/ECCCH actually ingests, pairing a\n`heritage-object` with the `digital-representation`(s) that depict it and the\nprovider/rights metadata needed for publishing (CIDOC-CRM and PROV-O don't model this \u2014\nit's an EDM/ORE-specific layer over the heritage object and digital representation blocks).\n",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "The persistent or local URI identifying this aggregation.",
+      "x-jsonld-id": "@id"
+    },
+    "type": {
+      "const": "Aggregation",
+      "x-jsonld-id": "@type"
+    },
+    "aggregatedCHO": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of the `heritage-object` (the \"Cultural Heritage Object\") this aggregation wraps (edm:aggregatedCHO).",
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/aggregatedCHO",
+      "x-jsonld-type": "@id"
+    },
+    "isShownBy": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of the primary `digital-representation` used to display the object, e.g. a high-resolution image or 3D model (edm:isShownBy).",
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/isShownBy",
+      "x-jsonld-type": "@id"
+    },
+    "isShownAt": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of a landing page where the object can be viewed in its original context, e.g. the providing institution's own website (edm:isShownAt).",
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/isShownAt",
+      "x-jsonld-type": "@id"
+    },
+    "hasView": {
+      "type": "array",
+      "description": "URIs of additional `digital-representation`(s) for this object beyond the primary one in `isShownBy` (edm:hasView).",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/hasView",
+      "x-jsonld-type": "@id",
+      "x-jsonld-container": "@set"
+    },
+    "object": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of a thumbnail image representing the aggregation (edm:object).",
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/object",
+      "x-jsonld-type": "@id"
+    },
+    "dataProvider": {
+      "type": "string",
+      "description": "Name of the institution that physically holds the object and supplied this metadata (edm:dataProvider).",
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/dataProvider"
+    },
+    "provider": {
+      "type": "string",
+      "description": "Name of the aggregator that submitted the data on the data provider's behalf, e.g. an ECCCH national aggregator (edm:provider).",
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/provider"
+    },
+    "rights": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of a rights statement governing reuse of the aggregated content, typically from rightsstatements.org or a Creative Commons license (edm:rights).",
+      "x-jsonld-id": "http://www.europeana.eu/schemas/edm/rights",
+      "x-jsonld-type": "@id"
+    }
+  },
+  "required": [
+    "aggregatedCHO"
+  ],
+  "x-jsonld-extra-terms": {
+    "Aggregation": "http://www.openarchives.org/ore/terms/Aggregation"
+  },
+  "x-jsonld-prefixes": {
+    "ore": "http://www.openarchives.org/ore/terms/",
+    "edm": "http://www.europeana.eu/schemas/edm/"
+  }
+}

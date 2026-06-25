@@ -1,0 +1,76 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.archival-document",
+  "name": "Archival Document",
+  "abstract": "A digital-representation profile constrained to archival document formats (PDF/A, LIDO/XML), with a mandatory persistent identifier for long-term archival reference.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "sources": [
+    {
+      "title": "PDF/A (ISO 19005)",
+      "link": "https://www.iso.org/standard/75163.html"
+    },
+    {
+      "title": "LIDO",
+      "link": "https://lido-schema.org/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "digital-representation",
+    "archival-document",
+    "lido"
+  ],
+  "group": "Digital representation profiles",
+  "isProfileOf": "ogc.heritage.digital-representation",
+  "shaclShapes": {
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.digital-representation"
+  ],
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/schema.yaml",
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/archival-document/",
+  "description": "## Archival Document\n\nAn `ArchivalDocument` is a [`digital-representation`](../digital-representation) constrained to\narchival document formats \u2014 PDF/A or LIDO/XML \u2014 covering D8.2 profile C (long-term archival and\nmetadata-exchange records).\n\nUnlike the other digital-representation profiles, `persistentIdentifier` is **mandatory** here:\narchival records are expected to be citable and durably resolvable, which is the whole point of\nmigrating a legacy paper or filesystem archive into this model (UC-V-3).\n",
+  "examples": [
+    {
+      "title": "A LIDO/XML catalogue record with a Handle PID",
+      "content": "A LIDO/XML export of the fishing creel's catalogue record, migrated from a legacy archive (UC-V-3) and minted with a persistent Handle.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/examples/lido.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n\n<https://example.org/heritalise/digital/fishing-creel-lido-record> dct:format \"text/xml\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> ;\n    crm:P1_is_identified_by \"WHM-1923.45-LIDO\",\n        \"https://hdl.handle.net/10.1234/whm-1923.45\" .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Archival Document\ndescription: \"A `digital-representation` constrained to archival document formats\n  \\u2014 PDF/A or LIDO/XML \\u2014 with\\na mandatory persistent identifier, for long-term\n  archival reference (D8.2 profile C).\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  - persistentIdentifier\n  properties:\n    mediaType:\n      type: string\n      enum:\n      - application/pdf\n      - text/xml\n      description: '`application/pdf` for a PDF/A document (ISO 19005), or `text/xml`\n        for a LIDO/XML record. A PDF/A claim cannot be verified from the media type\n        alone; validate the actual file separately if conformance must be checked.'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/archival-document"
+}

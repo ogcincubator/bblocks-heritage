@@ -1,0 +1,7 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+  "agentType": "Person",
+  "name": "Giulia Bianchi",
+  "identifier": "RV-STAFF-042",
+  "sameAs": "http://vocab.getty.edu/ulan/500123456"
+}

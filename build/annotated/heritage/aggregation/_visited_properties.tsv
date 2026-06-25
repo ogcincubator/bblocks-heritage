@@ -1,0 +1,11 @@
+path	@id	schema
+/id	@id	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/aggregatedCHO	http://www.europeana.eu/schemas/edm/aggregatedCHO	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/isShownBy	http://www.europeana.eu/schemas/edm/isShownBy	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/isShownAt	http://www.europeana.eu/schemas/edm/isShownAt	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/hasView	http://www.europeana.eu/schemas/edm/hasView	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/object	http://www.europeana.eu/schemas/edm/object	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/dataProvider	http://www.europeana.eu/schemas/edm/dataProvider	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/provider	http://www.europeana.eu/schemas/edm/provider	/github/workspace/build/annotated/heritage/aggregation/schema.yaml
+/rights	http://www.europeana.eu/schemas/edm/rights	/github/workspace/build/annotated/heritage/aggregation/schema.yaml

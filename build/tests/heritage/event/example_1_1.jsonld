@@ -1,0 +1,15 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "id": "https://example.org/heritalise/event/restoration-2024",
+  "identifier": "RV-INT-2024-03",
+  "eventType": "http://vocab.getty.edu/aat/300053683",
+  "startedAtTime": "2024-03-04T00:00:00Z",
+  "endedAtTime": "2024-06-21T00:00:00Z",
+  "used": [
+    "https://example.org/heritalise/object/great-gallery-painting-014"
+  ],
+  "wasAssociatedWith": [
+    "https://example.org/heritalise/actor/giulia-bianchi"
+  ],
+  "atLocation": "https://example.org/heritalise/place/great-gallery"
+}

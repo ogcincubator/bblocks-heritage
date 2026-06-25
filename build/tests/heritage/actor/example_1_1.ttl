@@ -1,0 +1,10 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+[] a prov:Person ;
+    rdfs:label "Giulia Bianchi" ;
+    crm:P1_is_identified_by "RV-STAFF-042" ;
+    owl:sameAs <http://vocab.getty.edu/ulan/500123456> .
+

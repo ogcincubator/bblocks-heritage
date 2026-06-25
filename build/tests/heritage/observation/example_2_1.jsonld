@@ -1,0 +1,5 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
+  "identifier": "RV-GG-RH-LEGACY-01",
+  "measurementOf": "https://example.org/heritalise/place/great-gallery"
+}

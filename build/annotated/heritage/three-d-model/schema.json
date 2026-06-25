@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "3D Model",
+  "description": "A `digital-representation` constrained to real-time 3D model formats: glTF (binary or JSON),\nWavefront OBJ, or an OGC 3D Tiles tileset (D8.2 profile B).\n",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.json"
+    },
+    {
+      "type": "object",
+      "required": [
+        "mediaType"
+      ],
+      "properties": {
+        "mediaType": {
+          "type": "string",
+          "enum": [
+            "model/gltf-binary",
+            "model/gltf+json",
+            "model/obj",
+            "application/json"
+          ],
+          "description": "`model/gltf-binary` (.glb) or `model/gltf+json` (.gltf) for glTF 2.0, `model/obj` for Wavefront OBJ, or `application/json` for an OGC 3D Tiles tileset."
+        }
+      }
+    }
+  ]
+}

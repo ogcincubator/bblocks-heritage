@@ -1,0 +1,105 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.place",
+  "name": "Place",
+  "abstract": "A spatial location relevant to cultural heritage \u2014 a site, building, room or landscape feature \u2014 modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E53_Place"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "OGC Testbed-17: OGC Features and Geometries JSON (JSON-FG) Engineering Report",
+      "link": "http://docs.ogc.org/per/21-017r1.html"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "place",
+    "json-fg"
+  ],
+  "group": "Core",
+  "isProfileOf": "ogc.geo.json-fg.feature-lenient",
+  "shaclShapes": {
+    "ogc.heritage.place": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.geo.json-fg.feature-lenient"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/place/",
+  "description": "## Place\n\nA `Place` is a spatial location relevant to cultural heritage \u2014 a site, building, room or\nlandscape feature \u2014 modelled as a CIDOC-CRM `E53_Place`.\n\nRather than reinventing a geometry encoding, this block profiles\n[`ogc.geo.json-fg.feature-lenient`](https://opengeospatial.github.io/bblocks/register/bblock/ogc.geo.json-fg.feature-lenient):\na `Place` *is* an OGC JSON-FG Feature. Geometry stays at the top level (`geometry`, and\noptionally `place`/`time` for non-WGS84 CRS or temporal extent), while CIDOC-CRM attributes\n(`identifier`, `name`, `placeType`, `partOf`, `sameAs`) are nested under `properties`, per\nJSON-FG/GeoJSON convention.\n\nOne consequence of reusing JSON-FG: the `type` member is fixed to the literal `\"Feature\"` (a\nJSON-FG/GeoJSON requirement), so the uplifted RDF graph does not carry an explicit\n`crm:E53_Place` class triple \u2014 the SHACL shapes here target nodes by the CIDOC-CRM predicates\nthey use (`sh:targetSubjectsOf`) rather than by `sh:targetClass`.\n\n`Place` hierarchies are expressed with `partOf` (CIDOC-CRM `P89_falls_within`), e.g. a room\nwithin a building within a site. Other blocks reference a `Place` by its `id`:\n\n- [`heritage-object`](../heritage-object)'s `currentLocation` points to a `Place`\n- a SensorThings API `Datastream`'s `FeatureOfInterest` can point to a `Place` for monitoring\n  (D8.2 profile A)\n- GeoDCAT/Records dataset metadata can use a `Place`'s geometry for spatial extent\n",
+  "examples": [
+    {
+      "title": "A room within a site, linked to a broader place and to Getty TGN",
+      "content": "The Great Gallery room within the Reggia di Venaria, typed with a Getty AAT concept, nested under its parent site via `partOf`, and matched to a Getty TGN authority record.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/examples/great-gallery.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/place/great-gallery\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [7.628, 45.135]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROOM-GG\",\n    \"name\": \"Great Gallery, Reggia di Venaria\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300004826\",\n    \"partOf\": \"https://example.org/heritalise/place/reggia-di-venaria\",\n    \"sameAs\": \"http://vocab.getty.edu/tgn/7274089\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/place/great-gallery\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.628,\n      45.135\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROOM-GG\",\n    \"name\": \"Great Gallery, Reggia di Venaria\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300004826\",\n    \"partOf\": \"https://example.org/heritalise/place/reggia-di-venaria\",\n    \"sameAs\": \"http://vocab.getty.edu/tgn/7274089\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/place/great-gallery> a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-ROOM-GG\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300004826> ;\n    crm:P87_is_identified_by \"Great Gallery, Reggia di Venaria\" ;\n    crm:P89_falls_within <https://example.org/heritalise/place/reggia-di-venaria> ;\n    owl:sameAs <http://vocab.getty.edu/tgn/7274089> ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.628e+00 4.5135e+01 ) ] .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A minimal record with only the required properties",
+      "content": "Only `geometry`, `identifier` and `name` are required \u2014 type, broader-place links and authority matches can be added incrementally, matching the legacy-archive migration scenario in UC-V-3.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/examples/minimal.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_2_1.json",
+          "code": "{\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [7.6285, 45.1338]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-SITE\",\n    \"name\": \"Reggia di Venaria\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.6285,\n      45.1338\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-SITE\",\n    \"name\": \"Reggia di Venaria\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_2_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-SITE\" ;\n    crm:P87_is_identified_by \"Reggia di Venaria\" ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.6285e+00 4.51338e+01 ) ] .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Place\ndescription: 'A spatial location relevant to cultural heritage (site, building, room,\n  landscape feature),\n\n  modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature: geometry\n  stays at\n\n  the top level (JSON-FG `geometry`/`place`/`time` members), while CIDOC-CRM attributes\n  are\n\n  nested under `properties`, per JSON-FG/GeoJSON convention.\n\n  '\nallOf:\n- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml\n- type: object\n  properties:\n    properties:\n      type: object\n      description: CIDOC-CRM E53 Place attributes, nested per JSON-FG/GeoJSON convention.\n      properties:\n        identifier:\n          type: string\n          description: A local gazetteer or inventory identifier (CIDOC-CRM P1_is_identified_by).\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n        name:\n          type: string\n          description: The place's name (CIDOC-CRM P87_is_identified_by, via an implied\n            E44 Place Appellation).\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P87_is_identified_by\n        placeType:\n          type: string\n          format: uri\n          description: The type of place, typically a Getty AAT concept URI (CIDOC-CRM\n            P2_has_type).\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n          x-jsonld-type: '@id'\n        partOf:\n          type: string\n          format: uri\n          description: URI of a broader place this place falls within, e.g. a room\n            within a building within a site (CIDOC-CRM P89_falls_within).\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P89_falls_within\n          x-jsonld-type: '@id'\n        sameAs:\n          type: string\n          format: uri\n          description: URI of an equivalent record in an external authority, typically\n            Getty TGN (owl:sameAs).\n          x-jsonld-id: http://www.w3.org/2002/07/owl#sameAs\n          x-jsonld-type: '@id'\n      required:\n      - identifier\n      - name\n  required:\n  - properties\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  owl: http://www.w3.org/2002/07/owl#\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/place"
+}

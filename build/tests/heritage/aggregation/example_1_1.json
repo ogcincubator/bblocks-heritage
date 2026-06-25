@@ -1,0 +1,11 @@
+{
+  "id": "https://example.org/heritalise/aggregation/great-gallery-painting-014",
+  "type": "Aggregation",
+  "aggregatedCHO": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "isShownBy": "https://example.org/heritalise/digital/great-gallery-painting-014-photo-01",
+  "isShownAt": "https://www.lavenaria.it/en/collections/great-gallery-ceiling",
+  "object": "https://example.org/heritalise/digital/great-gallery-painting-014-thumb",
+  "dataProvider": "Reggia di Venaria",
+  "provider": "ECCCH",
+  "rights": "https://rightsstatements.org/page/InC/1.0/"
+}

@@ -1,0 +1,4 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+[] crm:P1_is_identified_by "RV-INT-1987-LEGACY" .
+

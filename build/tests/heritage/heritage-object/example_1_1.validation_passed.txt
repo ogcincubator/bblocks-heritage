@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.heritage-object - Heritage Object
+Generated 2026-06-25T14:31:13.467437+00:00
+=== Files ===
+Using examples/painting.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/heritage-object/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/heritage-object/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/object/great-gallery-painting-014>
+
+=== End SHACL ===
+

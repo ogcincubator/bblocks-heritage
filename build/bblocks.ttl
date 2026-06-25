@@ -2,8 +2,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <http://www.w3.org/ns/oa#> .
+@prefix ns1: <http://www.w3.org/ns/oa#> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -14,147 +14,570 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<bblocks://ogc.bbr.template.myFeature> a skos:Concept,
+<bblocks://ogc.heritage.archival-document> a skos:Concept,
         dcat:Dataset,
         bblocks:BBlock,
         bblocks:Schema ;
-    rdfs:label "Custom Feature" ;
-    dct:abstract "This examples shows a simple customisation for OGC API Feature schemas"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:created "2023-05-19T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://opengeospatial.github.io/bblocks-template/bblock/ogc.bbr.template.myFeature> ],
+    rdfs:label "Archival Document" ;
+    dct:abstract "A digital-representation profile constrained to archival document formats (PDF/A, LIDO/XML), with a mandatory persistent identifier for long-term archival reference."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/archival-document/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.archival-document> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://opengeospatial.github.io/bblocks-template/build/generateddocs/markdown/bbr/template/myFeature/index.md> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://opengeospatial.github.io/bblocks-template/build/generateddocs/json-full/bbr/template/myFeature/index.json> ] ;
-    dct:hasVersion "1.0" ;
-    dct:modified "2023-05-19"^^xsd:date ;
-    dct:source <https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> ;
-    skos:inScheme <https://opengeospatial.github.io/bblocks-template/> ;
-    skos:prefLabel "Custom Feature" ;
-    skos:topConceptOf <https://opengeospatial.github.io/bblocks-template/> ;
-    dcat:keyword "examples",
-        "feature" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/myFeature/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/archival-document/index.md> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://lido-schema.org/>,
+        <https://www.iso.org/standard/75163.html> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Archival Document" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "archival-document",
+        "digital-representation",
+        "heritage",
+        "lido" ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/myFeature/context.jsonld> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/myFeature/schema.json> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.yaml> ;
+            prof:hasRole role:schema ] ;
+    prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
+    bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<bblocks://ogc.heritage.three-d-model> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "3D Model" ;
+    dct:abstract "A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.three-d-model> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/three-d-model/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/three-d-model/index.md> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://www.khronos.org/gltf/>,
+        <https://www.ogc.org/standard/3dtiles/> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "3D Model" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "3d-model",
+        "digital-representation",
+        "gltf",
+        "heritage" ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.json> ;
+            prof:hasRole role:schema ] ;
+    prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
+    bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<http://docs.ogc.org/per/21-017r1.html> rdfs:label "OGC Testbed-17: OGC Features and Geometries JSON (JSON-FG) Engineering Report" .
+
+<http://www.openarchives.org/ore/1.0/datamodel> rdfs:label "OAI-ORE" .
+
+<https://3mf.io/specification/> rdfs:label "3MF" .
+
+<https://lido-schema.org/> rdfs:label "LIDO" .
+
+<https://ogcincubator.github.io/bblocks-heritage/build/bblocks.ttl> a prov:Entity ;
+    dct:format "text/turtle" ;
+    prov:wasAttributedTo _:Nb24d27938de44579a85862b07d286cde ;
+    prov:wasGeneratedBy [ a prov:Activity ;
+            prov:endedAtTime "2026-06-25T14:31:16.363755"^^xsd:dateTime ;
+            prov:startedAtTime "2026-06-25T14:31:16.218553"^^xsd:dateTime ;
+            prov:used [ a prov:Entity ;
+                    dct:format "application/json" ;
+                    dct:hasVersion "git:e6a25341b2734422e1945b08e48a9169a0846e4e" ;
+                    rdfs:seeAlso <https://ogcincubator.github.io/bblocks-heritage/build/register.json> ],
+                [ a prov:Entity ;
+                    dct:format "application/yaml" ;
+                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
+            prov:wasAssociatedWith _:Nb24d27938de44579a85862b07d286cde ] .
+
+<https://pro.europeana.eu/page/edm-documentation> rdfs:label "Europeana Data Model (EDM)" .
+
+<https://www.cidoc-crm.org/crmsci/> rdfs:label "CRMsci" .
+
+<https://www.iso.org/standard/75163.html> rdfs:label "PDF/A (ISO 19005)" .
+
+<https://www.khronos.org/gltf/> rdfs:label "glTF 2.0" .
+
+<https://www.ogc.org/standard/3dtiles/> rdfs:label "OGC 3D Tiles" .
+
+<bblocks://ogc.heritage.actor> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Actor" ;
+    dct:abstract "A person or organization associated with cultural heritage objects, events or activities — creators, custodians, restorers — modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/actor/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/actor/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.actor> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://www.cidoc-crm.org/>,
+        <https://www.w3.org/TR/prov-o/> ;
+    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E39_Actor> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Actor" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "actor",
+        "cidoc-crm",
+        "heritage",
+        "prov" ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.actor> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl> ;
+            prof:hasRole role:validation ] ;
+    prof:isProfileOf <bblocks://ogc.ogc-utils.prov-agent> ;
+    bblocks:dependsOn <bblocks://ogc.ogc-utils.prov-agent> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/actor/context.jsonld> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<bblocks://ogc.heritage.aggregation> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Aggregation" ;
+    dct:abstract "An EDM/ORE aggregation wrapping a heritage object together with its digital representations and the provider/rights metadata required to publish it to Europeana / ECCCH, modelled as edm:Aggregation (ore:Aggregation)."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/aggregation/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/aggregation/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.aggregation> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <http://www.openarchives.org/ore/1.0/datamodel>,
+        <https://pro.europeana.eu/page/edm-documentation> ;
+    rdfs:subClassOf <http://www.openarchives.org/ore/terms/Aggregation> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Aggregation" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "aggregation",
+        "edm",
+        "europeana",
+        "heritage" ;
+    prof:hasResource [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.aggregation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.json> ;
+            prof:hasRole role:schema ] ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/context.jsonld> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<bblocks://ogc.heritage.event> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Event" ;
+    dct:abstract "An event in the history of a heritage object — production, restoration, modification, acquisition — modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/event/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/event/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.event> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://www.cidoc-crm.org/>,
+        <https://www.w3.org/TR/prov-o/> ;
+    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E5_Event> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Event" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "cidoc-crm",
+        "event",
+        "heritage",
+        "prov" ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.event> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/event/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.yaml> ;
+            prof:hasRole role:schema ] ;
+    prof:isProfileOf <bblocks://ogc.ogc-utils.prov-activity> ;
+    bblocks:dependsOn <bblocks://ogc.ogc-utils.prov-activity> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/event/context.jsonld> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<bblocks://ogc.heritage.fabrication-output> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Fabrication Output" ;
+    dct:abstract "A digital-representation profile constrained to physical-fabrication formats (STL, 3MF), with a mandatory PROV derivation chain back to its source 3D model."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/fabrication-output/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/fabrication-output/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.fabrication-output> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://3mf.io/specification/> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Fabrication Output" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "digital-representation",
+        "fabrication-output",
+        "heritage",
+        "prov" ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.fabrication-output> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/schema.yaml> ;
+            prof:hasRole role:schema ] ;
+    prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
+    bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<bblocks://ogc.heritage.heritage-object> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Heritage Object" ;
+    dct:abstract "A physical cultural heritage item — an artwork, building element, garden feature or museum object — modelled as a CIDOC-CRM E22 Man-Made Object."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/heritage-object/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.heritage-object> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/heritage-object/index.md> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://www.cidoc-crm.org/> ;
+    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Heritage Object" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "cidoc-crm",
+        "heritage",
+        "object" ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.heritage-object> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.json> ;
+            prof:hasRole role:schema ] ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/context.jsonld> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<bblocks://ogc.heritage.observation> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Observation" ;
+    dct:abstract "A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — modelled as a CIDOC-CRM E16 Measurement (the entry point CRMsci specialises for scientific observation) and profiling the PROV-O Activity. Bridges sensor data recorded via the OGC SensorThings API back into the CIDOC-CRM graph."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/observation/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/observation/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.observation> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://www.cidoc-crm.org/>,
+        <https://www.cidoc-crm.org/crmsci/>,
+        <https://www.w3.org/TR/prov-o/> ;
+    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E16_Measurement> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Observation" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "cidoc-crm",
+        "crmsci",
+        "heritage",
+        "observation",
+        "prov",
+        "sta" ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.observation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/observation/shapes.shacl> ;
+            prof:hasRole role:validation ] ;
+    prof:isProfileOf <bblocks://ogc.ogc-utils.prov-activity> ;
+    bblocks:dependsOn <bblocks://ogc.ogc-utils.prov-activity> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/observation/context.jsonld> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<bblocks://ogc.heritage.place> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Place" ;
+    dct:abstract "A spatial location relevant to cultural heritage — a site, building, room or landscape feature — modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/place/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/place/index.md> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.place> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <http://docs.ogc.org/per/21-017r1.html>,
+        <https://www.cidoc-crm.org/> ;
+    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E53_Place> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Place" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "cidoc-crm",
+        "heritage",
+        "json-fg",
+        "place" ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.json> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
             prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.bbr.template.mySchema> ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/_sources/mySchema/shapes.shacl> ;
-            prof:hasRole role:validation ] ;
-    bblocks:dependsOn <bblocks://ogc.bbr.template.mySchema>,
-        <bblocks://ogc.geo.features.feature> ;
-    bblocks:status <http://www.opengis.net/def/status/under-development> ;
-    bblocks:validationPassed true .
-
-<https://docs.ogc.org/is/17-069r3/17-069r3.html#_response_7> rdfs:label "OGC API - Features, Part 1, 7.16.2: Feature Response" .
-
-<https://example.com/sources/1> rdfs:label "Sample source document" .
-
-<https://opengeospatial.github.io/bblocks-template/build/bblocks.ttl> a prov:Entity ;
-    dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N9e9ccc65c76441ceaeed171c5748f805 ;
-    prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2026-05-07T11:37:22.848261"^^xsd:dateTime ;
-            prov:startedAtTime "2026-05-07T11:37:22.650139"^^xsd:dateTime ;
-            prov:used [ a prov:Entity ;
-                    dct:format "application/yaml" ;
-                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
-                [ a prov:Entity ;
-                    dct:format "application/json" ;
-                    dct:hasVersion "git:9b7d95390a30fead2bf9fc1d55d5e6a660580737" ;
-                    rdfs:seeAlso <https://opengeospatial.github.io/bblocks-template/build/register.json> ] ;
-            prov:wasAssociatedWith _:N9e9ccc65c76441ceaeed171c5748f805 ] .
-
-<bblocks://ogc.bbr.template.mySchema> a skos:Concept,
-        dcat:Dataset,
-        bblocks:BBlock,
-        bblocks:Schema ;
-    rdfs:label "My Schema" ;
-    dct:abstract "An example schema defining the set of properties of any type of object."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:created "2023-04-05T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://opengeospatial.github.io/bblocks-template/build/generateddocs/json-full/bbr/template/mySchema/index.json> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://opengeospatial.github.io/bblocks-template/build/generateddocs/markdown/bbr/template/mySchema/index.md> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://opengeospatial.github.io/bblocks-template/bblock/ogc.bbr.template.mySchema> ] ;
-    dct:hasVersion "0.1" ;
-    dct:modified "2023-04-05"^^xsd:date ;
-    dct:source <https://example.com/sources/1> ;
-    skos:inScheme <https://opengeospatial.github.io/bblocks-template/> ;
-    skos:prefLabel "My Schema" ;
-    skos:topConceptOf <https://opengeospatial.github.io/bblocks-template/> ;
-    dcat:keyword "templates" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/mySchema/schema.json> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/mySchema/context.jsonld> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/build/annotated/bbr/template/mySchema/schema.yaml> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.bbr.template.mySchema> ;
-            prof:hasArtifact <https://opengeospatial.github.io/bblocks-template/_sources/mySchema/shapes.shacl> ;
+            rdfs:seeAlso <bblocks://ogc.heritage.place> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl> ;
             prof:hasRole role:validation ] ;
-    bblocks:hasSourceJsonLdContext <https://opengeospatial.github.io/bblocks-template/_sources/mySchema/context.jsonld> ;
+    prof:isProfileOf <bblocks://ogc.geo.json-fg.feature-lenient> ;
+    bblocks:dependsOn <bblocks://ogc.geo.json-fg.feature-lenient> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/place/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
 
-<https://opengeospatial.github.io/bblocks-template/> a skos:ConceptScheme,
+<https://www.w3.org/TR/prov-o/> rdfs:label "PROV-O" .
+
+<https://www.cidoc-crm.org/> rdfs:label "CIDOC-CRM" .
+
+<bblocks://ogc.heritage.digital-representation> a skos:Concept,
+        dcat:Dataset,
+        bblocks:BBlock,
+        bblocks:Schema ;
+    rdfs:label "Digital Representation" ;
+    dct:abstract "A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
+    dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/digital-representation/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.digital-representation> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/digital-representation/index.md> ] ;
+    dct:hasVersion "0.1" ;
+    dct:modified "2026-06-25"^^xsd:date ;
+    dct:source <https://www.cidoc-crm.org/>,
+        <https://www.w3.org/TR/prov-o/> ;
+    rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object> ;
+    skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
+    skos:prefLabel "Digital Representation" ;
+    skos:topConceptOf <https://ogcincubator.github.io/bblocks-heritage/> ;
+    dcat:keyword "cidoc-crm",
+        "digital-representation",
+        "heritage",
+        "prov" ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
+            prof:hasRole role:validation ] ;
+    prof:isProfileOf <bblocks://ogc.ogc-utils.prov-entity> ;
+    bblocks:dependsOn <bblocks://ogc.ogc-utils.prov-entity> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/context.jsonld> ;
+    bblocks:status <http://www.opengis.net/def/status/under-development> ;
+    bblocks:validationPassed true .
+
+<https://ogcincubator.github.io/bblocks-heritage/> a skos:ConceptScheme,
         dcat:Catalog,
         bblocks:BBlocksRegister ;
-    rdfs:label "Building Blocks - My OGC Building Blocks repository" ;
-    dct:abstract """This is an example text for the abstract. It should be short and to the point.
-A "Tell me more" link will appear if there is an additional description with a longer explanation.
+    rdfs:label "Building Blocks - Cultural Heritage Building Blocks" ;
+    dct:abstract """Reusable OGC Building Blocks for modelling cultural heritage data, covering heritage objects,
+digital representations, provenance, sensor observations and dataset metadata.
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:description """The description can be longer. Both **the abstract** *and the description* support Markdown,
-including [links](https://google.es).
+    dct:description """This register defines reusable, machine-readable specification components for the cultural
+heritage domain, building on CIDOC-CRM, PROV-O, SOSA/SSN, EDM and DCAT. It originated from the
+standards profiling work of the [HERITALISE](https://heritalise.eu) project (deliverables D8.1
+and D8.2), but is intended as a general-purpose register usable beyond that project.
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:modified "2026-05-07T11:37:21.546445"^^xsd:dateTime ;
-    owl:imports <https://opengeospatial.github.io/bblocks/register.json> ;
-    skos:hasTopConcept <bblocks://ogc.bbr.template.myFeature>,
-        <bblocks://ogc.bbr.template.mySchema> ;
-    skos:prefLabel "Building Blocks - My OGC Building Blocks repository" ;
+    dct:modified "2026-06-25T14:31:05.207132"^^xsd:dateTime ;
+    owl:imports <https://ogcincubator.github.io/bblock-prov-schema/build/register.json>,
+        <https://ogcincubator.github.io/bblocks-skos/build/register.json>,
+        <https://ogcincubator.github.io/bblocks-sta/build/register.json>,
+        <https://ogcincubator.github.io/geodcat-ogcapi-records/build/register.json>,
+        <https://opengeospatial.github.io/bblocks/register.json> ;
+    skos:hasTopConcept <bblocks://ogc.heritage.actor>,
+        <bblocks://ogc.heritage.aggregation>,
+        <bblocks://ogc.heritage.archival-document>,
+        <bblocks://ogc.heritage.digital-representation>,
+        <bblocks://ogc.heritage.event>,
+        <bblocks://ogc.heritage.fabrication-output>,
+        <bblocks://ogc.heritage.heritage-object>,
+        <bblocks://ogc.heritage.observation>,
+        <bblocks://ogc.heritage.place>,
+        <bblocks://ogc.heritage.three-d-model> ;
+    skos:prefLabel "Building Blocks - Cultural Heritage Building Blocks" ;
     prof:hasResource [ rdfs:label "This Building Blocks Register in JSON format" ;
             dct:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://opengeospatial.github.io/bblocks-template/build/register.json> ],
-        [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
-            dct:type "application/ld+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://opengeospatial.github.io/bblocks-template/build/bblocks.jsonld> ],
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/register.json> ],
         [ rdfs:label "This Building Blocks Register in RDF Turtle format" ;
             dct:type "text/turtle" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://opengeospatial.github.io/bblocks-template/build/bblocks.ttl> ] ;
-    foaf:homepage <https://opengeospatial.github.io/bblocks-template/> ;
-    bblocks:hasValidationReport <https://opengeospatial.github.io/bblocks-template/build/tests/report.html> .
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/bblocks.ttl> ],
+        [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
+            dct:type "application/ld+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/bblocks.jsonld> ] ;
+    foaf:homepage <https://ogcincubator.github.io/bblocks-heritage/> ;
+    bblocks:hasValidationReport <https://ogcincubator.github.io/bblocks-heritage/build/tests/report.html> .
 
-_:N9e9ccc65c76441ceaeed171c5748f805 a prov:Agent,
+_:Nb24d27938de44579a85862b07d286cde a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
-    dct:hasVersion "0.5.28" ;
+    dct:hasVersion "0.5.31" ;
     rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> .
 

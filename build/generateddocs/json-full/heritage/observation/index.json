@@ -1,0 +1,107 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.observation",
+  "name": "Observation",
+  "abstract": "A scientific observation or measurement of a heritage object or place \u2014 environmental monitoring, condition assessment, conservation science \u2014 modelled as a CIDOC-CRM E16 Measurement (the entry point CRMsci specialises for scientific observation) and profiling the PROV-O Activity. Bridges sensor data recorded via the OGC SensorThings API back into the CIDOC-CRM graph.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E16_Measurement"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "CRMsci",
+      "link": "https://www.cidoc-crm.org/crmsci/"
+    },
+    {
+      "title": "PROV-O",
+      "link": "https://www.w3.org/TR/prov-o/"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "crmsci",
+    "heritage",
+    "observation",
+    "prov",
+    "sta"
+  ],
+  "group": "Core",
+  "isProfileOf": "ogc.ogc-utils.prov-activity",
+  "shaclShapes": {
+    "ogc.heritage.observation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
+  "dateOfLastChange": "2026-06-25",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/observation/",
+  "examples": [
+    {
+      "title": "A relative humidity reading linked back to its CIDOC-CRM context",
+      "content": "A humidity measurement of the Great Gallery, taken by a SensorThings API `Sensor` and recorded as a SensorThings API `Observation` \u2014 this block carries the CRM-side context (what was measured, what property, by whom) while the reading itself stays in STA.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/humidity-reading.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.json",
+          "code": "{\n  \"id\": \"https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12\",\n  \"identifier\": \"RV-GG-RH-2024-03-04T12\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"startedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"endedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/sta/v1.1/Sensors(12)\"\n  ],\n  \"generated\": [\n    \"https://example.org/heritalise/sta/v1.1/Observations(98765)\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/venaria-monitoring-system\"\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12\",\n  \"identifier\": \"RV-GG-RH-2024-03-04T12\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"startedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"endedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/sta/v1.1/Sensors(12)\"\n  ],\n  \"generated\": [\n    \"https://example.org/heritalise/sta/v1.1/Observations(98765)\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/venaria-monitoring-system\"\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12> crm:P1_is_identified_by \"RV-GG-RH-2024-03-04T12\" ;\n    crm:P39_measured <https://example.org/heritalise/place/great-gallery> ;\n    crm:P40_observed_dimension <http://vocab.getty.edu/aat/300055680> ;\n    prov:endedAtTime \"2024-03-04T12:00:00+00:00\"^^xsd:dateTime ;\n    prov:generated <https://example.org/heritalise/sta/v1.1/Observations(98765)> ;\n    prov:startedAtTime \"2024-03-04T12:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/heritalise/sta/v1.1/Sensors(12)> ;\n    prov:wasAssociatedWith <https://example.org/heritalise/actor/venaria-monitoring-system> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A minimal record for an undated legacy reading",
+      "content": "Only `identifier` and `measurementOf` are required \u2014 useful for migrating legacy monitoring logs that predate the SensorThings API deployment.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/minimal.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.json",
+          "code": "{\n  \"identifier\": \"RV-GG-RH-LEGACY-01\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.jsonld",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"identifier\": \"RV-GG-RH-LEGACY-01\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.ttl",
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n[] crm:P1_is_identified_by \"RV-GG-RH-LEGACY-01\" ;\n    crm:P39_measured <https://example.org/heritalise/place/great-gallery> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Observation\ndescription: 'A scientific observation or measurement, modelled as a CIDOC-CRM E16\n  Measurement. Profiles\n\n  PROV-O''s Activity: `startedAtTime`/`endedAtTime` carry the time of observation,\n  `used` the\n\n  sensor or instrument involved (CIDOC-CRM P16_used_specific_object), `generated`\n  the OGC\n\n  SensorThings API `Observation` resource holding the actual reading (CIDOC-CRM\n\n  P108_has_produced), `wasAssociatedWith` the operator or monitoring system responsible,\n  and\n\n  `atLocation` where the observation took place. This block adds a local identifier,\n  the\n\n  heritage object or place being measured, and the property observed.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  required:\n  - measurementOf\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this observation (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    measurementOf:\n      type: string\n      format: uri\n      description: URI of the `heritage-object` or `place` being measured (CIDOC-CRM\n        P39_measured).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P39_measured\n      x-jsonld-type: '@id'\n    observedProperty:\n      type: string\n      format: uri\n      description: The property or phenomenon observed, typically a GEOSS Essential\n        Variable or Getty AAT concept URI, e.g. relative humidity or surface temperature\n        (CIDOC-CRM P40_observed_dimension).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P40_observed_dimension\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/observation"
+}

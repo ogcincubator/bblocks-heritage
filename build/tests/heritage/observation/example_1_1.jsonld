@@ -1,0 +1,18 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
+  "id": "https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12",
+  "identifier": "RV-GG-RH-2024-03-04T12",
+  "measurementOf": "https://example.org/heritalise/place/great-gallery",
+  "observedProperty": "http://vocab.getty.edu/aat/300055680",
+  "startedAtTime": "2024-03-04T12:00:00Z",
+  "endedAtTime": "2024-03-04T12:00:00Z",
+  "used": [
+    "https://example.org/heritalise/sta/v1.1/Sensors(12)"
+  ],
+  "generated": [
+    "https://example.org/heritalise/sta/v1.1/Observations(98765)"
+  ],
+  "wasAssociatedWith": [
+    "https://example.org/heritalise/actor/venaria-monitoring-system"
+  ]
+}

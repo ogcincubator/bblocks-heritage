@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "HeritageObject": "crm:E22_Man-Made_Object",
+    "id": "@id",
+    "type": "@type",
+    "identifier": "crm:P1_is_identified_by",
+    "title": "crm:P102_has_title",
+    "description": "crm:P3_has_note",
+    "objectType": {
+      "@id": "crm:P2_has_type",
+      "@type": "@id"
+    },
+    "material": {
+      "@id": "crm:P45_consists_of",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "currentLocation": {
+      "@id": "crm:P53_has_former_or_current_location",
+      "@type": "@id"
+    },
+    "persistentIdentifier": {
+      "@id": "crm:P1_is_identified_by",
+      "@type": "@id"
+    },
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "@version": 1.1
+  }
+}

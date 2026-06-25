@@ -1,0 +1,21 @@
+{
+  "name": "Archival Document",
+  "abstract": "A digital-representation profile constrained to archival document formats (PDF/A, LIDO/XML), with a mandatory persistent identifier for long-term archival reference.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "sources": [
+    {
+      "title": "PDF/A (ISO 19005)",
+      "link": "https://www.iso.org/standard/75163.html"
+    },
+    {
+      "title": "LIDO",
+      "link": "https://lido-schema.org/"
+    }
+  ],
+  "tags": ["heritage", "digital-representation", "archival-document", "lido"],
+  "group": "Digital representation profiles",
+  "isProfileOf": "bblocks://ogc.heritage.digital-representation"
+}

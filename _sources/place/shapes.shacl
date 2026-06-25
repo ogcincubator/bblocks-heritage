@@ -1,0 +1,25 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# Places are JSON-FG Features (rdf:type geojson:Feature after uplift, since JSON-FG fixes the
+# `type` member to the literal "Feature"), so there is no crm:E53_Place class triple to target.
+# These shapes instead target any node using the CIDOC-CRM predicates this block introduces,
+# regardless of its rdf:type.
+<#PlaceLinksAreIRIs>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P89_falls_within, crm:P2_has_type, <http://www.w3.org/2002/07/owl#sameAs> ;
+    sh:property [
+        sh:path crm:P2_has_type ;
+        sh:nodeKind sh:IRI ;
+        sh:message "placeType must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] ;
+    sh:property [
+        sh:path crm:P89_falls_within ;
+        sh:nodeKind sh:IRI ;
+        sh:message "partOf must uplift to an IRI" ;
+    ] ;
+    sh:property [
+        sh:path <http://www.w3.org/2002/07/owl#sameAs> ;
+        sh:nodeKind sh:IRI ;
+        sh:message "sameAs must uplift to an IRI" ;
+    ] .

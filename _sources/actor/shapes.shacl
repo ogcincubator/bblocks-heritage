@@ -1,0 +1,13 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# Like `place`, an Actor's rdf:type comes from PROV-O's agentType (prov:Person, prov:Organization,
+# prov:SoftwareAgent...), not crm:E39_Actor, so this shape targets by predicate rather than class.
+<#ActorSameAsIsIRI>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf owl:sameAs ;
+    sh:property [
+        sh:path owl:sameAs ;
+        sh:nodeKind sh:IRI ;
+        sh:message "sameAs must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] .

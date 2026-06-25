@@ -1,0 +1,21 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Archival Document
+description: |
+  A `digital-representation` constrained to archival document formats — PDF/A or LIDO/XML — with
+  a mandatory persistent identifier, for long-term archival reference (D8.2 profile C).
+allOf:
+  - "$ref": bblocks://ogc.heritage.digital-representation
+  - type: object
+    required:
+      - mediaType
+      - persistentIdentifier
+    properties:
+      mediaType:
+        type: string
+        enum:
+          - application/pdf
+          - text/xml
+        description: >-
+          `application/pdf` for a PDF/A document (ISO 19005), or `text/xml` for a LIDO/XML
+          record. A PDF/A claim cannot be verified from the media type alone; validate the
+          actual file separately if conformance must be checked.

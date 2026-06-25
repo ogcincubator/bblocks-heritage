@@ -1,0 +1,15 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+# Enforces the mandatory PROV derivation chain at the RDF level, since the JSON Schema's
+# "required: [wasDerivedFrom]" only checks the property is present, not that it actually
+# uplifts to at least one IRI.
+<#FabricationOutputHasDerivation>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf prov:wasDerivedFrom ;
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "wasDerivedFrom must uplift to at least one IRI pointing at the source 3D model." ;
+    ] .

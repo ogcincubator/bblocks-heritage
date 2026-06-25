@@ -1,0 +1,15 @@
+{
+  "id": "https://example.org/heritalise/place/great-gallery",
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [7.628, 45.135]
+  },
+  "properties": {
+    "identifier": "RV-ROOM-GG",
+    "name": "Great Gallery, Reggia di Venaria",
+    "placeType": "http://vocab.getty.edu/aat/300004826",
+    "partOf": "https://example.org/heritalise/place/reggia-di-venaria",
+    "sameAs": "http://vocab.getty.edu/tgn/7274089"
+  }
+}

@@ -1,0 +1,7 @@
+examples:
+  - title: A glTF-binary 3D model of a painting's frame
+    content: >-
+      A photogrammetry-derived glTF model documenting the Great Gallery ceiling painting in 3D.
+    snippets:
+      - language: json
+        ref: examples/gltf.json

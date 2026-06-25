@@ -1,0 +1,21 @@
+{
+  "name": "3D Model",
+  "abstract": "A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "sources": [
+    {
+      "title": "glTF 2.0",
+      "link": "https://www.khronos.org/gltf/"
+    },
+    {
+      "title": "OGC 3D Tiles",
+      "link": "https://www.ogc.org/standard/3dtiles/"
+    }
+  ],
+  "tags": ["heritage", "digital-representation", "3d-model", "gltf"],
+  "group": "Digital representation profiles",
+  "isProfileOf": "bblocks://ogc.heritage.digital-representation"
+}

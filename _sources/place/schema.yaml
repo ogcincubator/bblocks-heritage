@@ -1,0 +1,46 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Place
+description: |
+  A spatial location relevant to cultural heritage (site, building, room, landscape feature),
+  modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature: geometry stays at
+  the top level (JSON-FG `geometry`/`place`/`time` members), while CIDOC-CRM attributes are
+  nested under `properties`, per JSON-FG/GeoJSON convention.
+x-jsonld-context: context.jsonld
+allOf:
+  - "$ref": bblocks://ogc.geo.json-fg.feature-lenient
+  - type: object
+    properties:
+      properties:
+        type: object
+        description: CIDOC-CRM E53 Place attributes, nested per JSON-FG/GeoJSON convention.
+        properties:
+          identifier:
+            type: string
+            description: A local gazetteer or inventory identifier (CIDOC-CRM P1_is_identified_by).
+          name:
+            type: string
+            description: >-
+              The place's name (CIDOC-CRM P87_is_identified_by, via an implied E44 Place
+              Appellation).
+          placeType:
+            type: string
+            format: uri
+            description: >-
+              The type of place, typically a Getty AAT concept URI (CIDOC-CRM P2_has_type).
+          partOf:
+            type: string
+            format: uri
+            description: >-
+              URI of a broader place this place falls within, e.g. a room within a building
+              within a site (CIDOC-CRM P89_falls_within).
+          sameAs:
+            type: string
+            format: uri
+            description: >-
+              URI of an equivalent record in an external authority, typically Getty TGN
+              (owl:sameAs).
+        required:
+          - identifier
+          - name
+    required:
+      - properties

@@ -1,0 +1,11 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "identifier": "crm:P1_is_identified_by",
+    "sameAs": {
+      "@id": "owl:sameAs",
+      "@type": "@id"
+    }
+  }
+}

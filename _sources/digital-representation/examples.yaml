@@ -1,0 +1,16 @@
+examples:
+  - title: A documentation photograph with provenance and a persistent identifier
+    content: >-
+      A photograph of the Great Gallery ceiling painting, attributed to the photographer and
+      minted with a DOI.
+    snippets:
+      - language: json
+        ref: examples/photograph.json
+
+  - title: A minimal record with only the required `isAbout` link
+    content: >-
+      Only `id` and `isAbout` are required — media type, attribution and persistent identifiers
+      can be added incrementally as they become available.
+    snippets:
+      - language: json
+        ref: examples/minimal.json

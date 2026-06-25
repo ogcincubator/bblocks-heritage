@@ -1,0 +1,16 @@
+examples:
+  - title: A documented restoration intervention
+    content: >-
+      A 2024 restoration of the Great Gallery ceiling painting, with a time-span, the object
+      worked on, the conservator who carried it out, and the place where it happened.
+    snippets:
+      - language: json
+        ref: examples/restoration.json
+
+  - title: A minimal record for an undated legacy intervention
+    content: >-
+      Only `identifier` is required at this level — older archive records (UC-V-3) may carry
+      nothing more than a reference to a paper conservation log, with detail added incrementally.
+    snippets:
+      - language: json
+        ref: examples/minimal.json

@@ -1,0 +1,16 @@
+examples:
+  - title: A named restorer matched to a Getty ULAN authority record
+    content: >-
+      A conservation staff member, typed as a `Person`, with a local staff identifier and a
+      Getty ULAN authority match.
+    snippets:
+      - language: json
+        ref: examples/restorer.json
+
+  - title: A minimal record for an unidentified creator
+    content: >-
+      PROV-O's Agent only requires a `name` or an `id` — useful for an attributed-but-unnamed
+      workshop or studio, common in older catalogue records (UC-V-3 legacy-archive migration).
+    snippets:
+      - language: json
+        ref: examples/minimal.json

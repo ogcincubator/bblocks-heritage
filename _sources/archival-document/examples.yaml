@@ -1,0 +1,8 @@
+examples:
+  - title: A LIDO/XML catalogue record with a Handle PID
+    content: >-
+      A LIDO/XML export of the fishing creel's catalogue record, migrated from a legacy archive
+      (UC-V-3) and minted with a persistent Handle.
+    snippets:
+      - language: json
+        ref: examples/lido.json

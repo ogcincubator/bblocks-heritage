@@ -1,0 +1,8 @@
+examples:
+  - title: An STL fabrication output derived from a 3D model
+    content: >-
+      An STL file for 3D printing a tactile replica of the Great Gallery ceiling painting's
+      frame detail, derived from the glTF 3D model.
+    snippets:
+      - language: json
+        ref: examples/stl.json

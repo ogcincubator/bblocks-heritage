@@ -1,0 +1,17 @@
+examples:
+  - title: A room within a site, linked to a broader place and to Getty TGN
+    content: >-
+      The Great Gallery room within the Reggia di Venaria, typed with a Getty AAT concept,
+      nested under its parent site via `partOf`, and matched to a Getty TGN authority record.
+    snippets:
+      - language: json
+        ref: examples/great-gallery.json
+
+  - title: A minimal record with only the required properties
+    content: >-
+      Only `geometry`, `identifier` and `name` are required — type, broader-place links and
+      authority matches can be added incrementally, matching the legacy-archive migration
+      scenario in UC-V-3.
+    snippets:
+      - language: json
+        ref: examples/minimal.json

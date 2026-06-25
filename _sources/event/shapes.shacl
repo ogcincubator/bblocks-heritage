@@ -1,0 +1,13 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# As with `place` and `actor`, an Event's rdf:type comes from PROV-O (prov:Activity) rather than
+# crm:E5_Event, so this shape targets by predicate rather than by class.
+<#EventTypeIsIRI>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P2_has_type ;
+    sh:property [
+        sh:path crm:P2_has_type ;
+        sh:nodeKind sh:IRI ;
+        sh:message "eventType must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] .

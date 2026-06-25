@@ -1,0 +1,19 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Fabrication Output
+description: |
+  A `digital-representation` constrained to physical-fabrication formats — STL or 3MF — produced
+  from a source 3D model, with a mandatory PROV derivation chain (`wasDerivedFrom`) back to that
+  source (D8.2 profile F: physical replicas, tactile reproductions).
+allOf:
+  - "$ref": bblocks://ogc.heritage.digital-representation
+  - type: object
+    required:
+      - mediaType
+      - wasDerivedFrom
+    properties:
+      mediaType:
+        type: string
+        enum:
+          - model/stl
+          - model/3mf
+        description: "`model/stl` for STL or `model/3mf` for 3D Manufacturing Format."

@@ -1,0 +1,21 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Actor
+description: |
+  A person or organization associated with cultural heritage objects, events or activities,
+  modelled as a CIDOC-CRM E39 Actor. Profiles PROV-O's Agent (`agentType` discriminates
+  Person/Organization/SoftwareAgent) and adds a local identifier and an external authority
+  match, typically Getty ULAN.
+x-jsonld-context: context.jsonld
+allOf:
+  - "$ref": bblocks://ogc.ogc-utils.prov-agent
+  - type: object
+    properties:
+      identifier:
+        type: string
+        description: A local authority or catalogue identifier (CIDOC-CRM P1_is_identified_by).
+      sameAs:
+        type: string
+        format: uri
+        description: >-
+          URI of an equivalent record in an external authority, typically Getty ULAN
+          (owl:sameAs).

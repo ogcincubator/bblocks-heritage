@@ -1,0 +1,17 @@
+{
+  "name": "Fabrication Output",
+  "abstract": "A digital-representation profile constrained to physical-fabrication formats (STL, 3MF), with a mandatory PROV derivation chain back to its source 3D model.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "sources": [
+    {
+      "title": "3MF",
+      "link": "https://3mf.io/specification/"
+    }
+  ],
+  "tags": ["heritage", "digital-representation", "fabrication-output", "prov"],
+  "group": "Digital representation profiles",
+  "isProfileOf": "bblocks://ogc.heritage.digital-representation"
+}

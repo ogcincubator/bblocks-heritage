@@ -1,0 +1,14 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# As with `place`, `actor` and `event`, the uplifted rdf:type comes from PROV-O (prov:Entity)
+# rather than crm:E73_Information_Object, so this shape targets by predicate.
+<#DigitalRepresentationIsAboutIsIRI>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P129_is_about ;
+    sh:property [
+        sh:path crm:P129_is_about ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "isAbout must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] .

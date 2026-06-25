@@ -1,0 +1,32 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Digital Representation
+description: |
+  A digital asset (image, 3D model, document...) representing or documenting a heritage object,
+  modelled as a CIDOC-CRM E73 Information Object. Profiles PROV-O's Entity: `wasAttributedTo`,
+  `wasGeneratedBy` and `wasDerivedFrom` carry its provenance chain. This block adds `isAbout`
+  (the heritage object it represents), a media type and an optional persistent identifier.
+x-jsonld-context: context.jsonld
+allOf:
+  - "$ref": bblocks://ogc.ogc-utils.prov-entity
+  - type: object
+    required:
+      - isAbout
+    properties:
+      identifier:
+        type: string
+        description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).
+      isAbout:
+        type: string
+        format: uri
+        description: >-
+          URI of the heritage object (or other CRM entity) this digital asset represents or
+          documents (CIDOC-CRM P129_is_about).
+      mediaType:
+        type: string
+        description: >-
+          The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`
+          (dct:format).
+      persistentIdentifier:
+        type: string
+        format: uri
+        description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this asset.

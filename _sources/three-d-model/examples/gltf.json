@@ -1,0 +1,9 @@
+{
+  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-model-01",
+  "identifier": "RV-GG-014-3D-01",
+  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "mediaType": "model/gltf-binary",
+  "wasAttributedTo": [
+    "https://example.org/heritalise/actor/giulia-bianchi"
+  ]
+}

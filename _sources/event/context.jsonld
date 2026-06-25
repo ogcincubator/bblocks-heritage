@@ -1,0 +1,10 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "identifier": "crm:P1_is_identified_by",
+    "eventType": {
+      "@id": "crm:P2_has_type",
+      "@type": "@id"
+    }
+  }
+}

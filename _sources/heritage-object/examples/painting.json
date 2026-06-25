@@ -1,0 +1,11 @@
+{
+  "id": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "type": "HeritageObject",
+  "identifier": "RV-GG-014",
+  "title": "Allegorical ceiling painting, Great Gallery",
+  "objectType": "http://vocab.getty.edu/aat/300033618",
+  "material": [
+    "http://vocab.getty.edu/aat/300014078"
+  ],
+  "currentLocation": "https://example.org/heritalise/place/great-gallery"
+}

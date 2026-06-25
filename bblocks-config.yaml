@@ -19,6 +19,10 @@ identifier-prefix: ogc.heritage.
 # List of imports ("default" is an alias for the main OGC Building Blocks Register)
 imports:
   - default
+  - https://ogcincubator.github.io/bblock-prov-schema/build/register.json     # PROV-O (provenance)
+  - https://ogcincubator.github.io/bblocks-skos/build/register.json          # SKOS (concept schemes, narratives)
+  - https://ogcincubator.github.io/bblocks-sta/build/register.json           # OGC SensorThings API (monitoring)
+  - https://ogcincubator.github.io/geodcat-ogcapi-records/build/register.json # DCAT / GeoDCAT-AP (dataset metadata)
 
 # Whether to enable the (highly experimental) downcompiling of JSON schemas to an OpenAPI 3.0-compatible
 # version

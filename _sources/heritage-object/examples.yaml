@@ -1,0 +1,16 @@
+examples:
+  - title: A catalogued painting with type, material and location
+    content: >-
+      A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materialised
+      with Getty AAT concepts and linked to a place.
+    snippets:
+      - language: json
+        ref: examples/painting.json
+
+  - title: A minimal record with only the required properties
+    content: >-
+      Only `identifier` and `title` are required — everything else can be added incrementally
+      as it becomes available, which matches the legacy-archive migration scenario in UC-V-3.
+    snippets:
+      - language: json
+        ref: examples/minimal.json

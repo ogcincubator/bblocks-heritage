@@ -1,0 +1,19 @@
+{
+  "name": "Heritage Object",
+  "abstract": "A physical cultural heritage item — an artwork, building element, garden feature or museum object — modelled as a CIDOC-CRM E22 Man-Made Object.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-06-25T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "rdfType": [
+    "http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object"
+  ],
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    }
+  ],
+  "tags": ["cidoc-crm", "heritage", "object"],
+  "group": "Core"
+}

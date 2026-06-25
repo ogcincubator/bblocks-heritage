@@ -1,0 +1,24 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# These constraints check the RDF graph produced after JSON-LD uplift. They are not redundant
+# with the JSON Schema: "format: uri" in the schema only checks string syntax before uplift, it
+# does not guarantee the uplifted value actually became an IRI node rather than a literal.
+<#HeritageObjectLinksAreIRIs>
+    a sh:NodeShape ;
+    sh:targetClass crm:E22_Man-Made_Object ;
+    sh:property [
+        sh:path crm:P2_has_type ;
+        sh:nodeKind sh:IRI ;
+        sh:message "objectType must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] ;
+    sh:property [
+        sh:path crm:P45_consists_of ;
+        sh:nodeKind sh:IRI ;
+        sh:message "material entries must uplift to IRIs" ;
+    ] ;
+    sh:property [
+        sh:path crm:P53_has_former_or_current_location ;
+        sh:nodeKind sh:IRI ;
+        sh:message "currentLocation must uplift to an IRI" ;
+    ] .

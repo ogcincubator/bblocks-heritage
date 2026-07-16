@@ -1,4 +1,5 @@
 {
-  "identifier": "RV-GG-RH-LEGACY-01",
-  "measurementOf": "https://example.org/heritalise/place/great-gallery"
+  "hasFeatureOfInterest": "https://example.org/heritalise/place/great-gallery",
+  "observedProperty": "http://vocab.getty.edu/aat/300379098",
+  "hasSimpleResult": "RH within tolerance, see paper log"
 }

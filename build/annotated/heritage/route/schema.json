@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Route",
+  "description": "A road, visitor path, internal track or circulation route within or between heritage zones,\ntyped as CIDOC-CRM E26 Physical Feature (a subclass of E53 Place). Profiles\nogc.heritage.place, inheriting JSON-FG geometry and core CIDOC-CRM place attributes,\nand adding route type, surface condition, width, accessibility rating, permitted use\nand a parent-site reference.\n\nGeometry is mandatory (centreline polyline or bounding polygon per JSON-FG).\n",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "type": "object",
+          "properties": {
+            "routeType": {
+              "type": "string",
+              "format": "uri",
+              "description": "Route classification as a controlled vocabulary URI (typically Getty AAT). Examples: visitor path, access road, pedestrian thoroughfare, service track. Maps to crm:P2_has_type.",
+              "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type",
+              "x-jsonld-type": "@id"
+            },
+            "surface": {
+              "type": "string",
+              "description": "Surface material or condition description (e.g. \"gravel\", \"cobblestone\", \"tarmac\", \"unpaved\"). Informational; no controlled vocabulary required."
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Approximate path or road width in metres."
+            },
+            "accessibilityRating": {
+              "type": "string",
+              "description": "Accessibility classification for visitors with reduced mobility (e.g. \"fully accessible\", \"partially accessible\", \"not accessible\"). Maps to crm:P44_has_condition.",
+              "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P44_has_condition"
+            },
+            "permittedUse": {
+              "type": "string",
+              "description": "Permitted use categories for this route (e.g. \"pedestrian only\", \"vehicles permitted\", \"service access only\"). Informational."
+            },
+            "parentSite": {
+              "type": "string",
+              "format": "uri",
+              "description": "URI of the heritage site (ogc.heritage.heritage-site) within which this route lies or which it connects. Maps to crm:P89_falls_within.",
+              "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P89_falls_within",
+              "x-jsonld-type": "@id"
+            }
+          },
+          "required": [
+            "routeType"
+          ]
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/"
+  }
+}

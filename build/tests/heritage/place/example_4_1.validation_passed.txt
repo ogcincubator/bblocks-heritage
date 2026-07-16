@@ -1,0 +1,34 @@
+Validation report for ogc.heritage.place - Place
+Generated 2026-07-16T14:38:31.351874+00:00
+=== Files ===
+Using examples/garden-sub-zone.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_4_1.jsonld created
+Output Turtle example_4_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/place/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/place/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://example.org/heritalise/place/north-parterre>
+
+Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:FeatureShape: <https://example.org/heritalise/place/north-parterre>
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:LinkShape: *none*
+
+=== End SHACL ===
+

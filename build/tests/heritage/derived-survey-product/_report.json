@@ -1,0 +1,14 @@
+{
+  "title": "Validation report for ogc.heritage.derived-survey-product - Derived Survey Product",
+  "bblockName": "Derived Survey Product",
+  "bblockId": "ogc.heritage.derived-survey-product",
+  "generated": "2026-07-16T14:38:31.632593+00:00",
+  "result": true,
+  "items": [],
+  "globalErrors": {},
+  "counts": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0
+  }
+}

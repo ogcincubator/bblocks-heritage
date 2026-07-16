@@ -1,0 +1,17 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://example.org/heritalise/building/villa-portelli-main> a crm:E22_Man-Made_Object ;
+    dct:created "18th century" ;
+    crm:P102_has_title "Villa Portelli — Main Villa Building" ;
+    crm:P1_is_identified_by "2WrR4Z9bT8RvKsJMlNpQxA",
+        "MT-BLD-VP-01" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300005433> ;
+    crm:P3_has_note "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta." ;
+    crm:P44_has_condition "under restoration" ;
+    crm:P46i_forms_part_of <https://example.org/heritalise/site/villa-portelli-garden> ;
+    crm:P50_has_current_keeper "Heritage Malta" ;
+    geojson:geometry "{\"coordinates\":[[[14.513,35.896],[14.515,35.896],[14.515,35.897],[14.513,35.897],[14.513,35.896]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+

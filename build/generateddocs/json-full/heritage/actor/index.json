@@ -59,16 +59,19 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/examples/restorer.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_1_1.json",
+          "sizeBytes": 141,
           "code": "{\n  \"agentType\": \"Person\",\n  \"name\": \"Giulia Bianchi\",\n  \"identifier\": \"RV-STAFF-042\",\n  \"sameAs\": \"http://vocab.getty.edu/ulan/500123456\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_1_1.jsonld",
+          "sizeBytes": 251,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld\",\n  \"agentType\": \"Person\",\n  \"name\": \"Giulia Bianchi\",\n  \"identifier\": \"RV-STAFF-042\",\n  \"sameAs\": \"http://vocab.getty.edu/ulan/500123456\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_1_1.ttl",
+          "sizeBytes": 359,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n[] a prov:Person ;\n    rdfs:label \"Giulia Bianchi\" ;\n    crm:P1_is_identified_by \"RV-STAFF-042\" ;\n    owl:sameAs <http://vocab.getty.edu/ulan/500123456> .\n\n"
         }
       ]
@@ -81,16 +84,19 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_2_1.json",
+          "sizeBytes": 66,
           "code": "{\n  \"name\": \"Workshop of an unidentified Venaria court painter\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_2_1.jsonld",
+          "sizeBytes": 176,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld\",\n  \"name\": \"Workshop of an unidentified Venaria court painter\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/actor/example_2_1.ttl",
+          "sizeBytes": 126,
           "code": "@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n[] rdfs:label \"Workshop of an unidentified Venaria court painter\" .\n\n"
         }
       ]

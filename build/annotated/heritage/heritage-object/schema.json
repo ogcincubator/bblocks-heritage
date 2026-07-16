@@ -67,9 +67,19 @@
     "title"
   ],
   "x-jsonld-extra-terms": {
-    "HeritageObject": "http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object"
+    "HeritageObject": "http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object",
+    "parentSpace": {
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of",
+      "x-jsonld-type": "@id"
+    },
+    "movementHistory": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#wasUsedBy",
+      "x-jsonld-type": "@id",
+      "x-jsonld-container": "@set"
+    }
   },
   "x-jsonld-prefixes": {
-    "crm": "http://www.cidoc-crm.org/cidoc-crm/"
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "prov": "http://www.w3.org/ns/prov#"
   }
 }

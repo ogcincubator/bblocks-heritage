@@ -1,0 +1,16 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/site/villa-portelli-garden> a geojson:Feature ;
+    dct:rights "https://creativecommons.org/licenses/by-nc/4.0/" ;
+    crm:P1_is_identified_by "Grade 1 Scheduled Monument (Malta)",
+        "MT-SITE-GARDEN-01" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300008012> ;
+    crm:P50_has_current_keeper "Heritage Malta" ;
+    crm:P87_is_identified_by "Villa Portelli Garden" ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 1.4512e+01 3.5895e+01 ) ( 1.4516e+01 3.5895e+01 ) ( 1.4516e+01 3.5898e+01 ) ( 1.4512e+01 3.5898e+01 ) ( 1.4512e+01 3.5895e+01 ) ) ) ] .
+

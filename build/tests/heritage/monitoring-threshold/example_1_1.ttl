@@ -1,0 +1,18 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7> a sosa:ObservableProperty ;
+    dct:modified "2025-06-30"^^xsd:date ;
+    dct:source "EN 15757:2010 — Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials." ;
+    qudt:unit <https://qudt.org/vocab/unit/PERCENT> ;
+    crm:P2_has_type "range" ;
+    crm:P3_has_note "The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 ± 10 % RH band. The 45–65 % range reflects site-specific acclimatisation history." ;
+    crm:P44_has_condition "warning" ;
+    crm:P4_has_time-span "{\"end\":\"2024-12-31\",\"start\":\"2024-01-01\"}"^^rdf:JSON ;
+    crm:P53_has_former_or_current_location <https://heritalise.eu/venaria/sensor/S-GG-07> ;
+    sosa:observes <https://qudt.org/vocab/quantitykind/RelativeHumidity> .
+

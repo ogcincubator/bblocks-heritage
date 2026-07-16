@@ -1,0 +1,13 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "id": "https://example.org/heritalise/object/diana-fountain",
+  "type": "HeritageObject",
+  "identifier": "RV-GARD-FNT-001",
+  "title": "Fountain of Diana, central garden axis",
+  "objectType": "http://vocab.getty.edu/aat/300006858",
+  "material": [
+    "http://vocab.getty.edu/aat/300011443"
+  ],
+  "currentLocation": "https://example.org/heritalise/site/reggia-di-venaria",
+  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
+}

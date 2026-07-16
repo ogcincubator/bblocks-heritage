@@ -1,0 +1,22 @@
+{
+  "id": "https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024",
+  "type": "DigitalSurrogate",
+  "isAbout": "https://data.regiadivenaria.it/heritage-object/galleria-grande",
+  "wasDerivedFrom": "https://data.regiadivenaria.it/source-carrier/ASTo-VR-mazzo12-n3",
+  "digitisationEvent": {
+    "method": "flatbed scan",
+    "date": "2024-03-15",
+    "equipment": "Zeutschel OS 14000 A1 overhead scanner",
+    "software": "Zeutschel OmniScan 12",
+    "operator": "Archivio di Stato di Torino, Laboratorio Digitalizzazione",
+    "resolution": "400dpi",
+    "colourMode": "RGB",
+    "quality": "master",
+    "processingHistory": "Flatbed scan of rolled plan; ICC colour calibration; converted from TIFF master to JPEG access copy."
+  },
+  "mediaType": "image/tiff",
+  "rights": "https://creativecommons.org/licenses/by/4.0/",
+  "persistentIdentifier": "https://hdl.handle.net/21.T11998/rv-plan-2024-0042",
+  "iiifManifest": "https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest",
+  "completeness": "complete \u2014 full sheet digitised; minor foxing on lower-right corner noted in processing history"
+}

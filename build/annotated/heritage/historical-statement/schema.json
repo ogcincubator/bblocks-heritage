@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historical Statement",
+  "description": "A piece of historical knowledge extracted from a document or legacy record, modelled as a CIDOC-CRM E13 Attribute Assignment. Captures the statement text (inner E33 Linguistic Object), the source record it was drawn from, an optional W3C Web Annotation evidence locator identifying the precise passage, and reviewer provenance.",
+  "type": "object",
+  "required": [
+    "type",
+    "statementType",
+    "sourceRecord",
+    "reviewer",
+    "confidence"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Persistent URI identifying this historical statement record."
+    },
+    "type": {
+      "const": "HistoricalStatement",
+      "description": "Fixed type token (maps to crm:E13_Attribute_Assignment).",
+      "x-jsonld-id": "@type"
+    },
+    "statementType": {
+      "type": "string",
+      "description": "Category of the statement, e.g. \"material attribution\", \"authorship attribution\", \"date attribution\", \"iconographic identification\", \"condition note\", \"construction technique\". Use a Getty AAT URI where available.",
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P2_has_type"
+    },
+    "statement": {
+      "type": "object",
+      "description": "The inner CIDOC-CRM E33 Linguistic Object containing the extracted text and metadata. Stored as an opaque JSON sub-object (crm:P141_assigned).",
+      "required": [
+        "text"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "The verbatim or summarised statement text."
+        },
+        "language": {
+          "type": "string",
+          "description": "BCP 47 language code of the text, e.g. \"it\", \"en\", \"mt\"."
+        },
+        "datePeriod": {
+          "type": "string",
+          "description": "Date or period to which the statement pertains, e.g. \"1699\", \"early 18th century\", \"1720\u20131735\".",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Optional controlled-vocabulary terms or free keywords summarising the statement."
+        }
+      },
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P141_assigned",
+      "x-jsonld-type": "@json"
+    },
+    "describedObject": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of the heritage entity (heritage-object, place, architectural-space, etc.) to which this statement assigns an attribute (crm:P140_assigned_attribute_to).",
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P140_assigned_attribute_to",
+      "x-jsonld-type": "@id"
+    },
+    "sourceRecord": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of the source-carrier or digital-surrogate from which this statement was extracted (crm:P16_used_specific_object). Required.",
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object",
+      "x-jsonld-type": "@id"
+    },
+    "evidenceLocator": {
+      "type": "object",
+      "description": "W3C Web Annotation SpecificResource identifying the precise passage (page, image region, row) within the source record. Stored as an opaque JSON sub-object (oa:hasBody).",
+      "properties": {
+        "source": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI of the document or digital surrogate containing the evidence."
+        },
+        "selector": {
+          "type": "object",
+          "description": "W3C OA selector identifying the fragment: use FragmentSelector for page/time ranges, XPathSelector for XML documents, or a free-text description in the `value` field.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "OA selector type, e.g. \"FragmentSelector\", \"XPathSelector\", \"TextPositionSelector\".",
+              "x-jsonld-id": "@type"
+            },
+            "conformsTo": {
+              "type": "string",
+              "format": "uri",
+              "description": "URI of the fragment specification (e.g. http://www.w3.org/TR/media-frags/)."
+            },
+            "value": {
+              "type": "string",
+              "description": "The selector value, e.g. \"page=12\", \"xywh=160,120,320,240\", \"row=42\"."
+            }
+          }
+        }
+      },
+      "x-jsonld-id": "http://www.w3.org/ns/oa#hasBody",
+      "x-jsonld-type": "@json"
+    },
+    "reviewer": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of the person or organisation who extracted and reviewed this statement (prov:wasAttributedTo). Required.",
+      "x-jsonld-id": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "x-jsonld-type": "@id"
+    },
+    "confidence": {
+      "type": "string",
+      "description": "Qualitative confidence level assigned by the reviewer, e.g. \"certain\", \"probable\", \"possible\", \"speculative\". Required.",
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note"
+    },
+    "datePeriod": {
+      "type": "string",
+      "description": "Date or period of the original event or condition described by the statement (crm:P4_has_time-span), e.g. \"1699\", \"late 17th century\".",
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span"
+    }
+  },
+  "x-jsonld-extra-terms": {
+    "HistoricalStatement": "http://www.cidoc-crm.org/cidoc-crm/E13_Attribute_Assignment"
+  },
+  "x-jsonld-prefixes": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "oa": "http://www.w3.org/ns/oa#",
+    "prov": "http://www.w3.org/ns/prov#"
+  }
+}

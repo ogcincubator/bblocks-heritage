@@ -1,0 +1,18 @@
+path	@id	schema
+/id	@id	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/affectedObject	http://www.cidoc-crm.org/cidoc-crm/P140_assigned_attribute_to	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/conditionState	http://www.cidoc-crm.org/cidoc-crm/P35_has_identified	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/conditionState/conditionType		/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/conditionState/severity		/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/conditionState/extent		/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/assessmentDate	http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/assessor	http://www.w3.org/ns/prov#wasAttributedTo	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/method	http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/confidence		/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/evidence	http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/recommendation	http://www.cidoc-crm.org/cidoc-crm/P3_has_note	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/reviewStatus		/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/footprint	https://purl.org/geojson/vocab#geometry	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/footprint/type	@type	/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml
+/footprint/coordinates		/github/workspace/build/annotated/heritage/condition-assessment/schema.yaml

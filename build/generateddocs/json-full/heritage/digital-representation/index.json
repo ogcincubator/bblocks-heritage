@@ -59,16 +59,19 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/photograph.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.json",
+          "sizeBytes": 406,
           "code": "{\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.jsonld",
+          "sizeBytes": 533,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.ttl",
+          "sizeBytes": 534,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .\n\n"
         }
       ]
@@ -81,22 +84,25 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.json",
+          "sizeBytes": 144,
           "code": "{\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.jsonld",
+          "sizeBytes": 271,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.ttl",
+          "sizeBytes": 193,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://example.org/heritalise/digital/fishing-creel-photo-01> crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Digital Representation\ndescription: 'A digital asset (image, 3D model, document...) representing or documenting\n  a heritage object,\n\n  modelled as a CIDOC-CRM E73 Information Object. Profiles PROV-O''s Entity: `wasAttributedTo`,\n\n  `wasGeneratedBy` and `wasDerivedFrom` carry its provenance chain. This block adds\n  `isAbout`\n\n  (the heritage object it represents), a media type and an optional persistent identifier.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml\n- type: object\n  required:\n  - isAbout\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    isAbout:\n      type: string\n      format: uri\n      description: URI of the heritage object (or other CRM entity) this digital asset\n        represents or documents (CIDOC-CRM P129_is_about).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about\n      x-jsonld-type: '@id'\n    mediaType:\n      type: string\n      description: The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`\n        (dct:format).\n      x-jsonld-id: http://purl.org/dc/terms/format\n    persistentIdentifier:\n      type: string\n      format: uri\n      description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this\n        asset.\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Digital Representation\ndescription: 'A digital asset (image, 3D model, document...) representing or documenting\n  a heritage object,\n\n  modelled as a CIDOC-CRM E73 Information Object. Profiles PROV-O''s Entity: `wasAttributedTo`,\n\n  `wasGeneratedBy` and `wasDerivedFrom` carry its provenance chain. This block adds\n  `isAbout`\n\n  (the heritage object it represents), a media type and an optional persistent identifier.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml\n- type: object\n  required:\n  - isAbout\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    isAbout:\n      type: string\n      format: uri\n      description: URI of the heritage object (or other CRM entity) this digital asset\n        represents or documents (CIDOC-CRM P129_is_about).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about\n      x-jsonld-type: '@id'\n    mediaType:\n      type: string\n      description: The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`\n        (dct:format).\n      x-jsonld-id: http://purl.org/dc/terms/format\n    persistentIdentifier:\n      type: string\n      format: uri\n      description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this\n        asset.\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    url:\n      type: string\n      format: uri\n      description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).\n      x-jsonld-id: http://www.w3.org/ns/dcat#accessURL\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n  dcat: http://www.w3.org/ns/dcat#\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/digital-representation"
 }

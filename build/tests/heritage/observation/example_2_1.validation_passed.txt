@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.observation - Observation
-Generated 2026-06-25T14:31:14.051249+00:00
+Generated 2026-07-16T14:38:29.912340+00:00
 === Files ===
 Using examples/minimal.json from examples
 JSON-LD context is present - uplifting
@@ -17,8 +17,22 @@ Validation result for _sources/observation/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/observation/shapes.shacl:
- - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI>: _:N22dc88bfd198434cacf0f6468c039d49
- - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI>: *none*
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: *none*
+
+Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
+ - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <file:///github/workspace/>
+ - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testResult>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: _:Nd6b7c5c473ca4059b19acde8e53b9944
+ - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: *none*
 
 === End SHACL ===
 

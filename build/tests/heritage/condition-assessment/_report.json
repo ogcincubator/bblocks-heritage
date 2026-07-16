@@ -1,0 +1,175 @@
+{
+  "title": "Validation report for ogc.heritage.condition-assessment - Condition Assessment",
+  "bblockName": "Condition Assessment",
+  "bblockId": "ogc.heritage.condition-assessment",
+  "generated": "2026-07-16T14:38:28.672259+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/condition-assessment/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/condition-assessment/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/venaria-vault-crack.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 10,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/condition-assessment/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/condition-assessment/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/condition-assessment/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>": {
+                  "nodes": [
+                    "<https://example.org/heritalise/condition/RV-CA-GG-2026-003>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/condition-assessment/shapes.shacl:\n - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://example.org/heritalise/condition/RV-CA-GG-2026-003>\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/condition-assessment/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/condition-assessment/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/villa-portelli-paint-loss.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 7,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/condition-assessment/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/condition-assessment/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/condition-assessment/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>": {
+                  "nodes": [
+                    "<https://example.org/heritalise/condition/MT-CA-VP-2026-011>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/condition-assessment/shapes.shacl:\n - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://example.org/heritalise/condition/MT-CA-VP-2026-011>\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

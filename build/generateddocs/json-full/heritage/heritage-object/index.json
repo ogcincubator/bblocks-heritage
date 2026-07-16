@@ -50,16 +50,19 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/examples/painting.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_1_1.json",
+          "sizeBytes": 389,
           "code": "{\n  \"id\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-GG-014\",\n  \"title\": \"Allegorical ceiling painting, Great Gallery\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300033618\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300014078\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_1_1.jsonld",
+          "sizeBytes": 509,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-GG-014\",\n  \"title\": \"Allegorical ceiling painting, Great Gallery\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300033618\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300014078\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_1_1.ttl",
+          "sizeBytes": 487,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://example.org/heritalise/object/great-gallery-painting-014> a crm:E22_Man-Made_Object ;\n    crm:P102_has_title \"Allegorical ceiling painting, Great Gallery\" ;\n    crm:P1_is_identified_by \"RV-GG-014\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300033618> ;\n    crm:P45_consists_of <http://vocab.getty.edu/aat/300014078> ;\n    crm:P53_has_former_or_current_location <https://example.org/heritalise/place/great-gallery> .\n\n"
         }
       ]
@@ -72,22 +75,100 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_2_1.json",
+          "sizeBytes": 90,
           "code": "{\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"WHM-1923.45\",\n  \"title\": \"Fishing creel\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_2_1.jsonld",
+          "sizeBytes": 210,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"WHM-1923.45\",\n  \"title\": \"Fishing creel\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_2_1.ttl",
+          "sizeBytes": 171,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n[] a crm:E22_Man-Made_Object ;\n    crm:P102_has_title \"Fishing creel\" ;\n    crm:P1_is_identified_by \"WHM-1923.45\" .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Architectural component with parent space and materials (CRRS-004)",
+      "content": "A load-bearing vault section within the Reggia di Venaria north gallery, typed as an architectural element (Getty AAT), with masonry and fresco materials and linked to its containing interior space via `parentSpace` (crm:P46i_forms_part_of). Covers CRRS-004 (architectural components of the built fabric).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/examples/wall-component.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_3_1.json",
+          "sizeBytes": 597,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/object/north-vault-bay-3\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-ARCH-NV-003\",\n  \"title\": \"North gallery vault, bay 3\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300002862\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300010439\",\n    \"http://vocab.getty.edu/aat/300014130\"\n  ],\n  \"parentSpace\": \"https://example.org/heritalise/space/north-gallery\",\n  \"description\": \"Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_3_1.jsonld",
+          "sizeBytes": 717,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/object/north-vault-bay-3\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-ARCH-NV-003\",\n  \"title\": \"North gallery vault, bay 3\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300002862\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300010439\",\n    \"http://vocab.getty.edu/aat/300014130\"\n  ],\n  \"parentSpace\": \"https://example.org/heritalise/space/north-gallery\",\n  \"description\": \"Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_3_1.ttl",
+          "sizeBytes": 691,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://example.org/heritalise/object/north-vault-bay-3> a crm:E22_Man-Made_Object ;\n    crm:P102_has_title \"North gallery vault, bay 3\" ;\n    crm:P1_is_identified_by \"RV-ARCH-NV-003\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300002862> ;\n    crm:P3_has_note \"Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.\" ;\n    crm:P45_consists_of <http://vocab.getty.edu/aat/300010439>,\n        <http://vocab.getty.edu/aat/300014130> ;\n    crm:P46i_forms_part_of <https://example.org/heritalise/space/north-gallery> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Movable heritage object with movement history and threshold link (CRRS-016, HM-04)",
+      "content": "A historical tapestry from the Reggia di Venaria \u2014 a movable item catalogued with object type (Getty AAT), fibre materials, its current storage location, a sequence of PROV-O movement events, and a link to the applicable climate threshold record. Covers CRRS-016 (movable furniture / decorative objects) and HM-04 (Malta movable heritage items with environmental thresholds).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/examples/tapestry.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_4_1.json",
+          "sizeBytes": 677,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/object/venaria-tapestry-hunt-04\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-MOV-TAP-004\",\n  \"title\": \"Royal Hunt tapestry no. 4\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300205002\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300014224\",\n    \"http://vocab.getty.edu/aat/300011727\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/space/storage-wing-b\",\n  \"movementHistory\": [\n    \"https://example.org/heritalise/event/tapestry-relocation-2021\",\n    \"https://example.org/heritalise/event/tapestry-treatment-2019\"\n  ],\n  \"conservationThresholdLink\": \"https://example.org/heritalise/threshold/textile-climate-rh\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_4_1.jsonld",
+          "sizeBytes": 797,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/object/venaria-tapestry-hunt-04\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-MOV-TAP-004\",\n  \"title\": \"Royal Hunt tapestry no. 4\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300205002\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300014224\",\n    \"http://vocab.getty.edu/aat/300011727\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/space/storage-wing-b\",\n  \"movementHistory\": [\n    \"https://example.org/heritalise/event/tapestry-relocation-2021\",\n    \"https://example.org/heritalise/event/tapestry-treatment-2019\"\n  ],\n  \"conservationThresholdLink\": \"https://example.org/heritalise/threshold/textile-climate-rh\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_4_1.ttl",
+          "sizeBytes": 723,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/object/venaria-tapestry-hunt-04> a crm:E22_Man-Made_Object ;\n    crm:P102_has_title \"Royal Hunt tapestry no. 4\" ;\n    crm:P1_is_identified_by \"RV-MOV-TAP-004\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300205002> ;\n    crm:P45_consists_of <http://vocab.getty.edu/aat/300011727>,\n        <http://vocab.getty.edu/aat/300014224> ;\n    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/storage-wing-b> ;\n    prov:wasUsedBy <https://example.org/heritalise/event/tapestry-relocation-2021>,\n        <https://example.org/heritalise/event/tapestry-treatment-2019> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Garden sculpture / fountain with Getty AAT type (CRRS-021)",
+      "content": "The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Getty AAT), constructed in stone, linked to the garden heritage site, and minted with a persistent W3ID. Covers CRRS-021 (garden sculptures and landscape objects).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/examples/garden-fountain.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_5_1.json",
+          "sizeBytes": 458,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/object/diana-fountain\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-GARD-FNT-001\",\n  \"title\": \"Fountain of Diana, central garden axis\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300006858\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300011443\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/site/reggia-di-venaria\",\n  \"persistentIdentifier\": \"https://w3id.org/heritalise/obj/RV-GARD-FNT-001\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_5_1.jsonld",
+          "sizeBytes": 578,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/object/diana-fountain\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-GARD-FNT-001\",\n  \"title\": \"Fountain of Diana, central garden axis\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300006858\",\n  \"material\": [\n    \"http://vocab.getty.edu/aat/300011443\"\n  ],\n  \"currentLocation\": \"https://example.org/heritalise/site/reggia-di-venaria\",\n  \"persistentIdentifier\": \"https://w3id.org/heritalise/obj/RV-GARD-FNT-001\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object/example_5_1.ttl",
+          "sizeBytes": 538,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://example.org/heritalise/object/diana-fountain> a crm:E22_Man-Made_Object ;\n    crm:P102_has_title \"Fountain of Diana, central garden axis\" ;\n    crm:P1_is_identified_by <https://w3id.org/heritalise/obj/RV-GARD-FNT-001>,\n        \"RV-GARD-FNT-001\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300006858> ;\n    crm:P45_consists_of <http://vocab.getty.edu/aat/300011443> ;\n    crm:P53_has_former_or_current_location <https://example.org/heritalise/site/reggia-di-venaria> .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Object\ndescription: 'A physical cultural heritage item (artwork, building element, garden\n  feature, museum object...),\n\n  modelled as a CIDOC-CRM E22 Man-Made Object.\n\n  '\ntype: object\nproperties:\n  id:\n    type: string\n    format: uri\n    description: The persistent or local URI identifying this object.\n    x-jsonld-id: '@id'\n  type:\n    const: HeritageObject\n    x-jsonld-id: '@type'\n  identifier:\n    type: string\n    description: A local catalogue or inventory number (CIDOC-CRM P1_is_identified_by).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  title:\n    type: string\n    description: A human-readable title or name for the object (CIDOC-CRM P102_has_title).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P102_has_title\n  description:\n    type: string\n    description: Free-text description or curatorial note (CIDOC-CRM P3_has_note).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n  objectType:\n    type: string\n    format: uri\n    description: The type of object, typically a Getty AAT concept URI (CIDOC-CRM\n      P2_has_type).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n    x-jsonld-type: '@id'\n  material:\n    type: array\n    description: Materials the object consists of, typically Getty AAT concept URIs\n      (CIDOC-CRM P45_consists_of).\n    items:\n      type: string\n      format: uri\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  currentLocation:\n    type: string\n    format: uri\n    description: URI of the place where the object is currently or was last located\n      (CIDOC-CRM P53_has_former_or_current_location).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location\n    x-jsonld-type: '@id'\n  persistentIdentifier:\n    type: string\n    format: uri\n    description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this object.\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    x-jsonld-type: '@id'\nrequired:\n- identifier\n- title\nx-jsonld-extra-terms:\n  HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Object\ndescription: 'A physical cultural heritage item (artwork, building element, garden\n  feature, museum object...),\n\n  modelled as a CIDOC-CRM E22 Man-Made Object.\n\n  '\ntype: object\nproperties:\n  id:\n    type: string\n    format: uri\n    description: The persistent or local URI identifying this object.\n    x-jsonld-id: '@id'\n  type:\n    const: HeritageObject\n    x-jsonld-id: '@type'\n  identifier:\n    type: string\n    description: A local catalogue or inventory number (CIDOC-CRM P1_is_identified_by).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  title:\n    type: string\n    description: A human-readable title or name for the object (CIDOC-CRM P102_has_title).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P102_has_title\n  description:\n    type: string\n    description: Free-text description or curatorial note (CIDOC-CRM P3_has_note).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n  objectType:\n    type: string\n    format: uri\n    description: The type of object, typically a Getty AAT concept URI (CIDOC-CRM\n      P2_has_type).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n    x-jsonld-type: '@id'\n  material:\n    type: array\n    description: Materials the object consists of, typically Getty AAT concept URIs\n      (CIDOC-CRM P45_consists_of).\n    items:\n      type: string\n      format: uri\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  currentLocation:\n    type: string\n    format: uri\n    description: URI of the place where the object is currently or was last located\n      (CIDOC-CRM P53_has_former_or_current_location).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location\n    x-jsonld-type: '@id'\n  persistentIdentifier:\n    type: string\n    format: uri\n    description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this object.\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    x-jsonld-type: '@id'\nrequired:\n- identifier\n- title\nx-jsonld-extra-terms:\n  HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object\n  parentSpace:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of\n    x-jsonld-type: '@id'\n  movementHistory:\n    x-jsonld-id: http://www.w3.org/ns/prov#wasUsedBy\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  prov: http://www.w3.org/ns/prov#\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/heritage-object"
 }

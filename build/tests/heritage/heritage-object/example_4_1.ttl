@@ -1,0 +1,13 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://example.org/heritalise/object/venaria-tapestry-hunt-04> a crm:E22_Man-Made_Object ;
+    crm:P102_has_title "Royal Hunt tapestry no. 4" ;
+    crm:P1_is_identified_by "RV-MOV-TAP-004" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300205002> ;
+    crm:P45_consists_of <http://vocab.getty.edu/aat/300011727>,
+        <http://vocab.getty.edu/aat/300014224> ;
+    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/storage-wing-b> ;
+    prov:wasUsedBy <https://example.org/heritalise/event/tapestry-relocation-2021>,
+        <https://example.org/heritalise/event/tapestry-treatment-2019> .
+

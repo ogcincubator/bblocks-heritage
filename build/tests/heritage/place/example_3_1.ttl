@@ -1,0 +1,13 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/place/central-garden-axis> a geojson:Feature ;
+    crm:P1_is_identified_by "RV-ZONE-CGA" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300008087> ;
+    crm:P87_is_identified_by "Central Garden Axis" ;
+    crm:P89_falls_within <https://example.org/heritalise/site/reggia-di-venaria> ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.619e+00 4.5132e+01 ) ( 7.631e+00 4.5132e+01 ) ( 7.631e+00 4.514e+01 ) ( 7.619e+00 4.514e+01 ) ( 7.619e+00 4.5132e+01 ) ) ) ] .
+

@@ -1,0 +1,213 @@
+{
+  "title": "Validation report for ogc.heritage.digital-surrogate - Digital Surrogate",
+  "bblockName": "Digital Surrogate",
+  "bblockId": "ogc.heritage.digital-surrogate",
+  "generated": "2026-07-16T14:38:31.746735+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/digital-surrogate/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/venaria_plan_scan.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 9,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-surrogate/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-surrogate/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-surrogate/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-surrogate/shapes.shacl#DigitalSurrogateShape>": {
+                  "nodes": [
+                    "<https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-surrogate/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-surrogate/shapes.shacl#DigitalSurrogateShape>: <https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024>\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                  "nodes": [
+                    "<https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024>\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/digital-surrogate/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/malta_photograph.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 6,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-surrogate/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-surrogate/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-surrogate/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-surrogate/shapes.shacl#DigitalSurrogateShape>": {
+                  "nodes": [
+                    "<https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-surrogate/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-surrogate/shapes.shacl#DigitalSurrogateShape>: <https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig>\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                  "nodes": [
+                    "<https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig>\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

@@ -1,0 +1,111 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.heritage-site",
+  "name": "Heritage Site",
+  "abstract": "A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    {
+      "title": "CIDOC-CRM E27 Site",
+      "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E27"
+    },
+    {
+      "title": "HERITALISE D8.2 REQ-001",
+      "link": "https://heritalise-eccch.eu/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "cidoc-crm",
+    "place",
+    "site"
+  ],
+  "group": "Place profiles",
+  "isProfileOf": "ogc.heritage.place",
+  "shaclShapes": {
+    "ogc.heritage.heritage-site": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/shapes.shacl"
+    ],
+    "ogc.heritage.place": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.place"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/heritage-site/",
+  "description": "## Heritage Site\n\nA `HeritageSite` is a designated cultural heritage site or pilot study area, modelled as\nCIDOC-CRM **E27 Site** \u2014 a subclass of E53 Place that carries the semantic notion of a\npurposefully established or recognised location (a palace complex, garden, protected\nlandscape, archaeological zone).\n\nThis block profiles [`ogc.heritage.place`](../place): a `HeritageSite` *is* a JSON-FG\nFeature. Geometry (a bounding polygon or representative point) stays at the top level under\n`geometry`; CIDOC-CRM attributes are nested under `properties`. The same JSON-FG consequence\napplies: `type` is fixed to `\"Feature\"`, so the uplifted RDF graph carries no explicit E27\nclass triple \u2014 SHACL shapes target by `sh:targetSubjectsOf crm:P2_has_type`.\n\nProperties added by this block (beyond those inherited from `place`):\n\n| Property | CRM mapping | Notes |\n|---|---|---|\n| `siteType` (required) | `crm:P2_has_type` (@id) | Controlled vocabulary URI, typically Getty AAT |\n| `designation` | `crm:P1_is_identified_by` | Formal designation code or label (e.g. UNESCO list number) |\n| `responsibleOrganisation` | `crm:P50_has_current_keeper` | Name or URI of the managing body |\n| `rights` | `dct:rights` | Access/reuse rights URI (Creative Commons, rightsstatements.org) |\n\n### Design note\n\nSub-zones within a site (garden partitions, protected buffer zones) are modelled as\n[`ogc.heritage.place`](../place) records linked back to the site via `partOf`\n(`crm:P89_falls_within`), not as nested `HeritageSite` records. The site itself is the\ntop-level boundary; the place hierarchy handles subdivision.\n\n### Use cases\n\n- **REQ-001** \u2014 Reggia di Venaria Reale overall pilot boundary (UNESCO WHC no. 823)\n- **MT-03** \u2014 Villa Portelli garden as a named national monument (Heritage Malta)\n- **REQ-018** \u2014 Venaria garden as a site-level entity (sub-zone linkage via `place`)\n",
+  "examples": [
+    {
+      "title": "Reggia di Venaria Reale pilot site (REQ-001)",
+      "content": "The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage designation, responsible consortium, CC-BY rights, boundary polygon, and Getty TGN authority match. Covers REQ-001 (Venaria overall pilot area).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/examples/venaria-site.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-site/example_1_1.json",
+          "sizeBytes": 695,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/site/reggia-di-venaria\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [7.617, 45.130],\n        [7.642, 45.130],\n        [7.642, 45.145],\n        [7.617, 45.145],\n        [7.617, 45.130]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-SITE-001\",\n    \"name\": \"Reggia di Venaria Reale\",\n    \"siteType\": \"http://vocab.getty.edu/aat/300006915\",\n    \"designation\": \"UNESCO World Heritage List no. 823\",\n    \"responsibleOrganisation\": \"Consorzio delle Residenze Reali Sabaude\",\n    \"rights\": \"https://creativecommons.org/licenses/by/4.0/\",\n    \"sameAs\": \"http://vocab.getty.edu/tgn/7011057\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-site/example_1_1.jsonld",
+          "sizeBytes": 960,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/site/reggia-di-venaria\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          7.617,\n          45.13\n        ],\n        [\n          7.642,\n          45.13\n        ],\n        [\n          7.642,\n          45.145\n        ],\n        [\n          7.617,\n          45.145\n        ],\n        [\n          7.617,\n          45.13\n        ]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-SITE-001\",\n    \"name\": \"Reggia di Venaria Reale\",\n    \"siteType\": \"http://vocab.getty.edu/aat/300006915\",\n    \"designation\": \"UNESCO World Heritage List no. 823\",\n    \"responsibleOrganisation\": \"Consorzio delle Residenze Reali Sabaude\",\n    \"rights\": \"https://creativecommons.org/licenses/by/4.0/\",\n    \"sameAs\": \"http://vocab.getty.edu/tgn/7011057\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-site/example_1_1.ttl",
+          "sizeBytes": 997,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/site/reggia-di-venaria> a geojson:Feature ;\n    dct:rights \"https://creativecommons.org/licenses/by/4.0/\" ;\n    crm:P1_is_identified_by \"RV-SITE-001\",\n        \"UNESCO World Heritage List no. 823\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300006915> ;\n    crm:P50_has_current_keeper \"Consorzio delle Residenze Reali Sabaude\" ;\n    crm:P87_is_identified_by \"Reggia di Venaria Reale\" ;\n    owl:sameAs <http://vocab.getty.edu/tgn/7011057> ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 7.617e+00 4.513e+01 ) ( 7.642e+00 4.513e+01 ) ( 7.642e+00 4.5145e+01 ) ( 7.617e+00 4.5145e+01 ) ( 7.617e+00 4.513e+01 ) ) ) ] .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Villa Portelli garden as a heritage site (MT-03)",
+      "content": "The Villa Portelli garden (Malta pilot) as a heritage site: national monument designation, Heritage Malta as responsible organisation, boundary polygon. Demonstrates reuse of the same block for a different pilot's garden-level entity (MT-03), distinguished only by siteType and designation values.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/examples/villa-portelli-garden.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-site/example_2_1.json",
+          "sizeBytes": 634,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/site/villa-portelli-garden\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [14.512, 35.895],\n        [14.516, 35.895],\n        [14.516, 35.898],\n        [14.512, 35.898],\n        [14.512, 35.895]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"MT-SITE-GARDEN-01\",\n    \"name\": \"Villa Portelli Garden\",\n    \"siteType\": \"http://vocab.getty.edu/aat/300008012\",\n    \"designation\": \"Grade 1 Scheduled Monument (Malta)\",\n    \"responsibleOrganisation\": \"Heritage Malta\",\n    \"rights\": \"https://creativecommons.org/licenses/by-nc/4.0/\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-site/example_2_1.jsonld",
+          "sizeBytes": 902,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/site/villa-portelli-garden\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          14.512,\n          35.895\n        ],\n        [\n          14.516,\n          35.895\n        ],\n        [\n          14.516,\n          35.898\n        ],\n        [\n          14.512,\n          35.898\n        ],\n        [\n          14.512,\n          35.895\n        ]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"MT-SITE-GARDEN-01\",\n    \"name\": \"Villa Portelli Garden\",\n    \"siteType\": \"http://vocab.getty.edu/aat/300008012\",\n    \"designation\": \"Grade 1 Scheduled Monument (Malta)\",\n    \"responsibleOrganisation\": \"Heritage Malta\",\n    \"rights\": \"https://creativecommons.org/licenses/by-nc/4.0/\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-site/example_2_1.ttl",
+          "sizeBytes": 889,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/site/villa-portelli-garden> a geojson:Feature ;\n    dct:rights \"https://creativecommons.org/licenses/by-nc/4.0/\" ;\n    crm:P1_is_identified_by \"Grade 1 Scheduled Monument (Malta)\",\n        \"MT-SITE-GARDEN-01\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300008012> ;\n    crm:P50_has_current_keeper \"Heritage Malta\" ;\n    crm:P87_is_identified_by \"Villa Portelli Garden\" ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 1.4512e+01 3.5895e+01 ) ( 1.4516e+01 3.5895e+01 ) ( 1.4516e+01 3.5898e+01 ) ( 1.4512e+01 3.5898e+01 ) ( 1.4512e+01 3.5895e+01 ) ) ) ] .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Site\ndescription: 'A designated cultural heritage site or pilot study area, typed as CIDOC-CRM\n  E27 Site\n\n  (a subclass of E53 Place and E26 Physical Feature). Profiles ogc.heritage.place,\n\n  inheriting JSON-FG geometry and core CIDOC-CRM place attributes, and adding site-level\n\n  designation, responsible organisation and rights fields.\n\n\n  A garden, palace complex or protected landscape is modelled as a heritage-site with\n  an\n\n  appropriate siteType; sub-zones within the site are modelled as ogc.heritage.place\n  records\n\n  linked back via partOf.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.yaml\n- type: object\n  properties:\n    properties:\n      type: object\n      properties:\n        siteType:\n          type: string\n          format: uri\n          description: 'Heritage designation type as a controlled vocabulary URI (typically\n            Getty AAT). Examples: palace complex, garden, World Heritage Site, national\n            monument. Maps to crm:P2_has_type.'\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n          x-jsonld-type: '@id'\n        designation:\n          type: string\n          description: Formal heritage designation code or label, e.g. a UNESCO World\n            Heritage List reference number or national inventory entry. Maps to crm:P1_is_identified_by\n            as a second identifier alongside the local inventory identifier.\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n        responsibleOrganisation:\n          type: string\n          description: Name or URI of the body responsible for managing or custodying\n            this site (crm:P50_has_current_keeper).\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper\n        rights:\n          type: string\n          description: Access and use rights statement, preferably a Creative Commons\n            or rights statement URI (dct:rights).\n          x-jsonld-id: http://purl.org/dc/terms/rights\n      required:\n      - siteType\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/heritage-site"
+}

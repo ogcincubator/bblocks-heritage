@@ -1,0 +1,12 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "id": "https://example.org/heritalise/event/villa-portelli-founding-1820",
+  "identifier": "MT-EVT-1820-FOUND",
+  "eventType": "http://vocab.getty.edu/aat/300069748",
+  "startedAtTime": "1820-01-01T00:00:00Z",
+  "wasAssociatedWith": [
+    "https://example.org/heritalise/actor/house-of-portelli"
+  ],
+  "atLocation": "https://example.org/heritalise/site/villa-portelli",
+  "description": "Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence."
+}

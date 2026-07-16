@@ -155,6 +155,186 @@ Only `geometry`, `identifier` and `name` are required — type, broader-place li
 
 ```
 
+
+### Garden major zone nested within a heritage site (CRRS-019)
+The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) and linked to the enclosing heritage site via `partOf` (crm:P89_falls_within). Demonstrates the top-level spatial subdivision of a large heritage site into named landscape zones. Covers CRRS-019 (garden major zones).
+#### json
+```json
+{
+  "id": "https://example.org/heritalise/place/central-garden-axis",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [7.619, 45.132],
+        [7.631, 45.132],
+        [7.631, 45.140],
+        [7.619, 45.140],
+        [7.619, 45.132]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "RV-ZONE-CGA",
+    "name": "Central Garden Axis",
+    "placeType": "http://vocab.getty.edu/aat/300008087",
+    "partOf": "https://example.org/heritalise/site/reggia-di-venaria"
+  }
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
+  "id": "https://example.org/heritalise/place/central-garden-axis",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.619,
+          45.132
+        ],
+        [
+          7.631,
+          45.132
+        ],
+        [
+          7.631,
+          45.14
+        ],
+        [
+          7.619,
+          45.14
+        ],
+        [
+          7.619,
+          45.132
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "RV-ZONE-CGA",
+    "name": "Central Garden Axis",
+    "placeType": "http://vocab.getty.edu/aat/300008087",
+    "partOf": "https://example.org/heritalise/site/reggia-di-venaria"
+  }
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/place/central-garden-axis> a geojson:Feature ;
+    crm:P1_is_identified_by "RV-ZONE-CGA" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300008087> ;
+    crm:P87_is_identified_by "Central Garden Axis" ;
+    crm:P89_falls_within <https://example.org/heritalise/site/reggia-di-venaria> ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.619e+00 4.5132e+01 ) ( 7.631e+00 4.5132e+01 ) ( 7.631e+00 4.514e+01 ) ( 7.619e+00 4.514e+01 ) ( 7.619e+00 4.5132e+01 ) ) ) ] .
+
+
+```
+
+
+### Garden sub-zone nested within a major zone (CRRS-020)
+The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and linked to the central garden axis via `partOf`. Demonstrates a second-level spatial subdivision (sub-zone within a major zone). Covers CRRS-020 (garden sub-zones).
+#### json
+```json
+{
+  "id": "https://example.org/heritalise/place/north-parterre",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [7.620, 45.136],
+        [7.625, 45.136],
+        [7.625, 45.140],
+        [7.620, 45.140],
+        [7.620, 45.136]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "RV-ZONE-NP",
+    "name": "North Parterre",
+    "placeType": "http://vocab.getty.edu/aat/300008106",
+    "partOf": "https://example.org/heritalise/place/central-garden-axis"
+  }
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
+  "id": "https://example.org/heritalise/place/north-parterre",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.62,
+          45.136
+        ],
+        [
+          7.625,
+          45.136
+        ],
+        [
+          7.625,
+          45.14
+        ],
+        [
+          7.62,
+          45.14
+        ],
+        [
+          7.62,
+          45.136
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "RV-ZONE-NP",
+    "name": "North Parterre",
+    "placeType": "http://vocab.getty.edu/aat/300008106",
+    "partOf": "https://example.org/heritalise/place/central-garden-axis"
+  }
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/place/north-parterre> a geojson:Feature ;
+    crm:P1_is_identified_by "RV-ZONE-NP" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300008106> ;
+    crm:P87_is_identified_by "North Parterre" ;
+    crm:P89_falls_within <https://example.org/heritalise/place/central-garden-axis> ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.62e+00 4.5136e+01 ) ( 7.625e+00 4.5136e+01 ) ( 7.625e+00 4.514e+01 ) ( 7.62e+00 4.514e+01 ) ( 7.62e+00 4.5136e+01 ) ) ) ] .
+
+
+```
+
 ## Schema
 
 ```yaml

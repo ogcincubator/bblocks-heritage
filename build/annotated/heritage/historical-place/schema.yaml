@@ -1,0 +1,58 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Historical Place
+description: "A named historical spatial feature \u2014 room, area, route or landscape
+  designation \u2014 that has\nsince been renamed, restructured or disappeared. Profiles
+  ogc.heritage.place, inheriting\nJSON-FG geometry and core CRM place attributes,
+  and adding historical period, source\nprovenance, a link to the current spatial
+  equivalent, and a mapping-confidence rating.\n\nThe inherited `name` field carries
+  the historical designation (e.g. \"Sala degli Scudieri\",\n\"Cortile dei Cani\").
+  The inherited `partOf` field or the profile-specific `currentEquivalent`\nfield
+  (both map to crm:P89_falls_within) link the historical feature to the contemporary\nspace
+  or place record that best corresponds to it.\n"
+allOf:
+- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.yaml
+- type: object
+  properties:
+    properties:
+      type: object
+      properties:
+        datePeriod:
+          type: string
+          description: "The historical period or date range during which this place
+            name or spatial configuration was in use, expressed as a free-text string
+            (e.g. \"1720\u20131798\", \"18th century\", \"pre-1943\"). Maps to crm:P4_has_time-span."
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span
+        historicalSource:
+          type: string
+          format: uri
+          description: URI of the archival or documentary source (ogc.heritage.source-carrier
+            or ogc.heritage.digital-surrogate) from which this historical designation
+            is derived. Maps to crm:P70i_is_documented_in.
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in
+          x-jsonld-type: '@id'
+        currentEquivalent:
+          type: string
+          format: uri
+          description: URI of the contemporary space or place record that best corresponds
+            to this historical feature (ogc.heritage.architectural-space, ogc.heritage.heritage-site,
+            or ogc.heritage.place). Maps to crm:P89_falls_within, the same predicate
+            as the inherited `partOf` field; use `currentEquivalent` when the semantic
+            intent is historical crosswalk rather than spatial containment.
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P89_falls_within
+          x-jsonld-type: '@id'
+        mappingConfidence:
+          type: string
+          enum:
+          - confirmed
+          - probable
+          - approximate
+          - uncertain
+          description: 'Confidence level of the crosswalk between this historical
+            place and its current equivalent: confirmed (identical boundary documented),
+            probable (strong archival evidence), approximate (partial overlap), uncertain
+            (speculative). Maps to crm:P3_has_note.'
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+      required:
+      - mappingConfidence
+x-jsonld-prefixes:
+  crm: http://www.cidoc-crm.org/cidoc-crm/

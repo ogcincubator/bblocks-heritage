@@ -1,0 +1,13 @@
+{
+  "id": "https://heritalise.eu/malta/threshold/temp-grand-salon-min",
+  "type": "MonitoringThreshold",
+  "parameter": "https://qudt.org/vocab/quantitykind/Temperature",
+  "thresholdType": "minValue",
+  "minValue": 10,
+  "unit": "https://qudt.org/vocab/unit/DEG_C",
+  "severity": "alarm",
+  "appliesTo": "https://heritalise.eu/malta/sensor/S-VP-GS-01",
+  "source": "https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf",
+  "rationale": "Temperatures below 10 \u00b0C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention.",
+  "reviewDate": "2025-09-01"
+}

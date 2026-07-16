@@ -1,0 +1,108 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.building",
+  "name": "Building",
+  "abstract": "A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    {
+      "title": "CIDOC-CRM E22 Man-Made Object",
+      "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E22"
+    },
+    {
+      "title": "HERITALISE D8.2 REQ-002",
+      "link": "https://heritalise-eccch.eu/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "cidoc-crm",
+    "building",
+    "architecture"
+  ],
+  "group": "Heritage object profiles",
+  "isProfileOf": "ogc.heritage.heritage-object",
+  "shaclShapes": {
+    "ogc.heritage.building": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/building/shapes.shacl"
+    ],
+    "ogc.heritage.heritage-object": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.heritage-object"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/building/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/building/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/building/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/building/",
+  "description": "## Building\n\nA `Building` is a principal building or architectural unit \u2014 a palace wing, chapel,\noutbuilding, or villa \u2014 modelled as CIDOC-CRM **E22 Man-Made Object**. It profiles\n[`ogc.heritage.heritage-object`](../heritage-object), inheriting the inventory identifier,\ntitle, object type, materials, and provenance fields, and adds site containment, construction\nhistory, operational status, an optional GeoJSON footprint, and an optional IFC GUID for\nHBIM cross-referencing.\n\nThe building category is conveyed through `objectType` pointing to a Getty AAT architectural\nconcept (e.g. `aat:300007733` *palace*). The `type` field is fixed to `\"HeritageObject\"` from\nthe parent; overriding it would make the schema unsatisfiable.\n\nProperties added by this block:\n\n| Property | CRM / standard mapping | Notes |\n|---|---|---|\n| `parentSite` | `crm:P46i_forms_part_of` (@id) | URI of the containing `heritage-site` |\n| `constructionPeriod` | `dct:created` | ISO 8601 date/range or free text |\n| `currentStatus` | `crm:P44_has_condition` | Operational/conservation status string |\n| `responsibleOrganisation` | `crm:P50_has_current_keeper` | Managing body name or URI |\n| `ifcGlobalId` | `crm:P1_is_identified_by` | IFC IfcBuilding GUID for HBIM linkage |\n| `footprint` | `geojson:geometry` (@json) | GeoJSON Polygon/MultiPolygon ground plan |\n\n### Design notes\n\n`footprint` holds a **generalised** ground-level geometry for mapping and spatial queries.\nDetailed BIM geometry lives in the IFC model, linked via `ifcGlobalId`. Coordinates are stored\nas `@type: \"@json\"` to prevent coordinate arrays from being misread as RDF lists.\n\n[`architectural-space`](../architectural-space) records reference a `Building` via their\n`parentBuilding` property (`crm:P46i_forms_part_of`).\n\n### Use cases\n\n- **REQ-002** \u2014 Galleria Grande and Sant'Uberto chapel at Reggia di Venaria\n- **MT-01** \u2014 Villa Portelli main villa building with HBIM / Gaussian splat context\n",
+  "examples": [
+    {
+      "title": "Galleria Grande, Reggia di Venaria (REQ-002)",
+      "content": "The Galleria Grande as a building: linked to the Venaria heritage site, construction period from Garove to Juvara, footprint polygon, and Getty AAT building type. Covers REQ-002 (principal building / architectural unit at Venaria).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/building/examples/galleria-grande.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/building/example_1_1.json",
+          "sizeBytes": 800,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/building/galleria-grande\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-BLD-GG\",\n  \"title\": \"Galleria Grande, Reggia di Venaria Reale\",\n  \"description\": \"The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300007733\",\n  \"parentSite\": \"https://example.org/heritalise/site/reggia-di-venaria\",\n  \"constructionPeriod\": \"1699/1733\",\n  \"currentStatus\": \"in use\",\n  \"responsibleOrganisation\": \"Consorzio delle Residenze Reali Sabaude\",\n  \"footprint\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [7.627, 45.134],\n        [7.630, 45.134],\n        [7.630, 45.136],\n        [7.627, 45.136],\n        [7.627, 45.134]\n      ]\n    ]\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/building/example_1_1.jsonld",
+          "sizeBytes": 1061,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/building/galleria-grande\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"RV-BLD-GG\",\n  \"title\": \"Galleria Grande, Reggia di Venaria Reale\",\n  \"description\": \"The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300007733\",\n  \"parentSite\": \"https://example.org/heritalise/site/reggia-di-venaria\",\n  \"constructionPeriod\": \"1699/1733\",\n  \"currentStatus\": \"in use\",\n  \"responsibleOrganisation\": \"Consorzio delle Residenze Reali Sabaude\",\n  \"footprint\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          7.627,\n          45.134\n        ],\n        [\n          7.63,\n          45.134\n        ],\n        [\n          7.63,\n          45.136\n        ],\n        [\n          7.627,\n          45.136\n        ],\n        [\n          7.627,\n          45.134\n        ]\n      ]\n    ]\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/building/example_1_1.ttl",
+          "sizeBytes": 990,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\n<https://example.org/heritalise/building/galleria-grande> a crm:E22_Man-Made_Object ;\n    dct:created \"1699/1733\" ;\n    crm:P102_has_title \"Galleria Grande, Reggia di Venaria Reale\" ;\n    crm:P1_is_identified_by \"RV-BLD-GG\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300007733> ;\n    crm:P3_has_note \"The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.\" ;\n    crm:P44_has_condition \"in use\" ;\n    crm:P46i_forms_part_of <https://example.org/heritalise/site/reggia-di-venaria> ;\n    crm:P50_has_current_keeper \"Consorzio delle Residenze Reali Sabaude\" ;\n    geojson:geometry \"{\\\"coordinates\\\":[[[7.627,45.134],[7.63,45.134],[7.63,45.136],[7.627,45.136],[7.627,45.134]]],\\\"type\\\":\\\"Polygon\\\"}\"^^rdf:JSON .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Villa Portelli main building with IFC reference (MT-01)",
+      "content": "The main villa building at Villa Portelli, Malta: linked to the garden heritage site, under-restoration status, and an optional IFC Global ID for HBIM cross-reference. Covers MT-01 (Villa Portelli main building). Note \u2014 Gaussian splat 3D representation would be a linked digital-representation record with dct:format pointing to the appropriate media type, not an attribute on the building itself.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/building/examples/villa-portelli-main.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/building/example_2_1.json",
+          "sizeBytes": 820,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/building/villa-portelli-main\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"MT-BLD-VP-01\",\n  \"title\": \"Villa Portelli \u2014 Main Villa Building\",\n  \"description\": \"The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300005433\",\n  \"parentSite\": \"https://example.org/heritalise/site/villa-portelli-garden\",\n  \"constructionPeriod\": \"18th century\",\n  \"currentStatus\": \"under restoration\",\n  \"responsibleOrganisation\": \"Heritage Malta\",\n  \"ifcGlobalId\": \"2WrR4Z9bT8RvKsJMlNpQxA\",\n  \"footprint\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [14.513, 35.896],\n        [14.515, 35.896],\n        [14.515, 35.897],\n        [14.513, 35.897],\n        [14.513, 35.896]\n      ]\n    ]\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/building/example_2_1.jsonld",
+          "sizeBytes": 1086,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/building/villa-portelli-main\",\n  \"type\": \"HeritageObject\",\n  \"identifier\": \"MT-BLD-VP-01\",\n  \"title\": \"Villa Portelli \\u2014 Main Villa Building\",\n  \"description\": \"The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.\",\n  \"objectType\": \"http://vocab.getty.edu/aat/300005433\",\n  \"parentSite\": \"https://example.org/heritalise/site/villa-portelli-garden\",\n  \"constructionPeriod\": \"18th century\",\n  \"currentStatus\": \"under restoration\",\n  \"responsibleOrganisation\": \"Heritage Malta\",\n  \"ifcGlobalId\": \"2WrR4Z9bT8RvKsJMlNpQxA\",\n  \"footprint\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          14.513,\n          35.896\n        ],\n        [\n          14.515,\n          35.896\n        ],\n        [\n          14.515,\n          35.897\n        ],\n        [\n          14.513,\n          35.897\n        ],\n        [\n          14.513,\n          35.896\n        ]\n      ]\n    ]\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/building/example_2_1.ttl",
+          "sizeBytes": 1003,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\n<https://example.org/heritalise/building/villa-portelli-main> a crm:E22_Man-Made_Object ;\n    dct:created \"18th century\" ;\n    crm:P102_has_title \"Villa Portelli \u2014 Main Villa Building\" ;\n    crm:P1_is_identified_by \"2WrR4Z9bT8RvKsJMlNpQxA\",\n        \"MT-BLD-VP-01\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300005433> ;\n    crm:P3_has_note \"The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.\" ;\n    crm:P44_has_condition \"under restoration\" ;\n    crm:P46i_forms_part_of <https://example.org/heritalise/site/villa-portelli-garden> ;\n    crm:P50_has_current_keeper \"Heritage Malta\" ;\n    geojson:geometry \"{\\\"coordinates\\\":[[[14.513,35.896],[14.515,35.896],[14.515,35.897],[14.513,35.897],[14.513,35.896]]],\\\"type\\\":\\\"Polygon\\\"}\"^^rdf:JSON .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Building\ndescription: 'A principal building or architectural unit (palace wing, chapel, outbuilding,\n  villa)\n\n  modelled as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object\n  and\n\n  adds site containment, construction history, operational status, optional IFC cross-reference\n\n  and an optional GeoJSON footprint geometry.\n\n\n  Instances have type \"HeritageObject\" (inherited); the building category is conveyed\n  through\n\n  objectType pointing to a Getty AAT architectural concept.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml\n- type: object\n  properties:\n    parentSite:\n      type: string\n      format: uri\n      description: URI of the heritage-site this building belongs to (crm:P46i_forms_part_of).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of\n      x-jsonld-type: '@id'\n    constructionPeriod:\n      type: string\n      description: Date or date range of original construction, ISO 8601 or free text\n        (e.g. \"1675-1690\"). Maps to dct:created.\n      x-jsonld-id: http://purl.org/dc/terms/created\n    currentStatus:\n      type: string\n      description: Operational or conservation status (e.g. \"in use\", \"under restoration\",\n        \"closed\"). Maps to crm:P44_has_condition.\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition\n    responsibleOrganisation:\n      type: string\n      description: Name or URI of the body responsible for managing this building\n        (crm:P50_has_current_keeper).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper\n    ifcGlobalId:\n      type: string\n      description: IFC Global ID (GUID) of the corresponding IfcBuilding element in\n        an HBIM model, when available (crm:P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    footprint:\n      type: object\n      description: Optional GeoJSON geometry representing the building's ground-level\n        footprint or spatial extent.\n      properties:\n        type:\n          type: string\n          enum:\n          - Point\n          - Polygon\n          - MultiPolygon\n        coordinates:\n          type: array\n      required:\n      - type\n      - coordinates\n      x-jsonld-id: https://purl.org/geojson/vocab#geometry\n      x-jsonld-type: '@json'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n  geojson: https://purl.org/geojson/vocab#\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/building"
+}

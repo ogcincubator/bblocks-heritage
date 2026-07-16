@@ -1,0 +1,24 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+
+<https://data.heritagemalta.org/oral-history/villap-oh-2023-004> a crm:E73_Information_Object ;
+    dct:accessRights "consented — public access" ;
+    dct:contributor <https://data.heritagemalta.org/actor/heritage-malta-oral-history-unit>,
+        <https://data.heritagemalta.org/actor/john-farrugia> ;
+    dct:format "video/mp4" ;
+    dct:rights "https://creativecommons.org/licenses/by-nc/4.0/" ;
+    dct:subject "Villa Portelli gardens",
+        "World War II",
+        "domestic life",
+        "wartime occupation" ;
+    dct:title "Wartime memories of Villa Portelli — Interview with Maria Camilleri" ;
+    crm:P129_is_about <https://data.heritagemalta.org/place/villa-portelli> ;
+    crm:P1_is_identified_by "https://hdl.handle.net/21.T11998/hm-oh-2023-004" ;
+    crm:P4_has_time-span "1940–1945" ;
+    crm:P70i_is_documented_in <https://data.heritagemalta.org/iiif/3/villap-oh-2023-004/manifest>,
+        <https://data.heritagemalta.org/oral-history/villap-oh-2023-004/transcript.pdf> ;
+    crm:P72_has_language "mt" ;
+    schema:duration "PT1H12M33S" ;
+    schema:interviewee <https://data.heritagemalta.org/actor/maria-camilleri> .
+

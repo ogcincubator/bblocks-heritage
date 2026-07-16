@@ -1,0 +1,12 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+[] a crm:E22_Man-Made_Object ;
+    crm:P1_is_identified_by "MT-MP-VP-SALON-T01" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300379652> ;
+    crm:P44_has_condition "active" ;
+    crm:P50_has_current_keeper "Heritage Malta" ;
+    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/villa-portelli-salon> ;
+    geojson:geometry "{\"coordinates\":[14.5134,35.8964,1.8],\"type\":\"Point\"}"^^rdf:JSON .
+

@@ -1,0 +1,20 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/context.jsonld",
+  "id": "https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig",
+  "type": "DigitalSurrogate",
+  "isAbout": "https://data.heritagemalta.org/place/villa-portelli",
+  "wasDerivedFrom": "https://data.heritagemalta.org/source-carrier/photo-neg-1953-001",
+  "digitisationEvent": {
+    "method": "digital photography from negative",
+    "date": "2023-11-08",
+    "equipment": "Phase One iXG 50MP with copy stand",
+    "software": "Capture One 23",
+    "operator": "Heritage Malta Conservation Department",
+    "resolution": "50MP",
+    "colourMode": "RGB",
+    "quality": "access copy",
+    "processingHistory": "35mm negative photographed on copy stand; colour correction and contrast adjustment applied."
+  },
+  "mediaType": "image/jpeg",
+  "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+}

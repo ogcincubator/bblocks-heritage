@@ -1,0 +1,19 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-threshold/context.jsonld",
+  "id": "https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7",
+  "type": "MonitoringThreshold",
+  "parameter": "https://qudt.org/vocab/quantitykind/RelativeHumidity",
+  "thresholdType": "range",
+  "minValue": 45,
+  "maxValue": 65,
+  "unit": "https://qudt.org/vocab/unit/PERCENT",
+  "severity": "warning",
+  "appliesTo": "https://heritalise.eu/venaria/sensor/S-GG-07",
+  "activePeriod": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "source": "EN 15757:2010 \u2014 Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials.",
+  "rationale": "The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 \u00b1 10 % RH band. The 45\u201365 % range reflects site-specific acclimatisation history.",
+  "reviewDate": "2025-06-30"
+}

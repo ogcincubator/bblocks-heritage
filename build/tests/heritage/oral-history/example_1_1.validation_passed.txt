@@ -1,0 +1,30 @@
+Validation report for ogc.heritage.oral-history - Oral History
+Generated 2026-07-16T14:38:31.994226+00:00
+=== Files ===
+Using examples/malta_oral_history.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/oral-history/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/oral-history/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/oral-history/shapes.shacl#OralHistoryShape>: <https://data.heritagemalta.org/oral-history/villap-oh-2023-004>
+
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://data.heritagemalta.org/oral-history/villap-oh-2023-004>
+
+=== End SHACL ===
+

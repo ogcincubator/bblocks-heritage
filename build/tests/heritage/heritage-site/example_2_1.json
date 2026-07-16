@@ -1,0 +1,39 @@
+{
+  "id": "https://example.org/heritalise/site/villa-portelli-garden",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          14.512,
+          35.895
+        ],
+        [
+          14.516,
+          35.895
+        ],
+        [
+          14.516,
+          35.898
+        ],
+        [
+          14.512,
+          35.898
+        ],
+        [
+          14.512,
+          35.895
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "MT-SITE-GARDEN-01",
+    "name": "Villa Portelli Garden",
+    "siteType": "http://vocab.getty.edu/aat/300008012",
+    "designation": "Grade 1 Scheduled Monument (Malta)",
+    "responsibleOrganisation": "Heritage Malta",
+    "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "https://example.org/heritalise/building/villa-portelli-main",
+  "type": "HeritageObject",
+  "identifier": "MT-BLD-VP-01",
+  "title": "Villa Portelli \u2014 Main Villa Building",
+  "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
+  "objectType": "http://vocab.getty.edu/aat/300005433",
+  "parentSite": "https://example.org/heritalise/site/villa-portelli-garden",
+  "constructionPeriod": "18th century",
+  "currentStatus": "under restoration",
+  "responsibleOrganisation": "Heritage Malta",
+  "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA",
+  "footprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          14.513,
+          35.896
+        ],
+        [
+          14.515,
+          35.896
+        ],
+        [
+          14.515,
+          35.897
+        ],
+        [
+          14.513,
+          35.897
+        ],
+        [
+          14.513,
+          35.896
+        ]
+      ]
+    ]
+  }
+}

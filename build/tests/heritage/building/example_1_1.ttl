@@ -1,0 +1,16 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://example.org/heritalise/building/galleria-grande> a crm:E22_Man-Made_Object ;
+    dct:created "1699/1733" ;
+    crm:P102_has_title "Galleria Grande, Reggia di Venaria Reale" ;
+    crm:P1_is_identified_by "RV-BLD-GG" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300007733> ;
+    crm:P3_has_note "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara." ;
+    crm:P44_has_condition "in use" ;
+    crm:P46i_forms_part_of <https://example.org/heritalise/site/reggia-di-venaria> ;
+    crm:P50_has_current_keeper "Consorzio delle Residenze Reali Sabaude" ;
+    geojson:geometry "{\"coordinates\":[[[7.627,45.134],[7.63,45.134],[7.63,45.136],[7.627,45.136],[7.627,45.134]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+

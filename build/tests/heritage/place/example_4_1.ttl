@@ -1,0 +1,13 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/place/north-parterre> a geojson:Feature ;
+    crm:P1_is_identified_by "RV-ZONE-NP" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300008106> ;
+    crm:P87_is_identified_by "North Parterre" ;
+    crm:P89_falls_within <https://example.org/heritalise/place/central-garden-axis> ;
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.62e+00 4.5136e+01 ) ( 7.625e+00 4.5136e+01 ) ( 7.625e+00 4.514e+01 ) ( 7.62e+00 4.514e+01 ) ( 7.62e+00 4.5136e+01 ) ) ) ] .
+

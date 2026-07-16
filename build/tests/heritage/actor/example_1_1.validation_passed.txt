@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.actor - Actor
-Generated 2026-06-25T14:31:16.184981+00:00
+Generated 2026-07-16T14:38:29.548288+00:00
 === Files ===
 Using examples/restorer.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/actor/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/actor/shapes.shacl:
- - Shape <file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>: _:N7b62537632e64f02899e4f592601771e
+ - Shape <file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>: _:N27ba3b02bd9243c3b08e1b352d35abbb
 
 === End SHACL ===
 

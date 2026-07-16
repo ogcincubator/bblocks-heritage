@@ -1,49 +1,37 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Observation
-description: 'A scientific observation or measurement, modelled as a CIDOC-CRM E16
-  Measurement. Profiles
+description: 'A scientific observation or measurement, profiling the SOSA/SSN Observation
+  rather than
 
-  PROV-O''s Activity: `startedAtTime`/`endedAtTime` carry the time of observation,
-  `used` the
+  redefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,
 
-  sensor or instrument involved (CIDOC-CRM P16_used_specific_object), `generated`
-  the OGC
+  `hasResult`/`hasSimpleResult` and `resultTime`/`phenomenonTime` all come from
 
-  SensorThings API `Observation` resource holding the actual reading (CIDOC-CRM
+  `ogc.sosa.properties.observation`. This block only narrows `hasFeatureOfInterest`
+  from
 
-  P108_has_produced), `wasAssociatedWith` the operator or monitoring system responsible,
-  and
-
-  `atLocation` where the observation took place. This block adds a local identifier,
+  optional to required, since every reading in this register is expected to reference
   the
 
-  heritage object or place being measured, and the property observed.
+  `heritage-object` or `place` it was taken of/at by URI (the CIDOC-CRM/CRMsci "scientific
+
+  observation context"), and sets `type` so the uplifted graph is actually typed
+
+  `sosa:Observation` (the profiled block''s own examples never set it). For observations
+  that
+
+  need their own geometry independent of an existing `place`, compose the properties
+  from this
+
+  block inside `ogc.sosa.features.observation` instead.
 
   '
 allOf:
-- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml
+- $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml
 - type: object
   required:
-  - measurementOf
+  - hasFeatureOfInterest
   properties:
-    identifier:
-      type: string
-      description: A local identifier for this observation (CIDOC-CRM P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    measurementOf:
-      type: string
-      format: uri
-      description: URI of the `heritage-object` or `place` being measured (CIDOC-CRM
-        P39_measured).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P39_measured
-      x-jsonld-type: '@id'
-    observedProperty:
-      type: string
-      format: uri
-      description: The property or phenomenon observed, typically a GEOSS Essential
-        Variable or Getty AAT concept URI, e.g. relative humidity or surface temperature
-        (CIDOC-CRM P40_observed_dimension).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P40_observed_dimension
-      x-jsonld-type: '@id'
-x-jsonld-prefixes:
-  crm: http://www.cidoc-crm.org/cidoc-crm/
+    type:
+      const: Observation
+      x-jsonld-id: '@type'

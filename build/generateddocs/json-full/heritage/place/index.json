@@ -62,16 +62,19 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/examples/great-gallery.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_1_1.json",
+          "sizeBytes": 446,
           "code": "{\n  \"id\": \"https://example.org/heritalise/place/great-gallery\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [7.628, 45.135]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROOM-GG\",\n    \"name\": \"Great Gallery, Reggia di Venaria\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300004826\",\n    \"partOf\": \"https://example.org/heritalise/place/reggia-di-venaria\",\n    \"sameAs\": \"http://vocab.getty.edu/tgn/7274089\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_1_1.jsonld",
+          "sizeBytes": 574,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/place/great-gallery\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.628,\n      45.135\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROOM-GG\",\n    \"name\": \"Great Gallery, Reggia di Venaria\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300004826\",\n    \"partOf\": \"https://example.org/heritalise/place/reggia-di-venaria\",\n    \"sameAs\": \"http://vocab.getty.edu/tgn/7274089\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_1_1.ttl",
+          "sizeBytes": 751,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/place/great-gallery> a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-ROOM-GG\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300004826> ;\n    crm:P87_is_identified_by \"Great Gallery, Reggia di Venaria\" ;\n    crm:P89_falls_within <https://example.org/heritalise/place/reggia-di-venaria> ;\n    owl:sameAs <http://vocab.getty.edu/tgn/7274089> ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.628e+00 4.5135e+01 ) ] .\n\n"
         }
       ]
@@ -84,17 +87,70 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_2_1.json",
+          "sizeBytes": 187,
           "code": "{\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [7.6285, 45.1338]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-SITE\",\n    \"name\": \"Reggia di Venaria\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_2_1.jsonld",
+          "sizeBytes": 315,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.6285,\n      45.1338\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-SITE\",\n    \"name\": \"Reggia di Venaria\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_2_1.ttl",
+          "sizeBytes": 438,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-SITE\" ;\n    crm:P87_is_identified_by \"Reggia di Venaria\" ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.6285e+00 4.51338e+01 ) ] .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Garden major zone nested within a heritage site (CRRS-019)",
+      "content": "The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) and linked to the enclosing heritage site via `partOf` (crm:P89_falls_within). Demonstrates the top-level spatial subdivision of a large heritage site into named landscape zones. Covers CRRS-019 (garden major zones).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/examples/garden-major-zone.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_3_1.json",
+          "sizeBytes": 521,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/place/central-garden-axis\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [7.619, 45.132],\n        [7.631, 45.132],\n        [7.631, 45.140],\n        [7.619, 45.140],\n        [7.619, 45.132]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ZONE-CGA\",\n    \"name\": \"Central Garden Axis\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300008087\",\n    \"partOf\": \"https://example.org/heritalise/site/reggia-di-venaria\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_3_1.jsonld",
+          "sizeBytes": 779,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/place/central-garden-axis\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          7.619,\n          45.132\n        ],\n        [\n          7.631,\n          45.132\n        ],\n        [\n          7.631,\n          45.14\n        ],\n        [\n          7.619,\n          45.14\n        ],\n        [\n          7.619,\n          45.132\n        ]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ZONE-CGA\",\n    \"name\": \"Central Garden Axis\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300008087\",\n    \"partOf\": \"https://example.org/heritalise/site/reggia-di-venaria\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_3_1.ttl",
+          "sizeBytes": 750,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/place/central-garden-axis> a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-ZONE-CGA\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300008087> ;\n    crm:P87_is_identified_by \"Central Garden Axis\" ;\n    crm:P89_falls_within <https://example.org/heritalise/site/reggia-di-venaria> ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 7.619e+00 4.5132e+01 ) ( 7.631e+00 4.5132e+01 ) ( 7.631e+00 4.514e+01 ) ( 7.619e+00 4.514e+01 ) ( 7.619e+00 4.5132e+01 ) ) ) ] .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Garden sub-zone nested within a major zone (CRRS-020)",
+      "content": "The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and linked to the central garden axis via `partOf`. Demonstrates a second-level spatial subdivision (sub-zone within a major zone). Covers CRRS-020 (garden sub-zones).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/place/examples/garden-sub-zone.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_4_1.json",
+          "sizeBytes": 513,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/place/north-parterre\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [7.620, 45.136],\n        [7.625, 45.136],\n        [7.625, 45.140],\n        [7.620, 45.140],\n        [7.620, 45.136]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ZONE-NP\",\n    \"name\": \"North Parterre\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300008106\",\n    \"partOf\": \"https://example.org/heritalise/place/central-garden-axis\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_4_1.jsonld",
+          "sizeBytes": 768,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/place/north-parterre\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          7.62,\n          45.136\n        ],\n        [\n          7.625,\n          45.136\n        ],\n        [\n          7.625,\n          45.14\n        ],\n        [\n          7.62,\n          45.14\n        ],\n        [\n          7.62,\n          45.136\n        ]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ZONE-NP\",\n    \"name\": \"North Parterre\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300008106\",\n    \"partOf\": \"https://example.org/heritalise/place/central-garden-axis\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/place/example_4_1.ttl",
+          "sizeBytes": 739,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/place/north-parterre> a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-ZONE-NP\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300008106> ;\n    crm:P87_is_identified_by \"North Parterre\" ;\n    crm:P89_falls_within <https://example.org/heritalise/place/central-garden-axis> ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 7.62e+00 4.5136e+01 ) ( 7.625e+00 4.5136e+01 ) ( 7.625e+00 4.514e+01 ) ( 7.62e+00 4.514e+01 ) ( 7.62e+00 4.5136e+01 ) ) ) ] .\n\n"
         }
       ]
     }

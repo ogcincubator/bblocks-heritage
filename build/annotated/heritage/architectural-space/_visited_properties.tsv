@@ -1,0 +1,24 @@
+path	@id	schema
+/id	@id	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/type	@type	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/identifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/title	http://www.cidoc-crm.org/cidoc-crm/P102_has_title	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/description	http://www.cidoc-crm.org/cidoc-crm/P3_has_note	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/objectType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/material	http://www.cidoc-crm.org/cidoc-crm/P45_consists_of	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/currentLocation	http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/persistentIdentifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/parentBuilding	http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/partOf	http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/historicalNames	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/historicalNames/name		/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/historicalNames/datePeriod		/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/historicalNames/source		/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/floorLevel	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/bayCode	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/accessibilityStatus	http://www.cidoc-crm.org/cidoc-crm/P44_has_condition	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/monitoringRelevance		/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/ifcSpaceRef	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/footprint	https://purl.org/geojson/vocab#geometry	/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/footprint/type		/github/workspace/build/annotated/heritage/architectural-space/schema.yaml
+/footprint/coordinates		/github/workspace/build/annotated/heritage/architectural-space/schema.yaml

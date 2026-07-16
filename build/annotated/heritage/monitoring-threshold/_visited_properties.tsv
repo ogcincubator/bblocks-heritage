@@ -1,0 +1,17 @@
+path	@id	schema
+/id	@id	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/parameter	http://www.w3.org/ns/sosa/observes	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/thresholdType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/minValue		/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/maxValue		/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/rateValue		/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/unit	http://qudt.org/schema/qudt/unit	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/severity	http://www.cidoc-crm.org/cidoc-crm/P44_has_condition	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/appliesTo	http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/activePeriod	http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/activePeriod/start		/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/activePeriod/end		/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/source	http://purl.org/dc/terms/source	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/rationale	http://www.cidoc-crm.org/cidoc-crm/P3_has_note	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/reviewDate	http://purl.org/dc/terms/modified	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml

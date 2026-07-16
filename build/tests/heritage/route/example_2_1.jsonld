@@ -1,0 +1,31 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld",
+  "id": "https://example.org/heritalise/route/malta-garden-trail",
+  "type": "Feature",
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [
+        14.4421,
+        35.9023
+      ],
+      [
+        14.4425,
+        35.9027
+      ],
+      [
+        14.443,
+        35.9031
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "MT-ROUTE-001",
+    "name": "Villa Portelli Garden Trail",
+    "routeType": "http://vocab.getty.edu/aat/300006958",
+    "surface": "stone paving",
+    "accessibilityRating": "fully accessible",
+    "permittedUse": "pedestrian only",
+    "parentSite": "https://example.org/heritalise/site/villa-portelli"
+  }
+}

@@ -1,0 +1,84 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Monitoring Point
+description: 'A physical sensor or monitoring device installed at a heritage resource.
+  Profiles
+
+  ogc.sosa.properties.sensor and adds a CIDOC-CRM E22 Man-Made Object identity layer
+
+  (local inventory identifier, sensor category, heritage location link) and a mandatory
+
+  GeoJSON point for the sensor''s physical position.
+
+  '
+allOf:
+- $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/sensor/schema.yaml
+- type: object
+  properties:
+    type:
+      const: MonitoringPoint
+      description: Fixed type token. Maps to crm:E22_Man-Made_Object in the JSON-LD
+        context, enabling SHACL shapes to target monitoring points by class.
+      x-jsonld-id: '@type'
+    identifier:
+      type: string
+      description: Local inventory code for this sensor or hotspot within the pilot
+        system (crm:P1_is_identified_by). Distinct from the STA @iot.id.
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+    sensorType:
+      type: string
+      format: uri
+      description: 'Category of sensor or monitoring equipment as a Getty AAT URI
+        (crm:P2_has_type). Examples: temperature sensor, relative-humidity sensor,
+        crack monitor.'
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type
+      x-jsonld-type: '@id'
+    locatedIn:
+      type: string
+      format: uri
+      description: URI of the heritage resource (architectural-space, heritage-object,
+        or place) where this monitoring point is installed (crm:P53_has_former_or_current_location).
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location
+      x-jsonld-type: '@id'
+    operationalStatus:
+      type: string
+      description: Current operational state, e.g. "active", "decommissioned", "under
+        maintenance" (crm:P44_has_condition).
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
+    responsibleOrganisation:
+      type: string
+      description: Name or URI of the body responsible for operating this monitoring
+        point (crm:P50_has_current_keeper).
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper
+    position:
+      type: object
+      description: GeoJSON Point giving the sensor's physical position. Use 3D coordinates
+        [longitude, latitude, elevation_m] where known.
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+          x-jsonld-id: '@type'
+        coordinates:
+          type: array
+          minItems: 2
+          maxItems: 3
+          items:
+            type: number
+      required:
+      - type
+      - coordinates
+      x-jsonld-id: https://purl.org/geojson/vocab#geometry
+      x-jsonld-type: '@json'
+  required:
+  - type
+  - identifier
+  - sensorType
+  - locatedIn
+  - position
+x-jsonld-extra-terms:
+  MonitoringPoint: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object
+x-jsonld-prefixes:
+  crm: http://www.cidoc-crm.org/cidoc-crm/
+  geojson: https://purl.org/geojson/vocab#
+  sosa: http://www.w3.org/ns/sosa/

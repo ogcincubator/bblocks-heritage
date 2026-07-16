@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.historical-statement - Historical Statement
+Generated 2026-07-16T14:38:28.695131+00:00
+=== Files ===
+Using examples/malta_technique_note.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/historical-statement/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/historical-statement/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: _:N1eefcb0b129542ad872c7f9172d4a950
+
+=== End SHACL ===
+

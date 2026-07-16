@@ -1,5 +1,6 @@
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
 
-[] crm:P1_is_identified_by "RV-GG-RH-LEGACY-01" ;
-    crm:P39_measured <https://example.org/heritalise/place/great-gallery> .
+[] sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;
+    sosa:hasSimpleResult <file:///github/workspace/> ;
+    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
 

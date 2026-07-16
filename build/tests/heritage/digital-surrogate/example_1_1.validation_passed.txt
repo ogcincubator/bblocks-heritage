@@ -1,0 +1,30 @@
+Validation report for ogc.heritage.digital-surrogate - Digital Surrogate
+Generated 2026-07-16T14:38:31.738924+00:00
+=== Files ===
+Using examples/venaria_plan_scan.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/digital-surrogate/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-surrogate/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-surrogate/shapes.shacl#DigitalSurrogateShape>: <https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024>
+
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024>
+
+=== End SHACL ===
+

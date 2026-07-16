@@ -1,0 +1,20 @@
+path	@id	schema
+/id		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/statementType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/statement	http://www.cidoc-crm.org/cidoc-crm/P141_assigned	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/statement/text		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/statement/language		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/statement/datePeriod	http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/statement/keywords		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/describedObject	http://www.cidoc-crm.org/cidoc-crm/P140_assigned_attribute_to	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/sourceRecord	http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/evidenceLocator	http://www.w3.org/ns/oa#hasBody	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/evidenceLocator/source		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/evidenceLocator/selector		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/evidenceLocator/selector/type	@type	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/evidenceLocator/selector/conformsTo		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/evidenceLocator/selector/value		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/reviewer	http://www.w3.org/ns/prov#wasAttributedTo	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/confidence	http://www.cidoc-crm.org/cidoc-crm/P3_has_note	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/datePeriod	http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml

@@ -1,0 +1,15 @@
+path	@id	schema
+/id	@id	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/hostObject	http://www.cidoc-crm.org/cidoc-crm/P56i_is_found_on	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/material	http://www.cidoc-crm.org/cidoc-crm/P45_consists_of	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/technique	http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/historicalPhase	http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/exposure	http://www.cidoc-crm.org/cidoc-crm/P3_has_note	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/conditionSummary	http://www.cidoc-crm.org/cidoc-crm/P44_has_condition	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/conditionAssessment		/github/workspace/build/annotated/heritage/surface/schema.yaml
+/sourceEvidence	http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/reviewStatus		/github/workspace/build/annotated/heritage/surface/schema.yaml
+/footprint	https://purl.org/geojson/vocab#geometry	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/footprint/type	@type	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/footprint/coordinates		/github/workspace/build/annotated/heritage/surface/schema.yaml

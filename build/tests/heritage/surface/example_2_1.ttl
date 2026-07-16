@@ -1,0 +1,9 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise.eu/malta/surface/VP-grand-salon-floor> a crm:E25_Man-Made_Feature ;
+    crm:P45_consists_of <http://vocab.getty.edu/aat/300011176> ;
+    crm:P56i_is_found_on <https://heritalise.eu/malta/space/grand-salon> ;
+    geojson:geometry "{\"coordinates\":[[[14.4519,35.8896],[14.4523,35.8896],[14.4523,35.8899],[14.4519,35.8899],[14.4519,35.8896]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+

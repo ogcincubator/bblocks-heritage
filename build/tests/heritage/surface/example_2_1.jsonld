@@ -1,0 +1,34 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
+  "id": "https://heritalise.eu/malta/surface/VP-grand-salon-floor",
+  "type": "Surface",
+  "hostObject": "https://heritalise.eu/malta/space/grand-salon",
+  "material": "http://vocab.getty.edu/aat/300011176",
+  "footprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          14.4519,
+          35.8896
+        ],
+        [
+          14.4523,
+          35.8896
+        ],
+        [
+          14.4523,
+          35.8899
+        ],
+        [
+          14.4519,
+          35.8899
+        ],
+        [
+          14.4519,
+          35.8896
+        ]
+      ]
+    ]
+  }
+}

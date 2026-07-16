@@ -109,6 +109,178 @@ Only `identifier` and `title` are required — everything else can be added incr
 
 ```
 
+
+### Architectural component with parent space and materials (CRRS-004)
+A load-bearing vault section within the Reggia di Venaria north gallery, typed as an architectural element (Getty AAT), with masonry and fresco materials and linked to its containing interior space via `parentSpace` (crm:P46i_forms_part_of). Covers CRRS-004 (architectural components of the built fabric).
+#### json
+```json
+{
+  "id": "https://example.org/heritalise/object/north-vault-bay-3",
+  "type": "HeritageObject",
+  "identifier": "RV-ARCH-NV-003",
+  "title": "North gallery vault, bay 3",
+  "objectType": "http://vocab.getty.edu/aat/300002862",
+  "material": [
+    "http://vocab.getty.edu/aat/300010439",
+    "http://vocab.getty.edu/aat/300014130"
+  ],
+  "parentSpace": "https://example.org/heritalise/space/north-gallery",
+  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "id": "https://example.org/heritalise/object/north-vault-bay-3",
+  "type": "HeritageObject",
+  "identifier": "RV-ARCH-NV-003",
+  "title": "North gallery vault, bay 3",
+  "objectType": "http://vocab.getty.edu/aat/300002862",
+  "material": [
+    "http://vocab.getty.edu/aat/300010439",
+    "http://vocab.getty.edu/aat/300014130"
+  ],
+  "parentSpace": "https://example.org/heritalise/space/north-gallery",
+  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<https://example.org/heritalise/object/north-vault-bay-3> a crm:E22_Man-Made_Object ;
+    crm:P102_has_title "North gallery vault, bay 3" ;
+    crm:P1_is_identified_by "RV-ARCH-NV-003" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300002862> ;
+    crm:P3_has_note "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown." ;
+    crm:P45_consists_of <http://vocab.getty.edu/aat/300010439>,
+        <http://vocab.getty.edu/aat/300014130> ;
+    crm:P46i_forms_part_of <https://example.org/heritalise/space/north-gallery> .
+
+
+```
+
+
+### Movable heritage object with movement history and threshold link (CRRS-016, HM-04)
+A historical tapestry from the Reggia di Venaria — a movable item catalogued with object type (Getty AAT), fibre materials, its current storage location, a sequence of PROV-O movement events, and a link to the applicable climate threshold record. Covers CRRS-016 (movable furniture / decorative objects) and HM-04 (Malta movable heritage items with environmental thresholds).
+#### json
+```json
+{
+  "id": "https://example.org/heritalise/object/venaria-tapestry-hunt-04",
+  "type": "HeritageObject",
+  "identifier": "RV-MOV-TAP-004",
+  "title": "Royal Hunt tapestry no. 4",
+  "objectType": "http://vocab.getty.edu/aat/300205002",
+  "material": [
+    "http://vocab.getty.edu/aat/300014224",
+    "http://vocab.getty.edu/aat/300011727"
+  ],
+  "currentLocation": "https://example.org/heritalise/space/storage-wing-b",
+  "movementHistory": [
+    "https://example.org/heritalise/event/tapestry-relocation-2021",
+    "https://example.org/heritalise/event/tapestry-treatment-2019"
+  ],
+  "conservationThresholdLink": "https://example.org/heritalise/threshold/textile-climate-rh"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "id": "https://example.org/heritalise/object/venaria-tapestry-hunt-04",
+  "type": "HeritageObject",
+  "identifier": "RV-MOV-TAP-004",
+  "title": "Royal Hunt tapestry no. 4",
+  "objectType": "http://vocab.getty.edu/aat/300205002",
+  "material": [
+    "http://vocab.getty.edu/aat/300014224",
+    "http://vocab.getty.edu/aat/300011727"
+  ],
+  "currentLocation": "https://example.org/heritalise/space/storage-wing-b",
+  "movementHistory": [
+    "https://example.org/heritalise/event/tapestry-relocation-2021",
+    "https://example.org/heritalise/event/tapestry-treatment-2019"
+  ],
+  "conservationThresholdLink": "https://example.org/heritalise/threshold/textile-climate-rh"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://example.org/heritalise/object/venaria-tapestry-hunt-04> a crm:E22_Man-Made_Object ;
+    crm:P102_has_title "Royal Hunt tapestry no. 4" ;
+    crm:P1_is_identified_by "RV-MOV-TAP-004" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300205002> ;
+    crm:P45_consists_of <http://vocab.getty.edu/aat/300011727>,
+        <http://vocab.getty.edu/aat/300014224> ;
+    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/storage-wing-b> ;
+    prov:wasUsedBy <https://example.org/heritalise/event/tapestry-relocation-2021>,
+        <https://example.org/heritalise/event/tapestry-treatment-2019> .
+
+
+```
+
+
+### Garden sculpture / fountain with Getty AAT type (CRRS-021)
+The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Getty AAT), constructed in stone, linked to the garden heritage site, and minted with a persistent W3ID. Covers CRRS-021 (garden sculptures and landscape objects).
+#### json
+```json
+{
+  "id": "https://example.org/heritalise/object/diana-fountain",
+  "type": "HeritageObject",
+  "identifier": "RV-GARD-FNT-001",
+  "title": "Fountain of Diana, central garden axis",
+  "objectType": "http://vocab.getty.edu/aat/300006858",
+  "material": [
+    "http://vocab.getty.edu/aat/300011443"
+  ],
+  "currentLocation": "https://example.org/heritalise/site/reggia-di-venaria",
+  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "id": "https://example.org/heritalise/object/diana-fountain",
+  "type": "HeritageObject",
+  "identifier": "RV-GARD-FNT-001",
+  "title": "Fountain of Diana, central garden axis",
+  "objectType": "http://vocab.getty.edu/aat/300006858",
+  "material": [
+    "http://vocab.getty.edu/aat/300011443"
+  ],
+  "currentLocation": "https://example.org/heritalise/site/reggia-di-venaria",
+  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<https://example.org/heritalise/object/diana-fountain> a crm:E22_Man-Made_Object ;
+    crm:P102_has_title "Fountain of Diana, central garden axis" ;
+    crm:P1_is_identified_by <https://w3id.org/heritalise/obj/RV-GARD-FNT-001>,
+        "RV-GARD-FNT-001" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300006858> ;
+    crm:P45_consists_of <http://vocab.getty.edu/aat/300011443> ;
+    crm:P53_has_former_or_current_location <https://example.org/heritalise/site/reggia-di-venaria> .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -177,8 +349,16 @@ required:
 - title
 x-jsonld-extra-terms:
   HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object
+  parentSpace:
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
+    x-jsonld-type: '@id'
+  movementHistory:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasUsedBy
+    x-jsonld-type: '@id'
+    x-jsonld-container: '@set'
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
+  prov: http://www.w3.org/ns/prov#
 
 ```
 
@@ -194,6 +374,15 @@ Links to the schema:
 {
   "@context": {
     "HeritageObject": "crm:E22_Man-Made_Object",
+    "parentSpace": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "movementHistory": {
+      "@id": "prov:wasUsedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "id": "@id",
     "type": "@type",
     "identifier": "crm:P1_is_identified_by",
@@ -217,6 +406,7 @@ Links to the schema:
       "@type": "@id"
     },
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "prov": "http://www.w3.org/ns/prov#",
     "@version": 1.1
   }
 }

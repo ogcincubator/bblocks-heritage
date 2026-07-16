@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.archival-document - Archival Document
-Generated 2026-06-25T14:31:15.831225+00:00
+Generated 2026-07-16T14:38:31.567556+00:00
 === Files ===
 Using examples/lido.json from examples
 JSON-LD context is present - uplifting

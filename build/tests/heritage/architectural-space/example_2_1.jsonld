@@ -1,0 +1,41 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
+  "id": "https://example.org/heritalise/space/villa-portelli-salon",
+  "type": "HeritageObject",
+  "identifier": "MT-SPC-VP-SALON",
+  "title": "Villa Portelli \u2014 Grand Salon",
+  "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
+  "objectType": "http://vocab.getty.edu/aat/300004733",
+  "parentBuilding": "https://example.org/heritalise/building/villa-portelli-main",
+  "floorLevel": "ground floor",
+  "accessibilityStatus": "open to public",
+  "monitoringRelevance": true,
+  "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf",
+  "footprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          14.5132,
+          35.8962
+        ],
+        [
+          14.5138,
+          35.8962
+        ],
+        [
+          14.5138,
+          35.8966
+        ],
+        [
+          14.5132,
+          35.8966
+        ],
+        [
+          14.5132,
+          35.8962
+        ]
+      ]
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.observation - Observation
-Generated 2026-06-25T14:31:14.046583+00:00
+Generated 2026-07-16T14:38:29.891442+00:00
 === Files ===
 Using examples/humidity-reading.json from examples
 JSON-LD context is present - uplifting
@@ -17,8 +17,22 @@ Validation result for _sources/observation/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/observation/shapes.shacl:
- - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationMeasurementOfIsIRI>: <https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12>
- - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationObservedPropertyIsIRI>: <https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12>
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: _:N2290a3657892457787d0cc7dd70ff78c
+
+Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
+ - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: 54.2
+ - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testResult>: _:N2290a3657892457787d0cc7dd70ff78c
+ - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: _:N2290a3657892457787d0cc7dd70ff78c
+ - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: _:N2290a3657892457787d0cc7dd70ff78c
+ - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: _:N2290a3657892457787d0cc7dd70ff78c
 
 === End SHACL ===
 

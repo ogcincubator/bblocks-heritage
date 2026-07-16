@@ -1,0 +1,10 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/event/villa-portelli-founding-1820> crm:P1_is_identified_by "MT-EVT-1820-FOUND" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300069748> ;
+    prov:atLocation <https://example.org/heritalise/site/villa-portelli> ;
+    prov:startedAtTime "1820-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith <https://example.org/heritalise/actor/house-of-portelli> .
+

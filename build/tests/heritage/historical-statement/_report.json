@@ -1,0 +1,175 @@
+{
+  "title": "Validation report for ogc.heritage.historical-statement - Historical Statement",
+  "bblockName": "Historical Statement",
+  "bblockId": "ogc.heritage.historical-statement",
+  "generated": "2026-07-16T14:38:28.695193+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/historical-statement/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-statement/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/venaria_attribution.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 9,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/historical-statement/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/historical-statement/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/historical-statement/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>": {
+                  "nodes": [
+                    "_:N8e7d1add9d924f7c82e9020931f388c5"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/historical-statement/shapes.shacl:\n - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: _:N8e7d1add9d924f7c82e9020931f388c5\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/historical-statement/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-statement/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/malta_technique_note.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 7,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/historical-statement/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/historical-statement/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/historical-statement/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>": {
+                  "nodes": [
+                    "_:N1eefcb0b129542ad872c7f9172d4a950"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/historical-statement/shapes.shacl:\n - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: _:N1eefcb0b129542ad872c7f9172d4a950\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

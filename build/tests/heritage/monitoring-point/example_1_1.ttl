@@ -1,0 +1,12 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+[] a crm:E22_Man-Made_Object ;
+    crm:P1_is_identified_by "RV-MP-GG-B07-RH01" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300379649> ;
+    crm:P44_has_condition "active" ;
+    crm:P50_has_current_keeper "Consorzio delle Residenze Reali Sabaude" ;
+    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/galleria-grande-bay-7> ;
+    geojson:geometry "{\"coordinates\":[7.6273,45.1344,2.5],\"type\":\"Point\"}"^^rdf:JSON .
+

@@ -1,0 +1,116 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.historical-place",
+  "name": "Historical Place",
+  "abstract": "A named historical spatial feature \u2014 room, area, route or landscape designation \u2014 that has since been renamed, restructured or disappeared, mapped to its current spatial equivalent with a confidence rating (CIDOC-CRM E53 Place + P89, CRRS-015).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    {
+      "title": "CIDOC-CRM E53 Place",
+      "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E53"
+    },
+    {
+      "title": "CIDOC-CRM P89 falls within",
+      "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#P89"
+    },
+    {
+      "title": "HERITALISE D8.2 CRRS-015",
+      "link": "https://heritalise-eccch.eu/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "cidoc-crm",
+    "place",
+    "historical",
+    "spatial"
+  ],
+  "group": "Place profiles",
+  "isProfileOf": "ogc.heritage.place",
+  "shaclShapes": {
+    "ogc.heritage.historical-place": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/shapes.shacl"
+    ],
+    "ogc.heritage.place": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.place"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/historical-place/",
+  "description": "# Historical Place\n\nA **Historical Place** records a named spatial feature \u2014 room designation, area code, route name\nor landscape element \u2014 that existed at some point in the past and has since been renamed,\nrestructured or disappeared. The record bridges archival nomenclature to the contemporary\nspatial inventory by linking each historical designation to its best current equivalent and\nrecording the confidence of that crosswalk.\n\n## Semantic anchor\n\nThe block profiles **`ogc.heritage.place`**, inheriting JSON-FG Feature geometry and core\nCIDOC-CRM E53 Place attributes (`identifier`, `name`, `placeType`, `partOf`, `sameAs`).\nAdded properties express the temporal scope of the historical designation, its archival\nsource, its crosswalk to a current space or place, and the confidence of that mapping.\n\n## Property table\n\n| Property | Required | CRM mapping | Description |\n|---|---|---|---|\n| *(inherited)* `identifier` | yes | `crm:P1_is_identified_by` | Inventory or gazetteer identifier |\n| *(inherited)* `name` | yes | `crm:P87_is_identified_by` | Historical place name or room code |\n| *(inherited)* `placeType` | no | `crm:P2_has_type` (@id) | Getty AAT URI for the type of feature |\n| *(inherited)* `partOf` | no | `crm:P89_falls_within` (@id) | Broader spatial container (spatial hierarchy) |\n| *(inherited)* `sameAs` | no | `owl:sameAs` (@id) | Authority record URI (Getty TGN, Wikidata) |\n| `datePeriod` | no* | `crm:P4_has_time-span` | Period or date range when this name was in use |\n| `historicalSource` | no* | `crm:P70i_is_documented_in` (@id) | Source carrier or surrogate URI |\n| `currentEquivalent` | no | `crm:P89_falls_within` (@id) | Contemporary space or place URI |\n| `mappingConfidence` | yes | `crm:P3_has_note` | `confirmed`, `probable`, `approximate`, `uncertain` |\n\n\\* `datePeriod` or `historicalSource` (or both) should be provided to support archival crosswalk traceability.\n\n## Design notes\n\n- `currentEquivalent` maps to `crm:P89_falls_within`, the same predicate as the inherited\n  `partOf`. Use `currentEquivalent` for historical crosswalk relationships; use `partOf` for\n  contemporary spatial containment. Both produce the same RDF predicate \u2014 the distinction is\n  in the authoring intent.\n- `mappingConfidence` maps to `crm:P3_has_note` with a literal value. Enum values follow a\n  scale from archivally confirmed identity to speculative association.\n- SHACL targets `sh:targetSubjectsOf crm:P4_has_time-span` to avoid a class-based target\n  (JSON-FG Feature produces `geojson:Feature`, not `crm:E53_Place`, after uplift). The shape\n  only checks IRI validity on optional links; required fields are validated by JSON Schema.\n\n## Standard alignments\n\n- **CIDOC-CRM** (\u25cf mandatory): E53 Place (via `place` profile); P89 `falls_within` for both\n  spatial containment and historical-to-current mapping; P4 time-span; P70i documented in.\n- **JSON-FG** (\u25cf mandatory): inherited geometry encoding as a JSON-FG Feature.\n- **PROV-O** (\u25cf mandatory): inherited from `place` via `digital-representation` lineage where\n  a source carrier is cited.\n- **JSON-LD** (\u25cf mandatory): context maps all properties to CRM URIs.\n\n## Use cases\n\n- Reggia di Venaria (CRRS-015): historical room names from 18th-century inventories mapped\n  to current gallery numbers, with source references to archival plans held in the Archivio\n  di Stato di Torino.\n- Villa Portelli Malta: historical garden features (pergola, terrace names) from pre-war\n  survey plans crosswalked to current heritage-site zone records.\n",
+  "examples": [
+    {
+      "title": "Sala degli Scudieri \u2014 historical room name, Reggia di Venaria (CRRS-015)",
+      "content": "An 18th-century room designation (\"Sala degli Scudieri\") from the 1720 Venaria inventory, mapped to its current survey equivalent (Sala 10, Eastern Gallery) with \"probable\" confidence based on floor-plan comparison. The historicalSource URI references the archival inventory record held in the Archivio di Stato di Torino. Covers CRRS-015 (historical place / legacy spatial feature).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/examples/venaria-sala-scudieri.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-place/example_1_1.json",
+          "sizeBytes": 787,
+          "code": "{\n  \"type\": \"Feature\",\n  \"id\": \"https://heritalise.eu/venaria/historical-place/sala-scudieri-1720\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [7.6045, 45.1285],\n        [7.6050, 45.1285],\n        [7.6050, 45.1289],\n        [7.6045, 45.1289],\n        [7.6045, 45.1285]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"ASTo-VR-inv1720-sala-scudieri\",\n    \"name\": \"Sala degli Scudieri\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300004704\",\n    \"datePeriod\": \"1720\u20131798\",\n    \"historicalSource\": \"https://heritalise.eu/venaria/source-carrier/ASTo-VR-inv1720\",\n    \"currentEquivalent\": \"https://heritalise.eu/venaria/space/sala-10-galleria-est\",\n    \"mappingConfidence\": \"probable\",\n    \"sameAs\": \"https://www.wikidata.org/entity/Q999999\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-place/example_1_1.jsonld",
+          "sizeBytes": 1059,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld\",\n  \"type\": \"Feature\",\n  \"id\": \"https://heritalise.eu/venaria/historical-place/sala-scudieri-1720\",\n  \"geometry\": {\n    \"type\": \"Polygon\",\n    \"coordinates\": [\n      [\n        [\n          7.6045,\n          45.1285\n        ],\n        [\n          7.605,\n          45.1285\n        ],\n        [\n          7.605,\n          45.1289\n        ],\n        [\n          7.6045,\n          45.1289\n        ],\n        [\n          7.6045,\n          45.1285\n        ]\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"ASTo-VR-inv1720-sala-scudieri\",\n    \"name\": \"Sala degli Scudieri\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300004704\",\n    \"datePeriod\": \"1720\\u20131798\",\n    \"historicalSource\": \"https://heritalise.eu/venaria/source-carrier/ASTo-VR-inv1720\",\n    \"currentEquivalent\": \"https://heritalise.eu/venaria/space/sala-10-galleria-est\",\n    \"mappingConfidence\": \"probable\",\n    \"sameAs\": \"https://www.wikidata.org/entity/Q999999\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-place/example_1_1.ttl",
+          "sizeBytes": 1066,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix owl: <http://www.w3.org/2002/07/owl#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise.eu/venaria/historical-place/sala-scudieri-1720> a geojson:Feature ;\n    crm:P1_is_identified_by \"ASTo-VR-inv1720-sala-scudieri\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300004704> ;\n    crm:P3_has_note \"probable\" ;\n    crm:P4_has_time-span \"1720\u20131798\" ;\n    crm:P70i_is_documented_in <https://heritalise.eu/venaria/source-carrier/ASTo-VR-inv1720> ;\n    crm:P87_is_identified_by \"Sala degli Scudieri\" ;\n    crm:P89_falls_within <https://heritalise.eu/venaria/space/sala-10-galleria-est> ;\n    owl:sameAs <https://www.wikidata.org/entity/Q999999> ;\n    geojson:geometry [ a geojson:Polygon ;\n            geojson:coordinates ( ( ( 7.6045e+00 4.51285e+01 ) ( 7.605e+00 4.51285e+01 ) ( 7.605e+00 4.51289e+01 ) ( 7.6045e+00 4.51289e+01 ) ( 7.6045e+00 4.51285e+01 ) ) ) ] .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "South Pergola Terrace \u2014 historical garden feature, Villa Portelli, Malta",
+      "content": "A historical garden terrace at Villa Portelli named in pre-1943 architectural plans, approximately corresponding to the current south garden zone. A minimal example \u2014 no historicalSource or sameAs \u2014 demonstrating that only identifier, name, geometry and mappingConfidence are required (beyond the inherited place fields).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/examples/malta-south-pergola.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-place/example_2_1.json",
+          "sizeBytes": 498,
+          "code": "{\n  \"type\": \"Feature\",\n  \"id\": \"https://heritalise.eu/malta/historical-place/south-pergola-1930\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [14.4521, 35.8897]\n  },\n  \"properties\": {\n    \"identifier\": \"VP-arch1930-south-pergola\",\n    \"name\": \"South Pergola Terrace\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300006981\",\n    \"datePeriod\": \"c. 1890\u20131943\",\n    \"currentEquivalent\": \"https://heritalise.eu/malta/place/garden-zone-south\",\n    \"mappingConfidence\": \"approximate\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-place/example_2_1.jsonld",
+          "sizeBytes": 640,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld\",\n  \"type\": \"Feature\",\n  \"id\": \"https://heritalise.eu/malta/historical-place/south-pergola-1930\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      14.4521,\n      35.8897\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"VP-arch1930-south-pergola\",\n    \"name\": \"South Pergola Terrace\",\n    \"placeType\": \"http://vocab.getty.edu/aat/300006981\",\n    \"datePeriod\": \"c. 1890\\u20131943\",\n    \"currentEquivalent\": \"https://heritalise.eu/malta/place/garden-zone-south\",\n    \"mappingConfidence\": \"approximate\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/historical-place/example_2_1.ttl",
+          "sizeBytes": 746,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise.eu/malta/historical-place/south-pergola-1930> a geojson:Feature ;\n    crm:P1_is_identified_by \"VP-arch1930-south-pergola\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300006981> ;\n    crm:P3_has_note \"approximate\" ;\n    crm:P4_has_time-span \"c. 1890\u20131943\" ;\n    crm:P87_is_identified_by \"South Pergola Terrace\" ;\n    crm:P89_falls_within <https://heritalise.eu/malta/place/garden-zone-south> ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 1.44521e+01 3.58897e+01 ) ] .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Historical Place\ndescription: \"A named historical spatial feature \\u2014 room, area, route or landscape\n  designation \\u2014 that has\\nsince been renamed, restructured or disappeared. Profiles\n  ogc.heritage.place, inheriting\\nJSON-FG geometry and core CRM place attributes,\n  and adding historical period, source\\nprovenance, a link to the current spatial\n  equivalent, and a mapping-confidence rating.\\n\\nThe inherited `name` field carries\n  the historical designation (e.g. \\\"Sala degli Scudieri\\\",\\n\\\"Cortile dei Cani\\\").\n  The inherited `partOf` field or the profile-specific `currentEquivalent`\\nfield\n  (both map to crm:P89_falls_within) link the historical feature to the contemporary\\nspace\n  or place record that best corresponds to it.\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.yaml\n- type: object\n  properties:\n    properties:\n      type: object\n      properties:\n        datePeriod:\n          type: string\n          description: \"The historical period or date range during which this place\n            name or spatial configuration was in use, expressed as a free-text string\n            (e.g. \\\"1720\\u20131798\\\", \\\"18th century\\\", \\\"pre-1943\\\"). Maps to crm:P4_has_time-span.\"\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span\n        historicalSource:\n          type: string\n          format: uri\n          description: URI of the archival or documentary source (ogc.heritage.source-carrier\n            or ogc.heritage.digital-surrogate) from which this historical designation\n            is derived. Maps to crm:P70i_is_documented_in.\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in\n          x-jsonld-type: '@id'\n        currentEquivalent:\n          type: string\n          format: uri\n          description: URI of the contemporary space or place record that best corresponds\n            to this historical feature (ogc.heritage.architectural-space, ogc.heritage.heritage-site,\n            or ogc.heritage.place). Maps to crm:P89_falls_within, the same predicate\n            as the inherited `partOf` field; use `currentEquivalent` when the semantic\n            intent is historical crosswalk rather than spatial containment.\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P89_falls_within\n          x-jsonld-type: '@id'\n        mappingConfidence:\n          type: string\n          enum:\n          - confirmed\n          - probable\n          - approximate\n          - uncertain\n          description: 'Confidence level of the crosswalk between this historical\n            place and its current equivalent: confirmed (identical boundary documented),\n            probable (strong archival evidence), approximate (partial overlap), uncertain\n            (speculative). Maps to crm:P3_has_note.'\n          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n      required:\n      - mappingConfidence\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/historical-place"
+}

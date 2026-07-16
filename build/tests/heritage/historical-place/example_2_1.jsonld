@@ -1,0 +1,20 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld",
+  "type": "Feature",
+  "id": "https://heritalise.eu/malta/historical-place/south-pergola-1930",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      14.4521,
+      35.8897
+    ]
+  },
+  "properties": {
+    "identifier": "VP-arch1930-south-pergola",
+    "name": "South Pergola Terrace",
+    "placeType": "http://vocab.getty.edu/aat/300006981",
+    "datePeriod": "c. 1890\u20131943",
+    "currentEquivalent": "https://heritalise.eu/malta/place/garden-zone-south",
+    "mappingConfidence": "approximate"
+  }
+}

@@ -1,0 +1,86 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Derived Survey Product
+description: A processed output derived from a geometric survey dataset (point cloud,
+  photogrammetric model, etc.), modelled as a CRMdig D9 Data Object. Profiles digital-representation
+  and adds a mandatory PROV derivation link to the parent survey dataset and a structured
+  CRMdig D10 Software Execution sub-object recording the processing method, software
+  and quality parameters.
+allOf:
+- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml
+- type: object
+  required:
+  - type
+  - title
+  - parentDataset
+  - processingEvent
+  properties:
+    type:
+      const: DerivedSurveyProduct
+      description: Fixed type token identifying this record as a derived survey product
+        (maps to crmdig:D9_Data_Object).
+      x-jsonld-id: '@type'
+    title:
+      type: string
+      description: Human-readable title of the derived product (dct:title).
+      x-jsonld-id: http://purl.org/dc/terms/title
+    parentDataset:
+      type: string
+      format: uri
+      description: Persistent URI of the source survey dataset from which this product
+        was derived (prov:wasDerivedFrom). Must reference an ogc.heritage.survey-dataset
+        record.
+      x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
+      x-jsonld-type: '@id'
+    processingEvent:
+      type: object
+      description: CRMdig D10 Software Execution recording the processing run that
+        produced this derived product. Captures the method, software, operator, parameters
+        and quality result.
+      required:
+      - processingMethod
+      - processingDate
+      properties:
+        processingMethod:
+          type: string
+          description: Type of processing applied, e.g. "mesh generation", "section
+            extraction", "deviation mapping", "registration report", "orthophoto generation".
+        processingDate:
+          type: string
+          format: date
+          description: Date on which the processing was performed (ISO 8601).
+        software:
+          type: string
+          description: Name of the software used for processing.
+        softwareVersion:
+          type: string
+          description: Version string of the processing software.
+        operator:
+          type: string
+          format: uri
+          description: URI of the person or organisation who ran the processing.
+        parameters:
+          type: string
+          description: Key processing parameters or settings used (free-text or JSON-stringified).
+        accuracy:
+          type: string
+          description: "Accuracy or quality metric of the derived product (e.g. \"mean
+            deviation \xB12 mm\")."
+        qaResult:
+          type: string
+          description: "Outcome of the quality assurance check, e.g. \"passed\", \"passed
+            with remarks\", \"failed \u2014 reprocessing required\"."
+      x-jsonld-id: http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of
+      x-jsonld-type: '@json'
+    limitations:
+      type: string
+      description: Known limitations, artefacts or coverage gaps of the derived product.
+      x-jsonld-id: http://purl.org/dc/terms/description
+    reviewStatus:
+      type: string
+      description: Workflow status of this record (e.g. draft, reviewed, approved).
+x-jsonld-extra-terms:
+  DerivedSurveyProduct: http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object
+x-jsonld-prefixes:
+  crmdig: http://www.ics.forth.gr/isl/CRMdig/
+  dct: http://purl.org/dc/terms/
+  prov: http://www.w3.org/ns/prov#

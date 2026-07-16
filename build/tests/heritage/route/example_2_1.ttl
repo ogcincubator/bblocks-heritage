@@ -1,0 +1,14 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/route/malta-garden-trail> a geojson:Feature ;
+    crm:P1_is_identified_by "MT-ROUTE-001" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300006958> ;
+    crm:P44_has_condition "fully accessible" ;
+    crm:P87_is_identified_by "Villa Portelli Garden Trail" ;
+    crm:P89_falls_within <https://example.org/heritalise/site/villa-portelli> ;
+    geojson:geometry [ a geojson:LineString ;
+            geojson:coordinates ( ( 1.44421e+01 3.59023e+01 ) ( 1.44425e+01 3.59027e+01 ) ( 1.4443e+01 3.59031e+01 ) ) ] .
+

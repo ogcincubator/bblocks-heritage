@@ -1,0 +1,19 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/oral-history/context.jsonld",
+  "id": "https://data.heritagemalta.org/oral-history/villap-oh-2023-007",
+  "type": "OralHistory",
+  "title": "Traditional horticultural practices at Villa Portelli \u2014 Garden keeper account",
+  "isAbout": "https://data.heritagemalta.org/heritage-site/villa-portelli-garden",
+  "interviewee": "https://data.heritagemalta.org/actor/joseph-debono",
+  "language": "mt",
+  "consentStatus": "pending consent review",
+  "iiifManifest": "https://data.heritagemalta.org/iiif/3/villap-oh-2023-007/manifest",
+  "mediaType": "audio/mp4",
+  "rights": "All rights reserved \u2014 Heritage Malta",
+  "duration": "PT24M10S",
+  "theme": [
+    "garden history",
+    "horticulture",
+    "Villa Portelli"
+  ]
+}

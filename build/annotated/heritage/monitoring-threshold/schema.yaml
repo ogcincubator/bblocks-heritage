@@ -1,0 +1,119 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Monitoring Threshold
+description: A conservation threshold rule defining the acceptable value range for
+  an environmental parameter at a heritage monitoring point or zone (SOSA ObservableProperty
+  + QUDT units).
+type: object
+required:
+- type
+- parameter
+- thresholdType
+- severity
+- appliesTo
+- source
+properties:
+  id:
+    type: string
+    format: uri
+    description: Persistent URI identifying this threshold rule.
+    x-jsonld-id: '@id'
+  type:
+    const: MonitoringThreshold
+    description: Fixed type token identifying this record as a monitoring threshold
+      (maps to sosa:ObservableProperty).
+    x-jsonld-id: '@type'
+  parameter:
+    type: string
+    format: uri
+    description: URI of the observable environmental parameter, preferably a GEOSS
+      Essential Climate Variable (ECV) URI or a QUDT QuantityKind URI (e.g. https://qudt.org/vocab/quantitykind/Temperature
+      for temperature).
+    x-jsonld-id: http://www.w3.org/ns/sosa/observes
+    x-jsonld-type: '@id'
+  thresholdType:
+    type: string
+    enum:
+    - minValue
+    - maxValue
+    - range
+    - rateOfChange
+    description: 'The kind of threshold constraint: minValue (lower bound only), maxValue
+      (upper bound only), range (both bounds), rateOfChange (maximum acceptable rate
+      of change per unit time).'
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type
+  minValue:
+    type: number
+    description: Lower bound of the acceptable range (required when thresholdType
+      is minValue or range).
+  maxValue:
+    type: number
+    description: Upper bound of the acceptable range (required when thresholdType
+      is maxValue or range).
+  rateValue:
+    type: number
+    description: Maximum acceptable rate of change per unit time (required when thresholdType
+      is rateOfChange).
+  unit:
+    type: string
+    format: uri
+    description: QUDT unit URI for the threshold value(s), e.g. https://qudt.org/vocab/unit/DEG_C
+      for degrees Celsius or https://qudt.org/vocab/unit/PERCENT for relative humidity.
+    x-jsonld-id: http://qudt.org/schema/qudt/unit
+    x-jsonld-type: '@id'
+  severity:
+    type: string
+    enum:
+    - advisory
+    - warning
+    - alarm
+    - critical
+    description: 'Alert severity level triggered when the threshold is breached: advisory
+      (informational), warning (attention required), alarm (action required), critical
+      (emergency response required).'
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
+  appliesTo:
+    type: string
+    format: uri
+    description: URI of the monitoring point (ogc.heritage.monitoring-point) or heritage
+      zone (ogc.heritage.heritage-site) to which this threshold applies.
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location
+    x-jsonld-type: '@id'
+  activePeriod:
+    type: object
+    description: Optional date range during which this threshold is in force (e.g.
+      seasonal).
+    properties:
+      start:
+        type: string
+        format: date
+        description: Start date of the active period (ISO 8601).
+      end:
+        type: string
+        format: date
+        description: End date of the active period (ISO 8601).
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span
+    x-jsonld-type: '@json'
+  source:
+    type: string
+    description: URI or label of the technical standard, conservation protocol or
+      expert opinion from which the threshold value is derived (e.g. EN 15757 climate
+      specification).
+    x-jsonld-id: http://purl.org/dc/terms/source
+  rationale:
+    type: string
+    description: Free-text explanation of the basis for the threshold value.
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+  reviewDate:
+    type: string
+    format: date
+    description: Date on which this threshold is scheduled for review (ISO 8601).
+    x-jsonld-id: http://purl.org/dc/terms/modified
+    x-jsonld-type: http://www.w3.org/2001/XMLSchema#date
+x-jsonld-extra-terms:
+  MonitoringThreshold: http://www.w3.org/ns/sosa/ObservableProperty
+x-jsonld-prefixes:
+  sosa: http://www.w3.org/ns/sosa/
+  crm: http://www.cidoc-crm.org/cidoc-crm/
+  qudt: http://qudt.org/schema/qudt/
+  dct: http://purl.org/dc/terms/
+  xsd: http://www.w3.org/2001/XMLSchema#

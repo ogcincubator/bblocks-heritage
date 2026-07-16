@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "HistoricalStatement": "crm:E13_Attribute_Assignment",
+    "type": "@type",
+    "statementType": "crm:P2_has_type",
+    "statement": {
+      "@id": "crm:P141_assigned",
+      "@type": "@json"
+    },
+    "describedObject": {
+      "@id": "crm:P140_assigned_attribute_to",
+      "@type": "@id"
+    },
+    "sourceRecord": {
+      "@id": "crm:P16_used_specific_object",
+      "@type": "@id"
+    },
+    "evidenceLocator": {
+      "@id": "oa:hasBody",
+      "@type": "@json"
+    },
+    "reviewer": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "confidence": "crm:P3_has_note",
+    "datePeriod": "crm:P4_has_time-span",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "oa": "http://www.w3.org/ns/oa#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "@version": 1.1
+  }
+}

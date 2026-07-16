@@ -1,0 +1,15 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+[] a crm:E13_Attribute_Assignment ;
+    crm:P140_assigned_attribute_to <https://data.regiadivenaria.it/heritage-object/galleria-grande-ceiling-fresco> ;
+    crm:P141_assigned "{\"datePeriod\":\"1699\",\"keywords\":[\"ceiling fresco\",\"attribution\",\"Morello\",\"Galleria Grande\",\"Savoy commission\"],\"language\":\"it\",\"text\":\"La volta della Galleria Grande fu dipinta da Michelangelo Morello per commissione del Duca Vittorio Amedeo II nel 1699, come attestato dalla lettera del 14 marzo di quell'anno.\"}"^^rdf:JSON ;
+    crm:P16_used_specific_object <https://data.regiadivenaria.it/source-carrier/ASTo-VR-lett-1699-mar14> ;
+    crm:P2_has_type "authorship attribution" ;
+    crm:P3_has_note "probable" ;
+    crm:P4_has_time-span "1699" ;
+    oa:hasBody "{\"selector\":{\"conformsTo\":\"http://www.w3.org/TR/media-frags/\",\"type\":\"FragmentSelector\",\"value\":\"page=3\"},\"source\":\"https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-lett-1699-mar14-scan\"}"^^rdf:JSON ;
+    prov:wasAttributedTo <https://orcid.org/0000-0000-0000-0001> .
+

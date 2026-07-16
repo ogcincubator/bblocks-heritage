@@ -1,587 +1,395 @@
 {
   "@context": {
-    "wasInfluencedBy": {
-      "@context": {
-        "links": {
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
-    },
-    "qualifiedInfluence": {
-      "@context": {
-        "influencer": {
-          "@context": {
-            "links": {
-              "@context": {
-                "href": {
-                  "@type": "@id",
-                  "@id": "oa:hasTarget"
-                },
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "rdfs:seeAlso"
-            }
-          },
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
-        "entity": {
-          "@context": {
-            "links": {
-              "@context": {
-                "href": {
-                  "@type": "@id",
-                  "@id": "oa:hasTarget"
-                },
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "rdfs:seeAlso"
-            }
-          },
-          "@id": "prov:entity",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedInfluence",
-      "@type": "@id"
-    },
     "id": "@id",
-    "provType": "@type",
-    "activityType": "@type",
-    "endedAtTime": {
-      "@id": "prov:endedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "wasAssociatedWith": {
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
-    },
-    "wasInformedBy": {
-      "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "used": {
-      "@context": {
-        "links": {
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:used",
-      "@type": "@id"
-    },
-    "wasStartedBy": {
-      "@context": {
-        "links": {
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:wasStartedBy",
-      "@type": "@id"
-    },
-    "wasEndedBy": {
-      "@context": {
-        "links": {
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:wasEndedBy",
-      "@type": "@id"
-    },
-    "invalidated": {
-      "@context": {
-        "links": {
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:invalidated",
-      "@type": "@id"
-    },
-    "generated": {
-      "@context": {
-        "links": {
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "rdfs:seeAlso"
-        }
-      },
-      "@id": "prov:generated",
-      "@type": "@id"
-    },
-    "atLocation": {
-      "@id": "prov:atLocation",
-      "@type": "@id"
-    },
-    "qualifiedUsage": {
-      "@id": "prov:qualifiedUsage",
-      "@type": "@id"
-    },
-    "qualifiedCommunication": {
-      "@id": "prov:qualifiedCommunication",
-      "@type": "@id"
-    },
-    "qualifiedStart": {
-      "@context": {
-        "entity": {
-          "@context": {
-            "links": {
-              "@context": {
-                "href": {
-                  "@type": "@id",
-                  "@id": "oa:hasTarget"
-                },
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "rdfs:seeAlso"
-            }
-          },
-          "@id": "prov:entity",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedStart",
-      "@type": "@id"
-    },
-    "qualifiedEnd": {
-      "@context": {
-        "entity": {
-          "@context": {
-            "links": {
-              "@context": {
-                "href": {
-                  "@type": "@id",
-                  "@id": "oa:hasTarget"
-                },
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "rdfs:seeAlso"
-            }
-          },
-          "@id": "prov:entity",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedAssociation": {
-      "@id": "prov:qualifiedAssociation",
-      "@type": "@id"
-    },
-    "agentType": "@type",
-    "entityType": "@type",
+    "properties": "@nest",
     "featureType": "@type",
-    "Activity": "prov:Activity",
-    "ActivityInfluence": "prov:ActivityInfluence",
-    "Agent": "prov:Agent",
-    "AgentInfluence": "prov:AgentInfluence",
-    "Association": "prov:Association",
-    "Attribution": "prov:Attribution",
-    "Bundle": "prov:Bundle",
-    "Collection": "prov:Collection",
-    "Communication": "prov:Communication",
-    "Delegation": "prov:Delegation",
-    "Derivation": "prov:Derivation",
-    "EmptyCollection": "prov:EmptyCollection",
-    "End": "prov:End",
-    "Entity": "prov:Entity",
-    "EntityInfluence": "prov:EntityInfluence",
-    "Generation": "prov:Generation",
-    "Influence": "prov:Influence",
-    "InstantaneousEvent": "prov:InstantaneousEvent",
-    "Invalidation": "prov:Invalidation",
-    "Location": "prov:Location",
-    "Organization": "prov:Organization",
-    "Person": "prov:Person",
-    "Plan": "prov:Plan",
-    "PrimarySource": "prov:PrimarySource",
-    "Quotation": "prov:Quotation",
-    "Revision": "prov:Revision",
-    "Role": "prov:Role",
-    "SoftwareAgent": "prov:SoftwareAgent",
-    "Start": "prov:Start",
-    "Usage": "prov:Usage",
-    "ServiceDescription": "prov:ServiceDescription",
-    "DirectQueryService": "prov:DirectQueryService",
-    "Accept": "prov:Accept",
-    "Contribute": "prov:Contribute",
-    "Contributor": "prov:Contributor",
-    "Copyright": "prov:Copyright",
-    "Create": "prov:Create",
-    "Creator": "prov:Creator",
-    "Modify": "prov:Modify",
-    "Publish": "prov:Publish",
-    "Publisher": "prov:Publisher",
-    "Replace": "prov:Replace",
-    "RightsAssignment": "prov:RightsAssignment",
-    "RightsHolder": "prov:RightsHolder",
-    "Submit": "prov:Submit",
-    "Dictionary": "prov:Dictionary",
-    "EmptyDictionary": "prov:EmptyDictionary",
-    "KeyEntityPair": "prov:KeyEntityPair",
-    "Insertion": "prov:Insertion",
-    "Removal": "prov:Removal",
-    "atTime": {
-      "@id": "prov:atTime",
-      "@type": "xsd:dateTime"
-    },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "value": "prov:value",
-    "provenanceUriTemplate": "prov:provenanceUriTemplate",
-    "pairKey": {
-      "@id": "prov:pairKey",
-      "@type": "rdfs:Literal"
-    },
-    "removedKey": {
-      "@id": "prov:removedKey",
-      "@type": "rdfs:Literal"
-    },
-    "actedOnBehalfOf": {
-      "@id": "prov:actedOnBehalfOf",
+    "ActuatableProperty": {
+      "@id": "sosa:ActuatableProperty",
       "@type": "@id"
     },
-    "agent": {
-      "@id": "prov:agent",
+    "Actuation": {
+      "@id": "sosa:Actuation",
       "@type": "@id"
     },
-    "alternateOf": {
-      "@id": "prov:alternateOf",
+    "ActuationCollection": {
+      "@id": "sosa:ActuationCollection",
       "@type": "@id"
     },
-    "entity": {
-      "@id": "prov:entity",
+    "Actuator": {
+      "@id": "sosa:Actuator",
       "@type": "@id"
     },
-    "hadActivity": {
-      "@id": "prov:hadActivity",
+    "Deployment": {
+      "@id": "sosa:Deployment",
       "@type": "@id"
     },
-    "activity": {
-      "@id": "prov:activity",
+    "Execution": {
+      "@id": "sosa:Execution",
       "@type": "@id"
     },
-    "hadGeneration": {
-      "@id": "prov:hadGeneration",
+    "FeatureOfInterest": {
+      "@id": "sosa:FeatureOfInterest",
       "@type": "@id"
     },
-    "hadMember": {
-      "@id": "prov:hadMember",
+    "ObservableProperty": {
+      "@id": "sosa:ObservableProperty",
       "@type": "@id"
     },
-    "hadPlan": {
-      "@id": "prov:hadPlan",
+    "Observation": {
+      "@id": "sosa:Observation",
       "@type": "@id"
     },
-    "hadPrimarySource": {
-      "@id": "prov:hadPrimarySource",
+    "ObservationCollection": {
+      "@id": "sosa:ObservationCollection",
       "@type": "@id"
     },
-    "hadRole": {
-      "@id": "prov:hadRole",
+    "Platform": {
+      "@id": "sosa:Platform",
       "@type": "@id"
     },
-    "hadUsage": {
-      "@id": "prov:hadUsage",
+    "Property": {
+      "@id": "sosa:Property",
       "@type": "@id"
     },
-    "influenced": {
-      "@id": "prov:influenced",
+    "Procedure ": {
+      "@id": "sosa:Procedure",
       "@type": "@id"
     },
-    "influencer": {
-      "@id": "prov:influencer",
+    "Sample": {
+      "@id": "sosa:Sample",
       "@type": "@id"
     },
-    "qualifiedAttribution": {
-      "@id": "prov:qualifiedAttribution",
+    "SampleCollection": {
+      "@id": "sosa:SampleCollection",
       "@type": "@id"
     },
-    "qualifiedDelegation": {
-      "@id": "prov:qualifiedDelegation",
+    "Sampler": {
+      "@id": "sosa:Sampler",
       "@type": "@id"
     },
-    "qualifiedDerivation": {
-      "@id": "prov:qualifiedDerivation",
+    "Sampling": {
+      "@id": "sosa:Sampling",
       "@type": "@id"
     },
-    "qualifiedGeneration": {
-      "@id": "prov:qualifiedGeneration",
+    "Sensor": {
+      "@id": "sosa:Sensor",
       "@type": "@id"
     },
-    "qualifiedInvalidation": {
-      "@id": "prov:qualifiedInvalidation",
+    "Stimulus": {
+      "@id": "sosa:Stimulus",
       "@type": "@id"
     },
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
+    "System": {
+      "@id": "sosa:System",
       "@type": "@id"
     },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
+    "actsOnProperty": {
+      "@id": "sosa:actsOnProperty",
       "@type": "@id"
     },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
+    "deployedOnPlatform": {
+      "@id": "sosa:deployedOnPlatform",
       "@type": "@id"
     },
-    "specializationOf": {
-      "@id": "prov:specializationOf",
+    "deployedSystem": {
+      "@id": "sosa:deployedSystem",
       "@type": "@id"
     },
-    "wasAttributedTo": {
-      "@id": "prov:wasAttributedTo",
+    "detects": {
+      "@id": "sosa:detects",
       "@type": "@id"
     },
-    "wasDerivedFrom": {
-      "@id": "prov:wasDerivedFrom",
+    "features": {
+      "@id": "sosa:hasMember",
       "@type": "@id"
     },
-    "wasGeneratedBy": {
-      "@id": "prov:wasGeneratedBy",
+    "forProperty": {
+      "@id": "sosa:forProperty",
       "@type": "@id"
     },
-    "wasInvalidatedBy": {
-      "@id": "prov:wasInvalidatedBy",
+    "hasDeployment": {
+      "@id": "sosa:hasDeployment",
       "@type": "@id"
     },
-    "wasQuotedFrom": {
-      "@id": "prov:wasQuotedFrom",
+    "hasInput": {
+      "@id": "sosa:hasInput",
       "@type": "@id"
     },
-    "wasRevisionOf": {
-      "@id": "prov:wasRevisionOf",
+    "hasMember": {
+      "@id": "sosa:hasMember",
       "@type": "@id"
     },
-    "has_anchor": {
-      "@id": "prov:has_anchor",
+    "hasOriginalSample": {
+      "@id": "sosa:hasOriginalSample",
       "@type": "@id"
     },
-    "has_provenance": {
-      "@id": "dct:provenance",
+    "hasOutput": {
+      "@id": "sosa:hasOutput",
       "@type": "@id"
     },
-    "has_query_service": {
-      "@id": "prov:has_query_service",
+    "hasProperty": {
+      "@id": "sosa:hasProperty",
       "@type": "@id"
     },
-    "describesService": {
-      "@id": "prov:describesService",
+    "hasResult": {
+      "@id": "sosa:hasResult",
       "@type": "@id"
     },
-    "pingback": {
-      "@id": "prov:pingback",
+    "hasResultQuality": {
+      "@id": "sosa:hasResultQuality",
       "@type": "@id"
     },
-    "dictionary": {
-      "@id": "prov:dictionary",
+    "hasSample": {
+      "@id": "sosa:hasSample",
       "@type": "@id"
     },
-    "derivedByInsertionFrom": {
-      "@id": "prov:derivedByInsertionFrom",
+    "hasSampledFeature": {
+      "@id": "sosa:hasSampledFeature",
       "@type": "@id"
     },
-    "derivedByRemovalFrom": {
-      "@id": "prov:derivedByRemovalFrom",
+    "hasSimpleResult": {
+      "@id": "sosa:hasSimpleResult",
       "@type": "@id"
     },
-    "insertedKeyEntityPair": {
-      "@id": "prov:insertedKeyEntityPair",
+    "hasSubSystem": {
+      "@id": "sosa:hasSubSystem",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "hasUltimateFeatureOfInterest": {
+      "@id": "sosa:hasUltimateFeatureOfInterest",
       "@type": "@id"
     },
-    "hadDictionaryMember": {
-      "@id": "prov:hadDictionaryMember",
+    "hosts": {
+      "@id": "sosa:hosts",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "implementedBy": {
+      "@id": "sosa:implementedBy",
       "@type": "@id"
     },
-    "pairEntity": {
-      "@id": "prov:pairEntity",
+    "implements": {
+      "@id": "sosa:implements",
       "@type": "@id"
     },
-    "qualifiedInsertion": {
-      "@id": "prov:qualifiedInsertion",
+    "inDeployment": {
+      "@id": "sosa:inDeployment",
       "@type": "@id"
     },
-    "qualifiedRemoval": {
-      "@id": "prov:qualifiedRemoval",
+    "isActedOnBy": {
+      "@id": "sosa:isActedOnBy",
       "@type": "@id"
     },
-    "asInBundle": {
-      "@id": "prov:asInBundle",
+    "isFeatureOfInterestOf": {
+      "@id": "sosa:isFeatureOfInterestOf",
       "@type": "@id"
     },
-    "mentionOf": {
-      "@id": "prov:mentionOf",
+    "isHostedBy": {
+      "@id": "sosa:isHostedBy",
       "@type": "@id"
     },
-    "name": "rdfs:label",
-    "links": "rdfs:seeAlso",
-    "identifier": "crm:P1_is_identified_by",
-    "measurementOf": {
-      "@id": "crm:P39_measured",
+    "isObservedBy": {
+      "@id": "sosa:isObservedBy",
+      "@type": "@id"
+    },
+    "isPropertyOf": {
+      "@id": "sosa:isPropertyOf",
+      "@type": "@id"
+    },
+    "isProxyFor": {
+      "@id": "sosa:isProxyFor",
+      "@type": "@id"
+    },
+    "isResultOf": {
+      "@id": "sosa:isResultOf",
+      "@type": "@id"
+    },
+    "isResultOfMadeBySampler": {
+      "@id": "sosa:isResultOfMadeBySampler",
+      "@type": "@id"
+    },
+    "isResultOfUsedProcedure": {
+      "@id": "sosa:isResultOfUsedProcedure",
+      "@type": "@id"
+    },
+    "isSampleOf": {
+      "@id": "sosa:isSampleOf",
+      "@type": "@id"
+    },
+    "madeActuation": {
+      "@id": "sosa:madeActuation",
+      "@type": "@id"
+    },
+    "madeByActuator": {
+      "@id": "sosa:madeByActuator",
+      "@type": "@id"
+    },
+    "madeBySampler": {
+      "@id": "sosa:madeBySampler",
+      "@type": "@id"
+    },
+    "madeObservation": {
+      "@id": "sosa:madeObservation",
+      "@type": "@id"
+    },
+    "madeSampling": {
+      "@id": "sosa:madeSampling",
+      "@type": "@id"
+    },
+    "observes": {
+      "@id": "sosa:observes",
+      "@type": "@id"
+    },
+    "wasOriginatedBy": {
+      "@id": "sosa:wasOriginatedBy",
+      "@type": "@id"
+    },
+    "Accuracy": {
+      "@id": "ssn-system:Accuracy",
+      "@type": "@id"
+    },
+    "ActuationRange": {
+      "@id": "ssn-system:ActuationRange",
+      "@type": "@id"
+    },
+    "BatteryLifetime": {
+      "@id": "ssn-system:BatteryLifetime",
+      "@type": "@id"
+    },
+    "DetectionLimit": {
+      "@id": "ssn-system:DetectionLimit",
+      "@type": "@id"
+    },
+    "Drift": {
+      "@id": "ssn-system:Drift",
+      "@type": "@id"
+    },
+    "Frequency": {
+      "@id": "ssn-system:Frequency",
+      "@type": "@id"
+    },
+    "Latency": {
+      "@id": "ssn-system:Latency",
+      "@type": "@id"
+    },
+    "MaintenanceSchedule": {
+      "@id": "ssn-system:MaintenanceSchedule",
+      "@type": "@id"
+    },
+    "MeasurementRange": {
+      "@id": "ssn-system:MeasurementRange",
+      "@type": "@id"
+    },
+    "OperatingPowerRange": {
+      "@id": "ssn-system:OperatingPowerRange",
+      "@type": "@id"
+    },
+    "OperatingProperty": {
+      "@id": "ssn-system:OperatingProperty",
+      "@type": "@id"
+    },
+    "OperatingRange": {
+      "@id": "ssn-system:OperatingRange",
+      "@type": "@id"
+    },
+    "Precision": {
+      "@id": "ssn-system:Precision",
+      "@type": "@id"
+    },
+    "Resolution": {
+      "@id": "ssn-system:Resolution",
+      "@type": "@id"
+    },
+    "ResponseTime": {
+      "@id": "ssn-system:ResponseTime",
+      "@type": "@id"
+    },
+    "Selectivity": {
+      "@id": "ssn-system:Selectivity",
+      "@type": "@id"
+    },
+    "Sensitivity": {
+      "@id": "ssn-system:Sensitivity",
+      "@type": "@id"
+    },
+    "SurvivalProperty": {
+      "@id": "ssn-system:SurvivalProperty",
+      "@type": "@id"
+    },
+    "SystemLifetime": {
+      "@id": "ssn-system:SystemLifetime",
+      "@type": "@id"
+    },
+    "SurvivalRange": {
+      "@id": "ssn-system:SurvivalRange",
+      "@type": "@id"
+    },
+    "SystemCapability": {
+      "@id": "ssn-system:SystemCapability",
+      "@type": "@id"
+    },
+    "SystemProperty": {
+      "@id": "ssn-system:SystemProperty",
+      "@type": "@id"
+    },
+    "hasOperatingProperty": {
+      "@id": "ssn-system:hasOperatingProperty",
+      "@type": "@id"
+    },
+    "hasOperatingRange": {
+      "@id": "ssn-system:hasOperatingRange",
+      "@type": "@id"
+    },
+    "hasSurvivalProperty": {
+      "@id": "ssn-system:hasSurvivalProperty",
+      "@type": "@id"
+    },
+    "hasSystemCapability": {
+      "@id": "ssn-system:hasSystemCapability",
+      "@type": "@id"
+    },
+    "hasSystemProperty": {
+      "@id": "ssn-system:hasSystemProperty",
+      "@type": "@id"
+    },
+    "hasSurvivalRange": {
+      "@id": "ssn-system:hasSurvivalRange",
+      "@type": "@id"
+    },
+    "inCondition": {
+      "@id": "ssn-system:inCondition",
+      "@type": "@id"
+    },
+    "qualityOfObservation": {
+      "@id": "ssn-system:qualityOfObservation",
+      "@type": "@id"
+    },
+    "resultTime": "sosa:resultTime",
+    "phenomenonTime": {
+      "@id": "sosa:phenomenonTime",
+      "@type": "@id"
+    },
+    "hasFeatureOfInterest": {
+      "@id": "sosa:hasFeatureOfInterest",
       "@type": "@id"
     },
     "observedProperty": {
-      "@id": "crm:P40_observed_dimension",
+      "@id": "sosa:observedProperty",
       "@type": "@id"
     },
-    "prov": "http://www.w3.org/ns/prov#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "dct": "http://purl.org/dc/terms/",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "oa": "http://www.w3.org/ns/oa#",
-    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "usedProcedure": {
+      "@id": "sosa:usedProcedure",
+      "@type": "@id"
+    },
+    "madeBySensor": {
+      "@id": "sosa:madeBySensor",
+      "@type": "@id"
+    },
+    "type": "@type",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn-system": "ssn:systems/",
+    "ssn": "http://www.w3.org/ns/ssn/",
     "@version": 1.1
   }
 }

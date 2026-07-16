@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.monitoring-point - Monitoring Point
+Generated 2026-07-16T14:38:29.206380+00:00
+=== Files ===
+Using examples/venaria-humidity-sensor.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/monitoring-point/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/monitoring-point/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: _:N2464071bf42746678714fb55c8629067
+
+=== End SHACL ===
+

@@ -1,0 +1,111 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.monitoring-threshold",
+  "name": "Monitoring Threshold",
+  "abstract": "A conservation threshold rule bounding an environmental parameter at a heritage monitoring point or zone, modelled as a SOSA ObservableProperty with QUDT unit and severity annotations (CRRS-011).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    {
+      "title": "W3C/OGC SOSA ObservableProperty",
+      "link": "https://www.w3.org/TR/vocab-ssn/#SOSAObservableProperty"
+    },
+    {
+      "title": "QUDT Quantities, Units, Dimensions and Types",
+      "link": "https://qudt.org/"
+    },
+    {
+      "title": "CIDOC-CRM E55 Type",
+      "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E55"
+    },
+    {
+      "title": "HERITALISE D8.2 CRRS-011",
+      "link": "https://heritalise-eccch.eu/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "sosa",
+    "qudt",
+    "monitoring",
+    "threshold",
+    "conservation"
+  ],
+  "group": "Monitoring",
+  "shaclShapes": {
+    "ogc.heritage.monitoring-threshold": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-threshold/shapes.shacl"
+    ]
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-threshold/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-threshold/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-threshold/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-threshold/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-threshold/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-threshold/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-threshold/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/monitoring-threshold/",
+  "description": "# Monitoring Threshold\n\nA **Monitoring Threshold** records a conservation threshold rule: a bounded acceptable value range\nfor a specific environmental parameter at a heritage monitoring point or zone. Threshold records are\nlinked to `monitoring-point` or `heritage-site` instances and drive conservation alerts when sensor\nreadings breach the defined limits.\n\n## Semantic anchor\n\nThe block is modelled as a **SOSA ObservableProperty** (`sosa:ObservableProperty`), representing the\nparameterised environmental quantity together with its acceptable bounds and severity classification.\nQUDT unit URIs express the unit of measurement; CIDOC-CRM predicates record type classification,\nseverity and spatial linkage.\n\n## Property table\n\n| Property | Required | CRM / standard mapping | Description |\n|---|---|---|---|\n| `id` | no | `@id` | Persistent URI for the threshold rule |\n| `type` | yes | `@type` \u2192 `sosa:ObservableProperty` | Fixed token `MonitoringThreshold` |\n| `parameter` | yes | `sosa:observes` (@id) | URI of the observable parameter (GEOSS ECV or QUDT QuantityKind) |\n| `thresholdType` | yes | `crm:P2_has_type` | Constraint kind: `minValue`, `maxValue`, `range`, `rateOfChange` |\n| `minValue` | cond. | *(unmapped \u2014 JSON payload)* | Lower bound; required when `thresholdType` is `minValue` or `range` |\n| `maxValue` | cond. | *(unmapped \u2014 JSON payload)* | Upper bound; required when `thresholdType` is `maxValue` or `range` |\n| `rateValue` | cond. | *(unmapped \u2014 JSON payload)* | Rate limit; required when `thresholdType` is `rateOfChange` |\n| `unit` | no | `qudt:unit` (@id) | QUDT unit URI (e.g. `qudt:unit/DEG_C`, `qudt:unit/PERCENT`) |\n| `severity` | yes | `crm:P44_has_condition` | Alert level: `advisory`, `warning`, `alarm`, `critical` |\n| `appliesTo` | yes | `crm:P53_has_former_or_current_location` (@id) | URI of the monitoring point or heritage zone |\n| `activePeriod` | no | `crm:P4_has_time-span` (@json) | `{ \"start\": \"YYYY-MM-DD\", \"end\": \"YYYY-MM-DD\" }` |\n| `source` | yes | `dct:source` | Standard, protocol or expert opinion URI or label |\n| `rationale` | no | `crm:P3_has_note` | Free-text justification for the threshold value |\n| `reviewDate` | no | `dct:modified` (`xsd:date`) | Scheduled review date (ISO 8601) |\n\n## Design notes\n\n- `minValue`, `maxValue` and `rateValue` are left unmapped in the JSON-LD context: they carry\n  numeric payload that has no suitable CRM predicate and are validated by JSON Schema alone.\n- `thresholdType` uses `crm:P2_has_type` with a literal value; this is a pragmatic simplification\n  (CRM strictly expects an `E55 Type` object) that keeps the JSON flat.\n- `sh:targetClass sosa:ObservableProperty` is safe: no other block in the register instantiates\n  that class.\n- `activePeriod` is mapped as `@type: \"@json\"` to keep the start/end pair opaque in RDF.\n\n## Standard alignments\n\n- **SOSA/SSN** (\u25cf mandatory): `sosa:ObservableProperty` as the semantic anchor; `sosa:observes`\n  links the threshold to the measured parameter.\n- **QUDT** (\u25cf mandatory): `qudt:unit` for the physical unit; parameter URIs from QUDT QuantityKind.\n- **GEOSS Essential Climate Variables**: preferred URI set for the `parameter` field.\n- **CIDOC-CRM**: P2 type classification, P44 condition/severity, P53 spatial linkage, P4 time-span,\n  P3 note/rationale.\n- **DCTerms**: `dct:source` for protocol provenance; `dct:modified` for review date.\n- **schema.org ActionAccessSpecification** (\u25cb optional): can be used as an extended rule-semantics\n  overlay alongside this block where rule-engine integration is required.\n\n## Use cases\n\n- Reggia di Venaria (CRRS-011): define RH and temperature thresholds per gallery zone, linked to\n  `monitoring-point` instances installed in the Galleria Grande.\n- Villa Portelli Malta: define temperature and light-level thresholds for gallery rooms, with\n  seasonal `activePeriod` for winter/summer profiles.\n",
+  "examples": [
+    {
+      "title": "Relative-humidity range threshold, Galleria Grande Bay 7 \u2014 Venaria (CRRS-011)",
+      "content": "A bilateral RH threshold (45\u201365 %) for the sensor at bay 7 of the Galleria Grande, Reggia di Venaria. Derived from EN 15757 and adapted to the site's acclimatisation history. A warning-level alert is triggered if the reading falls outside the range. Covers CRRS-011 (monitoring threshold / conservation alert).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-threshold/examples/venaria-rh-threshold.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/monitoring-threshold/example_1_1.json",
+          "sizeBytes": 928,
+          "code": "{\n  \"id\": \"https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7\",\n  \"type\": \"MonitoringThreshold\",\n  \"parameter\": \"https://qudt.org/vocab/quantitykind/RelativeHumidity\",\n  \"thresholdType\": \"range\",\n  \"minValue\": 45,\n  \"maxValue\": 65,\n  \"unit\": \"https://qudt.org/vocab/unit/PERCENT\",\n  \"severity\": \"warning\",\n  \"appliesTo\": \"https://heritalise.eu/venaria/sensor/S-GG-07\",\n  \"activePeriod\": {\n    \"start\": \"2024-01-01\",\n    \"end\": \"2024-12-31\"\n  },\n  \"source\": \"EN 15757:2010 \u2014 Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials.\",\n  \"rationale\": \"The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 \u00b1 10 % RH band. The 45\u201365 % range reflects site-specific acclimatisation history.\",\n  \"reviewDate\": \"2025-06-30\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/monitoring-threshold/example_1_1.jsonld",
+          "sizeBytes": 1063,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-threshold/context.jsonld\",\n  \"id\": \"https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7\",\n  \"type\": \"MonitoringThreshold\",\n  \"parameter\": \"https://qudt.org/vocab/quantitykind/RelativeHumidity\",\n  \"thresholdType\": \"range\",\n  \"minValue\": 45,\n  \"maxValue\": 65,\n  \"unit\": \"https://qudt.org/vocab/unit/PERCENT\",\n  \"severity\": \"warning\",\n  \"appliesTo\": \"https://heritalise.eu/venaria/sensor/S-GG-07\",\n  \"activePeriod\": {\n    \"start\": \"2024-01-01\",\n    \"end\": \"2024-12-31\"\n  },\n  \"source\": \"EN 15757:2010 \\u2014 Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials.\",\n  \"rationale\": \"The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 \\u00b1 10 % RH band. The 45\\u201365 % range reflects site-specific acclimatisation history.\",\n  \"reviewDate\": \"2025-06-30\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/monitoring-threshold/example_1_1.ttl",
+          "sizeBytes": 1265,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix qudt: <http://qudt.org/schema/qudt/> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7> a sosa:ObservableProperty ;\n    dct:modified \"2025-06-30\"^^xsd:date ;\n    dct:source \"EN 15757:2010 \u2014 Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials.\" ;\n    qudt:unit <https://qudt.org/vocab/unit/PERCENT> ;\n    crm:P2_has_type \"range\" ;\n    crm:P3_has_note \"The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 \u00b1 10 % RH band. The 45\u201365 % range reflects site-specific acclimatisation history.\" ;\n    crm:P44_has_condition \"warning\" ;\n    crm:P4_has_time-span \"{\\\"end\\\":\\\"2024-12-31\\\",\\\"start\\\":\\\"2024-01-01\\\"}\"^^rdf:JSON ;\n    crm:P53_has_former_or_current_location <https://heritalise.eu/venaria/sensor/S-GG-07> ;\n    sosa:observes <https://qudt.org/vocab/quantitykind/RelativeHumidity> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Minimum temperature threshold, Grand Salon \u2014 Villa Portelli, Malta",
+      "content": "A minimum-temperature threshold (10 \u00b0C) for the Grand Salon at Villa Portelli. An alarm-level alert triggers immediate HVAC intervention if the temperature drops below the condensation-risk boundary. A minimal example \u2014 no activePeriod or rationale \u2014 showing only the required fields.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-threshold/examples/malta-temp-threshold.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/monitoring-threshold/example_2_1.json",
+          "sizeBytes": 691,
+          "code": "{\n  \"id\": \"https://heritalise.eu/malta/threshold/temp-grand-salon-min\",\n  \"type\": \"MonitoringThreshold\",\n  \"parameter\": \"https://qudt.org/vocab/quantitykind/Temperature\",\n  \"thresholdType\": \"minValue\",\n  \"minValue\": 10,\n  \"unit\": \"https://qudt.org/vocab/unit/DEG_C\",\n  \"severity\": \"alarm\",\n  \"appliesTo\": \"https://heritalise.eu/malta/sensor/S-VP-GS-01\",\n  \"source\": \"https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf\",\n  \"rationale\": \"Temperatures below 10 \u00b0C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention.\",\n  \"reviewDate\": \"2025-09-01\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/monitoring-threshold/example_2_1.jsonld",
+          "sizeBytes": 820,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-threshold/context.jsonld\",\n  \"id\": \"https://heritalise.eu/malta/threshold/temp-grand-salon-min\",\n  \"type\": \"MonitoringThreshold\",\n  \"parameter\": \"https://qudt.org/vocab/quantitykind/Temperature\",\n  \"thresholdType\": \"minValue\",\n  \"minValue\": 10,\n  \"unit\": \"https://qudt.org/vocab/unit/DEG_C\",\n  \"severity\": \"alarm\",\n  \"appliesTo\": \"https://heritalise.eu/malta/sensor/S-VP-GS-01\",\n  \"source\": \"https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf\",\n  \"rationale\": \"Temperatures below 10 \\u00b0C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention.\",\n  \"reviewDate\": \"2025-09-01\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/monitoring-threshold/example_2_1.ttl",
+          "sizeBytes": 972,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix qudt: <http://qudt.org/schema/qudt/> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise.eu/malta/threshold/temp-grand-salon-min> a sosa:ObservableProperty ;\n    dct:modified \"2025-09-01\"^^xsd:date ;\n    dct:source \"https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf\" ;\n    qudt:unit <https://qudt.org/vocab/unit/DEG_C> ;\n    crm:P2_has_type \"minValue\" ;\n    crm:P3_has_note \"Temperatures below 10 \u00b0C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention.\" ;\n    crm:P44_has_condition \"alarm\" ;\n    crm:P53_has_former_or_current_location <https://heritalise.eu/malta/sensor/S-VP-GS-01> ;\n    sosa:observes <https://qudt.org/vocab/quantitykind/Temperature> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Monitoring Threshold\ndescription: A conservation threshold rule defining the acceptable value range for\n  an environmental parameter at a heritage monitoring point or zone (SOSA ObservableProperty\n  + QUDT units).\ntype: object\nrequired:\n- type\n- parameter\n- thresholdType\n- severity\n- appliesTo\n- source\nproperties:\n  id:\n    type: string\n    format: uri\n    description: Persistent URI identifying this threshold rule.\n    x-jsonld-id: '@id'\n  type:\n    const: MonitoringThreshold\n    description: Fixed type token identifying this record as a monitoring threshold\n      (maps to sosa:ObservableProperty).\n    x-jsonld-id: '@type'\n  parameter:\n    type: string\n    format: uri\n    description: URI of the observable environmental parameter, preferably a GEOSS\n      Essential Climate Variable (ECV) URI or a QUDT QuantityKind URI (e.g. https://qudt.org/vocab/quantitykind/Temperature\n      for temperature).\n    x-jsonld-id: http://www.w3.org/ns/sosa/observes\n    x-jsonld-type: '@id'\n  thresholdType:\n    type: string\n    enum:\n    - minValue\n    - maxValue\n    - range\n    - rateOfChange\n    description: 'The kind of threshold constraint: minValue (lower bound only), maxValue\n      (upper bound only), range (both bounds), rateOfChange (maximum acceptable rate\n      of change per unit time).'\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n  minValue:\n    type: number\n    description: Lower bound of the acceptable range (required when thresholdType\n      is minValue or range).\n  maxValue:\n    type: number\n    description: Upper bound of the acceptable range (required when thresholdType\n      is maxValue or range).\n  rateValue:\n    type: number\n    description: Maximum acceptable rate of change per unit time (required when thresholdType\n      is rateOfChange).\n  unit:\n    type: string\n    format: uri\n    description: QUDT unit URI for the threshold value(s), e.g. https://qudt.org/vocab/unit/DEG_C\n      for degrees Celsius or https://qudt.org/vocab/unit/PERCENT for relative humidity.\n    x-jsonld-id: http://qudt.org/schema/qudt/unit\n    x-jsonld-type: '@id'\n  severity:\n    type: string\n    enum:\n    - advisory\n    - warning\n    - alarm\n    - critical\n    description: 'Alert severity level triggered when the threshold is breached: advisory\n      (informational), warning (attention required), alarm (action required), critical\n      (emergency response required).'\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition\n  appliesTo:\n    type: string\n    format: uri\n    description: URI of the monitoring point (ogc.heritage.monitoring-point) or heritage\n      zone (ogc.heritage.heritage-site) to which this threshold applies.\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location\n    x-jsonld-type: '@id'\n  activePeriod:\n    type: object\n    description: Optional date range during which this threshold is in force (e.g.\n      seasonal).\n    properties:\n      start:\n        type: string\n        format: date\n        description: Start date of the active period (ISO 8601).\n      end:\n        type: string\n        format: date\n        description: End date of the active period (ISO 8601).\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span\n    x-jsonld-type: '@json'\n  source:\n    type: string\n    description: URI or label of the technical standard, conservation protocol or\n      expert opinion from which the threshold value is derived (e.g. EN 15757 climate\n      specification).\n    x-jsonld-id: http://purl.org/dc/terms/source\n  rationale:\n    type: string\n    description: Free-text explanation of the basis for the threshold value.\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n  reviewDate:\n    type: string\n    format: date\n    description: Date on which this threshold is scheduled for review (ISO 8601).\n    x-jsonld-id: http://purl.org/dc/terms/modified\n    x-jsonld-type: http://www.w3.org/2001/XMLSchema#date\nx-jsonld-extra-terms:\n  MonitoringThreshold: http://www.w3.org/ns/sosa/ObservableProperty\nx-jsonld-prefixes:\n  sosa: http://www.w3.org/ns/sosa/\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  qudt: http://qudt.org/schema/qudt/\n  dct: http://purl.org/dc/terms/\n  xsd: http://www.w3.org/2001/XMLSchema#\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/monitoring-threshold"
+}

@@ -1,0 +1,16 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024> a crmdig:D1_Digital_Object ;
+    dct:format "image/tiff" ;
+    dct:rights "https://creativecommons.org/licenses/by/4.0/" ;
+    crm:P129_is_about <https://data.regiadivenaria.it/heritage-object/galleria-grande> ;
+    crm:P1_is_identified_by "https://hdl.handle.net/21.T11998/rv-plan-2024-0042" ;
+    crm:P3_has_note "complete — full sheet digitised; minor foxing on lower-right corner noted in processing history" ;
+    crm:P70i_is_documented_in <https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest> ;
+    crmdig:L11i_was_output_of "{\"colourMode\":\"RGB\",\"date\":\"2024-03-15\",\"equipment\":\"Zeutschel OS 14000 A1 overhead scanner\",\"method\":\"flatbed scan\",\"operator\":\"Archivio di Stato di Torino, Laboratorio Digitalizzazione\",\"processingHistory\":\"Flatbed scan of rolled plan; ICC colour calibration; converted from TIFF master to JPEG access copy.\",\"quality\":\"master\",\"resolution\":\"400dpi\",\"software\":\"Zeutschel OmniScan 12\"}"^^rdf:JSON ;
+    prov:wasDerivedFrom <https://data.regiadivenaria.it/source-carrier/ASTo-VR-mazzo12-n3> .
+

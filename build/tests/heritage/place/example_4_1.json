@@ -1,0 +1,37 @@
+{
+  "id": "https://example.org/heritalise/place/north-parterre",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.62,
+          45.136
+        ],
+        [
+          7.625,
+          45.136
+        ],
+        [
+          7.625,
+          45.14
+        ],
+        [
+          7.62,
+          45.14
+        ],
+        [
+          7.62,
+          45.136
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "RV-ZONE-NP",
+    "name": "North Parterre",
+    "placeType": "http://vocab.getty.edu/aat/300008106",
+    "partOf": "https://example.org/heritalise/place/central-garden-axis"
+  }
+}

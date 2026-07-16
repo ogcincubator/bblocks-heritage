@@ -1,0 +1,14 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco> a crm:E25_Man-Made_Feature ;
+    crm:P33_used_specific_technique <http://vocab.getty.edu/aat/300053343> ;
+    crm:P3_has_note "vault intrados" ;
+    crm:P44_has_condition "localised cracking on north edge; stable elsewhere" ;
+    crm:P45_consists_of <http://vocab.getty.edu/aat/300178433> ;
+    crm:P4_has_time-span "1699–1707" ;
+    crm:P56i_is_found_on <https://heritalise.eu/venaria/space/galleria-grande-bay7> ;
+    crm:P70i_is_documented_in <https://heritalise.eu/venaria/survey/photogrammetry-GG-2023> ;
+    geojson:geometry "{\"coordinates\":[[[7.6046,45.1286],[7.6049,45.1286],[7.6049,45.1288],[7.6046,45.1288],[7.6046,45.1286]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+

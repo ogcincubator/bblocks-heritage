@@ -116,6 +116,56 @@ Only `identifier` is required at this level — older archive records (UC-V-3) m
 
 ```
 
+
+### Malta historical foundation event (HM-09)
+The 1820 foundation of the Villa Portelli estate, typed as a ceremony/foundation event (Getty AAT), with the Portelli family as the associated actor and the villa site as the location. `description` carries a free-text historical significance note. Demonstrates use of the event block for historical (non-conservation) events, covering the Malta pilot's HM-09 requirement for historical events with organisational and significance context.
+#### json
+```json
+{
+  "id": "https://example.org/heritalise/event/villa-portelli-founding-1820",
+  "identifier": "MT-EVT-1820-FOUND",
+  "eventType": "http://vocab.getty.edu/aat/300069748",
+  "startedAtTime": "1820-01-01T00:00:00Z",
+  "wasAssociatedWith": [
+    "https://example.org/heritalise/actor/house-of-portelli"
+  ],
+  "atLocation": "https://example.org/heritalise/site/villa-portelli",
+  "description": "Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence."
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "id": "https://example.org/heritalise/event/villa-portelli-founding-1820",
+  "identifier": "MT-EVT-1820-FOUND",
+  "eventType": "http://vocab.getty.edu/aat/300069748",
+  "startedAtTime": "1820-01-01T00:00:00Z",
+  "wasAssociatedWith": [
+    "https://example.org/heritalise/actor/house-of-portelli"
+  ],
+  "atLocation": "https://example.org/heritalise/site/villa-portelli",
+  "description": "Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence."
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/event/villa-portelli-founding-1820> crm:P1_is_identified_by "MT-EVT-1820-FOUND" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300069748> ;
+    prov:atLocation <https://example.org/heritalise/site/villa-portelli> ;
+    prov:startedAtTime "1820-01-01T00:00:00+00:00"^^xsd:dateTime ;
+    prov:wasAssociatedWith <https://example.org/heritalise/actor/house-of-portelli> .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -246,6 +296,10 @@ Links to the schema:
     "id": "@id",
     "provType": "@type",
     "activityType": "@type",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
     "endedAtTime": {
       "@id": "prov:endedAtTime",
       "@type": "xsd:dateTime"
@@ -531,10 +585,6 @@ Links to the schema:
     },
     "invalidatedAtTime": {
       "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
     "value": "prov:value",

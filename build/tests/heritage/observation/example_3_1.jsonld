@@ -1,0 +1,9 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
+  "type": "Observation",
+  "hasFeatureOfInterest": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "observedProperty": "http://vocab.getty.edu/aat/300055680",
+  "madeBySensor": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "hasSimpleResult": 61.4,
+  "resultTime": "2024-09-15T08:30:00Z"
+}

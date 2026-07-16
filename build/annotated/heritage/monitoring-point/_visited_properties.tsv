@@ -1,0 +1,12 @@
+path	@id	schema
+/_anyOf/1/id	@id	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/sensor/schema.yaml
+/_anyOf/1/name		https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/sensor/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/identifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/sensorType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/locatedIn	http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/operationalStatus	http://www.cidoc-crm.org/cidoc-crm/P44_has_condition	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/responsibleOrganisation	http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/position	https://purl.org/geojson/vocab#geometry	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/position/type	@type	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
+/position/coordinates		/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml

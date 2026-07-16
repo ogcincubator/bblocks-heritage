@@ -1,0 +1,77 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.derived-survey-product",
+  "name": "Derived Survey Product",
+  "abstract": "A processed output derived from a geometric survey dataset \u2014 section drawing, triangulated mesh, deviation map or registration report \u2014 modelled as a CRMdig D9 Data Object. Profiles ogc.heritage.digital-representation, adding a mandatory PROV derivation link to the parent survey dataset and a structured CRMdig D10 Software Execution sub-object recording the processing parameters.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    {
+      "title": "CRMdig D9 Data Object / D10 Software Execution",
+      "link": "https://www.ics.forth.gr/isl/CRMdig/"
+    },
+    {
+      "title": "PROV-O: The PROV Ontology",
+      "link": "https://www.w3.org/TR/prov-o/"
+    },
+    {
+      "title": "HERITALISE D8.2 CRRS-008 (Derived Survey / QA Product)",
+      "link": "https://heritalise-eccch.eu/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "cidoc-crm",
+    "crmdig",
+    "survey",
+    "derived",
+    "processing",
+    "mesh",
+    "prov"
+  ],
+  "group": "Survey & Documentation",
+  "isProfileOf": [
+    "ogc.heritage.digital-representation"
+  ],
+  "shaclShapes": {
+    "ogc.heritage.derived-survey-product": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/derived-survey-product/shapes.shacl"
+    ],
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.digital-representation"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/derived-survey-product/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/derived-survey-product/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/derived-survey-product/",
+  "validationPassed": true,
+  "description": "# Derived Survey Product\n\nA processed output produced by applying computational methods to a raw geometric survey dataset\n(point cloud, photogrammetric model, etc.). Typical products include triangulated meshes, section\ndrawings, deviation maps, orthophotos and registration reports.\n\nModelled as a **CRMdig D9 Data Object** (a derived digital object). Profiles\n`ogc.heritage.digital-representation`, adding:\n\n- a mandatory **PROV derivation link** (`prov:wasDerivedFrom`) to the source\n  `ogc.heritage.survey-dataset` record\n- a structured **CRMdig D10 Software Execution** sub-object (`processingEvent`) capturing the\n  processing method, software, operator, parameters and quality result\n\nThe spatial extent of the derived product is inherited from the parent survey dataset; no\nseparate coverage geometry is required.\n\n## CRM anchor\n\n| Term | URI |\n|------|-----|\n| D9 Data Object | `crmdig:D9_Data_Object` |\n| D10 Software Execution | `crmdig:D10_Software_Execution` |\n| L11i was_output_of | `crmdig:L11i_was_output_of` |\n\n## Properties\n\n| Property | Mapping | Required | Notes |\n|----------|---------|----------|-------|\n| `type` | `@type` \u2192 `crmdig:D9_Data_Object` | \u2714 | Fixed const `\"DerivedSurveyProduct\"` |\n| `title` | `dct:title` | \u2714 | Human-readable label for the product |\n| `isAbout` | `crm:P129_is_about` | \u2714 | URI of the heritage asset (inherited from `digital-representation`) |\n| `parentDataset` | `prov:wasDerivedFrom` | \u2714 | URI of the source `survey-dataset` record |\n| `processingEvent` | `crmdig:L11i_was_output_of` (@json) | \u2714 | D10 Software Execution sub-object (see below) |\n| `url` | `dcat:accessURL` | \u2014 | Download URL for the derived file (inherited) |\n| `mediaType` | `dct:format` | \u2014 | IANA media type of the output file (inherited) |\n| `limitations` | `dct:description` | \u2014 | Known artefacts or coverage caveats |\n| `reviewStatus` | \u2014 | \u2014 | Workflow status (draft / reviewed / approved) |\n\n### `processingEvent` sub-object (D10 Software Execution)\n\nTreated as an opaque JSON value at the RDF level (`@type: \"@json\"`). Fields within the sub-object\nare not individually mapped to RDF predicates \u2014 they are captured as processing paradata.\n\n| Field | Required | Notes |\n|-------|----------|-------|\n| `processingMethod` | \u2714 | e.g. `\"mesh generation\"`, `\"section extraction\"`, `\"deviation mapping\"` |\n| `processingDate` | \u2714 | ISO 8601 date |\n| `software` | \u2014 | Name of the processing software |\n| `softwareVersion` | \u2014 | Version string |\n| `operator` | \u2014 | URI of the responsible person/organisation |\n| `parameters` | \u2014 | Key settings used (free-text) |\n| `accuracy` | \u2014 | Quality metric, e.g. `\"mean deviation \u00b12 mm\"` |\n| `qaResult` | \u2014 | QA outcome label |\n\n## Design notes\n\n- **Profile choice:** `digital-representation` (not `survey-dataset`) is the correct JSON Schema\n  parent because `survey-dataset` requires `acquisitionEvent` and `coverage`, which derived\n  products do not have. The semantic relationship to the source dataset is captured via\n  `prov:wasDerivedFrom`. CRMdig D9 IS-A D1 Digital Object, consistent with profiling the\n  D1-anchored `digital-representation` block.\n- **SHACL targeting:** `sh:targetClass crmdig:D9_Data_Object` is safe because no other block in\n  this register maps any type token to that class.\n- **processingEvent as @json:** Consistent with the `acquisitionEvent` pattern in `survey-dataset`.\n  Inner fields are not SHACL-validated; the shape only checks that the sub-object is present.\n\n## Use cases\n\n- CRRS-008 (Reggia di Venaria): mesh, section, deviation map and registration report derived from\n  TLS or UAV photogrammetric surveys of palace interiors.\n- HM-05 (Villa Portelli, Malta): processed photogrammetric outputs (dense point cloud mesh,\n  orthophotos) submitted as deliverables from a recording campaign.\n",
+  "examples": [
+    {
+      "title": "Venaria \u2014 triangulated mesh derived from TLS point cloud of Galleria Grande ceiling",
+      "content": "{\n  \"type\": \"DerivedSurveyProduct\",\n  \"id\": \"https://heritage.venaria.it/products/gc-ceiling-mesh-2024\",\n  \"title\": \"Triangulated Mesh \u2014 Galleria Grande Ceiling (derived from TLS 2024)\",\n  \"isAbout\": \"https://heritage.venaria.it/buildings/galleria-grande\",\n  \"parentDataset\": \"https://heritage.venaria.it/datasets/gc-ceiling-tls-2024\",\n  \"mediaType\": \"model/obj\",\n  \"url\": \"https://heritage.venaria.it/storage/gc-ceiling-mesh-2024.obj\",\n  \"processingEvent\": {\n    \"processingMethod\": \"mesh generation\",\n    \"processingDate\": \"2024-04-03\",\n    \"software\": \"Leica Cyclone 3DR\",\n    \"softwareVersion\": \"2024.0.1\",\n    \"operator\": \"https://orcid.org/0000-0000-0000-0001\",\n    \"parameters\": \"Poisson reconstruction; octree depth 10; smoothing kernel radius 5 mm\",\n    \"accuracy\": \"mean deviation from source cloud \u00b11.8 mm\",\n    \"qaResult\": \"passed\"\n  },\n  \"limitations\": \"Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud.\",\n  \"reviewStatus\": \"reviewed\"\n}\n",
+      "mediatype": "application/json"
+    },
+    {
+      "title": "Malta \u2014 deviation map derived from UAV photogrammetric survey of Villa Portelli exterior",
+      "content": "{\n  \"type\": \"DerivedSurveyProduct\",\n  \"id\": \"https://heritage.gov.mt/products/villa-portelli-deviation-map-2025\",\n  \"title\": \"Facade Deviation Map \u2014 Villa Portelli exterior (derived from UAV survey 2025)\",\n  \"isAbout\": \"https://heritage.gov.mt/buildings/villa-portelli\",\n  \"parentDataset\": \"https://heritage.gov.mt/datasets/villa-portelli-uav-2025\",\n  \"mediaType\": \"image/tiff\",\n  \"url\": \"https://heritage.gov.mt/storage/villa-portelli-deviation-map-2025.tif\",\n  \"persistentIdentifier\": \"https://doi.org/10.00000/villa-portelli-deviationmap-2025\",\n  \"processingEvent\": {\n    \"processingMethod\": \"deviation mapping\",\n    \"processingDate\": \"2025-07-02\",\n    \"software\": \"CloudCompare\",\n    \"softwareVersion\": \"2.13.1\",\n    \"operator\": \"https://orcid.org/0000-0000-0000-0002\",\n    \"parameters\": \"Reference surface: design BIM mesh (IFC); max search radius 0.5 m; colour ramp \u00b1100 mm\",\n    \"accuracy\": \"RMS deviation 38 mm; 92 % of facade within \u00b150 mm of design intent\",\n    \"qaResult\": \"passed with remarks \u2014 two pilasters exceed \u00b180 mm threshold\"\n  },\n  \"limitations\": \"Roof surface excluded (access restrictions). Balcony undersides have partial occlusion.\",\n  \"reviewStatus\": \"approved\"\n}\n",
+      "mediatype": "application/json"
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Derived Survey Product\ndescription: A processed output derived from a geometric survey dataset (point cloud,\n  photogrammetric model, etc.), modelled as a CRMdig D9 Data Object. Profiles digital-representation\n  and adds a mandatory PROV derivation link to the parent survey dataset and a structured\n  CRMdig D10 Software Execution sub-object recording the processing method, software\n  and quality parameters.\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - type\n  - title\n  - parentDataset\n  - processingEvent\n  properties:\n    type:\n      const: DerivedSurveyProduct\n      description: Fixed type token identifying this record as a derived survey product\n        (maps to crmdig:D9_Data_Object).\n      x-jsonld-id: '@type'\n    title:\n      type: string\n      description: Human-readable title of the derived product (dct:title).\n      x-jsonld-id: http://purl.org/dc/terms/title\n    parentDataset:\n      type: string\n      format: uri\n      description: Persistent URI of the source survey dataset from which this product\n        was derived (prov:wasDerivedFrom). Must reference an ogc.heritage.survey-dataset\n        record.\n      x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom\n      x-jsonld-type: '@id'\n    processingEvent:\n      type: object\n      description: CRMdig D10 Software Execution recording the processing run that\n        produced this derived product. Captures the method, software, operator, parameters\n        and quality result.\n      required:\n      - processingMethod\n      - processingDate\n      properties:\n        processingMethod:\n          type: string\n          description: Type of processing applied, e.g. \"mesh generation\", \"section\n            extraction\", \"deviation mapping\", \"registration report\", \"orthophoto generation\".\n        processingDate:\n          type: string\n          format: date\n          description: Date on which the processing was performed (ISO 8601).\n        software:\n          type: string\n          description: Name of the software used for processing.\n        softwareVersion:\n          type: string\n          description: Version string of the processing software.\n        operator:\n          type: string\n          format: uri\n          description: URI of the person or organisation who ran the processing.\n        parameters:\n          type: string\n          description: Key processing parameters or settings used (free-text or JSON-stringified).\n        accuracy:\n          type: string\n          description: \"Accuracy or quality metric of the derived product (e.g. \\\"mean\n            deviation \\xB12 mm\\\").\"\n        qaResult:\n          type: string\n          description: \"Outcome of the quality assurance check, e.g. \\\"passed\\\", \\\"passed\n            with remarks\\\", \\\"failed \\u2014 reprocessing required\\\".\"\n      x-jsonld-id: http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of\n      x-jsonld-type: '@json'\n    limitations:\n      type: string\n      description: Known limitations, artefacts or coverage gaps of the derived product.\n      x-jsonld-id: http://purl.org/dc/terms/description\n    reviewStatus:\n      type: string\n      description: Workflow status of this record (e.g. draft, reviewed, approved).\nx-jsonld-extra-terms:\n  DerivedSurveyProduct: http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object\nx-jsonld-prefixes:\n  crmdig: http://www.ics.forth.gr/isl/CRMdig/\n  dct: http://purl.org/dc/terms/\n  prov: http://www.w3.org/ns/prov#\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/derived-survey-product"
+}

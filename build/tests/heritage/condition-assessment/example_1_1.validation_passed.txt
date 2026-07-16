@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.condition-assessment - Condition Assessment
+Generated 2026-07-16T14:38:28.667443+00:00
+=== Files ===
+Using examples/venaria-vault-crack.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/condition-assessment/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/condition-assessment/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://example.org/heritalise/condition/RV-CA-GG-2026-003>
+
+=== End SHACL ===
+

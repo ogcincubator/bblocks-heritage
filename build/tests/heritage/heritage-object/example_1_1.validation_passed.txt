@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.heritage-object - Heritage Object
-Generated 2026-06-25T14:31:13.467437+00:00
+Generated 2026-07-16T14:38:28.626819+00:00
 === Files ===
 Using examples/painting.json from examples
 JSON-LD context is present - uplifting

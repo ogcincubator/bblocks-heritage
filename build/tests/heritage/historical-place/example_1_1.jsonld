@@ -1,0 +1,42 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld",
+  "type": "Feature",
+  "id": "https://heritalise.eu/venaria/historical-place/sala-scudieri-1720",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.6045,
+          45.1285
+        ],
+        [
+          7.605,
+          45.1285
+        ],
+        [
+          7.605,
+          45.1289
+        ],
+        [
+          7.6045,
+          45.1289
+        ],
+        [
+          7.6045,
+          45.1285
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "ASTo-VR-inv1720-sala-scudieri",
+    "name": "Sala degli Scudieri",
+    "placeType": "http://vocab.getty.edu/aat/300004704",
+    "datePeriod": "1720\u20131798",
+    "historicalSource": "https://heritalise.eu/venaria/source-carrier/ASTo-VR-inv1720",
+    "currentEquivalent": "https://heritalise.eu/venaria/space/sala-10-galleria-est",
+    "mappingConfidence": "probable",
+    "sameAs": "https://www.wikidata.org/entity/Q999999"
+  }
+}

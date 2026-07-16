@@ -1,0 +1,13 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig> a crmdig:D1_Digital_Object ;
+    dct:format "image/jpeg" ;
+    dct:rights "https://creativecommons.org/licenses/by-nc/4.0/" ;
+    crm:P129_is_about <https://data.heritagemalta.org/place/villa-portelli> ;
+    crmdig:L11i_was_output_of "{\"colourMode\":\"RGB\",\"date\":\"2023-11-08\",\"equipment\":\"Phase One iXG 50MP with copy stand\",\"method\":\"digital photography from negative\",\"operator\":\"Heritage Malta Conservation Department\",\"processingHistory\":\"35mm negative photographed on copy stand; colour correction and contrast adjustment applied.\",\"quality\":\"access copy\",\"resolution\":\"50MP\",\"software\":\"Capture One 23\"}"^^rdf:JSON ;
+    prov:wasDerivedFrom <https://data.heritagemalta.org/source-carrier/photo-neg-1953-001> .
+

@@ -39,6 +39,13 @@ allOf:
       description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this
         asset.
       x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+    url:
+      type: string
+      format: uri
+      description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).
+      x-jsonld-id: http://www.w3.org/ns/dcat#accessURL
+      x-jsonld-type: '@id'
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#

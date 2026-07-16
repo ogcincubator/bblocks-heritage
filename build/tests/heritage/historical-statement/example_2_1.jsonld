@@ -1,0 +1,21 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-statement/context.jsonld",
+  "id": "https://data.heritagemalta.org/historical-statement/hs-villap-north-wing-masonry-2023-001",
+  "type": "HistoricalStatement",
+  "statementType": "construction technique",
+  "statement": {
+    "text": "The north wing of Villa Portelli shows coursed rubble-stone masonry (\u0127a\u0121ar tal-franka) typical of mid-19th century Maltese vernacular construction.",
+    "language": "en",
+    "datePeriod": "mid-19th century",
+    "keywords": [
+      "rubble masonry",
+      "franka limestone",
+      "vernacular",
+      "north wing"
+    ]
+  },
+  "describedObject": "https://data.heritagemalta.org/architectural-space/villa-portelli-north-wing",
+  "sourceRecord": "https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig",
+  "reviewer": "https://data.heritagemalta.org/actor/conservation-dept",
+  "confidence": "certain"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco",
+  "type": "Surface",
+  "hostObject": "https://heritalise.eu/venaria/space/galleria-grande-bay7",
+  "material": "http://vocab.getty.edu/aat/300178433",
+  "technique": "http://vocab.getty.edu/aat/300053343",
+  "historicalPhase": "1699\u20131707",
+  "exposure": "vault intrados",
+  "conditionSummary": "localised cracking on north edge; stable elsewhere",
+  "conditionAssessment": "https://heritalise.eu/venaria/condition/CA-GG-bay7-2024-06",
+  "sourceEvidence": "https://heritalise.eu/venaria/survey/photogrammetry-GG-2023",
+  "reviewStatus": "reviewed",
+  "footprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.6046,
+          45.1286
+        ],
+        [
+          7.6049,
+          45.1286
+        ],
+        [
+          7.6049,
+          45.1288
+        ],
+        [
+          7.6046,
+          45.1288
+        ],
+        [
+          7.6046,
+          45.1286
+        ]
+      ]
+    ]
+  }
+}

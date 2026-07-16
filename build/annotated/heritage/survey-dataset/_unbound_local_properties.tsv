@@ -1,0 +1,11 @@
+path
+/acquisitionEvent/acquisitionMethod
+/acquisitionEvent/acquisitionDate
+/acquisitionEvent/operator
+/acquisitionEvent/equipment
+/acquisitionEvent/crs
+/acquisitionEvent/density
+/acquisitionEvent/accuracy
+/acquisitionEvent/processingHistory
+/coverage/coordinates
+/reviewStatus

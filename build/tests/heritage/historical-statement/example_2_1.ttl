@@ -1,0 +1,12 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+[] a crm:E13_Attribute_Assignment ;
+    crm:P140_assigned_attribute_to <https://data.heritagemalta.org/architectural-space/villa-portelli-north-wing> ;
+    crm:P141_assigned "{\"datePeriod\":\"mid-19th century\",\"keywords\":[\"rubble masonry\",\"franka limestone\",\"vernacular\",\"north wing\"],\"language\":\"en\",\"text\":\"The north wing of Villa Portelli shows coursed rubble-stone masonry (ħaġar tal-franka) typical of mid-19th century Maltese vernacular construction.\"}"^^rdf:JSON ;
+    crm:P16_used_specific_object <https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig> ;
+    crm:P2_has_type "construction technique" ;
+    crm:P3_has_note "certain" ;
+    prov:wasAttributedTo <https://data.heritagemalta.org/actor/conservation-dept> .
+

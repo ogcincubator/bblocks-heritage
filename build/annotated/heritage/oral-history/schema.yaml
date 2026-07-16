@@ -1,0 +1,107 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Oral History
+description: An audio or video oral history recording or community narrative. Profiles
+  digital-representation (CIDOC-CRM E73 Information Object) and adds mandatory fields
+  for interviewee, language, consent status and IIIF manifest, with optional schema.org
+  AudioObject/VideoObject alignment for web-visible metadata.
+allOf:
+- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml
+- type: object
+  required:
+  - type
+  - interviewee
+  - language
+  - consentStatus
+  - iiifManifest
+  - mediaType
+  - rights
+  properties:
+    type:
+      const: OralHistory
+      description: Fixed type token (maps to crm:E73_Information_Object).
+      x-jsonld-id: '@type'
+    title:
+      type: string
+      description: Human-readable title of the recording (dct:title).
+      x-jsonld-id: http://purl.org/dc/terms/title
+    interviewee:
+      type: string
+      format: uri
+      description: URI of the person interviewed or narrating (schema:interviewee).
+        Must reference an ogc.heritage.actor record. Required.
+      x-jsonld-id: https://schema.org/interviewee
+      x-jsonld-type: '@id'
+    language:
+      type: string
+      description: BCP 47 language code of the recording, e.g. "mt", "en", "it" (crm:P72_has_language).
+        Required.
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P72_has_language
+    consentStatus:
+      type: string
+      description: "Consent and access status of the recording, e.g. \"consented \u2014
+        public access\", \"consented \u2014 restricted to researchers\", \"anonymised\",
+        \"pending consent review\" (dct:accessRights). Required for legal compliance."
+      x-jsonld-id: http://purl.org/dc/terms/accessRights
+    iiifManifest:
+      type: string
+      format: uri
+      description: URI of an IIIF Presentation API 3 manifest for this recording,
+        enabling playback and timed annotation in IIIF viewers (crm:P70i_is_documented_in).
+        Required.
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in
+      x-jsonld-type: '@id'
+    mediaType:
+      type: string
+      description: IANA media type of the recording file (dct:format), e.g. "audio/mp4",
+        "audio/mpeg", "video/mp4". Required; must be an audio/* or video/* type.
+      pattern: ^(audio|video)/
+      x-jsonld-id: http://purl.org/dc/terms/format
+    rights:
+      type: string
+      description: "Licence or copyright statement (dct:rights), e.g. a Creative Commons
+        URI or \"All rights reserved \u2014 Heritage Malta\". Required."
+      x-jsonld-id: http://purl.org/dc/terms/rights
+    transcriptUri:
+      type: string
+      format: uri
+      description: URI of a text transcript of the recording (crm:P70i_is_documented_in).
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in
+      x-jsonld-type: '@id'
+    duration:
+      type: string
+      description: Duration of the recording in ISO 8601 duration format (schema:duration),
+        e.g. "PT1H23M45S".
+      x-jsonld-id: https://schema.org/duration
+    contributor:
+      oneOf:
+      - type: string
+        format: uri
+      - type: array
+        items:
+          type: string
+          format: uri
+      description: URI(s) of other persons or organisations who contributed to the
+        recording (dct:contributor), e.g. interviewer, sound technician, transcriber.
+      x-jsonld-id: http://purl.org/dc/terms/contributor
+      x-jsonld-type: '@id'
+    theme:
+      oneOf:
+      - type: string
+      - type: array
+        items:
+          type: string
+      description: Thematic keywords or controlled-vocabulary terms describing the
+        recording's subject matter (dct:subject), e.g. "domestic life", "World War
+        II occupation", "garden traditions".
+      x-jsonld-id: http://purl.org/dc/terms/subject
+    historicalPeriod:
+      type: string
+      description: "The historical period or date range addressed in the narrative
+        (crm:P4_has_time-span), e.g. \"1940\u20131945\", \"interwar period\"."
+      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span
+x-jsonld-extra-terms:
+  OralHistory: http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object
+x-jsonld-prefixes:
+  crm: http://www.cidoc-crm.org/cidoc-crm/
+  dct: http://purl.org/dc/terms/
+  schema: https://schema.org/

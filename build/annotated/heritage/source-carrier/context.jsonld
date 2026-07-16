@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "SourceCarrier": "crm:E31_Document",
+    "type": "@type",
+    "carrierType": {
+      "@id": "crm:P2_has_type",
+      "@type": "@id"
+    },
+    "title": "crm:P102_has_title",
+    "creator": {
+      "@id": "dct:creator",
+      "@type": "@id"
+    },
+    "datePeriod": "crm:P4_has_time-span",
+    "language": "crm:P72_has_language",
+    "repository": "crm:P50_has_current_keeper",
+    "archivalCode": "crm:P1_is_identified_by",
+    "collection": "dct:isPartOf",
+    "physicalFormat": "crm:P3_has_note",
+    "condition": "crm:P44_has_condition",
+    "rights": "dct:rights",
+    "documentsObject": {
+      "@id": "crm:P70_documents",
+      "@type": "@id"
+    },
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "dct": "http://purl.org/dc/terms/",
+    "@version": 1.1
+  }
+}

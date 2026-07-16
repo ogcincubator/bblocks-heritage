@@ -1,0 +1,9 @@
+path
+/id
+/statement/text
+/statement/language
+/statement/keywords
+/evidenceLocator/source
+/evidenceLocator/selector
+/evidenceLocator/selector/conformsTo
+/evidenceLocator/selector/value

@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.archival-document - Archival Document
+Generated 2026-07-16T14:38:31.617268+00:00
+=== Files ===
+Using examples/malta-cad-plan.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/villa-portelli-ground-floor-plan>
+
+=== End SHACL ===
+

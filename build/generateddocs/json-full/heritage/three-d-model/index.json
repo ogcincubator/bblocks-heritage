@@ -55,17 +55,45 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/examples/gltf.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.json",
+          "sizeBytes": 327,
           "code": "{\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.jsonld",
+          "sizeBytes": 445,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.ttl",
+          "sizeBytes": 473,
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/great-gallery-painting-014-model-01> dct:format \"model/gltf-binary\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-3D-01\" ;\n    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Malta artefact 3D model in glTF JSON format (HM-04)",
+      "content": "A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as glTF JSON (`model/gltf+json`). Includes a `url` link to the file download endpoint (dcat:accessURL) and attribution to the Heritage Malta digitisation team. Covers HM-04 (3D documentation of Malta architectural elements).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/examples/malta-artefact-model.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_2_1.json",
+          "sizeBytes": 392,
+          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/villa-portelli-balustrade-gltf\",\n  \"identifier\": \"MT-3D-BAL-001\",\n  \"isAbout\": \"https://example.org/heritalise/object/south-balustrade\",\n  \"mediaType\": \"model/gltf+json\",\n  \"url\": \"https://example.org/heritalise/files/south-balustrade.gltf\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/heritage-malta-digitisation\"\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_2_1.jsonld",
+          "sizeBytes": 510,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/villa-portelli-balustrade-gltf\",\n  \"identifier\": \"MT-3D-BAL-001\",\n  \"isAbout\": \"https://example.org/heritalise/object/south-balustrade\",\n  \"mediaType\": \"model/gltf+json\",\n  \"url\": \"https://example.org/heritalise/files/south-balustrade.gltf\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/heritage-malta-digitisation\"\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_2_1.ttl",
+          "sizeBytes": 594,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/villa-portelli-balustrade-gltf> dct:format \"model/gltf+json\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/south-balustrade> ;\n    crm:P1_is_identified_by \"MT-3D-BAL-001\" ;\n    dcat:accessURL <https://example.org/heritalise/files/south-balustrade.gltf> ;\n    prov:wasAttributedTo <https://example.org/heritalise/actor/heritage-malta-digitisation> .\n\n"
         }
       ]
     }

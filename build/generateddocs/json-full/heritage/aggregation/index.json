@@ -45,6 +45,7 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/aggregation/",
+  "description": "## Aggregation\n\nAn `Aggregation` is the EDM/ORE publishing wrapper that Europeana and ECCCH actually ingest:\nit pairs a [`heritage-object`](../heritage-object) (the *Cultural Heritage Object*) with the\n[`digital-representation`](../digital-representation)(s) that depict it and the provider and\nrights metadata required for publication.\n\nCIDOC-CRM and PROV-O do not model this aggregation layer \u2014 EDM (Europeana Data Model) and\nOAI-ORE do. This block captures that layer without reimplementing the full EDM/ORE ontology,\nusing just the properties actually mandatory or commonly used in ECCCH submission flows.\n\nThe `type` field is fixed to `\"Aggregation\"`, which the JSON-LD context maps to\n`ore:Aggregation`. SHACL shapes therefore use `sh:targetClass ore:Aggregation`.\n\nProperties:\n\n| Property | EDM / ORE mapping | Notes |\n|---|---|---|\n| `aggregatedCHO` (required) | `edm:aggregatedCHO` (@id) | URI of the `heritage-object` |\n| `isShownBy` | `edm:isShownBy` (@id) | URI of the primary `digital-representation` |\n| `isShownAt` | `edm:isShownAt` (@id) | URI of the object's landing page at the provider |\n| `hasView` | `edm:hasView` (@id, array) | Additional `digital-representation` URIs |\n| `object` | `edm:object` (@id) | URI of a thumbnail image |\n| `dataProvider` | `edm:dataProvider` | Holding institution name |\n| `provider` | `edm:provider` | ECCCH national aggregator name |\n| `rights` (required) | `edm:rights` (@id) | Rights URI (rightsstatements.org or Creative Commons) |\n\n### Use cases\n\n- D8.2 profiles B, C, D \u2014 EDM aggregation is **mandatory** for Europeana / ECCCH publishing\n  in all three digital asset profiles (images, archival documents, 3D models)\n",
   "examples": [
     {
       "title": "A Europeana/ECCCH aggregation for a heritage object",
@@ -54,16 +55,19 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/examples/great-gallery-painting.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_1_1.json",
+          "sizeBytes": 576,
           "code": "{\n  \"id\": \"https://example.org/heritalise/aggregation/great-gallery-painting-014\",\n  \"type\": \"Aggregation\",\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"isShownBy\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"isShownAt\": \"https://www.lavenaria.it/en/collections/great-gallery-ceiling\",\n  \"object\": \"https://example.org/heritalise/digital/great-gallery-painting-014-thumb\",\n  \"dataProvider\": \"Reggia di Venaria\",\n  \"provider\": \"ECCCH\",\n  \"rights\": \"https://rightsstatements.org/page/InC/1.0/\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_1_1.jsonld",
+          "sizeBytes": 692,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/aggregation/great-gallery-painting-014\",\n  \"type\": \"Aggregation\",\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"isShownBy\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"isShownAt\": \"https://www.lavenaria.it/en/collections/great-gallery-ceiling\",\n  \"object\": \"https://example.org/heritalise/digital/great-gallery-painting-014-thumb\",\n  \"dataProvider\": \"Reggia di Venaria\",\n  \"provider\": \"ECCCH\",\n  \"rights\": \"https://rightsstatements.org/page/InC/1.0/\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_1_1.ttl",
+          "sizeBytes": 699,
           "code": "@prefix edm: <http://www.europeana.eu/schemas/edm/> .\n@prefix ore: <http://www.openarchives.org/ore/terms/> .\n\n<https://example.org/heritalise/aggregation/great-gallery-painting-014> a ore:Aggregation ;\n    edm:aggregatedCHO <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    edm:dataProvider \"Reggia di Venaria\" ;\n    edm:isShownAt <https://www.lavenaria.it/en/collections/great-gallery-ceiling> ;\n    edm:isShownBy <https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> ;\n    edm:object <https://example.org/heritalise/digital/great-gallery-painting-014-thumb> ;\n    edm:provider \"ECCCH\" ;\n    edm:rights <https://rightsstatements.org/page/InC/1.0/> .\n\n"
         }
       ]
@@ -76,16 +80,19 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_2_1.json",
+          "sizeBytes": 90,
           "code": "{\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_2_1.jsonld",
+          "sizeBytes": 206,
           "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld\",\n  \"aggregatedCHO\": \"https://example.org/heritalise/object/great-gallery-painting-014\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/aggregation/example_2_1.ttl",
+          "sizeBytes": 146,
           "code": "@prefix edm: <http://www.europeana.eu/schemas/edm/> .\n\n[] edm:aggregatedCHO <https://example.org/heritalise/object/great-gallery-painting-014> .\n\n"
         }
       ]

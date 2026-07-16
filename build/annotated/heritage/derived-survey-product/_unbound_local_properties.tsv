@@ -1,0 +1,10 @@
+path
+/processingEvent/processingMethod
+/processingEvent/processingDate
+/processingEvent/software
+/processingEvent/softwareVersion
+/processingEvent/operator
+/processingEvent/parameters
+/processingEvent/accuracy
+/processingEvent/qaResult
+/reviewStatus

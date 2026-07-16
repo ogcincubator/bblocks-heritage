@@ -1,0 +1,10 @@
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sosa:Observation ;
+    sosa:hasFeatureOfInterest <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;
+    sosa:hasSimpleResult 6.14e+01 ;
+    sosa:madeBySensor <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;
+    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
+    sosa:resultTime "2024-09-15T08:30:00Z" .
+

@@ -1,0 +1,40 @@
+{
+  "id": "https://example.org/heritalise/site/reggia-di-venaria",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.617,
+          45.13
+        ],
+        [
+          7.642,
+          45.13
+        ],
+        [
+          7.642,
+          45.145
+        ],
+        [
+          7.617,
+          45.145
+        ],
+        [
+          7.617,
+          45.13
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "RV-SITE-001",
+    "name": "Reggia di Venaria Reale",
+    "siteType": "http://vocab.getty.edu/aat/300006915",
+    "designation": "UNESCO World Heritage List no. 823",
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
+    "rights": "https://creativecommons.org/licenses/by/4.0/",
+    "sameAs": "http://vocab.getty.edu/tgn/7011057"
+  }
+}

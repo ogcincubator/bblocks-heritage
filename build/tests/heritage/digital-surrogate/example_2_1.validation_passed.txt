@@ -1,0 +1,30 @@
+Validation report for ogc.heritage.digital-surrogate - Digital Surrogate
+Generated 2026-07-16T14:38:31.746673+00:00
+=== Files ===
+Using examples/malta_photograph.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/digital-surrogate/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-surrogate/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-surrogate/shapes.shacl#DigitalSurrogateShape>: <https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig>
+
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig>
+
+=== End SHACL ===
+

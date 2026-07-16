@@ -1,0 +1,16 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://heritalise.eu/malta/threshold/temp-grand-salon-min> a sosa:ObservableProperty ;
+    dct:modified "2025-09-01"^^xsd:date ;
+    dct:source "https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf" ;
+    qudt:unit <https://qudt.org/vocab/unit/DEG_C> ;
+    crm:P2_has_type "minValue" ;
+    crm:P3_has_note "Temperatures below 10 °C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention." ;
+    crm:P44_has_condition "alarm" ;
+    crm:P53_has_former_or_current_location <https://heritalise.eu/malta/sensor/S-VP-GS-01> ;
+    sosa:observes <https://qudt.org/vocab/quantitykind/Temperature> .
+

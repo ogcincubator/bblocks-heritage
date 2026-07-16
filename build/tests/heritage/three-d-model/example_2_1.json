@@ -1,0 +1,10 @@
+{
+  "id": "https://example.org/heritalise/digital/villa-portelli-balustrade-gltf",
+  "identifier": "MT-3D-BAL-001",
+  "isAbout": "https://example.org/heritalise/object/south-balustrade",
+  "mediaType": "model/gltf+json",
+  "url": "https://example.org/heritalise/files/south-balustrade.gltf",
+  "wasAttributedTo": [
+    "https://example.org/heritalise/actor/heritage-malta-digitisation"
+  ]
+}

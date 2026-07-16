@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Building",
+  "description": "A principal building or architectural unit (palace wing, chapel, outbuilding, villa)\nmodelled as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object and\nadds site containment, construction history, operational status, optional IFC cross-reference\nand an optional GeoJSON footprint geometry.\n\nInstances have type \"HeritageObject\" (inherited); the building category is conveyed through\nobjectType pointing to a Getty AAT architectural concept.\n",
+  "allOf": [
+    {
+      "$ref": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "parentSite": {
+          "type": "string",
+          "format": "uri",
+          "description": "URI of the heritage-site this building belongs to (crm:P46i_forms_part_of).",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of",
+          "x-jsonld-type": "@id"
+        },
+        "constructionPeriod": {
+          "type": "string",
+          "description": "Date or date range of original construction, ISO 8601 or free text (e.g. \"1675-1690\"). Maps to dct:created.",
+          "x-jsonld-id": "http://purl.org/dc/terms/created"
+        },
+        "currentStatus": {
+          "type": "string",
+          "description": "Operational or conservation status (e.g. \"in use\", \"under restoration\", \"closed\"). Maps to crm:P44_has_condition.",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P44_has_condition"
+        },
+        "responsibleOrganisation": {
+          "type": "string",
+          "description": "Name or URI of the body responsible for managing this building (crm:P50_has_current_keeper).",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper"
+        },
+        "ifcGlobalId": {
+          "type": "string",
+          "description": "IFC Global ID (GUID) of the corresponding IfcBuilding element in an HBIM model, when available (crm:P1_is_identified_by).",
+          "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by"
+        },
+        "footprint": {
+          "type": "object",
+          "description": "Optional GeoJSON geometry representing the building's ground-level footprint or spatial extent.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Point",
+                "Polygon",
+                "MultiPolygon"
+              ]
+            },
+            "coordinates": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "x-jsonld-id": "https://purl.org/geojson/vocab#geometry",
+          "x-jsonld-type": "@json"
+        }
+      }
+    }
+  ],
+  "x-jsonld-prefixes": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "dct": "http://purl.org/dc/terms/",
+    "geojson": "https://purl.org/geojson/vocab#"
+  }
+}

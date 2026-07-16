@@ -1,6 +1,15 @@
 {
   "@context": {
     "HeritageObject": "crm:E22_Man-Made_Object",
+    "parentSpace": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "movementHistory": {
+      "@id": "prov:wasUsedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "id": "@id",
     "type": "@type",
     "identifier": "crm:P1_is_identified_by",
@@ -24,6 +33,7 @@
       "@type": "@id"
     },
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "prov": "http://www.w3.org/ns/prov#",
     "@version": 1.1
   }
 }

@@ -64,6 +64,55 @@ A photogrammetry-derived glTF model documenting the Great Gallery ceiling painti
 
 ```
 
+
+### Malta artefact 3D model in glTF JSON format (HM-04)
+A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as glTF JSON (`model/gltf+json`). Includes a `url` link to the file download endpoint (dcat:accessURL) and attribution to the Heritage Malta digitisation team. Covers HM-04 (3D documentation of Malta architectural elements).
+#### json
+```json
+{
+  "id": "https://example.org/heritalise/digital/villa-portelli-balustrade-gltf",
+  "identifier": "MT-3D-BAL-001",
+  "isAbout": "https://example.org/heritalise/object/south-balustrade",
+  "mediaType": "model/gltf+json",
+  "url": "https://example.org/heritalise/files/south-balustrade.gltf",
+  "wasAttributedTo": [
+    "https://example.org/heritalise/actor/heritage-malta-digitisation"
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld",
+  "id": "https://example.org/heritalise/digital/villa-portelli-balustrade-gltf",
+  "identifier": "MT-3D-BAL-001",
+  "isAbout": "https://example.org/heritalise/object/south-balustrade",
+  "mediaType": "model/gltf+json",
+  "url": "https://example.org/heritalise/files/south-balustrade.gltf",
+  "wasAttributedTo": [
+    "https://example.org/heritalise/actor/heritage-malta-digitisation"
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://example.org/heritalise/digital/villa-portelli-balustrade-gltf> dct:format "model/gltf+json" ;
+    crm:P129_is_about <https://example.org/heritalise/object/south-balustrade> ;
+    crm:P1_is_identified_by "MT-3D-BAL-001" ;
+    dcat:accessURL <https://example.org/heritalise/files/south-balustrade.gltf> ;
+    prov:wasAttributedTo <https://example.org/heritalise/actor/heritage-malta-digitisation> .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -159,6 +208,27 @@ Links to the schema:
     },
     "wasRevisionOf": {
       "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
       "@type": "@id"
     },
     "atLocation": {
@@ -261,19 +331,10 @@ Links to the schema:
       "@id": "prov:endedAtTime",
       "@type": "xsd:dateTime"
     },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
     "startedAtTime": {
       "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
-    "value": "prov:value",
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
@@ -349,18 +410,6 @@ Links to the schema:
     },
     "qualifiedEnd": {
       "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
-      "@type": "@id"
-    },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
-      "@type": "@id"
-    },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
       "@type": "@id"
     },
     "qualifiedStart": {
@@ -455,6 +504,10 @@ Links to the schema:
     },
     "mediaType": "dct:format",
     "persistentIdentifier": "crm:P1_is_identified_by",
+    "url": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -462,6 +515,7 @@ Links to the schema:
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

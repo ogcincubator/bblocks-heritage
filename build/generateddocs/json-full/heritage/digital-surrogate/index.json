@@ -1,0 +1,125 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.digital-surrogate",
+  "name": "Digital Surrogate",
+  "abstract": "A digital file produced by digitising a physical source carrier (e.g. a photograph, drawing or bound volume), modelled as a CRMdig D1 Digital Object with a mandatory PROV derivation chain linking to the source-carrier and a D7 digitisation event sub-object. Profiles ogc.heritage.digital-representation.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    {
+      "title": "CRMdig D1 Digital Object / D7 Digital Machine Event",
+      "link": "https://www.ics.forth.gr/isl/CRMdig/"
+    },
+    {
+      "title": "PROV-O: The PROV Ontology",
+      "link": "https://www.w3.org/TR/prov-o/"
+    },
+    {
+      "title": "IIIF Presentation API 3.0",
+      "link": "https://iiif.io/api/presentation/3.0/"
+    },
+    {
+      "title": "HERITALISE D8.2 CRRS-013 (Digital Surrogate / Migrated Digital Resource)",
+      "link": "https://heritalise-eccch.eu/"
+    },
+    {
+      "title": "HERITALISE D8.2 HM-05 (Digital Photographs, Malta)",
+      "link": "https://heritalise-eccch.eu/"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "cidoc-crm",
+    "crmdig",
+    "digital-surrogate",
+    "digitisation",
+    "prov",
+    "iiif"
+  ],
+  "group": "Archival & Documentation",
+  "isProfileOf": [
+    "ogc.heritage.digital-representation"
+  ],
+  "shaclShapes": {
+    "ogc.heritage.digital-surrogate": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/shapes.shacl"
+    ],
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.heritage.digital-representation"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/digital-surrogate/",
+  "description": "# Digital Surrogate\n\nA digital file produced by digitising a physical source carrier \u2014 a photograph, architectural\ndrawing, negative, manuscript or bound volume \u2014 and made available for research, preservation or\npublication. Modelled as a **CRMdig D1 Digital Object** (subtype of CIDOC-CRM E73 Information\nObject) with a mandatory PROV derivation link to the originating `source-carrier` record and a\nstructured **CRMdig D7 Digital Machine Event** sub-object recording the digitisation process.\n\nThis block profiles `ogc.heritage.digital-representation` and inherits its `isAbout` link (the\nheritage asset the surrogate documents), `mediaType` (IANA format), PROV-O provenance properties,\nand persistent identifier field.\n\n## CRM anchor\n\n| JSON property | CRM / vocab predicate | Notes |\n|---|---|---|\n| `type` | `rdf:type crmdig:D1_Digital_Object` | Fixed const `\"DigitalSurrogate\"` |\n| `wasDerivedFrom` | `prov:wasDerivedFrom` | URI \u2192 source-carrier; mandatory |\n| `digitisationEvent` | `crmdig:L11i_was_output_of` | D7 event; `@type: @json` opaque object |\n| `mediaType` | `dct:format` | Inherited from parent |\n| `rights` | `dct:rights` | Licence or access label; mandatory |\n| `isAbout` | `crm:P129_is_about` | Inherited; URI of the documented heritage asset |\n| `iiifManifest` | `crm:P70i_is_documented_in` | Optional IIIF manifest URI |\n| `completeness` | `crm:P3_has_note` | Optional free-text coverage statement |\n\n## Digitisation event sub-object\n\nThe `digitisationEvent` object records the CRMdig D7 Digital Machine Event. It is stored as an\nopaque JSON blob (`@type: \"@json\"`) linked via `crmdig:L11i_was_output_of` (the inverse of\n`L11 had output`, meaning \"this D1 object was the output of this D7 event\"). At minimum, `method`\nand `date` are required.\n\n| Field | Description |\n|---|---|\n| `method` (required) | Technique: \"flatbed scan\", \"photogrammetry\", \"RTI\", \"digital photography\" |\n| `date` (required) | ISO 8601 date of the digitisation event |\n| `equipment` | Scanner / camera make and model |\n| `software` | Capture or processing software |\n| `operator` | Person or institution responsible |\n| `resolution` | Pixel density or scan resolution |\n| `colourMode` | \"RGB\", \"grayscale\", \"bitonal\" |\n| `quality` | Derivative tier: \"master\", \"access copy\", \"thumbnail\" |\n| `processingHistory` | Free-text log of post-processing steps |\n\n## PROV chain\n\nThe full provenance chain for a digitised heritage resource is:\n\n```\nsource-carrier (E31 Document)\n  \u2190 prov:wasDerivedFrom \u2014\n    digital-surrogate (D1 Digital Object)\n```\n\nFor derived products (an OCR transcript, a vector tracing, a colour-corrected reprint), the\nchain extends further using additional `prov:wasDerivedFrom` links within those records.\n\n## SHACL targeting\n\nSHACL shapes target nodes via `sh:targetSubjectsOf prov:wasDerivedFrom` rather than\n`sh:targetClass crmdig:D1_Digital_Object`. This avoids false positives against\n`survey-dataset` instances, which share the same RDF class but lack the derivation link.\n\n## Pilot use cases\n\n| Pilot | Requirement | Typical use |\n|---|---|---|\n| Reggia di Venaria (CRRS) | CRRS-013 | Digitised archival plans, engravings, photographs from ASTo and Archivio Fotografico |\n| Villa Portelli, Malta (HM) | HM-05 | Digitised historical photographs from Heritage Malta collections |\n",
+  "examples": [
+    {
+      "title": "Digitised architectural plan from Venaria Reale (CRRS-013)",
+      "content": "A high-resolution scan of a 17th-century architectural plan from the State Archive of Turin, recording the Galleria Grande wing of the Reggia di Venaria. The surrogate is derived from a paper drawing held in the archive (source-carrier), with full digitisation paradata and an IIIF manifest for viewer integration.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/examples/venaria_plan_scan.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_1_1.json",
+          "sizeBytes": 1143,
+          "code": "{\n  \"id\": \"https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024\",\n  \"type\": \"DigitalSurrogate\",\n  \"isAbout\": \"https://data.regiadivenaria.it/heritage-object/galleria-grande\",\n  \"wasDerivedFrom\": \"https://data.regiadivenaria.it/source-carrier/ASTo-VR-mazzo12-n3\",\n  \"digitisationEvent\": {\n    \"method\": \"flatbed scan\",\n    \"date\": \"2024-03-15\",\n    \"equipment\": \"Zeutschel OS 14000 A1 overhead scanner\",\n    \"software\": \"Zeutschel OmniScan 12\",\n    \"operator\": \"Archivio di Stato di Torino, Laboratorio Digitalizzazione\",\n    \"resolution\": \"400dpi\",\n    \"colourMode\": \"RGB\",\n    \"quality\": \"master\",\n    \"processingHistory\": \"Flatbed scan of rolled plan; ICC colour calibration; converted from TIFF master to JPEG access copy.\"\n  },\n  \"mediaType\": \"image/tiff\",\n  \"rights\": \"https://creativecommons.org/licenses/by/4.0/\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/21.T11998/rv-plan-2024-0042\",\n  \"iiifManifest\": \"https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest\",\n  \"completeness\": \"complete \u2014 full sheet digitised; minor foxing on lower-right corner noted in processing history\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_1_1.jsonld",
+          "sizeBytes": 1268,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/context.jsonld\",\n  \"id\": \"https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024\",\n  \"type\": \"DigitalSurrogate\",\n  \"isAbout\": \"https://data.regiadivenaria.it/heritage-object/galleria-grande\",\n  \"wasDerivedFrom\": \"https://data.regiadivenaria.it/source-carrier/ASTo-VR-mazzo12-n3\",\n  \"digitisationEvent\": {\n    \"method\": \"flatbed scan\",\n    \"date\": \"2024-03-15\",\n    \"equipment\": \"Zeutschel OS 14000 A1 overhead scanner\",\n    \"software\": \"Zeutschel OmniScan 12\",\n    \"operator\": \"Archivio di Stato di Torino, Laboratorio Digitalizzazione\",\n    \"resolution\": \"400dpi\",\n    \"colourMode\": \"RGB\",\n    \"quality\": \"master\",\n    \"processingHistory\": \"Flatbed scan of rolled plan; ICC colour calibration; converted from TIFF master to JPEG access copy.\"\n  },\n  \"mediaType\": \"image/tiff\",\n  \"rights\": \"https://creativecommons.org/licenses/by/4.0/\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/21.T11998/rv-plan-2024-0042\",\n  \"iiifManifest\": \"https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest\",\n  \"completeness\": \"complete \\u2014 full sheet digitised; minor foxing on lower-right corner noted in processing history\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_1_1.ttl",
+          "sizeBytes": 1428,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\n<https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024> a crmdig:D1_Digital_Object ;\n    dct:format \"image/tiff\" ;\n    dct:rights \"https://creativecommons.org/licenses/by/4.0/\" ;\n    crm:P129_is_about <https://data.regiadivenaria.it/heritage-object/galleria-grande> ;\n    crm:P1_is_identified_by \"https://hdl.handle.net/21.T11998/rv-plan-2024-0042\" ;\n    crm:P3_has_note \"complete \u2014 full sheet digitised; minor foxing on lower-right corner noted in processing history\" ;\n    crm:P70i_is_documented_in <https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest> ;\n    crmdig:L11i_was_output_of \"{\\\"colourMode\\\":\\\"RGB\\\",\\\"date\\\":\\\"2024-03-15\\\",\\\"equipment\\\":\\\"Zeutschel OS 14000 A1 overhead scanner\\\",\\\"method\\\":\\\"flatbed scan\\\",\\\"operator\\\":\\\"Archivio di Stato di Torino, Laboratorio Digitalizzazione\\\",\\\"processingHistory\\\":\\\"Flatbed scan of rolled plan; ICC colour calibration; converted from TIFF master to JPEG access copy.\\\",\\\"quality\\\":\\\"master\\\",\\\"resolution\\\":\\\"400dpi\\\",\\\"software\\\":\\\"Zeutschel OmniScan 12\\\"}\"^^rdf:JSON ;\n    prov:wasDerivedFrom <https://data.regiadivenaria.it/source-carrier/ASTo-VR-mazzo12-n3> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Digitised historical photograph of Villa Portelli, Malta (HM-05)",
+      "content": "A digital photograph produced from a 1953 photographic negative depicting Villa Portelli, held by Heritage Malta. Records the derivation chain from the physical negative (source-carrier), the digitisation event, and access rights. A minimal example without an IIIF manifest.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/examples/malta_photograph.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_2_1.json",
+          "sizeBytes": 826,
+          "code": "{\n  \"id\": \"https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig\",\n  \"type\": \"DigitalSurrogate\",\n  \"isAbout\": \"https://data.heritagemalta.org/place/villa-portelli\",\n  \"wasDerivedFrom\": \"https://data.heritagemalta.org/source-carrier/photo-neg-1953-001\",\n  \"digitisationEvent\": {\n    \"method\": \"digital photography from negative\",\n    \"date\": \"2023-11-08\",\n    \"equipment\": \"Phase One iXG 50MP with copy stand\",\n    \"software\": \"Capture One 23\",\n    \"operator\": \"Heritage Malta Conservation Department\",\n    \"resolution\": \"50MP\",\n    \"colourMode\": \"RGB\",\n    \"quality\": \"access copy\",\n    \"processingHistory\": \"35mm negative photographed on copy stand; colour correction and contrast adjustment applied.\"\n  },\n  \"mediaType\": \"image/jpeg\",\n  \"rights\": \"https://creativecommons.org/licenses/by-nc/4.0/\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_2_1.jsonld",
+          "sizeBytes": 948,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/context.jsonld\",\n  \"id\": \"https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig\",\n  \"type\": \"DigitalSurrogate\",\n  \"isAbout\": \"https://data.heritagemalta.org/place/villa-portelli\",\n  \"wasDerivedFrom\": \"https://data.heritagemalta.org/source-carrier/photo-neg-1953-001\",\n  \"digitisationEvent\": {\n    \"method\": \"digital photography from negative\",\n    \"date\": \"2023-11-08\",\n    \"equipment\": \"Phase One iXG 50MP with copy stand\",\n    \"software\": \"Capture One 23\",\n    \"operator\": \"Heritage Malta Conservation Department\",\n    \"resolution\": \"50MP\",\n    \"colourMode\": \"RGB\",\n    \"quality\": \"access copy\",\n    \"processingHistory\": \"35mm negative photographed on copy stand; colour correction and contrast adjustment applied.\"\n  },\n  \"mediaType\": \"image/jpeg\",\n  \"rights\": \"https://creativecommons.org/licenses/by-nc/4.0/\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-surrogate/example_2_1.ttl",
+          "sizeBytes": 1092,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n\n<https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig> a crmdig:D1_Digital_Object ;\n    dct:format \"image/jpeg\" ;\n    dct:rights \"https://creativecommons.org/licenses/by-nc/4.0/\" ;\n    crm:P129_is_about <https://data.heritagemalta.org/place/villa-portelli> ;\n    crmdig:L11i_was_output_of \"{\\\"colourMode\\\":\\\"RGB\\\",\\\"date\\\":\\\"2023-11-08\\\",\\\"equipment\\\":\\\"Phase One iXG 50MP with copy stand\\\",\\\"method\\\":\\\"digital photography from negative\\\",\\\"operator\\\":\\\"Heritage Malta Conservation Department\\\",\\\"processingHistory\\\":\\\"35mm negative photographed on copy stand; colour correction and contrast adjustment applied.\\\",\\\"quality\\\":\\\"access copy\\\",\\\"resolution\\\":\\\"50MP\\\",\\\"software\\\":\\\"Capture One 23\\\"}\"^^rdf:JSON ;\n    prov:wasDerivedFrom <https://data.heritagemalta.org/source-carrier/photo-neg-1953-001> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Digital Surrogate\ndescription: A digital file produced by digitising a physical source carrier, modelled\n  as a CRMdig D1 Digital Object. Adds a mandatory PROV derivation link to the source-carrier\n  and a structured CRMdig D7 digitisation event sub-object.\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - type\n  - wasDerivedFrom\n  - digitisationEvent\n  - mediaType\n  - rights\n  properties:\n    type:\n      const: DigitalSurrogate\n      description: Fixed type token (maps to crmdig:D1_Digital_Object via JSON-LD\n        context).\n      x-jsonld-id: '@type'\n    wasDerivedFrom:\n      type: string\n      format: uri\n      description: Persistent URI of the source-carrier (physical original) from which\n        this digital file was produced (prov:wasDerivedFrom). Must reference an ogc.heritage.source-carrier\n        record.\n      x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom\n      x-jsonld-type: '@id'\n    digitisationEvent:\n      type: object\n      description: Structured record of the CRMdig D7 Digital Machine Event that created\n        this digital surrogate. The digitisation method and date are mandatory; all\n        other fields are optional paradata.\n      required:\n      - method\n      - date\n      properties:\n        method:\n          type: string\n          description: Digitisation technique used, e.g. \"flatbed scan\", \"digital\n            photography\", \"photogrammetry\", \"RTI\", \"multispectral imaging\".\n        date:\n          type: string\n          format: date\n          description: Date on which the digitisation was performed (ISO 8601, e.g.\n            \"2024-03-15\").\n        equipment:\n          type: string\n          description: Make and model of the scanner, camera or acquisition instrument.\n        software:\n          type: string\n          description: Software used for capture or initial format conversion.\n        operator:\n          type: string\n          description: Person or organisation responsible for the digitisation.\n        resolution:\n          type: string\n          description: Scan resolution or pixel density, e.g. \"600dpi\", \"24MP\", \"3\n            cm/pixel GSD\".\n        colourMode:\n          type: string\n          description: Colour mode of the output file, e.g. \"RGB\", \"grayscale\", \"bitonal\".\n        quality:\n          type: string\n          description: Quality or tier label of this file within the derivative chain,\n            e.g. \"master\", \"access copy\", \"thumbnail\".\n        processingHistory:\n          type: string\n          description: Free-text description of post-processing steps applied after\n            capture.\n      x-jsonld-id: http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of\n      x-jsonld-type: '@json'\n    mediaType:\n      type: string\n      description: IANA media type of the digital surrogate file (dct:format), e.g.\n        \"image/tiff\", \"image/jpeg\", \"application/pdf\". Required.\n      x-jsonld-id: http://purl.org/dc/terms/format\n    rights:\n      type: string\n      description: \"Access rights or licence for this digital surrogate (dct:rights),\n        e.g. a Creative Commons URI or a label such as \\\"Restricted \\u2014 archive\n        access only\\\". Required.\"\n      x-jsonld-id: http://purl.org/dc/terms/rights\n    iiifManifest:\n      type: string\n      format: uri\n      description: URI of an IIIF Presentation API manifest for this digital surrogate,\n        enabling deep-zoom or annotation in IIIF viewers (crm:P70i_is_documented_in).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in\n      x-jsonld-type: '@id'\n    completeness:\n      type: string\n      description: \"Free-text statement on coverage completeness, e.g. \\\"complete\\\",\n        \\\"pages 3\\u20135 missing due to damage\\\", \\\"recto only\\\".\"\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\nx-jsonld-extra-terms:\n  DigitalSurrogate: http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object\nx-jsonld-prefixes:\n  crmdig: http://www.ics.forth.gr/isl/CRMdig/\n  prov: http://www.w3.org/ns/prov#\n  dct: http://purl.org/dc/terms/\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/digital-surrogate"
+}

@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.fabrication-output - Fabrication Output
-Generated 2026-06-25T14:31:15.927336+00:00
+Generated 2026-07-16T14:38:31.878119+00:00
 === Files ===
 Using examples/stl.json from examples
 JSON-LD context is present - uplifting

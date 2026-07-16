@@ -1,0 +1,18 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sci: <http://www.ics.forth.gr/isl/CRMsci/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/heritalise/condition/RV-CA-GG-2026-003> a sci:E14_Condition_Assessment ;
+    crm:P140_assigned_attribute_to <https://example.org/heritalise/space/galleria-grande-bay-7> ;
+    crm:P16_used_specific_object <https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-01>,
+        <https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-02> ;
+    crm:P33_used_specific_technique "Visual inspection with raking-light photography" ;
+    crm:P35_has_identified "{\"conditionType\":\"http://vocab.getty.edu/aat/300379825\",\"extent\":\"Linear crack approximately 80 cm long along the plaster joint between the vault fresco and the cornice moulding, north face of bay 7.\",\"severity\":\"moderate\"}"^^rdf:JSON ;
+    crm:P3_has_note "Apply consolidant injection to crack edges within 6 months; re-assess after stabilisation." ;
+    crm:P4_has_time-span "2026-03-15"^^xsd:date ;
+    prov:wasAttributedTo <https://example.org/heritalise/actor/sofia-bianchi> ;
+    geojson:geometry "{\"coordinates\":[[[7.62725,45.13442],[7.62731,45.13442],[7.62731,45.13438],[7.62725,45.13438],[7.62725,45.13442]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+

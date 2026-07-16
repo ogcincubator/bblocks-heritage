@@ -3,15 +3,19 @@
 {
   "itemIdentifier": "ogc.heritage.observation",
   "name": "Observation",
-  "abstract": "A scientific observation or measurement of a heritage object or place \u2014 environmental monitoring, condition assessment, conservation science \u2014 modelled as a CIDOC-CRM E16 Measurement (the entry point CRMsci specialises for scientific observation) and profiling the PROV-O Activity. Bridges sensor data recorded via the OGC SensorThings API back into the CIDOC-CRM graph.",
+  "abstract": "A scientific observation or measurement of a heritage object or place \u2014 environmental monitoring, condition assessment, conservation science \u2014 profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an OGC SensorThings API `Sensor`.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
   "version": "0.1",
   "rdfType": [
-    "http://www.cidoc-crm.org/cidoc-crm/E16_Measurement"
+    "http://www.w3.org/ns/sosa/Observation"
   ],
   "sources": [
+    {
+      "title": "SOSA/SSN",
+      "link": "https://www.w3.org/TR/vocab-ssn/"
+    },
     {
       "title": "CIDOC-CRM",
       "link": "https://www.cidoc-crm.org/"
@@ -19,29 +23,27 @@
     {
       "title": "CRMsci",
       "link": "https://www.cidoc-crm.org/crmsci/"
-    },
-    {
-      "title": "PROV-O",
-      "link": "https://www.w3.org/TR/prov-o/"
     }
   ],
   "tags": [
-    "cidoc-crm",
+    "sosa",
     "crmsci",
     "heritage",
     "observation",
-    "prov",
     "sta"
   ],
   "group": "Core",
-  "isProfileOf": "ogc.ogc-utils.prov-activity",
+  "isProfileOf": "ogc.sosa.properties.observation",
   "shaclShapes": {
     "ogc.heritage.observation": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/shapes.shacl"
+    ],
+    "ogc.sosa.properties.observation": [
+      "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl"
     ]
   },
   "dependsOn": [
-    "ogc.ogc-utils.prov-activity"
+    "ogc.sosa.properties.observation"
   ],
   "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
   "dateOfLastChange": "2026-06-25",
@@ -55,53 +57,85 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/observation/",
+  "description": "## Observation\n\nAn `Observation` is a scientific measurement or environmental reading taken of a heritage\nobject or place \u2014 microclimate monitoring, condition assessment, conservation science \u2014 using\nthe W3C SOSA/SSN vocabulary as its primary standard.\n\nThis block profiles\n[`ogc.sosa.properties.observation`](https://opengeospatial.github.io/ogcapi-sosa/bblock/ogc.sosa.properties.observation),\ninheriting `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n`hasResult`/`hasSimpleResult`, `resultTime`, and `phenomenonTime`. The only additions are:\n\n- `type` is fixed to `\"Observation\"` (mapped to `sosa:Observation` in the context) so that\n  uplifted RDF is properly typed \u2014 the profiled block's own schema does not set this.\n- `hasFeatureOfInterest` is tightened from optional to **required**: every reading in this\n  register is expected to link back to the `heritage-object` or `place` it was taken of or at.\n\nThis narrowing reflects the CIDOC-CRM/CRMsci *scientific observation context*: the observation\nis meaningful only in relation to the heritage resource being studied or monitored.\n\n### Integration with SensorThings API\n\nD8.2 profile A mandates OGC SensorThings API (STA) as the operational monitoring API. The\n`madeBySensor` property should reference an `ogc.api.sta.Sensor` resource; the\n`hasFeatureOfInterest` should reference the `ogc.api.sta.FeatureOfInterest` or, for the\nheritage domain link, a [`place`](../place) or [`heritage-object`](../heritage-object) URI.\nActual sensor readings (values, timestamps, units) live in STA `Observation` resources; this\nblock is the CRM-anchored representation linking them back to the heritage graph.\n\nFor observations that need an independent geometry (a sensor not co-located with any existing\n`place`), wrap the properties from this block inside `ogc.sosa.features.observation` instead.\n\n### Use cases\n\n- **Profile A** \u2014 environmental monitoring (temperature, humidity, light) at Venaria and Malta\n- **REQ-010** \u2014 sensor reading linked to a `monitoring-point` via `hasFeatureOfInterest`\n",
   "examples": [
     {
       "title": "A relative humidity reading linked back to its CIDOC-CRM context",
-      "content": "A humidity measurement of the Great Gallery, taken by a SensorThings API `Sensor` and recorded as a SensorThings API `Observation` \u2014 this block carries the CRM-side context (what was measured, what property, by whom) while the reading itself stays in STA.",
+      "content": "A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `Sensor`. `hasFeatureOfInterest`, `observedProperty`, `madeBySensor`, `hasSimpleResult` and `resultTime` all come straight from the profiled SOSA Observation; only `hasFeatureOfInterest` (here pointing at the `place` block's URI) is required by this profile.",
       "snippets": [
         {
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/humidity-reading.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.json",
-          "code": "{\n  \"id\": \"https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12\",\n  \"identifier\": \"RV-GG-RH-2024-03-04T12\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"startedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"endedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/sta/v1.1/Sensors(12)\"\n  ],\n  \"generated\": [\n    \"https://example.org/heritalise/sta/v1.1/Observations(98765)\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/venaria-monitoring-system\"\n  ]\n}\n"
+          "sizeBytes": 310,
+          "code": "{\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.jsonld",
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12\",\n  \"identifier\": \"RV-GG-RH-2024-03-04T12\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"startedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"endedAtTime\": \"2024-03-04T12:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/sta/v1.1/Sensors(12)\"\n  ],\n  \"generated\": [\n    \"https://example.org/heritalise/sta/v1.1/Observations(98765)\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/venaria-monitoring-system\"\n  ]\n}"
+          "sizeBytes": 426,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.ttl",
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/observation/great-gallery-rh-2024-03-04t12> crm:P1_is_identified_by \"RV-GG-RH-2024-03-04T12\" ;\n    crm:P39_measured <https://example.org/heritalise/place/great-gallery> ;\n    crm:P40_observed_dimension <http://vocab.getty.edu/aat/300055680> ;\n    prov:endedAtTime \"2024-03-04T12:00:00+00:00\"^^xsd:dateTime ;\n    prov:generated <https://example.org/heritalise/sta/v1.1/Observations(98765)> ;\n    prov:startedAtTime \"2024-03-04T12:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/heritalise/sta/v1.1/Sensors(12)> ;\n    prov:wasAssociatedWith <https://example.org/heritalise/actor/venaria-monitoring-system> .\n\n"
+          "sizeBytes": 433,
+          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;\n    sosa:hasSimpleResult 5.42e+01 ;\n    sosa:madeBySensor <https://example.org/heritalise/sta/v1.1/Sensors(12)> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-03-04T12:00:00Z\" .\n\n"
         }
       ]
     },
     {
       "title": "A minimal record for an undated legacy reading",
-      "content": "Only `identifier` and `measurementOf` are required \u2014 useful for migrating legacy monitoring logs that predate the SensorThings API deployment.",
+      "content": "Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are required \u2014 useful for migrating legacy monitoring logs that predate the SensorThings API deployment.",
       "snippets": [
         {
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.json",
-          "code": "{\n  \"identifier\": \"RV-GG-RH-LEGACY-01\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\"\n}\n"
+          "sizeBytes": 204,
+          "code": "{\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.jsonld",
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"identifier\": \"RV-GG-RH-LEGACY-01\",\n  \"measurementOf\": \"https://example.org/heritalise/place/great-gallery\"\n}"
+          "sizeBytes": 320,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.ttl",
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n[] crm:P1_is_identified_by \"RV-GG-RH-LEGACY-01\" ;\n    crm:P39_measured <https://example.org/heritalise/place/great-gallery> .\n\n"
+          "sizeBytes": 253,
+          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n\n[] sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;\n    sosa:hasSimpleResult <file:///github/workspace/> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Sensor reading linked to a monitoring point (CRRS-010)",
+      "content": "A relative humidity reading taken by a monitoring point in the Reggia di Venaria north gallery. `hasFeatureOfInterest` and `madeBySensor` both reference the monitoring-point URI (the point is both the feature being monitored and the sensor host), `observedProperty` carries a Getty AAT URI for relative humidity, and `resultTime` is the ISO 8601 timestamp of the reading. Covers CRRS-010 (sensor readings linked to CRRS-009 monitoring points).",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/monitoring-point-reading.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.json",
+          "sizeBytes": 343,
+          "code": "{\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.jsonld",
+          "sizeBytes": 459,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.ttl",
+          "sizeBytes": 466,
+          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;\n    sosa:hasSimpleResult 6.14e+01 ;\n    sosa:madeBySensor <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-09-15T08:30:00Z\" .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Observation\ndescription: 'A scientific observation or measurement, modelled as a CIDOC-CRM E16\n  Measurement. Profiles\n\n  PROV-O''s Activity: `startedAtTime`/`endedAtTime` carry the time of observation,\n  `used` the\n\n  sensor or instrument involved (CIDOC-CRM P16_used_specific_object), `generated`\n  the OGC\n\n  SensorThings API `Observation` resource holding the actual reading (CIDOC-CRM\n\n  P108_has_produced), `wasAssociatedWith` the operator or monitoring system responsible,\n  and\n\n  `atLocation` where the observation took place. This block adds a local identifier,\n  the\n\n  heritage object or place being measured, and the property observed.\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  required:\n  - measurementOf\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this observation (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    measurementOf:\n      type: string\n      format: uri\n      description: URI of the `heritage-object` or `place` being measured (CIDOC-CRM\n        P39_measured).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P39_measured\n      x-jsonld-type: '@id'\n    observedProperty:\n      type: string\n      format: uri\n      description: The property or phenomenon observed, typically a GEOSS Essential\n        Variable or Getty AAT concept URI, e.g. relative humidity or surface temperature\n        (CIDOC-CRM P40_observed_dimension).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P40_observed_dimension\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Observation\ndescription: 'A scientific observation or measurement, profiling the SOSA/SSN Observation\n  rather than\n\n  redefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n\n  `hasResult`/`hasSimpleResult` and `resultTime`/`phenomenonTime` all come from\n\n  `ogc.sosa.properties.observation`. This block only narrows `hasFeatureOfInterest`\n  from\n\n  optional to required, since every reading in this register is expected to reference\n  the\n\n  `heritage-object` or `place` it was taken of/at by URI (the CIDOC-CRM/CRMsci \"scientific\n\n  observation context\"), and sets `type` so the uplifted graph is actually typed\n\n  `sosa:Observation` (the profiled block''s own examples never set it). For observations\n  that\n\n  need their own geometry independent of an existing `place`, compose the properties\n  from this\n\n  block inside `ogc.sosa.features.observation` instead.\n\n  '\nallOf:\n- $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml\n- type: object\n  required:\n  - hasFeatureOfInterest\n  properties:\n    type:\n      const: Observation\n      x-jsonld-id: '@type'\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/observation"
 }

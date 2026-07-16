@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "dct": "http://purl.org/dc/terms/",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "siteType": {
+      "@id": "crm:P2_has_type",
+      "@type": "@id"
+    },
+    "designation": "crm:P1_is_identified_by",
+    "responsibleOrganisation": "crm:P50_has_current_keeper",
+    "rights": "dct:rights"
+  }
+}

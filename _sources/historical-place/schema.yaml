@@ -1,0 +1,53 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Historical Place
+description: |
+  A named historical spatial feature — room, area, route or landscape designation — that has
+  since been renamed, restructured or disappeared. Profiles ogc.heritage.place, inheriting
+  JSON-FG geometry and core CRM place attributes, and adding historical period, source
+  provenance, a link to the current spatial equivalent, and a mapping-confidence rating.
+
+  The inherited `name` field carries the historical designation (e.g. "Sala degli Scudieri",
+  "Cortile dei Cani"). The inherited `partOf` field or the profile-specific `currentEquivalent`
+  field (both map to crm:P89_falls_within) link the historical feature to the contemporary
+  space or place record that best corresponds to it.
+x-jsonld-context: context.jsonld
+allOf:
+  - $ref: bblocks://ogc.heritage.place
+  - type: object
+    properties:
+      properties:
+        type: object
+        properties:
+          datePeriod:
+            type: string
+            description: >-
+              The historical period or date range during which this place name or spatial
+              configuration was in use, expressed as a free-text string
+              (e.g. "1720–1798", "18th century", "pre-1943").
+              Maps to crm:P4_has_time-span.
+          historicalSource:
+            type: string
+            format: uri
+            description: >-
+              URI of the archival or documentary source (ogc.heritage.source-carrier or
+              ogc.heritage.digital-surrogate) from which this historical designation is derived.
+              Maps to crm:P70i_is_documented_in.
+          currentEquivalent:
+            type: string
+            format: uri
+            description: >-
+              URI of the contemporary space or place record that best corresponds to this
+              historical feature (ogc.heritage.architectural-space, ogc.heritage.heritage-site,
+              or ogc.heritage.place). Maps to crm:P89_falls_within, the same predicate as
+              the inherited `partOf` field; use `currentEquivalent` when the semantic intent
+              is historical crosswalk rather than spatial containment.
+          mappingConfidence:
+            type: string
+            enum: [confirmed, probable, approximate, uncertain]
+            description: >-
+              Confidence level of the crosswalk between this historical place and its
+              current equivalent: confirmed (identical boundary documented), probable
+              (strong archival evidence), approximate (partial overlap), uncertain
+              (speculative). Maps to crm:P3_has_note.
+        required:
+          - mappingConfidence

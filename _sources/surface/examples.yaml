@@ -1,0 +1,20 @@
+examples:
+  - title: Baroque fresco vault surface, Galleria Grande Bay 7 — Venaria (CRRS-005)
+    content: >-
+      The painted fresco plaster of vault bay 7 in the Galleria Grande at Reggia di Venaria.
+      Material (fresco, Getty AAT 300178433) and technique (fresco secco, Getty AAT 300053343)
+      are expressed via controlled terms. A polygon footprint delineates the bay extent.
+      Includes links to a photogrammetric survey product (sourceEvidence) and a condition
+      assessment record. Covers CRRS-005 (surface / finish layer).
+    snippets:
+      - language: json
+        ref: examples/venaria-vault-fresco.json
+
+  - title: Stone floor surface, Grand Salon — Villa Portelli, Malta
+    content: >-
+      The limestone floor surface of the Grand Salon at Villa Portelli. A minimal example
+      — only type, hostObject, material and footprint are provided — demonstrating the
+      required fields. Material is mapped to the Getty AAT stone concept (300011176).
+    snippets:
+      - language: json
+        ref: examples/malta-grand-salon-floor.json

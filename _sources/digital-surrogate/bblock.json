@@ -1,0 +1,19 @@
+{
+  "name": "Digital Surrogate",
+  "abstract": "A digital file produced by digitising a physical source carrier (e.g. a photograph, drawing or bound volume), modelled as a CRMdig D1 Digital Object with a mandatory PROV derivation chain linking to the source-carrier and a D7 digitisation event sub-object. Profiles ogc.heritage.digital-representation.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CRMdig D1 Digital Object / D7 Digital Machine Event", "link": "https://www.ics.forth.gr/isl/CRMdig/" },
+    { "title": "PROV-O: The PROV Ontology", "link": "https://www.w3.org/TR/prov-o/" },
+    { "title": "IIIF Presentation API 3.0", "link": "https://iiif.io/api/presentation/3.0/" },
+    { "title": "HERITALISE D8.2 CRRS-013 (Digital Surrogate / Migrated Digital Resource)", "link": "https://heritalise-eccch.eu/" },
+    { "title": "HERITALISE D8.2 HM-05 (Digital Photographs, Malta)", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "crmdig", "digital-surrogate", "digitisation", "prov", "iiif"],
+  "group": "Archival & Documentation",
+  "isProfileOf": ["bblocks://ogc.heritage.digital-representation"]
+}

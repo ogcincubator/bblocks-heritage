@@ -1,0 +1,17 @@
+{
+  "name": "Survey Dataset",
+  "abstract": "A geometric survey dataset (point cloud, photogrammetric model or similar) acquired from a heritage asset, modelled as a CRMdig D1 Digital Object with a CRMdig D7 acquisition event and a spatial coverage geometry. Profiles ogc.heritage.digital-representation, adding survey acquisition paradata (method, equipment, CRS, density, accuracy) and a mandatory coverage polygon.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CRMdig D1 Digital Object / D7 Digital Machine Event", "link": "https://www.ics.forth.gr/isl/CRMdig/" },
+    { "title": "DCAT Data Catalog Vocabulary v3", "link": "https://www.w3.org/TR/vocab-dcat-3/" },
+    { "title": "HERITALISE D8.2 REQ-007 (Survey Dataset)", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "crmdig", "survey", "dataset", "dcat", "point-cloud", "photogrammetry"],
+  "group": "Survey & Documentation",
+  "isProfileOf": ["bblocks://ogc.heritage.digital-representation"]
+}

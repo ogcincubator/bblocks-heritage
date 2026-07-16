@@ -1,0 +1,19 @@
+examples:
+  - title: Vault crack, Galleria Grande Bay 7 — Venaria (REQ-006)
+    content: >-
+      A condition assessment of a moderate crack in the fresco plaster of bay 7 of the Galleria
+      Grande, recorded by a Venaria conservator. Includes a polygon footprint localising the
+      crack, photographic evidence references and a conservation recommendation.
+      Covers REQ-006 (condition/pathology area).
+    snippets:
+      - language: json
+        ref: examples/venaria-vault-crack.json
+
+  - title: Paint loss, Villa Portelli Grand Salon — Malta
+    content: >-
+      A condition assessment of minor paint flaking on the west wall of the Grand Salon at
+      Villa Portelli. A minimal example — no footprint or evidence URIs — demonstrating that
+      only type, affectedObject, conditionState and assessmentDate are required.
+    snippets:
+      - language: json
+        ref: examples/villa-portelli-paint-loss.json

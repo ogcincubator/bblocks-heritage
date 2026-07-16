@@ -5,3 +5,13 @@ examples:
     snippets:
       - language: json
         ref: examples/gltf.json
+
+  - title: Malta artefact 3D model in glTF JSON format (HM-04)
+    content: >-
+      A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as
+      glTF JSON (`model/gltf+json`). Includes a `url` link to the file download endpoint
+      (dcat:accessURL) and attribution to the Heritage Malta digitisation team. Covers
+      HM-04 (3D documentation of Malta architectural elements).
+    snippets:
+      - language: json
+        ref: examples/malta-artefact-model.json

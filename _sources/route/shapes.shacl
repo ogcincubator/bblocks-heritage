@@ -1,0 +1,25 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# Route instances are JSON-FG Features; `type` is fixed to "Feature" so there is no
+# crm:E26_Physical_Feature class triple after uplift (same gotcha as ogc.heritage.place).
+# Target on crm:P2_has_type, which routeType (required) always produces.
+<#RouteShape>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P2_has_type ;
+    sh:property [
+        sh:path crm:P2_has_type ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "routeType must be present and must resolve to an IRI (use a Getty AAT URI)" ;
+    ] ;
+    sh:property [
+        sh:path crm:P89_falls_within ;
+        sh:nodeKind sh:IRI ;
+        sh:message "parentSite must be a URI referencing a heritage-site or place record" ;
+    ] ;
+    sh:property [
+        sh:path crm:P44_has_condition ;
+        sh:nodeKind sh:IRIOrLiteral ;
+        sh:message "accessibilityRating must be a string or IRI" ;
+    ] .

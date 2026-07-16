@@ -1,0 +1,18 @@
+examples:
+  - title: Relative humidity sensor, Galleria Grande Bay 7 (REQ-009)
+    content: >-
+      A capacitive RH sensor mounted in bay 7 of the Galleria Grande, linked to the
+      architectural-space record for that bay and positioned with a 3D GeoJSON point.
+      Covers REQ-009 (monitoring point / MHS hotspot at Venaria).
+    snippets:
+      - language: json
+        ref: examples/venaria-humidity-sensor.json
+
+  - title: Temperature sensor, Villa Portelli Grand Salon (MT, REQ-009)
+    content: >-
+      A resistance temperature detector in the Grand Salon of Villa Portelli, linked to
+      the architectural-space record for that room. Demonstrates cross-pilot reuse of the
+      same block with different sensorType and locatedIn values.
+    snippets:
+      - language: json
+        ref: examples/villa-portelli-temp-sensor.json

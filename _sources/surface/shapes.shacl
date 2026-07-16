@@ -1,0 +1,30 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# type: "Surface" maps via context to crm:E25_Man-Made_Feature.
+# No other block in the register uses this class, so sh:targetClass is safe.
+<#SurfaceShape>
+    a sh:NodeShape ;
+    sh:targetClass crm:E25_Man-Made_Feature ;
+    sh:property [
+        sh:path crm:P56i_is_found_on ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "hostObject is required and must be a URI referencing the heritage-object, architectural-space or building." ;
+    ] ;
+    sh:property [
+        sh:path crm:P45_consists_of ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "material is required and must be a Getty AAT URI." ;
+    ] ;
+    sh:property [
+        sh:path crm:P33_used_specific_technique ;
+        sh:nodeKind sh:IRI ;
+        sh:message "technique, when provided, must be a Getty AAT URI." ;
+    ] ;
+    sh:property [
+        sh:path crm:P70i_is_documented_in ;
+        sh:nodeKind sh:IRI ;
+        sh:message "sourceEvidence, when provided, must be a URI." ;
+    ] .

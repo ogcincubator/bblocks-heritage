@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "dct": "http://purl.org/dc/terms/",
+    "schema": "https://schema.org/",
+    "type": "@type",
+    "OralHistory": "crm:E73_Information_Object",
+    "title": "dct:title",
+    "interviewee": {
+      "@id": "schema:interviewee",
+      "@type": "@id"
+    },
+    "language": "crm:P72_has_language",
+    "consentStatus": "dct:accessRights",
+    "iiifManifest": {
+      "@id": "crm:P70i_is_documented_in",
+      "@type": "@id"
+    },
+    "mediaType": "dct:format",
+    "rights": "dct:rights",
+    "transcriptUri": {
+      "@id": "crm:P70i_is_documented_in",
+      "@type": "@id"
+    },
+    "duration": "schema:duration",
+    "contributor": {
+      "@id": "dct:contributor",
+      "@type": "@id"
+    },
+    "theme": "dct:subject",
+    "historicalPeriod": "crm:P4_has_time-span"
+  }
+}

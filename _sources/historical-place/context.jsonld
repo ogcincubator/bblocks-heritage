@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "datePeriod": "crm:P4_has_time-span",
+    "historicalSource": {
+      "@id": "crm:P70i_is_documented_in",
+      "@type": "@id"
+    },
+    "currentEquivalent": {
+      "@id": "crm:P89_falls_within",
+      "@type": "@id"
+    },
+    "mappingConfidence": "crm:P3_has_note"
+  }
+}

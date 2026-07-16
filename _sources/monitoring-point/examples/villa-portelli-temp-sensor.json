@@ -1,0 +1,14 @@
+{
+  "type": "MonitoringPoint",
+  "name": "Villa Portelli Grand Salon — Temperature Sensor T01",
+  "description": "Resistance temperature detector installed near the main entrance of the Grand Salon to monitor visitor-induced thermal loads.",
+  "identifier": "MT-MP-VP-SALON-T01",
+  "sensorType": "http://vocab.getty.edu/aat/300379652",
+  "locatedIn": "https://example.org/heritalise/space/villa-portelli-salon",
+  "operationalStatus": "active",
+  "responsibleOrganisation": "Heritage Malta",
+  "position": {
+    "type": "Point",
+    "coordinates": [14.5134, 35.8964, 1.8]
+  }
+}

@@ -1,0 +1,21 @@
+examples:
+  - title: Sala degli Scudieri — historical room name, Reggia di Venaria (CRRS-015)
+    content: >-
+      An 18th-century room designation ("Sala degli Scudieri") from the 1720 Venaria inventory,
+      mapped to its current survey equivalent (Sala 10, Eastern Gallery) with "probable"
+      confidence based on floor-plan comparison. The historicalSource URI references the
+      archival inventory record held in the Archivio di Stato di Torino.
+      Covers CRRS-015 (historical place / legacy spatial feature).
+    snippets:
+      - language: json
+        ref: examples/venaria-sala-scudieri.json
+
+  - title: South Pergola Terrace — historical garden feature, Villa Portelli, Malta
+    content: >-
+      A historical garden terrace at Villa Portelli named in pre-1943 architectural plans,
+      approximately corresponding to the current south garden zone. A minimal example —
+      no historicalSource or sameAs — demonstrating that only identifier, name, geometry
+      and mappingConfidence are required (beyond the inherited place fields).
+    snippets:
+      - language: json
+        ref: examples/malta-south-pergola.json

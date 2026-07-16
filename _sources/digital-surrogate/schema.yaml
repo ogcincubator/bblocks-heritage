@@ -1,0 +1,91 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Digital Surrogate
+description: >-
+  A digital file produced by digitising a physical source carrier, modelled as a CRMdig D1
+  Digital Object. Adds a mandatory PROV derivation link to the source-carrier and a structured
+  CRMdig D7 digitisation event sub-object.
+x-jsonld-context: context.jsonld
+allOf:
+  - $ref: bblocks://ogc.heritage.digital-representation
+  - type: object
+    required:
+      - type
+      - wasDerivedFrom
+      - digitisationEvent
+      - mediaType
+      - rights
+    properties:
+      type:
+        const: DigitalSurrogate
+        description: Fixed type token (maps to crmdig:D1_Digital_Object via JSON-LD context).
+      wasDerivedFrom:
+        type: string
+        format: uri
+        description: >-
+          Persistent URI of the source-carrier (physical original) from which this digital file
+          was produced (prov:wasDerivedFrom). Must reference an ogc.heritage.source-carrier
+          record.
+      digitisationEvent:
+        type: object
+        description: >-
+          Structured record of the CRMdig D7 Digital Machine Event that created this digital
+          surrogate. The digitisation method and date are mandatory; all other fields are
+          optional paradata.
+        required:
+          - method
+          - date
+        properties:
+          method:
+            type: string
+            description: >-
+              Digitisation technique used, e.g. "flatbed scan", "digital photography",
+              "photogrammetry", "RTI", "multispectral imaging".
+          date:
+            type: string
+            format: date
+            description: Date on which the digitisation was performed (ISO 8601, e.g. "2024-03-15").
+          equipment:
+            type: string
+            description: Make and model of the scanner, camera or acquisition instrument.
+          software:
+            type: string
+            description: Software used for capture or initial format conversion.
+          operator:
+            type: string
+            description: Person or organisation responsible for the digitisation.
+          resolution:
+            type: string
+            description: >-
+              Scan resolution or pixel density, e.g. "600dpi", "24MP", "3 cm/pixel GSD".
+          colourMode:
+            type: string
+            description: Colour mode of the output file, e.g. "RGB", "grayscale", "bitonal".
+          quality:
+            type: string
+            description: >-
+              Quality or tier label of this file within the derivative chain,
+              e.g. "master", "access copy", "thumbnail".
+          processingHistory:
+            type: string
+            description: Free-text description of post-processing steps applied after capture.
+      mediaType:
+        type: string
+        description: >-
+          IANA media type of the digital surrogate file (dct:format), e.g. "image/tiff",
+          "image/jpeg", "application/pdf". Required.
+      rights:
+        type: string
+        description: >-
+          Access rights or licence for this digital surrogate (dct:rights), e.g. a Creative
+          Commons URI or a label such as "Restricted — archive access only". Required.
+      iiifManifest:
+        type: string
+        format: uri
+        description: >-
+          URI of an IIIF Presentation API manifest for this digital surrogate, enabling deep-zoom
+          or annotation in IIIF viewers (crm:P70i_is_documented_in).
+      completeness:
+        type: string
+        description: >-
+          Free-text statement on coverage completeness, e.g. "complete", "pages 3–5 missing
+          due to damage", "recto only".

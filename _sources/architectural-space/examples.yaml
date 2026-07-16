@@ -1,0 +1,20 @@
+examples:
+  - title: Galleria Grande bay with historical name crosswalk (REQ-003)
+    content: >-
+      A bay within the Galleria Grande, linked to its parent building, with Guarini inventory
+      names and 19th-century archival labels in historicalNames, floor/bay identifiers,
+      monitoring hotspot flag, and a footprint polygon.
+      Covers REQ-003 (space / room / bay as monitoring and historical location anchor).
+    snippets:
+      - language: json
+        ref: examples/galleria-grande-bay.json
+
+  - title: Villa Portelli Grand Salon with IFC space reference (MT-02)
+    content: >-
+      The Grand Salon of Villa Portelli as an architectural space linked to its parent
+      building, with IFC IfcSpace reference for HBIM cross-referencing and a monitoring
+      relevance flag (visitor flow and occupancy sensors planned).
+      Covers MT-02 (interior rooms — dynamic attributes and linked oral histories).
+    snippets:
+      - language: json
+        ref: examples/villa-portelli-room.json

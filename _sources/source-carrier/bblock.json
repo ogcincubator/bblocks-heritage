@@ -1,0 +1,17 @@
+{
+  "name": "Source Carrier",
+  "abstract": "A physical original document, photograph, drawing, negative or bound volume that carries heritage information, modelled as CIDOC-CRM E31 Document. Records the physical carrier from which digital surrogates are derived, with repository, archival code, and rights metadata.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CIDOC-CRM E31 Document", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E31" },
+    { "title": "ISAD(G) General International Standard Archival Description", "link": "https://www.ica.org/sites/default/files/CBPS_2000_Guidelines_ISAD%28G%29_Second-edition_EN.pdf" },
+    { "title": "HERITALISE D8.2 REQ-012 (Original Historical Source Carrier)", "link": "https://heritalise-eccch.eu/" },
+    { "title": "HERITALISE D8.2 MT-05 (Historic Photographs, Malta)", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "archival", "document", "photograph", "source"],
+  "group": "Archival & Documentation"
+}

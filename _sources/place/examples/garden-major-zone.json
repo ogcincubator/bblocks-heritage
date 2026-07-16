@@ -1,0 +1,22 @@
+{
+  "id": "https://example.org/heritalise/place/central-garden-axis",
+  "type": "Feature",
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [7.619, 45.132],
+        [7.631, 45.132],
+        [7.631, 45.140],
+        [7.619, 45.140],
+        [7.619, 45.132]
+      ]
+    ]
+  },
+  "properties": {
+    "identifier": "RV-ZONE-CGA",
+    "name": "Central Garden Axis",
+    "placeType": "http://vocab.getty.edu/aat/300008087",
+    "partOf": "https://example.org/heritalise/site/reggia-di-venaria"
+  }
+}

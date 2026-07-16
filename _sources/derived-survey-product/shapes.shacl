@@ -1,0 +1,36 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix crmdig:  <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# type: "DerivedSurveyProduct" maps via context to crmdig:D9_Data_Object, which
+# is not used by any other block in this register — sh:targetClass is safe here.
+# Shape only checks properties introduced by this profile; parent constraints are
+# inherited via isProfileOf.
+<#DerivedSurveyProductShape>
+    a sh:NodeShape ;
+    sh:targetClass crmdig:D9_Data_Object ;
+    sh:property [
+        sh:path dct:title ;
+        sh:minCount 1 ;
+        sh:datatype <http://www.w3.org/2001/XMLSchema#string> ;
+        sh:message "title (dct:title) is required." ;
+    ] ;
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "parentDataset (prov:wasDerivedFrom) is required and must be an IRI referencing the source survey dataset." ;
+    ] ;
+    sh:property [
+        sh:path crmdig:L11i_was_output_of ;
+        sh:minCount 1 ;
+        sh:message "processingEvent (crmdig:L11i_was_output_of, i.e. the D10 Software Execution) is required." ;
+    ] ;
+    sh:property [
+        sh:path crm:P129_is_about ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "isAbout (crm:P129_is_about) is required — URI of the heritage asset this derived product documents." ;
+    ] .

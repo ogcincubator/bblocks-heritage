@@ -1,0 +1,50 @@
+- title: Venaria — triangulated mesh derived from TLS point cloud of Galleria Grande ceiling
+  content: |
+    {
+      "type": "DerivedSurveyProduct",
+      "id": "https://heritage.venaria.it/products/gc-ceiling-mesh-2024",
+      "title": "Triangulated Mesh — Galleria Grande Ceiling (derived from TLS 2024)",
+      "isAbout": "https://heritage.venaria.it/buildings/galleria-grande",
+      "parentDataset": "https://heritage.venaria.it/datasets/gc-ceiling-tls-2024",
+      "mediaType": "model/obj",
+      "url": "https://heritage.venaria.it/storage/gc-ceiling-mesh-2024.obj",
+      "processingEvent": {
+        "processingMethod": "mesh generation",
+        "processingDate": "2024-04-03",
+        "software": "Leica Cyclone 3DR",
+        "softwareVersion": "2024.0.1",
+        "operator": "https://orcid.org/0000-0000-0000-0001",
+        "parameters": "Poisson reconstruction; octree depth 10; smoothing kernel radius 5 mm",
+        "accuracy": "mean deviation from source cloud ±1.8 mm",
+        "qaResult": "passed"
+      },
+      "limitations": "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud.",
+      "reviewStatus": "reviewed"
+    }
+  mediatype: application/json
+
+- title: Malta — deviation map derived from UAV photogrammetric survey of Villa Portelli exterior
+  content: |
+    {
+      "type": "DerivedSurveyProduct",
+      "id": "https://heritage.gov.mt/products/villa-portelli-deviation-map-2025",
+      "title": "Facade Deviation Map — Villa Portelli exterior (derived from UAV survey 2025)",
+      "isAbout": "https://heritage.gov.mt/buildings/villa-portelli",
+      "parentDataset": "https://heritage.gov.mt/datasets/villa-portelli-uav-2025",
+      "mediaType": "image/tiff",
+      "url": "https://heritage.gov.mt/storage/villa-portelli-deviation-map-2025.tif",
+      "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-deviationmap-2025",
+      "processingEvent": {
+        "processingMethod": "deviation mapping",
+        "processingDate": "2025-07-02",
+        "software": "CloudCompare",
+        "softwareVersion": "2.13.1",
+        "operator": "https://orcid.org/0000-0000-0000-0002",
+        "parameters": "Reference surface: design BIM mesh (IFC); max search radius 0.5 m; colour ramp ±100 mm",
+        "accuracy": "RMS deviation 38 mm; 92 % of facade within ±50 mm of design intent",
+        "qaResult": "passed with remarks — two pilasters exceed ±80 mm threshold"
+      },
+      "limitations": "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion.",
+      "reviewStatus": "approved"
+    }
+  mediatype: application/json

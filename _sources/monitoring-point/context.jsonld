@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "type": "@type",
+    "MonitoringPoint": "crm:E22_Man-Made_Object",
+    "identifier": "crm:P1_is_identified_by",
+    "sensorType": {
+      "@id": "crm:P2_has_type",
+      "@type": "@id"
+    },
+    "locatedIn": {
+      "@id": "crm:P53_has_former_or_current_location",
+      "@type": "@id"
+    },
+    "operationalStatus": "crm:P44_has_condition",
+    "responsibleOrganisation": "crm:P50_has_current_keeper",
+    "position": {
+      "@id": "geojson:geometry",
+      "@type": "@json"
+    }
+  }
+}

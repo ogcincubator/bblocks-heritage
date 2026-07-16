@@ -2,12 +2,17 @@
   "@context": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dct": "http://purl.org/dc/terms/",
+    "dcat": "http://www.w3.org/ns/dcat#",
     "identifier": "crm:P1_is_identified_by",
     "isAbout": {
       "@id": "crm:P129_is_about",
       "@type": "@id"
     },
     "mediaType": "dct:format",
-    "persistentIdentifier": "crm:P1_is_identified_by"
+    "persistentIdentifier": "crm:P1_is_identified_by",
+    "url": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    }
   }
 }

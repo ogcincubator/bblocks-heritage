@@ -6,3 +6,13 @@ examples:
     snippets:
       - language: json
         ref: examples/lido.json
+
+  - title: CAD/DWG architectural plan from Malta (HM-08)
+    content: >-
+      A ground floor plan of Villa Portelli, held as an AutoCAD DWG file (`application/dwg`),
+      minted with a Handle persistent identifier and accessible via a download URL. Attributed
+      to the Heritage Malta conservation department. Covers HM-08 (CAD/DWG architectural
+      drawings of heritage buildings).
+    snippets:
+      - language: json
+        ref: examples/malta-cad-plan.json

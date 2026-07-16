@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "dct": "http://purl.org/dc/terms/",
+    "type": "@type",
+    "DerivedSurveyProduct": "crmdig:D9_Data_Object",
+    "title": "dct:title",
+    "parentDataset": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "processingEvent": {
+      "@id": "crmdig:L11i_was_output_of",
+      "@type": "@json"
+    },
+    "limitations": "dct:description"
+  }
+}

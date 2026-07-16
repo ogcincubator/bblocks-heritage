@@ -1,0 +1,32 @@
+{
+  "id": "https://example.org/heritalise/condition/RV-CA-GG-2026-003",
+  "type": "ConditionAssessment",
+  "affectedObject": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "conditionState": {
+    "conditionType": "http://vocab.getty.edu/aat/300379825",
+    "severity": "moderate",
+    "extent": "Linear crack approximately 80 cm long along the plaster joint between the vault fresco and the cornice moulding, north face of bay 7."
+  },
+  "assessmentDate": "2026-03-15",
+  "assessor": "https://example.org/heritalise/actor/sofia-bianchi",
+  "method": "Visual inspection with raking-light photography",
+  "confidence": "high",
+  "evidence": [
+    "https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-01",
+    "https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-02"
+  ],
+  "recommendation": "Apply consolidant injection to crack edges within 6 months; re-assess after stabilisation.",
+  "reviewStatus": "reviewed",
+  "footprint": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [7.62725, 45.13442],
+        [7.62731, 45.13442],
+        [7.62731, 45.13438],
+        [7.62725, 45.13438],
+        [7.62725, 45.13442]
+      ]
+    ]
+  }
+}

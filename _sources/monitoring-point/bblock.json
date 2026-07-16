@@ -1,0 +1,17 @@
+{
+  "name": "Monitoring Point",
+  "abstract": "A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "W3C/OGC SOSA Sensor", "link": "https://www.w3.org/TR/vocab-ssn/#SOSASensor" },
+    { "title": "CIDOC-CRM E22 Man-Made Object", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E22" },
+    { "title": "HERITALISE D8.2 REQ-009", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "sosa", "ssn", "monitoring", "sensor"],
+  "group": "Monitoring",
+  "isProfileOf": "bblocks://ogc.sosa.properties.sensor"
+}

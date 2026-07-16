@@ -1,0 +1,20 @@
+examples:
+  - title: Digitised architectural plan from Venaria Reale (CRRS-013)
+    content: >-
+      A high-resolution scan of a 17th-century architectural plan from the State Archive of Turin,
+      recording the Galleria Grande wing of the Reggia di Venaria. The surrogate is derived from
+      a paper drawing held in the archive (source-carrier), with full digitisation paradata and an
+      IIIF manifest for viewer integration.
+    snippets:
+      - language: json
+        ref: examples/venaria_plan_scan.json
+
+  - title: Digitised historical photograph of Villa Portelli, Malta (HM-05)
+    content: >-
+      A digital photograph produced from a 1953 photographic negative depicting Villa Portelli,
+      held by Heritage Malta. Records the derivation chain from the physical negative
+      (source-carrier), the digitisation event, and access rights. A minimal example without
+      an IIIF manifest.
+    snippets:
+      - language: json
+        ref: examples/malta_photograph.json

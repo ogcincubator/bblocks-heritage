@@ -1,0 +1,80 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Source Carrier
+description: >-
+  A physical original document, photograph, drawing, negative or bound volume that carries
+  heritage information (CIDOC-CRM E31 Document). Records the physical carrier — the entity
+  from which digital surrogates (ogc.heritage.digital-surrogate) are derived — including
+  repository location, archival reference, rights and physical condition.
+x-jsonld-context: context.jsonld
+type: object
+required:
+  - type
+  - carrierType
+  - title
+properties:
+  id:
+    type: string
+    format: uri
+    description: Persistent URI identifying this source carrier record.
+  type:
+    const: SourceCarrier
+    description: Fixed type token identifying this record as a source carrier (maps to crm:E31_Document).
+  carrierType:
+    type: string
+    format: uri
+    description: >-
+      Getty AAT URI for the physical carrier type, e.g.:
+      paper document (300264612), photograph (300046300), architectural drawing (300034787),
+      photographic negative (300127173), bound volume (300028051).
+  title:
+    type: string
+    description: Title or descriptive label of the physical carrier (crm:P102_has_title).
+  creator:
+    oneOf:
+      - type: string
+        format: uri
+      - type: array
+        items:
+          type: string
+          format: uri
+    description: URI(s) of the person(s) or organisation(s) who created the carrier (dct:creator).
+  datePeriod:
+    type: string
+    description: Date or date range of creation (free text or ISO 8601, e.g. "1742", "1890–1910").
+  language:
+    type: string
+    description: BCP 47 language code of the textual content, if applicable (e.g. "it", "en", "mt").
+  repository:
+    type: string
+    description: >-
+      Name or URI of the institution holding the physical carrier
+      (crm:P50_has_current_keeper). Use a URI where available (e.g. ISNI, Wikidata).
+  archivalCode:
+    type: string
+    description: >-
+      Archival reference code, call number or shelfmark assigned by the holding institution
+      (crm:P1_is_identified_by), e.g. "ASTo, Corte, Venaria Reale, mazzo 12, n. 3".
+  collection:
+    type: string
+    description: Collection or archival series to which this carrier belongs (dct:isPartOf).
+  physicalFormat:
+    type: string
+    description: >-
+      Physical dimensions, substrate and format description, e.g.
+      "44 × 62 cm, ink on paper, rolled".
+  condition:
+    type: string
+    description: >-
+      Overall physical condition of the carrier, e.g. "good", "fragile — foxing on margins",
+      "damaged — lower third missing" (crm:P44_has_condition).
+  rights:
+    type: string
+    description: >-
+      Access rights or licence URI or label, e.g. a Creative Commons URI or
+      "Restricted — archive access only" (dct:rights).
+  documentsObject:
+    type: string
+    format: uri
+    description: >-
+      URI of the heritage-object, place or site that this carrier documents
+      (crm:P70_documents). Optional — use when the primary subject is known.

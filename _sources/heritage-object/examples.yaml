@@ -14,3 +14,33 @@ examples:
     snippets:
       - language: json
         ref: examples/minimal.json
+
+  - title: Architectural component with parent space and materials (CRRS-004)
+    content: >-
+      A load-bearing vault section within the Reggia di Venaria north gallery,
+      typed as an architectural element (Getty AAT), with masonry and fresco materials and
+      linked to its containing interior space via `parentSpace` (crm:P46i_forms_part_of).
+      Covers CRRS-004 (architectural components of the built fabric).
+    snippets:
+      - language: json
+        ref: examples/wall-component.json
+
+  - title: Movable heritage object with movement history and threshold link (CRRS-016, HM-04)
+    content: >-
+      A historical tapestry from the Reggia di Venaria — a movable item catalogued with
+      object type (Getty AAT), fibre materials, its current storage location, a sequence of
+      PROV-O movement events, and a link to the applicable climate threshold record.
+      Covers CRRS-016 (movable furniture / decorative objects) and HM-04 (Malta movable
+      heritage items with environmental thresholds).
+    snippets:
+      - language: json
+        ref: examples/tapestry.json
+
+  - title: Garden sculpture / fountain with Getty AAT type (CRRS-021)
+    content: >-
+      The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Getty AAT),
+      constructed in stone, linked to the garden heritage site, and minted with a persistent
+      W3ID. Covers CRRS-021 (garden sculptures and landscape objects).
+    snippets:
+      - language: json
+        ref: examples/garden-fountain.json

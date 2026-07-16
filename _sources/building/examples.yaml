@@ -1,0 +1,20 @@
+examples:
+  - title: Galleria Grande, Reggia di Venaria (REQ-002)
+    content: >-
+      The Galleria Grande as a building: linked to the Venaria heritage site, construction
+      period from Garove to Juvara, footprint polygon, and Getty AAT building type.
+      Covers REQ-002 (principal building / architectural unit at Venaria).
+    snippets:
+      - language: json
+        ref: examples/galleria-grande.json
+
+  - title: Villa Portelli main building with IFC reference (MT-01)
+    content: >-
+      The main villa building at Villa Portelli, Malta: linked to the garden heritage site,
+      under-restoration status, and an optional IFC Global ID for HBIM cross-reference.
+      Covers MT-01 (Villa Portelli main building). Note — Gaussian splat 3D representation
+      would be a linked digital-representation record with dct:format pointing to the
+      appropriate media type, not an attribute on the building itself.
+    snippets:
+      - language: json
+        ref: examples/villa-portelli-main.json

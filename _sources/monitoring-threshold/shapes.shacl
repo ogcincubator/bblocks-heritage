@@ -1,0 +1,39 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+
+# type: "MonitoringThreshold" maps via context to sosa:ObservableProperty.
+# No other block in the register creates sosa:ObservableProperty instances,
+# so sh:targetClass is safe here.
+<#MonitoringThresholdShape>
+    a sh:NodeShape ;
+    sh:targetClass sosa:ObservableProperty ;
+    sh:property [
+        sh:path sosa:observes ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "parameter is required and must be a URI (GEOSS ECV or QUDT QuantityKind)." ;
+    ] ;
+    sh:property [
+        sh:path crm:P2_has_type ;
+        sh:minCount 1 ;
+        sh:message "thresholdType is required (minValue, maxValue, range, or rateOfChange)." ;
+    ] ;
+    sh:property [
+        sh:path crm:P44_has_condition ;
+        sh:minCount 1 ;
+        sh:message "severity is required (advisory, warning, alarm, or critical)." ;
+    ] ;
+    sh:property [
+        sh:path crm:P53_has_former_or_current_location ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "appliesTo is required and must be a URI referencing the monitoring point or heritage zone." ;
+    ] ;
+    sh:property [
+        sh:path dct:source ;
+        sh:minCount 1 ;
+        sh:message "source is required (standard, protocol or expert opinion from which the threshold is derived)." ;
+    ] .

@@ -1,0 +1,25 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix sci: <http://www.ics.forth.gr/isl/CRMsci/> .
+
+# type: "ConditionAssessment" maps via context to sci:E14_Condition_Assessment,
+# so sh:targetClass works for standalone blocks with that const.
+<#ConditionAssessmentShape>
+    a sh:NodeShape ;
+    sh:targetClass sci:E14_Condition_Assessment ;
+    sh:property [
+        sh:path crm:P140_assigned_attribute_to ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "affectedObject is required and must be an IRI referencing the heritage-object, architectural-space or place being assessed." ;
+    ] ;
+    sh:property [
+        sh:path crm:P35_has_identified ;
+        sh:minCount 1 ;
+        sh:message "conditionState is required." ;
+    ] ;
+    sh:property [
+        sh:path crm:P4_has_time-span ;
+        sh:minCount 1 ;
+        sh:message "assessmentDate is required." ;
+    ] .

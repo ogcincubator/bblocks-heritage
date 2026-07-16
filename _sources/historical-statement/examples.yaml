@@ -1,0 +1,18 @@
+examples:
+  - title: Authorship attribution for a ceiling fresco (CRRS-014, Venaria)
+    content: >-
+      An art historian's attribution of the ceiling fresco in the Galleria Grande to the painter
+      Michelangelo Morello, extracted from an 18th-century letter in the State Archive of Turin.
+      Includes a W3C OA evidence locator pointing to page 3 of the digitised letter.
+    snippets:
+      - language: json
+        ref: examples/venaria_attribution.json
+
+  - title: Construction technique note extracted from a Malta photograph caption (HM)
+    content: >-
+      A statement identifying rubble-stone masonry technique in the north wing of Villa Portelli,
+      extracted from a 1953 photograph caption held by Heritage Malta. Minimal example without
+      an evidence locator.
+    snippets:
+      - language: json
+        ref: examples/malta_technique_note.json

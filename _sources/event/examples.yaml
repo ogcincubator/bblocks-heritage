@@ -14,3 +14,15 @@ examples:
     snippets:
       - language: json
         ref: examples/minimal.json
+
+  - title: Malta historical foundation event (HM-09)
+    content: >-
+      The 1820 foundation of the Villa Portelli estate, typed as a ceremony/foundation event
+      (Getty AAT), with the Portelli family as the associated actor and the villa site as the
+      location. `description` carries a free-text historical significance note. Demonstrates
+      use of the event block for historical (non-conservation) events, covering the Malta
+      pilot's HM-09 requirement for historical events with organisational and significance
+      context.
+    snippets:
+      - language: json
+        ref: examples/malta-ceremony.json

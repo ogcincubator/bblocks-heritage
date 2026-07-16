@@ -1,0 +1,39 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "sci": "http://www.ics.forth.gr/isl/CRMsci/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "id": "@id",
+    "type": "@type",
+    "ConditionAssessment": "sci:E14_Condition_Assessment",
+    "affectedObject": {
+      "@id": "crm:P140_assigned_attribute_to",
+      "@type": "@id"
+    },
+    "conditionState": {
+      "@id": "crm:P35_has_identified",
+      "@type": "@json"
+    },
+    "assessmentDate": {
+      "@id": "crm:P4_has_time-span",
+      "@type": "xsd:date"
+    },
+    "assessor": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "method": "crm:P33_used_specific_technique",
+    "evidence": {
+      "@id": "crm:P16_used_specific_object",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "recommendation": "crm:P3_has_note",
+    "footprint": {
+      "@id": "geojson:geometry",
+      "@type": "@json"
+    }
+  }
+}

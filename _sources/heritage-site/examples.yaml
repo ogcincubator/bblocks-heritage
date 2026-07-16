@@ -1,0 +1,19 @@
+examples:
+  - title: Reggia di Venaria Reale pilot site (REQ-001)
+    content: >-
+      The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage designation,
+      responsible consortium, CC-BY rights, boundary polygon, and Getty TGN authority match.
+      Covers REQ-001 (Venaria overall pilot area).
+    snippets:
+      - language: json
+        ref: examples/venaria-site.json
+
+  - title: Villa Portelli garden as a heritage site (MT-03)
+    content: >-
+      The Villa Portelli garden (Malta pilot) as a heritage site: national monument designation,
+      Heritage Malta as responsible organisation, boundary polygon.
+      Demonstrates reuse of the same block for a different pilot's garden-level entity (MT-03),
+      distinguished only by siteType and designation values.
+    snippets:
+      - language: json
+        ref: examples/villa-portelli-garden.json

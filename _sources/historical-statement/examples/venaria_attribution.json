@@ -1,0 +1,24 @@
+{
+  "id": "https://data.regiadivenaria.it/historical-statement/attr-morello-galleria-grande-2024-001",
+  "type": "HistoricalStatement",
+  "statementType": "authorship attribution",
+  "statement": {
+    "text": "La volta della Galleria Grande fu dipinta da Michelangelo Morello per commissione del Duca Vittorio Amedeo II nel 1699, come attestato dalla lettera del 14 marzo di quell'anno.",
+    "language": "it",
+    "datePeriod": "1699",
+    "keywords": ["ceiling fresco", "attribution", "Morello", "Galleria Grande", "Savoy commission"]
+  },
+  "describedObject": "https://data.regiadivenaria.it/heritage-object/galleria-grande-ceiling-fresco",
+  "sourceRecord": "https://data.regiadivenaria.it/source-carrier/ASTo-VR-lett-1699-mar14",
+  "evidenceLocator": {
+    "source": "https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-lett-1699-mar14-scan",
+    "selector": {
+      "type": "FragmentSelector",
+      "conformsTo": "http://www.w3.org/TR/media-frags/",
+      "value": "page=3"
+    }
+  },
+  "reviewer": "https://orcid.org/0000-0000-0000-0001",
+  "confidence": "probable",
+  "datePeriod": "1699"
+}

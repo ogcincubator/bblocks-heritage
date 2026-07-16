@@ -1,0 +1,16 @@
+{
+  "name": "Condition Assessment",
+  "abstract": "A qualitative conservation inspection event (CRMsci E14 Condition Assessment) recording the condition state of a heritage object or place at a point in time, with assessor, method, severity and optional spatial localisation.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CRMsci E14 Condition Assessment", "link": "https://www.ics.forth.gr/isl/CRMsci/CRMsci_v2.0.pdf" },
+    { "title": "CIDOC-CRM E3 Condition State", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E3" },
+    { "title": "HERITALISE D8.2 REQ-006", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "crmsci", "conservation", "condition"],
+  "group": "Conservation"
+}

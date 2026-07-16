@@ -1,0 +1,17 @@
+{
+  "name": "Historical Place",
+  "abstract": "A named historical spatial feature — room, area, route or landscape designation — that has since been renamed, restructured or disappeared, mapped to its current spatial equivalent with a confidence rating (CIDOC-CRM E53 Place + P89, CRRS-015).",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CIDOC-CRM E53 Place", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E53" },
+    { "title": "CIDOC-CRM P89 falls within", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#P89" },
+    { "title": "HERITALISE D8.2 CRRS-015", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "place", "historical", "spatial"],
+  "group": "Place profiles",
+  "isProfileOf": "bblocks://ogc.heritage.place"
+}

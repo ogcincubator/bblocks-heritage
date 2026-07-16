@@ -15,7 +15,9 @@ allOf:
         enum:
           - application/pdf
           - text/xml
+          - application/dwg
+          - image/vnd.dxf
         description: >-
-          `application/pdf` for a PDF/A document (ISO 19005), or `text/xml` for a LIDO/XML
-          record. A PDF/A claim cannot be verified from the media type alone; validate the
-          actual file separately if conformance must be checked.
+          `application/pdf` for a PDF/A document (ISO 19005), `text/xml` for a LIDO/XML
+          record, `application/dwg` for an AutoCAD DWG architectural drawing, or
+          `image/vnd.dxf` for a DXF drawing exchange file.

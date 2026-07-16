@@ -1,0 +1,20 @@
+examples:
+  - title: Venaria visitor path (CRRS-017)
+    content: >-
+      A gravel visitor path through the gardens of the Reggia di Venaria Reale,
+      classified as a pedestrian thoroughfare (Getty AAT), linked to the Venaria
+      heritage site, with surface, width and accessibility metadata.
+      Covers CRRS-017 (route / visitor path / internal track).
+    snippets:
+      - language: json
+        ref: examples/venaria-visitor-path.json
+
+  - title: Villa Portelli garden trail (Malta)
+    content: >-
+      A stone-paved garden trail at Villa Portelli (Malta pilot), classified as a
+      heritage trail (Getty AAT) and linked to the Villa Portelli site. Demonstrates
+      reuse of the route block for a different pilot's circulation infrastructure,
+      with a simpler attribute set (no width recorded).
+    snippets:
+      - language: json
+        ref: examples/malta-heritage-trail.json

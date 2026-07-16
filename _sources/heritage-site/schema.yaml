@@ -1,0 +1,44 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Heritage Site
+description: |
+  A designated cultural heritage site or pilot study area, typed as CIDOC-CRM E27 Site
+  (a subclass of E53 Place and E26 Physical Feature). Profiles ogc.heritage.place,
+  inheriting JSON-FG geometry and core CIDOC-CRM place attributes, and adding site-level
+  designation, responsible organisation and rights fields.
+
+  A garden, palace complex or protected landscape is modelled as a heritage-site with an
+  appropriate siteType; sub-zones within the site are modelled as ogc.heritage.place records
+  linked back via partOf.
+x-jsonld-context: context.jsonld
+allOf:
+  - $ref: bblocks://ogc.heritage.place
+  - type: object
+    properties:
+      properties:
+        type: object
+        properties:
+          siteType:
+            type: string
+            format: uri
+            description: >-
+              Heritage designation type as a controlled vocabulary URI (typically Getty AAT).
+              Examples: palace complex, garden, World Heritage Site, national monument.
+              Maps to crm:P2_has_type.
+          designation:
+            type: string
+            description: >-
+              Formal heritage designation code or label, e.g. a UNESCO World Heritage List
+              reference number or national inventory entry. Maps to crm:P1_is_identified_by
+              as a second identifier alongside the local inventory identifier.
+          responsibleOrganisation:
+            type: string
+            description: >-
+              Name or URI of the body responsible for managing or custodying this site
+              (crm:P50_has_current_keeper).
+          rights:
+            type: string
+            description: >-
+              Access and use rights statement, preferably a Creative Commons or rights
+              statement URI (dct:rights).
+        required:
+          - siteType

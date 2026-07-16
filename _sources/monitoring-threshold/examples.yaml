@@ -1,0 +1,20 @@
+examples:
+  - title: Relative-humidity range threshold, Galleria Grande Bay 7 — Venaria (CRRS-011)
+    content: >-
+      A bilateral RH threshold (45–65 %) for the sensor at bay 7 of the Galleria Grande,
+      Reggia di Venaria. Derived from EN 15757 and adapted to the site's acclimatisation
+      history. A warning-level alert is triggered if the reading falls outside the range.
+      Covers CRRS-011 (monitoring threshold / conservation alert).
+    snippets:
+      - language: json
+        ref: examples/venaria-rh-threshold.json
+
+  - title: Minimum temperature threshold, Grand Salon — Villa Portelli, Malta
+    content: >-
+      A minimum-temperature threshold (10 °C) for the Grand Salon at Villa Portelli.
+      An alarm-level alert triggers immediate HVAC intervention if the temperature
+      drops below the condensation-risk boundary. A minimal example — no activePeriod
+      or rationale — showing only the required fields.
+    snippets:
+      - language: json
+        ref: examples/malta-temp-threshold.json

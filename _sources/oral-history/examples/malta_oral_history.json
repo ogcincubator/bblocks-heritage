@@ -1,0 +1,21 @@
+{
+  "id": "https://data.heritagemalta.org/oral-history/villap-oh-2023-004",
+  "type": "OralHistory",
+  "title": "Wartime memories of Villa Portelli — Interview with Maria Camilleri",
+  "isAbout": "https://data.heritagemalta.org/place/villa-portelli",
+  "interviewee": "https://data.heritagemalta.org/actor/maria-camilleri",
+  "language": "mt",
+  "consentStatus": "consented — public access",
+  "iiifManifest": "https://data.heritagemalta.org/iiif/3/villap-oh-2023-004/manifest",
+  "mediaType": "video/mp4",
+  "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "transcriptUri": "https://data.heritagemalta.org/oral-history/villap-oh-2023-004/transcript.pdf",
+  "duration": "PT1H12M33S",
+  "contributor": [
+    "https://data.heritagemalta.org/actor/heritage-malta-oral-history-unit",
+    "https://data.heritagemalta.org/actor/john-farrugia"
+  ],
+  "theme": ["wartime occupation", "domestic life", "World War II", "Villa Portelli gardens"],
+  "historicalPeriod": "1940–1945",
+  "persistentIdentifier": "https://hdl.handle.net/21.T11998/hm-oh-2023-004"
+}

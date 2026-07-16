@@ -15,3 +15,22 @@ examples:
     snippets:
       - language: json
         ref: examples/minimal.json
+
+  - title: Garden major zone nested within a heritage site (CRRS-019)
+    content: >-
+      The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) and
+      linked to the enclosing heritage site via `partOf` (crm:P89_falls_within). Demonstrates
+      the top-level spatial subdivision of a large heritage site into named landscape zones.
+      Covers CRRS-019 (garden major zones).
+    snippets:
+      - language: json
+        ref: examples/garden-major-zone.json
+
+  - title: Garden sub-zone nested within a major zone (CRRS-020)
+    content: >-
+      The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and linked
+      to the central garden axis via `partOf`. Demonstrates a second-level spatial subdivision
+      (sub-zone within a major zone). Covers CRRS-020 (garden sub-zones).
+    snippets:
+      - language: json
+        ref: examples/garden-sub-zone.json

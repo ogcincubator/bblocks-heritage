@@ -30,3 +30,7 @@ allOf:
         type: string
         format: uri
         description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this asset.
+      url:
+        type: string
+        format: uri
+        description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).

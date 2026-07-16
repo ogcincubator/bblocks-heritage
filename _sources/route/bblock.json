@@ -1,0 +1,16 @@
+{
+  "name": "Route",
+  "abstract": "A road, visitor path, internal track or circulation route within or between heritage zones, typed as CIDOC-CRM E26 Physical Feature. Profiles 'place', inheriting JSON-FG geometry and core CRM place attributes, and adding route type, surface, width, accessibility and permitted-use fields.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CIDOC-CRM E26 Physical Feature", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E26" },
+    { "title": "HERITALISE D8.2 CRRS-017", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "place", "route", "infrastructure"],
+  "group": "Place profiles",
+  "isProfileOf": "bblocks://ogc.heritage.place"
+}

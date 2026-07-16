@@ -1,0 +1,17 @@
+{
+  "name": "Derived Survey Product",
+  "abstract": "A processed output derived from a geometric survey dataset — section drawing, triangulated mesh, deviation map or registration report — modelled as a CRMdig D9 Data Object. Profiles ogc.heritage.digital-representation, adding a mandatory PROV derivation link to the parent survey dataset and a structured CRMdig D10 Software Execution sub-object recording the processing parameters.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CRMdig D9 Data Object / D10 Software Execution", "link": "https://www.ics.forth.gr/isl/CRMdig/" },
+    { "title": "PROV-O: The PROV Ontology", "link": "https://www.w3.org/TR/prov-o/" },
+    { "title": "HERITALISE D8.2 CRRS-008 (Derived Survey / QA Product)", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "crmdig", "survey", "derived", "processing", "mesh", "prov"],
+  "group": "Survey & Documentation",
+  "isProfileOf": ["bblocks://ogc.heritage.digital-representation"]
+}

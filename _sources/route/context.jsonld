@@ -1,0 +1,14 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "routeType": {
+      "@id": "crm:P2_has_type",
+      "@type": "@id"
+    },
+    "accessibilityRating": "crm:P44_has_condition",
+    "parentSite": {
+      "@id": "crm:P89_falls_within",
+      "@type": "@id"
+    }
+  }
+}

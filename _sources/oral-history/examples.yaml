@@ -1,0 +1,18 @@
+examples:
+  - title: Oral history testimony about Villa Portelli, Malta (HM-07)
+    content: >-
+      A video interview with a local resident recounting wartime memories of Villa Portelli
+      and its grounds, recorded by Heritage Malta in 2023. Includes a transcript URI,
+      IIIF manifest for playback, and consent metadata.
+    snippets:
+      - language: json
+        ref: examples/malta_oral_history.json
+
+  - title: Community narrative about garden traditions at Villa Portelli (HM-07)
+    content: >-
+      A shorter audio recording of a garden keeper's account of traditional horticultural
+      practices at Villa Portelli, with restricted consent status pending full review.
+      Minimal example without transcript or contributor metadata.
+    snippets:
+      - language: json
+        ref: examples/malta_garden_narrative.json

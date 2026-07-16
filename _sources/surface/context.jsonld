@@ -1,0 +1,32 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "id": "@id",
+    "type": "@type",
+    "Surface": "crm:E25_Man-Made_Feature",
+    "hostObject": {
+      "@id": "crm:P56i_is_found_on",
+      "@type": "@id"
+    },
+    "material": {
+      "@id": "crm:P45_consists_of",
+      "@type": "@id"
+    },
+    "technique": {
+      "@id": "crm:P33_used_specific_technique",
+      "@type": "@id"
+    },
+    "historicalPhase": "crm:P4_has_time-span",
+    "exposure": "crm:P3_has_note",
+    "conditionSummary": "crm:P44_has_condition",
+    "sourceEvidence": {
+      "@id": "crm:P70i_is_documented_in",
+      "@type": "@id"
+    },
+    "footprint": {
+      "@id": "geojson:geometry",
+      "@type": "@json"
+    }
+  }
+}

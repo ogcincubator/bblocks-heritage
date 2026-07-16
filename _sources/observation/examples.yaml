@@ -1,17 +1,32 @@
 examples:
   - title: A relative humidity reading linked back to its CIDOC-CRM context
     content: >-
-      A humidity measurement of the Great Gallery, taken by a SensorThings API `Sensor` and
-      recorded as a SensorThings API `Observation` — this block carries the CRM-side context
-      (what was measured, what property, by whom) while the reading itself stays in STA.
+      A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `Sensor`.
+      `hasFeatureOfInterest`, `observedProperty`, `madeBySensor`, `hasSimpleResult` and
+      `resultTime` all come straight from the profiled SOSA Observation; only
+      `hasFeatureOfInterest` (here pointing at the `place` block's URI) is required by this
+      profile.
     snippets:
       - language: json
         ref: examples/humidity-reading.json
 
   - title: A minimal record for an undated legacy reading
     content: >-
-      Only `identifier` and `measurementOf` are required — useful for migrating legacy
-      monitoring logs that predate the SensorThings API deployment.
+      Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are required —
+      useful for migrating legacy monitoring logs that predate the SensorThings API
+      deployment.
     snippets:
       - language: json
         ref: examples/minimal.json
+
+  - title: Sensor reading linked to a monitoring point (CRRS-010)
+    content: >-
+      A relative humidity reading taken by a monitoring point in the Reggia di Venaria
+      north gallery. `hasFeatureOfInterest` and `madeBySensor` both reference the
+      monitoring-point URI (the point is both the feature being monitored and the sensor
+      host), `observedProperty` carries a Getty AAT URI for relative humidity, and
+      `resultTime` is the ISO 8601 timestamp of the reading. Covers CRRS-010 (sensor
+      readings linked to CRRS-009 monitoring points).
+    snippets:
+      - language: json
+        ref: examples/monitoring-point-reading.json

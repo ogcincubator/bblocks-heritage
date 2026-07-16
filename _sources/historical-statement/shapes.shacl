@@ -1,0 +1,27 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix oa:   <http://www.w3.org/ns/oa#> .
+
+# type: "HistoricalStatement" maps via context to crm:E13_Attribute_Assignment —
+# no other block in this register uses that class, so targetClass is unambiguous.
+<#HistoricalStatementShape>
+    a sh:NodeShape ;
+    sh:targetClass crm:E13_Attribute_Assignment ;
+    sh:property [
+        sh:path crm:P2_has_type ;
+        sh:minCount 1 ;
+        sh:message "statementType (crm:P2_has_type) is required." ;
+    ] ;
+    sh:property [
+        sh:path crm:P16_used_specific_object ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "sourceRecord (crm:P16_used_specific_object) must be present and an IRI referencing a source-carrier or digital-surrogate." ;
+    ] ;
+    sh:property [
+        sh:path prov:wasAttributedTo ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "reviewer (prov:wasAttributedTo) must be present and an IRI." ;
+    ] .

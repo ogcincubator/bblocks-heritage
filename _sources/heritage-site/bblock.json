@@ -1,0 +1,16 @@
+{
+  "name": "Heritage Site",
+  "abstract": "A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CIDOC-CRM E27 Site", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E27" },
+    { "title": "HERITALISE D8.2 REQ-001", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "place", "site"],
+  "group": "Place profiles",
+  "isProfileOf": "bblocks://ogc.heritage.place"
+}

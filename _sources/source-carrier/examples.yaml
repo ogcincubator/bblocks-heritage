@@ -1,0 +1,37 @@
+- title: Venaria — 18th-century architectural plan from the State Archive of Turin
+  content: |
+    {
+      "type": "SourceCarrier",
+      "id": "https://heritage.venaria.it/carriers/asto-venaria-mazzo12-n3",
+      "carrierType": "http://vocab.getty.edu/aat/300034787",
+      "title": "Pianta del piano nobile della Reggia di Venaria — Juvarra, c. 1716",
+      "creator": ["https://vocab.getty.edu/ulan/500115568"],
+      "datePeriod": "c. 1716",
+      "language": "it",
+      "repository": "Archivio di Stato di Torino",
+      "archivalCode": "ASTo, Corte, Venaria Reale, mazzo 12, n. 3",
+      "collection": "Corte — Venaria Reale",
+      "physicalFormat": "58 × 82 cm, ink and wash on paper, rolled",
+      "condition": "good — minor foxing on margins",
+      "rights": "http://rightsstatements.org/vocab/InC-EDU/1.0/",
+      "documentsObject": "https://heritage.venaria.it/buildings/galleria-grande"
+    }
+  mediatype: application/json
+
+- title: Malta — historic photograph of Villa Portelli main facade (c. 1920)
+  content: |
+    {
+      "type": "SourceCarrier",
+      "id": "https://heritage.gov.mt/carriers/mna-portelli-photo-1920-042",
+      "carrierType": "http://vocab.getty.edu/aat/300046300",
+      "title": "Villa Portelli main facade — exterior view, c. 1920",
+      "datePeriod": "c. 1920",
+      "repository": "Malta National Archives",
+      "archivalCode": "MNA/PHO/1920/042",
+      "collection": "Maltese Heritage Photography Collection",
+      "physicalFormat": "13 × 18 cm silver gelatin print",
+      "condition": "fair — surface scratches, slight yellowing",
+      "rights": "http://rightsstatements.org/vocab/NoC-NC/1.0/",
+      "documentsObject": "https://heritage.gov.mt/buildings/villa-portelli"
+    }
+  mediatype: application/json

@@ -1,0 +1,90 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Monitoring Threshold
+description: >-
+  A conservation threshold rule defining the acceptable value range for an environmental
+  parameter at a heritage monitoring point or zone (SOSA ObservableProperty + QUDT units).
+x-jsonld-context: context.jsonld
+type: object
+required:
+  - type
+  - parameter
+  - thresholdType
+  - severity
+  - appliesTo
+  - source
+properties:
+  id:
+    type: string
+    format: uri
+    description: Persistent URI identifying this threshold rule.
+  type:
+    const: MonitoringThreshold
+    description: Fixed type token identifying this record as a monitoring threshold (maps to sosa:ObservableProperty).
+  parameter:
+    type: string
+    format: uri
+    description: >-
+      URI of the observable environmental parameter, preferably a GEOSS Essential
+      Climate Variable (ECV) URI or a QUDT QuantityKind URI
+      (e.g. https://qudt.org/vocab/quantitykind/Temperature for temperature).
+  thresholdType:
+    type: string
+    enum: [minValue, maxValue, range, rateOfChange]
+    description: >-
+      The kind of threshold constraint: minValue (lower bound only), maxValue (upper bound only),
+      range (both bounds), rateOfChange (maximum acceptable rate of change per unit time).
+  minValue:
+    type: number
+    description: >-
+      Lower bound of the acceptable range (required when thresholdType is minValue or range).
+  maxValue:
+    type: number
+    description: >-
+      Upper bound of the acceptable range (required when thresholdType is maxValue or range).
+  rateValue:
+    type: number
+    description: >-
+      Maximum acceptable rate of change per unit time (required when thresholdType is rateOfChange).
+  unit:
+    type: string
+    format: uri
+    description: >-
+      QUDT unit URI for the threshold value(s), e.g. https://qudt.org/vocab/unit/DEG_C for
+      degrees Celsius or https://qudt.org/vocab/unit/PERCENT for relative humidity.
+  severity:
+    type: string
+    enum: [advisory, warning, alarm, critical]
+    description: >-
+      Alert severity level triggered when the threshold is breached:
+      advisory (informational), warning (attention required), alarm (action required),
+      critical (emergency response required).
+  appliesTo:
+    type: string
+    format: uri
+    description: >-
+      URI of the monitoring point (ogc.heritage.monitoring-point) or heritage zone
+      (ogc.heritage.heritage-site) to which this threshold applies.
+  activePeriod:
+    type: object
+    description: Optional date range during which this threshold is in force (e.g. seasonal).
+    properties:
+      start:
+        type: string
+        format: date
+        description: Start date of the active period (ISO 8601).
+      end:
+        type: string
+        format: date
+        description: End date of the active period (ISO 8601).
+  source:
+    type: string
+    description: >-
+      URI or label of the technical standard, conservation protocol or expert opinion
+      from which the threshold value is derived (e.g. EN 15757 climate specification).
+  rationale:
+    type: string
+    description: Free-text explanation of the basis for the threshold value.
+  reviewDate:
+    type: string
+    format: date
+    description: Date on which this threshold is scheduled for review (ISO 8601).

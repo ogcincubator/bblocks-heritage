@@ -1,0 +1,19 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# type: "SourceCarrier" maps via context to crm:E31_Document,
+# enabling sh:targetClass here.
+<#SourceCarrierShape>
+    a sh:NodeShape ;
+    sh:targetClass crm:E31_Document ;
+    sh:property [
+        sh:path crm:P2_has_type ;
+        sh:minCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "carrierType is required and must be a Getty AAT URI identifying the physical carrier type." ;
+    ] ;
+    sh:property [
+        sh:path crm:P102_has_title ;
+        sh:minCount 1 ;
+        sh:message "title (crm:P102_has_title) is required." ;
+    ] .

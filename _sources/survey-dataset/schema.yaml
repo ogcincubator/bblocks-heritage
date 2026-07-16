@@ -1,0 +1,80 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Survey Dataset
+description: >-
+  A geometric survey dataset (point cloud, photogrammetric model, etc.) acquired from a heritage
+  asset. Profiles digital-representation (CRMdig D1 / E73 Information Object) and adds a
+  CRMdig D7 acquisition event sub-object and a mandatory spatial coverage geometry.
+x-jsonld-context: context.jsonld
+allOf:
+  - $ref: bblocks://ogc.heritage.digital-representation
+  - type: object
+    required:
+      - type
+      - title
+      - acquisitionEvent
+      - coverage
+    properties:
+      type:
+        const: SurveyDataset
+        description: Fixed type token identifying this record as a survey dataset (maps to crmdig:D1_Digital_Object).
+      title:
+        type: string
+        description: Human-readable title of the dataset (dct:title).
+      acquisitionEvent:
+        type: object
+        description: >-
+          CRMdig D7 Digital Machine Event recording the survey acquisition: the method, equipment,
+          operator, date and spatial/quality parameters.
+        required:
+          - acquisitionMethod
+          - acquisitionDate
+        properties:
+          acquisitionMethod:
+            type: string
+            description: >-
+              Acquisition technique label or controlled-vocabulary URI
+              (e.g. "TLS", "UAV-photogrammetry", "SLAM", "structured-light", "terrestrial-photogrammetry").
+          acquisitionDate:
+            type: string
+            format: date
+            description: Date (ISO 8601) on which the survey data was collected.
+          operator:
+            type: string
+            format: uri
+            description: URI of the person or organisation who carried out the survey.
+          equipment:
+            type: string
+            description: Make and model of the primary acquisition instrument.
+          crs:
+            type: string
+            format: uri
+            description: EPSG URI for the coordinate reference system of the output data (e.g. https://www.opengis.net/def/crs/EPSG/0/32632).
+          density:
+            type: string
+            description: Point density or ground sampling distance (e.g. "~3500 pts/m²", "3 cm/pixel GSD").
+          accuracy:
+            type: string
+            description: Stated absolute or relative accuracy of the dataset (e.g. "±3 mm").
+          processingHistory:
+            type: string
+            description: Software and processing steps applied before delivery (registration, noise filtering, etc.).
+      coverage:
+        type: object
+        description: >-
+          GeoJSON geometry delineating the spatial extent of the surveyed area (polygon or
+          bounding box in WGS 84 unless stated otherwise in acquisitionEvent.crs).
+        required:
+          - type
+          - coordinates
+        properties:
+          type:
+            type: string
+            enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection]
+          coordinates:
+            type: array
+      limitations:
+        type: string
+        description: Known limitations, coverage gaps or quality caveats of the dataset.
+      reviewStatus:
+        type: string
+        description: Workflow status of this record (e.g. draft, reviewed, approved).

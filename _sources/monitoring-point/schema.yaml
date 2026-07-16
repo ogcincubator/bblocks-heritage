@@ -1,0 +1,68 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Monitoring Point
+description: |
+  A physical sensor or monitoring device installed at a heritage resource. Profiles
+  ogc.sosa.properties.sensor and adds a CIDOC-CRM E22 Man-Made Object identity layer
+  (local inventory identifier, sensor category, heritage location link) and a mandatory
+  GeoJSON point for the sensor's physical position.
+x-jsonld-context: context.jsonld
+allOf:
+  - $ref: bblocks://ogc.sosa.properties.sensor
+  - type: object
+    properties:
+      type:
+        const: MonitoringPoint
+        description: >-
+          Fixed type token. Maps to crm:E22_Man-Made_Object in the JSON-LD context, enabling
+          SHACL shapes to target monitoring points by class.
+      identifier:
+        type: string
+        description: >-
+          Local inventory code for this sensor or hotspot within the pilot system
+          (crm:P1_is_identified_by). Distinct from the STA @iot.id.
+      sensorType:
+        type: string
+        format: uri
+        description: >-
+          Category of sensor or monitoring equipment as a Getty AAT URI (crm:P2_has_type).
+          Examples: temperature sensor, relative-humidity sensor, crack monitor.
+      locatedIn:
+        type: string
+        format: uri
+        description: >-
+          URI of the heritage resource (architectural-space, heritage-object, or place) where
+          this monitoring point is installed (crm:P53_has_former_or_current_location).
+      operationalStatus:
+        type: string
+        description: >-
+          Current operational state, e.g. "active", "decommissioned", "under maintenance"
+          (crm:P44_has_condition).
+      responsibleOrganisation:
+        type: string
+        description: >-
+          Name or URI of the body responsible for operating this monitoring point
+          (crm:P50_has_current_keeper).
+      position:
+        type: object
+        description: >-
+          GeoJSON Point giving the sensor's physical position. Use 3D coordinates
+          [longitude, latitude, elevation_m] where known.
+        properties:
+          type:
+            type: string
+            enum: [Point]
+          coordinates:
+            type: array
+            minItems: 2
+            maxItems: 3
+            items:
+              type: number
+        required:
+          - type
+          - coordinates
+    required:
+      - type
+      - identifier
+      - sensorType
+      - locatedIn
+      - position

@@ -1,0 +1,39 @@
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+
+# Both digital-surrogate and survey-dataset map their type const to crmdig:D1_Digital_Object,
+# so sh:targetClass would match both. We use sh:targetSubjectsOf prov:wasDerivedFrom instead —
+# the mandatory derivation link is exclusive to this block and unambiguously selects surrogates.
+<#DigitalSurrogateShape>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf prov:wasDerivedFrom ;
+    sh:property [
+        sh:path prov:wasDerivedFrom ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "wasDerivedFrom must be an IRI referencing the source-carrier URI." ;
+    ] ;
+    sh:property [
+        sh:path crmdig:L11i_was_output_of ;
+        sh:minCount 1 ;
+        sh:message "digitisationEvent (crmdig:L11i_was_output_of) is required." ;
+    ] ;
+    sh:property [
+        sh:path dct:format ;
+        sh:minCount 1 ;
+        sh:message "mediaType (dct:format) is required." ;
+    ] ;
+    sh:property [
+        sh:path dct:rights ;
+        sh:minCount 1 ;
+        sh:message "rights (dct:rights) is required." ;
+    ] ;
+    sh:property [
+        sh:path crm:P129_is_about ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "isAbout (crm:P129_is_about) is required — URI of the heritage object this surrogate documents." ;
+    ] .

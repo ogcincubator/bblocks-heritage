@@ -1,0 +1,26 @@
+{
+  "@context": {
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "parentBuilding": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "partOf": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "historicalNames": {
+      "@id": "crm:P1_is_identified_by",
+      "@type": "@json"
+    },
+    "floorLevel": "crm:P1_is_identified_by",
+    "bayCode": "crm:P1_is_identified_by",
+    "accessibilityStatus": "crm:P44_has_condition",
+    "ifcSpaceRef": "crm:P1_is_identified_by",
+    "footprint": {
+      "@id": "geojson:geometry",
+      "@type": "@json"
+    }
+  }
+}

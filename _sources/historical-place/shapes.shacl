@@ -1,0 +1,20 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+
+# Historical-place instances are JSON-FG Features; `type` is fixed to "Feature" after uplift,
+# so no crm:E53_Place class triple is produced. Target on crm:P4_has_time-span (datePeriod),
+# which historical-place records typically carry. The shape only checks IRI validity on
+# optional link properties — required-field validation is handled by JSON Schema.
+<#HistoricalPlaceShape>
+    a sh:NodeShape ;
+    sh:targetSubjectsOf crm:P4_has_time-span ;
+    sh:property [
+        sh:path crm:P70i_is_documented_in ;
+        sh:nodeKind sh:IRI ;
+        sh:message "historicalSource must be a URI (ogc.heritage.source-carrier or digital-surrogate reference)." ;
+    ] ;
+    sh:property [
+        sh:path crm:P89_falls_within ;
+        sh:nodeKind sh:IRI ;
+        sh:message "currentEquivalent (and inherited partOf) must be a URI referencing a space or place record." ;
+    ] .

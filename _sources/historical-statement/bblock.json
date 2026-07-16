@@ -1,0 +1,18 @@
+{
+  "name": "Historical Statement",
+  "abstract": "A piece of historical knowledge extracted from a document or legacy record — an attribution, identification, date assignment or annotation — modelled as a CIDOC-CRM E13 Attribute Assignment with an inner E33 Linguistic Object and a W3C Web Annotation evidence locator pointing to the source passage.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-16",
+  "sources": [
+    { "title": "CIDOC-CRM E13 Attribute Assignment", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E13" },
+    { "title": "CIDOC-CRM E33 Linguistic Object", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E33" },
+    { "title": "W3C Web Annotation Data Model", "link": "https://www.w3.org/TR/annotation-model/" },
+    { "title": "PROV-O: The PROV Ontology", "link": "https://www.w3.org/TR/prov-o/" },
+    { "title": "HERITALISE D8.2 CRRS-014 (Extracted Historical Statement)", "link": "https://heritalise-eccch.eu/" }
+  ],
+  "tags": ["heritage", "cidoc-crm", "historical-statement", "annotation", "web-annotation", "prov"],
+  "group": "Archival & Documentation"
+}

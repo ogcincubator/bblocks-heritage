@@ -1,0 +1,86 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Condition Assessment
+description: >-
+  A qualitative conservation inspection (CRMsci E14 Condition Assessment) recording the
+  condition state of a heritage object or place.
+x-jsonld-context: context.jsonld
+type: object
+properties:
+  id:
+    type: string
+    format: uri
+    description: Persistent URI identifying this condition assessment record.
+  type:
+    const: ConditionAssessment
+  affectedObject:
+    type: string
+    format: uri
+    description: URI of the heritage-object, architectural-space or place being assessed.
+  conditionState:
+    type: object
+    description: >-
+      The E3 Condition State found by this assessment: the type of condition, its severity
+      and a textual description of its spatial extent.
+    properties:
+      conditionType:
+        type: string
+        format: uri
+        description: Getty AAT URI for the type of condition (e.g. crack, moisture, corrosion).
+      severity:
+        type: string
+        enum: [minor, moderate, severe, critical]
+        description: Qualitative severity level.
+      extent:
+        type: string
+        description: Textual description of the area, length or volume affected.
+    required:
+      - conditionType
+      - severity
+  assessmentDate:
+    type: string
+    format: date
+    description: Date on which the assessment was carried out (ISO 8601).
+  assessor:
+    type: string
+    format: uri
+    description: URI of the agent (person or organisation) who carried out the assessment.
+  method:
+    type: string
+    description: >-
+      Label or URI of the inspection technique used (e.g. "visual inspection",
+      "thermographic survey", "photogrammetric analysis").
+  confidence:
+    type: string
+    enum: [low, medium, high]
+    description: Confidence level in the assessment result.
+  evidence:
+    type: array
+    description: URIs of digital representations or archival documents used as evidence.
+    items:
+      type: string
+      format: uri
+  recommendation:
+    type: string
+    description: Free-text conservation recommendation arising from this assessment.
+  reviewStatus:
+    type: string
+    description: Workflow status of this record (e.g. draft, reviewed, approved).
+  footprint:
+    type: object
+    description: >-
+      GeoJSON geometry localising the condition on the affected object or surface
+      (point, polyline or polygon patch).
+    properties:
+      type:
+        type: string
+        enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon]
+      coordinates:
+        type: array
+    required:
+      - type
+      - coordinates
+required:
+  - type
+  - affectedObject
+  - conditionState
+  - assessmentDate

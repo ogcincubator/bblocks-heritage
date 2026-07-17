@@ -1,6 +1,7 @@
 {
   "@context": {
     "SourceCarrier": "crm:E31_Document",
+    "id": "@id",
     "type": "@type",
     "carrierType": {
       "@id": "crm:P2_has_type",

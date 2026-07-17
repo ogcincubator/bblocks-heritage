@@ -1,6 +1,7 @@
 {
   "@context": {
     "HistoricalStatement": "crm:E13_Attribute_Assignment",
+    "id": "@id",
     "type": "@type",
     "statementType": "crm:P2_has_type",
     "statement": {

@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.monitoring-point - Monitoring Point
-Generated 2026-07-16T14:38:29.206380+00:00
+Generated 2026-07-17T10:15:38.131421+00:00
 === Files ===
 Using examples/venaria-humidity-sensor.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/monitoring-point/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/monitoring-point/shapes.shacl:
- - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: _:N2464071bf42746678714fb55c8629067
+ - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: <https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01>
 
 === End SHACL ===
 

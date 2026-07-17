@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.three-d-model - 3D Model",
   "bblockName": "3D Model",
   "bblockId": "ogc.heritage.three-d-model",
-  "generated": "2026-07-16T14:38:32.126184+00:00",
+  "generated": "2026-07-17T10:15:48.041840+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
                   "nodes": [
-                    "<https://example.org/heritalise/digital/great-gallery-painting-014-model-01>"
+                    "<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/great-gallery-painting-014-model-01>\n"
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01>\n"
             }
           ]
         }
@@ -154,12 +154,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
                   "nodes": [
-                    "<https://example.org/heritalise/digital/villa-portelli-balustrade-gltf>"
+                    "<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/villa-portelli-balustrade-gltf>\n"
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf>\n"
             }
           ]
         }

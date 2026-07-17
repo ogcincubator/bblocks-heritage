@@ -1,0 +1,16 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024> a crmdig:D9_Data_Object ;
+    dct:description "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud." ;
+    dct:format "model/obj" ;
+    dct:title "Triangulated Mesh — Galleria Grande Ceiling (derived from TLS 2024)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/building/galleria-grande> ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"mean deviation from source cloud ±1.8 mm\",\"operator\":\"https://orcid.org/0000-0000-0000-0001\",\"parameters\":\"Poisson reconstruction; octree depth 10; smoothing kernel radius 5 mm\",\"processingDate\":\"2024-04-03\",\"processingMethod\":\"mesh generation\",\"qaResult\":\"passed\",\"software\":\"Leica Cyclone 3DR\",\"softwareVersion\":\"2024.0.1\"}"^^rdf:JSON ;
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/gc-ceiling-mesh-2024.obj> ;
+    prov:wasDerivedFrom <https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> .
+

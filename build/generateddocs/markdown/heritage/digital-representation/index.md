@@ -36,12 +36,12 @@ A photograph of the Great Gallery ceiling painting, attributed to the photograph
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-photo-01",
+  "id": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01",
   "identifier": "RV-GG-014-PHOTO-01",
-  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "mediaType": "image/jpeg",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/giulia-bianchi"
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ],
   "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01"
 }
@@ -52,12 +52,12 @@ A photograph of the Great Gallery ceiling painting, attributed to the photograph
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
-  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-photo-01",
+  "id": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01",
   "identifier": "RV-GG-014-PHOTO-01",
-  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "mediaType": "image/jpeg",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/giulia-bianchi"
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ],
   "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01"
 }
@@ -69,11 +69,11 @@ A photograph of the Great Gallery ceiling painting, attributed to the photograph
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> dct:format "image/jpeg" ;
-    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> dct:format "image/jpeg" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     crm:P1_is_identified_by "RV-GG-014-PHOTO-01",
         "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01" ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .
 
 
 ```
@@ -84,8 +84,8 @@ Only `id` and `isAbout` are required — media type, attribution and persistent 
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/digital/fishing-creel-photo-01",
-  "isAbout": "https://example.org/heritalise/object/fishing-creel"
+  "id": "https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel"
 }
 
 ```
@@ -94,8 +94,8 @@ Only `id` and `isAbout` are required — media type, attribution and persistent 
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
-  "id": "https://example.org/heritalise/digital/fishing-creel-photo-01",
-  "isAbout": "https://example.org/heritalise/object/fishing-creel"
+  "id": "https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel"
 }
 ```
 
@@ -103,7 +103,7 @@ Only `id` and `isAbout` are required — media type, attribution and persistent 
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
-<https://example.org/heritalise/digital/fishing-creel-photo-01> crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> .
+<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .
 
 
 ```

@@ -1,6 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
-  "id": "https://example.org/heritalise/object/diana-fountain",
+  "id": "https://heritalise-eccch.eu/resource/object/diana-fountain",
   "type": "HeritageObject",
   "identifier": "RV-GARD-FNT-001",
   "title": "Fountain of Diana, central garden axis",
@@ -8,6 +8,6 @@
   "material": [
     "http://vocab.getty.edu/aat/300011443"
   ],
-  "currentLocation": "https://example.org/heritalise/site/reggia-di-venaria",
+  "currentLocation": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
 }

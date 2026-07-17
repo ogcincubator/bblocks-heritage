@@ -2,7 +2,7 @@
   "name": "Cultural Heritage Building Blocks",
   "abstract": "Reusable OGC Building Blocks for modelling cultural heritage data, covering heritage objects,\ndigital representations, provenance, sensor observations and dataset metadata.\n",
   "description": "This register defines reusable, machine-readable specification components for the cultural\nheritage domain, building on CIDOC-CRM, PROV-O, SOSA/SSN, EDM and DCAT. It originated from the\nstandards profiling work of the [HERITALISE](https://heritalise.eu) project (deliverables D8.1\nand D8.2), but is intended as a general-purpose register usable beyond that project.\n",
-  "modified": "2026-07-16T14:38:13.390880",
+  "modified": "2026-07-17T10:15:23.942800",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"782e6be7338edb48ec5ec9a0c1d7f8df22df5ca0",
@@ -140,68 +140,6 @@
       }
     },
     {
-      "itemIdentifier": "ogc.heritage.condition-assessment",
-      "name": "Condition Assessment",
-      "abstract": "A qualitative conservation inspection event (CRMsci E14 Condition Assessment) recording the condition state of a heritage object or place at a point in time, with assessor, method, severity and optional spatial localisation.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-07-16T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
-      "sources": [
-        {
-          "title": "CRMsci E14 Condition Assessment",
-          "link": "https://www.ics.forth.gr/isl/CRMsci/CRMsci_v2.0.pdf"
-        },
-        {
-          "title": "CIDOC-CRM E3 Condition State",
-          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E3"
-        },
-        {
-          "title": "HERITALISE D8.2 REQ-006",
-          "link": "https://heritalise-eccch.eu/"
-        }
-      ],
-      "tags": [
-        "heritage",
-        "cidoc-crm",
-        "crmsci",
-        "conservation",
-        "condition"
-      ],
-      "group": "Conservation",
-      "shaclShapes": {
-        "ogc.heritage.condition-assessment": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/shapes.shacl"
-        ]
-      },
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/condition-assessment/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/condition-assessment/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/condition-assessment/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.condition-assessment"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogc.heritage.historical-statement",
       "name": "Historical Statement",
       "abstract": "A piece of historical knowledge extracted from a document or legacy record \u2014 an attribution, identification, date assignment or annotation \u2014 modelled as a CIDOC-CRM E13 Attribute Assignment with an inner E33 Linguistic Object and a W3C Web Annotation evidence locator pointing to the source passage.",
@@ -209,7 +147,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CIDOC-CRM E13 Attribute Assignment",
@@ -280,7 +218,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "W3C/OGC SOSA ObservableProperty",
@@ -347,7 +285,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CIDOC-CRM E31 Document",
@@ -390,6 +328,7 @@
       "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/source-carrier/",
       "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/source-carrier/",
       "documentation": {
         "json-full": {
           "mediatype": "application/json",
@@ -406,132 +345,6 @@
       }
     },
     {
-      "itemIdentifier": "ogc.heritage.surface",
-      "name": "Surface",
-      "abstract": "A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), documenting material, application technique, historical phase and spatial footprint (CRRS-005).",
-      "status": "under-development",
-      "dateTimeAddition": "2026-07-16T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
-      "sources": [
-        {
-          "title": "CIDOC-CRM E25 Man-Made Feature",
-          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E25"
-        },
-        {
-          "title": "Getty Art & Architecture Thesaurus",
-          "link": "https://www.getty.edu/research/tools/vocabularies/aat/"
-        },
-        {
-          "title": "HERITALISE D8.2 CRRS-005",
-          "link": "https://heritalise-eccch.eu/"
-        }
-      ],
-      "tags": [
-        "heritage",
-        "cidoc-crm",
-        "surface",
-        "material",
-        "conservation"
-      ],
-      "group": "Conservation",
-      "shaclShapes": {
-        "ogc.heritage.surface": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/shapes.shacl"
-        ]
-      },
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/surface/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/surface/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/surface/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.surface"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.heritage.event",
-      "name": "Event",
-      "abstract": "An event in the history of a heritage object \u2014 production, restoration, modification, acquisition \u2014 modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-25T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "rdfType": [
-        "http://www.cidoc-crm.org/cidoc-crm/E5_Event"
-      ],
-      "sources": [
-        {
-          "title": "CIDOC-CRM",
-          "link": "https://www.cidoc-crm.org/"
-        },
-        {
-          "title": "PROV-O",
-          "link": "https://www.w3.org/TR/prov-o/"
-        }
-      ],
-      "tags": [
-        "cidoc-crm",
-        "heritage",
-        "event",
-        "prov"
-      ],
-      "group": "Core",
-      "isProfileOf": "bblocks://ogc.ogc-utils.prov-activity",
-      "shaclShapes": {
-        "ogc.heritage.event": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/event/shapes.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogc.ogc-utils.prov-activity"
-      ],
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
-      "dateOfLastChange": "2026-06-25",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/event/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/event/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/event/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.event"
-        }
-      }
-    },
-    {
       "itemIdentifier": "ogc.heritage.architectural-space",
       "name": "Architectural Space",
       "abstract": "An interior room, bay, hall, zone or level within a building, modelled as CIDOC-CRM E22 Man-Made Object. Profile of heritage-object adding containment hierarchy, historical name crosswalk, floor/bay identifiers and optional IFC space reference.",
@@ -539,7 +352,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CIDOC-CRM E22 Man-Made Object",
@@ -568,7 +381,8 @@
         ]
       },
       "dependsOn": [
-        "bblocks://ogc.heritage.heritage-object"
+        "bblocks://ogc.heritage.heritage-object",
+        "bblocks://ogc.ogc-utils.topology"
       ],
       "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
       "schema": {
@@ -604,7 +418,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CIDOC-CRM E22 Man-Made Object",
@@ -632,7 +446,8 @@
         ]
       },
       "dependsOn": [
-        "bblocks://ogc.heritage.heritage-object"
+        "bblocks://ogc.heritage.heritage-object",
+        "bblocks://ogc.ogc-utils.topology"
       ],
       "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld",
       "schema": {
@@ -661,6 +476,136 @@
       }
     },
     {
+      "itemIdentifier": "ogc.heritage.condition-assessment",
+      "name": "Condition Assessment",
+      "abstract": "A qualitative conservation inspection event (CRMsci E14 Condition Assessment) recording the condition state of a heritage object or place at a point in time, with assessor, method, severity and optional spatial localisation.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-07-16T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "dateOfLastChange": "2026-07-17",
+      "sources": [
+        {
+          "title": "CRMsci E14 Condition Assessment",
+          "link": "https://www.ics.forth.gr/isl/CRMsci/CRMsci_v2.0.pdf"
+        },
+        {
+          "title": "CIDOC-CRM E3 Condition State",
+          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E3"
+        },
+        {
+          "title": "HERITALISE D8.2 REQ-006",
+          "link": "https://heritalise-eccch.eu/"
+        }
+      ],
+      "tags": [
+        "heritage",
+        "cidoc-crm",
+        "crmsci",
+        "conservation",
+        "condition"
+      ],
+      "group": "Conservation",
+      "shaclShapes": {
+        "ogc.heritage.condition-assessment": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.topology"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/condition-assessment/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/condition-assessment/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/condition-assessment/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.condition-assessment"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.heritage.surface",
+      "name": "Surface",
+      "abstract": "A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), documenting material, application technique, historical phase and spatial footprint (CRRS-005).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-07-16T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "dateOfLastChange": "2026-07-17",
+      "sources": [
+        {
+          "title": "CIDOC-CRM E25 Man-Made Feature",
+          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E25"
+        },
+        {
+          "title": "Getty Art & Architecture Thesaurus",
+          "link": "https://www.getty.edu/research/tools/vocabularies/aat/"
+        },
+        {
+          "title": "HERITALISE D8.2 CRRS-005",
+          "link": "https://heritalise-eccch.eu/"
+        }
+      ],
+      "tags": [
+        "heritage",
+        "cidoc-crm",
+        "surface",
+        "material",
+        "conservation"
+      ],
+      "group": "Conservation",
+      "shaclShapes": {
+        "ogc.heritage.surface": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.topology"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/surface/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/surface/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/surface/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/surface/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.surface"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.heritage.monitoring-point",
       "name": "Monitoring Point",
       "abstract": "A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.",
@@ -668,7 +613,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "W3C/OGC SOSA Sensor",
@@ -724,134 +669,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.monitoring-point"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.heritage.digital-representation",
-      "name": "Digital Representation",
-      "abstract": "A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-25T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "rdfType": [
-        "http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object"
-      ],
-      "sources": [
-        {
-          "title": "CIDOC-CRM",
-          "link": "https://www.cidoc-crm.org/"
-        },
-        {
-          "title": "PROV-O",
-          "link": "https://www.w3.org/TR/prov-o/"
-        }
-      ],
-      "tags": [
-        "cidoc-crm",
-        "heritage",
-        "digital-representation",
-        "prov"
-      ],
-      "group": "Core",
-      "isProfileOf": "bblocks://ogc.ogc-utils.prov-entity",
-      "shaclShapes": {
-        "ogc.heritage.digital-representation": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogc.ogc-utils.prov-entity"
-      ],
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
-      "dateOfLastChange": "2026-06-25",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/digital-representation/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/digital-representation/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/digital-representation/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.digital-representation"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.heritage.actor",
-      "name": "Actor",
-      "abstract": "A person or organization associated with cultural heritage objects, events or activities \u2014 creators, custodians, restorers \u2014 modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-25T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "rdfType": [
-        "http://www.cidoc-crm.org/cidoc-crm/E39_Actor"
-      ],
-      "sources": [
-        {
-          "title": "CIDOC-CRM",
-          "link": "https://www.cidoc-crm.org/"
-        },
-        {
-          "title": "PROV-O",
-          "link": "https://www.w3.org/TR/prov-o/"
-        }
-      ],
-      "tags": [
-        "cidoc-crm",
-        "heritage",
-        "actor",
-        "prov"
-      ],
-      "group": "Core",
-      "isProfileOf": "bblocks://ogc.ogc-utils.prov-agent",
-      "shaclShapes": {
-        "ogc.heritage.actor": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogc.ogc-utils.prov-agent"
-      ],
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
-      "dateOfLastChange": "2026-06-25",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/actor/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/actor/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/actor/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.actor"
         }
       }
     },
@@ -995,6 +812,405 @@
       }
     },
     {
+      "itemIdentifier": "ogc.heritage.event",
+      "name": "Event",
+      "abstract": "An event in the history of a heritage object \u2014 production, restoration, modification, acquisition \u2014 modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-25T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "rdfType": [
+        "http://www.cidoc-crm.org/cidoc-crm/E5_Event"
+      ],
+      "sources": [
+        {
+          "title": "CIDOC-CRM",
+          "link": "https://www.cidoc-crm.org/"
+        },
+        {
+          "title": "PROV-O",
+          "link": "https://www.w3.org/TR/prov-o/"
+        }
+      ],
+      "tags": [
+        "cidoc-crm",
+        "heritage",
+        "event",
+        "prov"
+      ],
+      "group": "Core",
+      "isProfileOf": "bblocks://ogc.ogc-utils.prov-activity",
+      "shaclShapes": {
+        "ogc.heritage.event": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/event/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov-activity"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+      "dateOfLastChange": "2026-06-25",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/event/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/event/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/event/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.event"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.heritage.digital-representation",
+      "name": "Digital Representation",
+      "abstract": "A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-25T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "rdfType": [
+        "http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object"
+      ],
+      "sources": [
+        {
+          "title": "CIDOC-CRM",
+          "link": "https://www.cidoc-crm.org/"
+        },
+        {
+          "title": "PROV-O",
+          "link": "https://www.w3.org/TR/prov-o/"
+        }
+      ],
+      "tags": [
+        "cidoc-crm",
+        "heritage",
+        "digital-representation",
+        "prov"
+      ],
+      "group": "Core",
+      "isProfileOf": "bblocks://ogc.ogc-utils.prov-entity",
+      "shaclShapes": {
+        "ogc.heritage.digital-representation": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov-entity"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
+      "dateOfLastChange": "2026-06-25",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/digital-representation/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/digital-representation/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/digital-representation/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.digital-representation"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.heritage.heritage-site",
+      "name": "Heritage Site",
+      "abstract": "A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-07-16T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "dateOfLastChange": "2026-07-17",
+      "sources": [
+        {
+          "title": "CIDOC-CRM E27 Site",
+          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E27"
+        },
+        {
+          "title": "HERITALISE D8.2 REQ-001",
+          "link": "https://heritalise-eccch.eu/"
+        }
+      ],
+      "tags": [
+        "heritage",
+        "cidoc-crm",
+        "place",
+        "site"
+      ],
+      "group": "Place profiles",
+      "isProfileOf": "bblocks://ogc.heritage.place",
+      "shaclShapes": {
+        "ogc.heritage.heritage-site": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/shapes.shacl"
+        ],
+        "ogc.heritage.place": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
+        ],
+        "ogc.geo.features.feature": [
+          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.heritage.place"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/heritage-site/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/heritage-site/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/heritage-site/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.heritage-site"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.heritage.historical-place",
+      "name": "Historical Place",
+      "abstract": "A named historical spatial feature \u2014 room, area, route or landscape designation \u2014 that has since been renamed, restructured or disappeared, mapped to its current spatial equivalent with a confidence rating (CIDOC-CRM E53 Place + P89, CRRS-015).",
+      "status": "under-development",
+      "dateTimeAddition": "2026-07-16T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "dateOfLastChange": "2026-07-17",
+      "sources": [
+        {
+          "title": "CIDOC-CRM E53 Place",
+          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E53"
+        },
+        {
+          "title": "CIDOC-CRM P89 falls within",
+          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#P89"
+        },
+        {
+          "title": "HERITALISE D8.2 CRRS-015",
+          "link": "https://heritalise-eccch.eu/"
+        }
+      ],
+      "tags": [
+        "heritage",
+        "cidoc-crm",
+        "place",
+        "historical",
+        "spatial"
+      ],
+      "group": "Place profiles",
+      "isProfileOf": "bblocks://ogc.heritage.place",
+      "shaclShapes": {
+        "ogc.heritage.historical-place": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/shapes.shacl"
+        ],
+        "ogc.heritage.place": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
+        ],
+        "ogc.geo.features.feature": [
+          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.heritage.place"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/historical-place/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/historical-place/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/historical-place/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.historical-place"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.heritage.route",
+      "name": "Route",
+      "abstract": "A road, visitor path, internal track or circulation route within or between heritage zones, typed as CIDOC-CRM E26 Physical Feature. Profiles 'place', inheriting JSON-FG geometry and core CRM place attributes, and adding route type, surface, width, accessibility and permitted-use fields.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-07-16T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "dateOfLastChange": "2026-07-17",
+      "sources": [
+        {
+          "title": "CIDOC-CRM E26 Physical Feature",
+          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E26"
+        },
+        {
+          "title": "HERITALISE D8.2 CRRS-017",
+          "link": "https://heritalise-eccch.eu/"
+        }
+      ],
+      "tags": [
+        "heritage",
+        "cidoc-crm",
+        "place",
+        "route",
+        "infrastructure"
+      ],
+      "group": "Place profiles",
+      "isProfileOf": "bblocks://ogc.heritage.place",
+      "shaclShapes": {
+        "ogc.heritage.route": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/route/shapes.shacl"
+        ],
+        "ogc.heritage.place": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
+        ],
+        "ogc.geo.features.feature": [
+          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.heritage.place"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/route/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/route/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/route/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.route"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.heritage.actor",
+      "name": "Actor",
+      "abstract": "A person or organization associated with cultural heritage objects, events or activities \u2014 creators, custodians, restorers \u2014 modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-25T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "rdfType": [
+        "http://www.cidoc-crm.org/cidoc-crm/E39_Actor"
+      ],
+      "sources": [
+        {
+          "title": "CIDOC-CRM",
+          "link": "https://www.cidoc-crm.org/"
+        },
+        {
+          "title": "PROV-O",
+          "link": "https://www.w3.org/TR/prov-o/"
+        }
+      ],
+      "tags": [
+        "cidoc-crm",
+        "heritage",
+        "actor",
+        "prov"
+      ],
+      "group": "Core",
+      "isProfileOf": "bblocks://ogc.ogc-utils.prov-agent",
+      "shaclShapes": {
+        "ogc.heritage.actor": [
+          "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov-agent"
+      ],
+      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+      "dateOfLastChange": "2026-06-25",
+      "schema": {
+        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json"
+      },
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/actor/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/actor/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/actor/index.md"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.actor"
+        }
+      }
+    },
+    {
       "itemIdentifier": "ogc.heritage.archival-document",
       "name": "Archival Document",
       "abstract": "A digital-representation profile constrained to archival document formats (PDF/A, LIDO/XML), with a mandatory persistent identifier for long-term archival reference.",
@@ -1062,7 +1278,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CRMdig D9 Data Object / D10 Software Execution",
@@ -1112,6 +1328,7 @@
       "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/derived-survey-product/",
       "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/derived-survey-product/",
       "documentation": {
         "json-full": {
           "mediatype": "application/json",
@@ -1135,7 +1352,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CRMdig D1 Digital Object / D7 Digital Machine Event",
@@ -1275,7 +1492,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CIDOC-CRM E73 Information Object",
@@ -1353,7 +1570,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
+      "dateOfLastChange": "2026-07-17",
       "sources": [
         {
           "title": "CRMdig D1 Digital Object / D7 Digital Machine Event",
@@ -1391,7 +1608,8 @@
         ]
       },
       "dependsOn": [
-        "bblocks://ogc.heritage.digital-representation"
+        "bblocks://ogc.heritage.digital-representation",
+        "bblocks://ogc.ogc-utils.topology"
       ],
       "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/context.jsonld",
       "schema": {
@@ -1403,6 +1621,7 @@
       "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/resolvedProperties.json",
       "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/survey-dataset/",
       "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/survey-dataset/",
       "documentation": {
         "json-full": {
           "mediatype": "application/json",
@@ -1475,213 +1694,6 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.three-d-model"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.heritage.heritage-site",
-      "name": "Heritage Site",
-      "abstract": "A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-07-16T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
-      "sources": [
-        {
-          "title": "CIDOC-CRM E27 Site",
-          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E27"
-        },
-        {
-          "title": "HERITALISE D8.2 REQ-001",
-          "link": "https://heritalise-eccch.eu/"
-        }
-      ],
-      "tags": [
-        "heritage",
-        "cidoc-crm",
-        "place",
-        "site"
-      ],
-      "group": "Place profiles",
-      "isProfileOf": "bblocks://ogc.heritage.place",
-      "shaclShapes": {
-        "ogc.heritage.heritage-site": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/shapes.shacl"
-        ],
-        "ogc.heritage.place": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
-        ],
-        "ogc.geo.features.feature": [
-          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogc.heritage.place"
-      ],
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/heritage-site/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/heritage-site/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/heritage-site/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.heritage-site"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.heritage.historical-place",
-      "name": "Historical Place",
-      "abstract": "A named historical spatial feature \u2014 room, area, route or landscape designation \u2014 that has since been renamed, restructured or disappeared, mapped to its current spatial equivalent with a confidence rating (CIDOC-CRM E53 Place + P89, CRRS-015).",
-      "status": "under-development",
-      "dateTimeAddition": "2026-07-16T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
-      "sources": [
-        {
-          "title": "CIDOC-CRM E53 Place",
-          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E53"
-        },
-        {
-          "title": "CIDOC-CRM P89 falls within",
-          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#P89"
-        },
-        {
-          "title": "HERITALISE D8.2 CRRS-015",
-          "link": "https://heritalise-eccch.eu/"
-        }
-      ],
-      "tags": [
-        "heritage",
-        "cidoc-crm",
-        "place",
-        "historical",
-        "spatial"
-      ],
-      "group": "Place profiles",
-      "isProfileOf": "bblocks://ogc.heritage.place",
-      "shaclShapes": {
-        "ogc.heritage.historical-place": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/shapes.shacl"
-        ],
-        "ogc.heritage.place": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
-        ],
-        "ogc.geo.features.feature": [
-          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogc.heritage.place"
-      ],
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/historical-place/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/historical-place/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/historical-place/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.historical-place"
-        }
-      }
-    },
-    {
-      "itemIdentifier": "ogc.heritage.route",
-      "name": "Route",
-      "abstract": "A road, visitor path, internal track or circulation route within or between heritage zones, typed as CIDOC-CRM E26 Physical Feature. Profiles 'place', inheriting JSON-FG geometry and core CRM place attributes, and adding route type, surface, width, accessibility and permitted-use fields.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-07-16T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "dateOfLastChange": "2026-07-16",
-      "sources": [
-        {
-          "title": "CIDOC-CRM E26 Physical Feature",
-          "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E26"
-        },
-        {
-          "title": "HERITALISE D8.2 CRRS-017",
-          "link": "https://heritalise-eccch.eu/"
-        }
-      ],
-      "tags": [
-        "heritage",
-        "cidoc-crm",
-        "place",
-        "route",
-        "infrastructure"
-      ],
-      "group": "Place profiles",
-      "isProfileOf": "bblocks://ogc.heritage.place",
-      "shaclShapes": {
-        "ogc.heritage.route": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/route/shapes.shacl"
-        ],
-        "ogc.heritage.place": [
-          "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"
-        ],
-        "ogc.geo.features.feature": [
-          "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-        ]
-      },
-      "dependsOn": [
-        "bblocks://ogc.heritage.place"
-      ],
-      "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld",
-      "schema": {
-        "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/schema.yaml",
-        "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/schema.json"
-      },
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/route/",
-      "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/route/index.json"
-        },
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/route/index.md"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.route"
         }
       }
     }

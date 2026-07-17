@@ -3,12 +3,12 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/route/venaria-main-path> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/route/venaria-main-path> a geojson:Feature ;
     crm:P1_is_identified_by "RV-ROUTE-001" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300178825> ;
     crm:P44_has_condition "partially accessible" ;
     crm:P87_is_identified_by "Viale centrale dei Giardini" ;
-    crm:P89_falls_within <https://example.org/heritalise/site/reggia-di-venaria> ;
+    crm:P89_falls_within <https://heritalise-eccch.eu/resource/site/reggia-di-venaria> ;
     geojson:geometry [ a geojson:LineString ;
             geojson:coordinates ( ( 7.619e+00 4.5132e+01 ) ( 7.623e+00 4.5135e+01 ) ( 7.628e+00 4.5137e+01 ) ( 7.633e+00 4.5138e+01 ) ) ] .
 

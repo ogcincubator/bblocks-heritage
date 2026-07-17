@@ -70,6 +70,7 @@ properties:
     x-jsonld-id: http://www.europeana.eu/schemas/edm/rights
     x-jsonld-type: '@id'
 required:
+- id
 - aggregatedCHO
 x-jsonld-extra-terms:
   Aggregation: http://www.openarchives.org/ore/terms/Aggregation

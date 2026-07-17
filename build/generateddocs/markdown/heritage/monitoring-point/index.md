@@ -57,12 +57,13 @@ A capacitive RH sensor mounted in bay 7 of the Galleria Grande, linked to the ar
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01",
   "type": "MonitoringPoint",
   "name": "Galleria Grande Bay 7 — Relative Humidity Sensor RH01",
   "description": "Capacitive relative humidity sensor mounted at 2.5 m height on the north wall of bay 7, Galleria Grande. Primary MHS hotspot for microclimate monitoring in the painted vault zone.",
   "identifier": "RV-MP-GG-B07-RH01",
   "sensorType": "http://vocab.getty.edu/aat/300379649",
-  "locatedIn": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "locatedIn": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "operationalStatus": "active",
   "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
   "position": {
@@ -77,12 +78,13 @@ A capacitive RH sensor mounted in bay 7 of the Galleria Grande, linked to the ar
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01",
   "type": "MonitoringPoint",
   "name": "Galleria Grande Bay 7 \u2014 Relative Humidity Sensor RH01",
   "description": "Capacitive relative humidity sensor mounted at 2.5 m height on the north wall of bay 7, Galleria Grande. Primary MHS hotspot for microclimate monitoring in the painted vault zone.",
   "identifier": "RV-MP-GG-B07-RH01",
   "sensorType": "http://vocab.getty.edu/aat/300379649",
-  "locatedIn": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "locatedIn": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "operationalStatus": "active",
   "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
   "position": {
@@ -102,12 +104,12 @@ A capacitive RH sensor mounted in bay 7 of the Galleria Grande, linked to the ar
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-[] a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01> a crm:E22_Man-Made_Object ;
     crm:P1_is_identified_by "RV-MP-GG-B07-RH01" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300379649> ;
     crm:P44_has_condition "active" ;
     crm:P50_has_current_keeper "Consorzio delle Residenze Reali Sabaude" ;
-    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/galleria-grande-bay-7> ;
+    crm:P53_has_former_or_current_location <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
     geojson:geometry "{\"coordinates\":[7.6273,45.1344,2.5],\"type\":\"Point\"}"^^rdf:JSON .
 
 
@@ -119,12 +121,13 @@ A resistance temperature detector in the Grand Salon of Villa Portelli, linked t
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01",
   "type": "MonitoringPoint",
   "name": "Villa Portelli Grand Salon — Temperature Sensor T01",
   "description": "Resistance temperature detector installed near the main entrance of the Grand Salon to monitor visitor-induced thermal loads.",
   "identifier": "MT-MP-VP-SALON-T01",
   "sensorType": "http://vocab.getty.edu/aat/300379652",
-  "locatedIn": "https://example.org/heritalise/space/villa-portelli-salon",
+  "locatedIn": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "operationalStatus": "active",
   "responsibleOrganisation": "Heritage Malta",
   "position": {
@@ -139,12 +142,13 @@ A resistance temperature detector in the Grand Salon of Villa Portelli, linked t
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01",
   "type": "MonitoringPoint",
   "name": "Villa Portelli Grand Salon \u2014 Temperature Sensor T01",
   "description": "Resistance temperature detector installed near the main entrance of the Grand Salon to monitor visitor-induced thermal loads.",
   "identifier": "MT-MP-VP-SALON-T01",
   "sensorType": "http://vocab.getty.edu/aat/300379652",
-  "locatedIn": "https://example.org/heritalise/space/villa-portelli-salon",
+  "locatedIn": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "operationalStatus": "active",
   "responsibleOrganisation": "Heritage Malta",
   "position": {
@@ -164,12 +168,12 @@ A resistance temperature detector in the Grand Salon of Villa Portelli, linked t
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-[] a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01> a crm:E22_Man-Made_Object ;
     crm:P1_is_identified_by "MT-MP-VP-SALON-T01" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300379652> ;
     crm:P44_has_condition "active" ;
     crm:P50_has_current_keeper "Heritage Malta" ;
-    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/villa-portelli-salon> ;
+    crm:P53_has_former_or_current_location <https://heritalise-eccch.eu/resource/space/villa-portelli-salon> ;
     geojson:geometry "{\"coordinates\":[14.5134,35.8964,1.8],\"type\":\"Point\"}"^^rdf:JSON .
 
 
@@ -251,6 +255,7 @@ allOf:
       x-jsonld-id: https://purl.org/geojson/vocab#geometry
       x-jsonld-type: '@json'
   required:
+  - id
   - type
   - identifier
   - sensorType

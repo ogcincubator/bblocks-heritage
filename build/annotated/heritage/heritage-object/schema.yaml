@@ -59,6 +59,7 @@ properties:
     x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
     x-jsonld-type: '@id'
 required:
+- id
 - identifier
 - title
 x-jsonld-extra-terms:

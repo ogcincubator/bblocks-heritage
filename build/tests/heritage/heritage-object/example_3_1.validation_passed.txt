@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.heritage-object - Heritage Object
-Generated 2026-07-16T14:38:28.635413+00:00
+Generated 2026-07-17T10:15:36.996123+00:00
 === Files ===
 Using examples/wall-component.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/heritage-object/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/heritage-object/shapes.shacl:
- - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/object/north-vault-bay-3>
+ - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/north-vault-bay-3>
 
 === End SHACL ===
 

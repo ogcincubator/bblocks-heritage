@@ -11,8 +11,24 @@
       "required": [
         "type",
         "title",
-        "acquisitionEvent",
-        "coverage"
+        "acquisitionEvent"
+      ],
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Survey dataset with its own embedded coverage geometry.",
+          "required": [
+            "coverage"
+          ],
+          "not": {
+            "required": [
+              "references"
+            ]
+          }
+        },
+        {
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.json"
+        }
       ],
       "properties": {
         "type": {

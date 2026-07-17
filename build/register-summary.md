@@ -24,12 +24,6 @@ An EDM/ORE aggregation wrapping a heritage object together with its digital repr
 
 A physical cultural heritage item — an artwork, building element, garden feature or museum object — modelled as a CIDOC-CRM E22 Man-Made Object.
 
-### `ogc.heritage.condition-assessment` — Condition Assessment
-
-**Type:** schema
-
-A qualitative conservation inspection event (CRMsci E14 Condition Assessment) recording the condition state of a heritage object or place at a point in time, with assessor, method, severity and optional spatial localisation.
-
 ### `ogc.heritage.historical-statement` — Historical Statement
 
 **Type:** schema
@@ -48,18 +42,6 @@ A conservation threshold rule bounding an environmental parameter at a heritage 
 
 A physical original document, photograph, drawing, negative or bound volume that carries heritage information, modelled as CIDOC-CRM E31 Document. Records the physical carrier from which digital surrogates are derived, with repository, archival code, and rights metadata.
 
-### `ogc.heritage.surface` — Surface
-
-**Type:** schema
-
-A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), documenting material, application technique, historical phase and spatial footprint (CRRS-005).
-
-### `ogc.heritage.event` — Event
-
-**Type:** schema
-
-An event in the history of a heritage object — production, restoration, modification, acquisition — modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.
-
 ### `ogc.heritage.architectural-space` — Architectural Space
 
 **Type:** schema
@@ -72,23 +54,23 @@ An interior room, bay, hall, zone or level within a building, modelled as CIDOC-
 
 A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.
 
+### `ogc.heritage.condition-assessment` — Condition Assessment
+
+**Type:** schema
+
+A qualitative conservation inspection event (CRMsci E14 Condition Assessment) recording the condition state of a heritage object or place at a point in time, with assessor, method, severity and optional spatial localisation.
+
+### `ogc.heritage.surface` — Surface
+
+**Type:** schema
+
+A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), documenting material, application technique, historical phase and spatial footprint (CRRS-005).
+
 ### `ogc.heritage.monitoring-point` — Monitoring Point
 
 **Type:** schema
 
 A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.
-
-### `ogc.heritage.digital-representation` — Digital Representation
-
-**Type:** schema
-
-A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity.
-
-### `ogc.heritage.actor` — Actor
-
-**Type:** schema
-
-A person or organization associated with cultural heritage objects, events or activities — creators, custodians, restorers — modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.
 
 ### `ogc.heritage.observation` — Observation
 
@@ -101,6 +83,42 @@ A scientific observation or measurement of a heritage object or place — enviro
 **Type:** schema
 
 A spatial location relevant to cultural heritage — a site, building, room or landscape feature — modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature.
+
+### `ogc.heritage.event` — Event
+
+**Type:** schema
+
+An event in the history of a heritage object — production, restoration, modification, acquisition — modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.
+
+### `ogc.heritage.digital-representation` — Digital Representation
+
+**Type:** schema
+
+A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity.
+
+### `ogc.heritage.heritage-site` — Heritage Site
+
+**Type:** schema
+
+A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields.
+
+### `ogc.heritage.historical-place` — Historical Place
+
+**Type:** schema
+
+A named historical spatial feature — room, area, route or landscape designation — that has since been renamed, restructured or disappeared, mapped to its current spatial equivalent with a confidence rating (CIDOC-CRM E53 Place + P89, CRRS-015).
+
+### `ogc.heritage.route` — Route
+
+**Type:** schema
+
+A road, visitor path, internal track or circulation route within or between heritage zones, typed as CIDOC-CRM E26 Physical Feature. Profiles 'place', inheriting JSON-FG geometry and core CRM place attributes, and adding route type, surface, width, accessibility and permitted-use fields.
+
+### `ogc.heritage.actor` — Actor
+
+**Type:** schema
+
+A person or organization associated with cultural heritage objects, events or activities — creators, custodians, restorers — modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.
 
 ### `ogc.heritage.archival-document` — Archival Document
 
@@ -143,22 +161,4 @@ A geometric survey dataset (point cloud, photogrammetric model or similar) acqui
 **Type:** schema
 
 A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects.
-
-### `ogc.heritage.heritage-site` — Heritage Site
-
-**Type:** schema
-
-A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields.
-
-### `ogc.heritage.historical-place` — Historical Place
-
-**Type:** schema
-
-A named historical spatial feature — room, area, route or landscape designation — that has since been renamed, restructured or disappeared, mapped to its current spatial equivalent with a confidence rating (CIDOC-CRM E53 Place + P89, CRRS-015).
-
-### `ogc.heritage.route` — Route
-
-**Type:** schema
-
-A road, visitor path, internal track or circulation route within or between heritage zones, typed as CIDOC-CRM E26 Physical Feature. Profiles 'place', inheriting JSON-FG geometry and core CRM place attributes, and adding route type, surface, width, accessibility and permitted-use fields.
 

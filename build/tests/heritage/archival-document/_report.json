@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.archival-document - Archival Document",
   "bblockName": "Archival Document",
   "bblockId": "ogc.heritage.archival-document",
-  "generated": "2026-07-16T14:38:31.617339+00:00",
+  "generated": "2026-07-17T10:15:46.684911+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
                   "nodes": [
-                    "<https://example.org/heritalise/digital/fishing-creel-lido-record>"
+                    "<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/fishing-creel-lido-record>\n"
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record>\n"
             }
           ]
         }
@@ -154,12 +154,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
                   "nodes": [
-                    "<https://example.org/heritalise/digital/villa-portelli-ground-floor-plan>"
+                    "<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/villa-portelli-ground-floor-plan>\n"
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan>\n"
             }
           ]
         }

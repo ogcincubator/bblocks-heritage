@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.actor - Actor",
   "bblockName": "Actor",
   "bblockId": "ogc.heritage.actor",
-  "generated": "2026-07-16T14:38:29.552582+00:00",
+  "generated": "2026-07-17T10:15:46.401762+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>": {
                   "nodes": [
-                    "_:N27ba3b02bd9243c3b08e1b352d35abbb"
+                    "<https://heritalise-eccch.eu/resource/actor/giulia-bianchi>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/actor/shapes.shacl:\n - Shape <file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>: _:N27ba3b02bd9243c3b08e1b352d35abbb\n"
+              "message": "Focus nodes for _sources/actor/shapes.shacl:\n - Shape <file:///github/workspace/_sources/actor/shapes.shacl#ActorSameAsIsIRI>: <https://heritalise-eccch.eu/resource/actor/giulia-bianchi>\n"
             }
           ]
         }

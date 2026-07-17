@@ -71,6 +71,7 @@ allOf:
       x-jsonld-id: https://purl.org/geojson/vocab#geometry
       x-jsonld-type: '@json'
   required:
+  - id
   - type
   - identifier
   - sensorType

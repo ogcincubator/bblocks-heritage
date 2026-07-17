@@ -1,5 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45",
   "type": "HeritageObject",
   "identifier": "WHM-1923.45",
   "title": "Fishing creel"

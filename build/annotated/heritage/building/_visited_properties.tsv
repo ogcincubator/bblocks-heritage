@@ -8,6 +8,8 @@ path	@id	schema
 /material	http://www.cidoc-crm.org/cidoc-crm/P45_consists_of	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 /currentLocation	http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 /persistentIdentifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/_oneOf/1/type	@type	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
+/_oneOf/1/references	https://purl.org/geojson/vocab#relatedFeatures	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
 /parentSite	http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of	/github/workspace/build/annotated/heritage/building/schema.yaml
 /constructionPeriod	http://purl.org/dc/terms/created	/github/workspace/build/annotated/heritage/building/schema.yaml
 /currentStatus	http://www.cidoc-crm.org/cidoc-crm/P44_has_condition	/github/workspace/build/annotated/heritage/building/schema.yaml

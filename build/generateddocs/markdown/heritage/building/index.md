@@ -54,13 +54,13 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/building/galleria-grande",
+  "id": "https://heritalise-eccch.eu/resource/building/galleria-grande",
   "type": "HeritageObject",
   "identifier": "RV-BLD-GG",
   "title": "Galleria Grande, Reggia di Venaria Reale",
   "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
   "objectType": "http://vocab.getty.edu/aat/300007733",
-  "parentSite": "https://example.org/heritalise/site/reggia-di-venaria",
+  "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "constructionPeriod": "1699/1733",
   "currentStatus": "in use",
   "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
@@ -84,13 +84,13 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld",
-  "id": "https://example.org/heritalise/building/galleria-grande",
+  "id": "https://heritalise-eccch.eu/resource/building/galleria-grande",
   "type": "HeritageObject",
   "identifier": "RV-BLD-GG",
   "title": "Galleria Grande, Reggia di Venaria Reale",
   "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
   "objectType": "http://vocab.getty.edu/aat/300007733",
-  "parentSite": "https://example.org/heritalise/site/reggia-di-venaria",
+  "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "constructionPeriod": "1699/1733",
   "currentStatus": "in use",
   "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
@@ -131,14 +131,14 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://example.org/heritalise/building/galleria-grande> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/building/galleria-grande> a crm:E22_Man-Made_Object ;
     dct:created "1699/1733" ;
     crm:P102_has_title "Galleria Grande, Reggia di Venaria Reale" ;
     crm:P1_is_identified_by "RV-BLD-GG" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300007733> ;
     crm:P3_has_note "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara." ;
     crm:P44_has_condition "in use" ;
-    crm:P46i_forms_part_of <https://example.org/heritalise/site/reggia-di-venaria> ;
+    crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/site/reggia-di-venaria> ;
     crm:P50_has_current_keeper "Consorzio delle Residenze Reali Sabaude" ;
     geojson:geometry "{\"coordinates\":[[[7.627,45.134],[7.63,45.134],[7.63,45.136],[7.627,45.136],[7.627,45.134]]],\"type\":\"Polygon\"}"^^rdf:JSON .
 
@@ -151,13 +151,13 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/building/villa-portelli-main",
+  "id": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
   "type": "HeritageObject",
   "identifier": "MT-BLD-VP-01",
   "title": "Villa Portelli — Main Villa Building",
   "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
   "objectType": "http://vocab.getty.edu/aat/300005433",
-  "parentSite": "https://example.org/heritalise/site/villa-portelli-garden",
+  "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
   "constructionPeriod": "18th century",
   "currentStatus": "under restoration",
   "responsibleOrganisation": "Heritage Malta",
@@ -182,13 +182,13 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld",
-  "id": "https://example.org/heritalise/building/villa-portelli-main",
+  "id": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
   "type": "HeritageObject",
   "identifier": "MT-BLD-VP-01",
   "title": "Villa Portelli \u2014 Main Villa Building",
   "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
   "objectType": "http://vocab.getty.edu/aat/300005433",
-  "parentSite": "https://example.org/heritalise/site/villa-portelli-garden",
+  "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
   "constructionPeriod": "18th century",
   "currentStatus": "under restoration",
   "responsibleOrganisation": "Heritage Malta",
@@ -230,7 +230,7 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://example.org/heritalise/building/villa-portelli-main> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/building/villa-portelli-main> a crm:E22_Man-Made_Object ;
     dct:created "18th century" ;
     crm:P102_has_title "Villa Portelli — Main Villa Building" ;
     crm:P1_is_identified_by "2WrR4Z9bT8RvKsJMlNpQxA",
@@ -238,7 +238,7 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
     crm:P2_has_type <http://vocab.getty.edu/aat/300005433> ;
     crm:P3_has_note "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta." ;
     crm:P44_has_condition "under restoration" ;
-    crm:P46i_forms_part_of <https://example.org/heritalise/site/villa-portelli-garden> ;
+    crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/site/villa-portelli-garden> ;
     crm:P50_has_current_keeper "Heritage Malta" ;
     geojson:geometry "{\"coordinates\":[[[14.513,35.896],[14.515,35.896],[14.515,35.897],[14.513,35.897],[14.513,35.896]]],\"type\":\"Polygon\"}"^^rdf:JSON .
 
@@ -270,6 +270,13 @@ description: 'A principal building or architectural unit (palace wing, chapel, o
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 - type: object
+  oneOf:
+  - type: object
+    description: Building with its own embedded footprint geometry (or none at all).
+    not:
+      required:
+      - references
+  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
     parentSite:
       type: string
@@ -365,6 +372,12 @@ Links to the schema:
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
     },
+    "LineString": "geojson:LineString",
+    "references": {
+      "@id": "geojson:relatedFeatures",
+      "@type": "@id",
+      "@container": "@list"
+    },
     "parentSite": {
       "@id": "crm:P46i_forms_part_of",
       "@type": "@id"
@@ -381,6 +394,7 @@ Links to the schema:
     "prov": "http://www.w3.org/ns/prov#",
     "dct": "http://purl.org/dc/terms/",
     "geojson": "https://purl.org/geojson/vocab#",
+    "csdm": "https://linked.data.gov.au/def/csdm/",
     "@version": 1.1
   }
 }

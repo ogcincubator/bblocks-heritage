@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.source-carrier - Source Carrier
+Generated 2026-07-17T10:15:37.056795+00:00
+=== Files ===
+Using examples/venaria-asto-architectural-plan.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/source-carrier/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/source-carrier/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/source-carrier/shapes.shacl#SourceCarrierShape>: <https://heritalise-eccch.eu/resource/carrier/asto-venaria-mazzo12-n3>
+
+=== End SHACL ===
+

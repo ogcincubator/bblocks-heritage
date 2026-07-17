@@ -8,6 +8,20 @@
     },
     {
       "type": "object",
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Building with its own embedded footprint geometry (or none at all).",
+          "not": {
+            "required": [
+              "references"
+            ]
+          }
+        },
+        {
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.json"
+        }
+      ],
       "properties": {
         "parentSite": {
           "type": "string",

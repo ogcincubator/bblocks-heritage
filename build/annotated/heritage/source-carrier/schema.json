@@ -4,6 +4,7 @@
   "description": "A physical original document, photograph, drawing, negative or bound volume that carries heritage information (CIDOC-CRM E31 Document). Records the physical carrier \u2014 the entity from which digital surrogates (ogc.heritage.digital-surrogate) are derived \u2014 including repository location, archival reference, rights and physical condition.",
   "type": "object",
   "required": [
+    "id",
     "type",
     "carrierType",
     "title"
@@ -12,7 +13,8 @@
     "id": {
       "type": "string",
       "format": "uri",
-      "description": "Persistent URI identifying this source carrier record."
+      "description": "Persistent URI identifying this source carrier record.",
+      "x-jsonld-id": "@id"
     },
     "type": {
       "const": "SourceCarrier",

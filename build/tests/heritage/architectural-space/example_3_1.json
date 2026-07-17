@@ -1,0 +1,16 @@
+{
+  "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8",
+  "type": "HeritageObject",
+  "identifier": "RV-SPC-GG-B08",
+  "title": "Galleria Grande \u2014 Bay 8",
+  "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
+  "objectType": "http://vocab.getty.edu/aat/300004829",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+  "floorLevel": "piano nobile",
+  "bayCode": "B08",
+  "accessibilityStatus": "open to public",
+  "references": [
+    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+  ]
+}

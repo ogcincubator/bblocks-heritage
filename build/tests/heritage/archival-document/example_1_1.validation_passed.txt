@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.archival-document - Archival Document
-Generated 2026-07-16T14:38:31.567556+00:00
+Generated 2026-07-17T10:15:46.624002+00:00
 === Files ===
 Using examples/lido.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/digital-representation/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/digital-representation/shapes.shacl:
- - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/fishing-creel-lido-record>
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record>
 
 === End SHACL ===
 

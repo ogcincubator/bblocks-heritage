@@ -1,4 +1,4 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-[] rdfs:label "Workshop of an unidentified Venaria court painter" .
+<https://heritalise-eccch.eu/resource/actor/unidentified-venaria-court-painter-workshop> rdfs:label "Workshop of an unidentified Venaria court painter" .
 

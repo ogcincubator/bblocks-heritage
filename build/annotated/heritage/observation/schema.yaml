@@ -30,6 +30,7 @@ allOf:
 - $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml
 - type: object
   required:
+  - id
   - hasFeatureOfInterest
   properties:
     type:

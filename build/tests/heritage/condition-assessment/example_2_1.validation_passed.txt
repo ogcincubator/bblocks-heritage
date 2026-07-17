@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.condition-assessment - Condition Assessment
-Generated 2026-07-16T14:38:28.672200+00:00
+Generated 2026-07-17T10:15:37.681526+00:00
 === Files ===
 Using examples/villa-portelli-paint-loss.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/condition-assessment/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/condition-assessment/shapes.shacl:
- - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://example.org/heritalise/condition/MT-CA-VP-2026-011>
+ - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011>
 
 === End SHACL ===
 

@@ -1,5 +1,5 @@
 path	@id	schema
-/id		/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
+/id	@id	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
 /type	@type	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
 /statementType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml
 /statement	http://www.cidoc-crm.org/cidoc-crm/P141_assigned	/github/workspace/build/annotated/heritage/historical-statement/schema.yaml

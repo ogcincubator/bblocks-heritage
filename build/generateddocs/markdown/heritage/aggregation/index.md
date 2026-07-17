@@ -48,12 +48,12 @@ An aggregation wrapping the Great Gallery ceiling painting with its primary disp
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/aggregation/great-gallery-painting-014",
+  "id": "https://heritalise-eccch.eu/resource/aggregation/great-gallery-painting-014",
   "type": "Aggregation",
-  "aggregatedCHO": "https://example.org/heritalise/object/great-gallery-painting-014",
-  "isShownBy": "https://example.org/heritalise/digital/great-gallery-painting-014-photo-01",
+  "aggregatedCHO": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
+  "isShownBy": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01",
   "isShownAt": "https://www.lavenaria.it/en/collections/great-gallery-ceiling",
-  "object": "https://example.org/heritalise/digital/great-gallery-painting-014-thumb",
+  "object": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-thumb",
   "dataProvider": "Reggia di Venaria",
   "provider": "ECCCH",
   "rights": "https://rightsstatements.org/page/InC/1.0/"
@@ -65,12 +65,12 @@ An aggregation wrapping the Great Gallery ceiling painting with its primary disp
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld",
-  "id": "https://example.org/heritalise/aggregation/great-gallery-painting-014",
+  "id": "https://heritalise-eccch.eu/resource/aggregation/great-gallery-painting-014",
   "type": "Aggregation",
-  "aggregatedCHO": "https://example.org/heritalise/object/great-gallery-painting-014",
-  "isShownBy": "https://example.org/heritalise/digital/great-gallery-painting-014-photo-01",
+  "aggregatedCHO": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
+  "isShownBy": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01",
   "isShownAt": "https://www.lavenaria.it/en/collections/great-gallery-ceiling",
-  "object": "https://example.org/heritalise/digital/great-gallery-painting-014-thumb",
+  "object": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-thumb",
   "dataProvider": "Reggia di Venaria",
   "provider": "ECCCH",
   "rights": "https://rightsstatements.org/page/InC/1.0/"
@@ -82,12 +82,12 @@ An aggregation wrapping the Great Gallery ceiling painting with its primary disp
 @prefix edm: <http://www.europeana.eu/schemas/edm/> .
 @prefix ore: <http://www.openarchives.org/ore/terms/> .
 
-<https://example.org/heritalise/aggregation/great-gallery-painting-014> a ore:Aggregation ;
-    edm:aggregatedCHO <https://example.org/heritalise/object/great-gallery-painting-014> ;
+<https://heritalise-eccch.eu/resource/aggregation/great-gallery-painting-014> a ore:Aggregation ;
+    edm:aggregatedCHO <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     edm:dataProvider "Reggia di Venaria" ;
     edm:isShownAt <https://www.lavenaria.it/en/collections/great-gallery-ceiling> ;
-    edm:isShownBy <https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> ;
-    edm:object <https://example.org/heritalise/digital/great-gallery-painting-014-thumb> ;
+    edm:isShownBy <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> ;
+    edm:object <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-thumb> ;
     edm:provider "ECCCH" ;
     edm:rights <https://rightsstatements.org/page/InC/1.0/> .
 
@@ -100,7 +100,8 @@ Only `aggregatedCHO` is required — the rest can be filled in incrementally as 
 #### json
 ```json
 {
-  "aggregatedCHO": "https://example.org/heritalise/object/great-gallery-painting-014"
+  "id": "https://heritalise-eccch.eu/resource/aggregation/great-gallery-painting-014",
+  "aggregatedCHO": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
 }
 
 ```
@@ -109,7 +110,8 @@ Only `aggregatedCHO` is required — the rest can be filled in incrementally as 
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld",
-  "aggregatedCHO": "https://example.org/heritalise/object/great-gallery-painting-014"
+  "id": "https://heritalise-eccch.eu/resource/aggregation/great-gallery-painting-014",
+  "aggregatedCHO": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
 }
 ```
 
@@ -117,7 +119,7 @@ Only `aggregatedCHO` is required — the rest can be filled in incrementally as 
 ```ttl
 @prefix edm: <http://www.europeana.eu/schemas/edm/> .
 
-[] edm:aggregatedCHO <https://example.org/heritalise/object/great-gallery-painting-014> .
+<https://heritalise-eccch.eu/resource/aggregation/great-gallery-painting-014> edm:aggregatedCHO <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> .
 
 
 ```
@@ -197,6 +199,7 @@ properties:
     x-jsonld-id: http://www.europeana.eu/schemas/edm/rights
     x-jsonld-type: '@id'
 required:
+- id
 - aggregatedCHO
 x-jsonld-extra-terms:
   Aggregation: http://www.openarchives.org/ore/terms/Aggregation

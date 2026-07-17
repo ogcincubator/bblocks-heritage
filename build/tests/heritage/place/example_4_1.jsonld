@@ -1,6 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
-  "id": "https://example.org/heritalise/place/north-parterre",
+  "id": "https://heritalise-eccch.eu/resource/place/north-parterre",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -33,6 +33,6 @@
     "identifier": "RV-ZONE-NP",
     "name": "North Parterre",
     "placeType": "http://vocab.getty.edu/aat/300008106",
-    "partOf": "https://example.org/heritalise/place/central-garden-axis"
+    "partOf": "https://heritalise-eccch.eu/resource/place/central-garden-axis"
   }
 }

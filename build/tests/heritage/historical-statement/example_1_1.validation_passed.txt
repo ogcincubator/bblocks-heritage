@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.historical-statement - Historical Statement
-Generated 2026-07-16T14:38:28.690495+00:00
+Generated 2026-07-17T10:15:37.020461+00:00
 === Files ===
 Using examples/venaria_attribution.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/historical-statement/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/historical-statement/shapes.shacl:
- - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: _:N8e7d1add9d924f7c82e9020931f388c5
+ - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: <https://data.regiadivenaria.it/historical-statement/attr-morello-galleria-grande-2024-001>
 
 === End SHACL ===
 

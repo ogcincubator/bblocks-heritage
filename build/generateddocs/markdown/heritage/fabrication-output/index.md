@@ -28,12 +28,12 @@ An STL file for 3D printing a tactile replica of the Great Gallery ceiling paint
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-replica-01",
+  "id": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01",
   "identifier": "RV-GG-014-STL-01",
-  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "mediaType": "model/stl",
   "wasDerivedFrom": [
-    "https://example.org/heritalise/digital/great-gallery-painting-014-model-01"
+    "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01"
   ]
 }
 
@@ -43,12 +43,12 @@ An STL file for 3D printing a tactile replica of the Great Gallery ceiling paint
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld",
-  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-replica-01",
+  "id": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01",
   "identifier": "RV-GG-014-STL-01",
-  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "mediaType": "model/stl",
   "wasDerivedFrom": [
-    "https://example.org/heritalise/digital/great-gallery-painting-014-model-01"
+    "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01"
   ]
 }
 ```
@@ -59,10 +59,10 @@ An STL file for 3D printing a tactile replica of the Great Gallery ceiling paint
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/digital/great-gallery-painting-014-replica-01> dct:format "model/stl" ;
-    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01> dct:format "model/stl" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     crm:P1_is_identified_by "RV-GG-014-STL-01" ;
-    prov:wasDerivedFrom <https://example.org/heritalise/digital/great-gallery-painting-014-model-01> .
+    prov:wasDerivedFrom <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> .
 
 
 ```

@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.monitoring-point - Monitoring Point",
   "bblockName": "Monitoring Point",
   "bblockId": "ogc.heritage.monitoring-point",
-  "generated": "2026-07-16T14:38:29.212075+00:00",
+  "generated": "2026-07-17T10:15:38.136153+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>": {
                   "nodes": [
-                    "_:N2464071bf42746678714fb55c8629067"
+                    "<https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/monitoring-point/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: _:N2464071bf42746678714fb55c8629067\n"
+              "message": "Focus nodes for _sources/monitoring-point/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: <https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01>\n"
             }
           ]
         }
@@ -154,12 +154,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>": {
                   "nodes": [
-                    "_:Nd5620393503a41b5b2e3e7602ab5be65"
+                    "<https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/monitoring-point/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: _:Nd5620393503a41b5b2e3e7602ab5be65\n"
+              "message": "Focus nodes for _sources/monitoring-point/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: <https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01>\n"
             }
           ]
         }

@@ -10,6 +10,8 @@ description: "An event in the history of a heritage object \u2014 production, re
 allOf:
 - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml
 - type: object
+  required:
+  - id
   properties:
     identifier:
       type: string

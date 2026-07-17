@@ -1,0 +1,47 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/context.jsonld",
+  "type": "SurveyDataset",
+  "id": "https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025",
+  "title": "UAV Photogrammetric Model \u2014 Villa Portelli Exterior (2025)",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+  "mediaType": "model/obj",
+  "acquisitionEvent": {
+    "acquisitionMethod": "UAV-photogrammetry",
+    "acquisitionDate": "2025-06-10",
+    "equipment": "DJI Matrice 300 RTK with Zenmuse P1",
+    "crs": "https://www.opengis.net/def/crs/EPSG/0/32633",
+    "density": "3 cm/pixel ground sampling distance",
+    "accuracy": "\u00b15 cm",
+    "processingHistory": "Processed in Agisoft Metashape 2.1 at medium quality: dense point cloud \u2192 mesh \u2192 texture. 42 GCPs used."
+  },
+  "coverage": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          14.432,
+          35.902
+        ],
+        [
+          14.4335,
+          35.902
+        ],
+        [
+          14.4335,
+          35.903
+        ],
+        [
+          14.432,
+          35.903
+        ],
+        [
+          14.432,
+          35.902
+        ]
+      ]
+    ]
+  },
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip",
+  "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-survey-2025",
+  "reviewStatus": "approved"
+}

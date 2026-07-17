@@ -1,11 +1,12 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01",
   "type": "MonitoringPoint",
   "name": "Villa Portelli Grand Salon \u2014 Temperature Sensor T01",
   "description": "Resistance temperature detector installed near the main entrance of the Grand Salon to monitor visitor-induced thermal loads.",
   "identifier": "MT-MP-VP-SALON-T01",
   "sensorType": "http://vocab.getty.edu/aat/300379652",
-  "locatedIn": "https://example.org/heritalise/space/villa-portelli-salon",
+  "locatedIn": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "operationalStatus": "active",
   "responsibleOrganisation": "Heritage Malta",
   "position": {

@@ -1,4 +1,9 @@
 path	@id	schema
+/_oneOf/0/footprint	https://purl.org/geojson/vocab#geometry	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/_oneOf/0/footprint/type	@type	/github/workspace/build/annotated/heritage/surface/schema.yaml
+/_oneOf/0/footprint/coordinates		/github/workspace/build/annotated/heritage/surface/schema.yaml
+/_oneOf/1/type	@type	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
+/_oneOf/1/references	https://purl.org/geojson/vocab#relatedFeatures	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
 /id	@id	/github/workspace/build/annotated/heritage/surface/schema.yaml
 /type	@type	/github/workspace/build/annotated/heritage/surface/schema.yaml
 /hostObject	http://www.cidoc-crm.org/cidoc-crm/P56i_is_found_on	/github/workspace/build/annotated/heritage/surface/schema.yaml
@@ -10,6 +15,3 @@ path	@id	schema
 /conditionAssessment		/github/workspace/build/annotated/heritage/surface/schema.yaml
 /sourceEvidence	http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in	/github/workspace/build/annotated/heritage/surface/schema.yaml
 /reviewStatus		/github/workspace/build/annotated/heritage/surface/schema.yaml
-/footprint	https://purl.org/geojson/vocab#geometry	/github/workspace/build/annotated/heritage/surface/schema.yaml
-/footprint/type	@type	/github/workspace/build/annotated/heritage/surface/schema.yaml
-/footprint/coordinates		/github/workspace/build/annotated/heritage/surface/schema.yaml

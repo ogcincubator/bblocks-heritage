@@ -86,14 +86,17 @@ are not individually mapped to RDF predicates — they are captured as processin
 ## Examples
 
 ### Venaria — triangulated mesh derived from TLS point cloud of Galleria Grande ceiling
+A triangulated mesh generated from the Galleria Grande ceiling TLS point cloud, with the PROV derivation link back to the source survey dataset and a structured processing event recording the mesh-generation method, software and QA result.
+#### json
+```json
 {
   "type": "DerivedSurveyProduct",
-  "id": "https://heritage.venaria.it/products/gc-ceiling-mesh-2024",
+  "id": "https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024",
   "title": "Triangulated Mesh — Galleria Grande Ceiling (derived from TLS 2024)",
-  "isAbout": "https://heritage.venaria.it/buildings/galleria-grande",
-  "parentDataset": "https://heritage.venaria.it/datasets/gc-ceiling-tls-2024",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "parentDataset": "https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024",
   "mediaType": "model/obj",
-  "url": "https://heritage.venaria.it/storage/gc-ceiling-mesh-2024.obj",
+  "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-mesh-2024.obj",
   "processingEvent": {
     "processingMethod": "mesh generation",
     "processingDate": "2024-04-03",
@@ -108,16 +111,68 @@ are not individually mapped to RDF predicates — they are captured as processin
   "reviewStatus": "reviewed"
 }
 
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/context.jsonld",
+  "type": "DerivedSurveyProduct",
+  "id": "https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024",
+  "title": "Triangulated Mesh \u2014 Galleria Grande Ceiling (derived from TLS 2024)",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "parentDataset": "https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024",
+  "mediaType": "model/obj",
+  "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-mesh-2024.obj",
+  "processingEvent": {
+    "processingMethod": "mesh generation",
+    "processingDate": "2024-04-03",
+    "software": "Leica Cyclone 3DR",
+    "softwareVersion": "2024.0.1",
+    "operator": "https://orcid.org/0000-0000-0000-0001",
+    "parameters": "Poisson reconstruction; octree depth 10; smoothing kernel radius 5 mm",
+    "accuracy": "mean deviation from source cloud \u00b11.8 mm",
+    "qaResult": "passed"
+  },
+  "limitations": "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud.",
+  "reviewStatus": "reviewed"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024> a crmdig:D9_Data_Object ;
+    dct:description "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud." ;
+    dct:format "model/obj" ;
+    dct:title "Triangulated Mesh — Galleria Grande Ceiling (derived from TLS 2024)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/building/galleria-grande> ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"mean deviation from source cloud ±1.8 mm\",\"operator\":\"https://orcid.org/0000-0000-0000-0001\",\"parameters\":\"Poisson reconstruction; octree depth 10; smoothing kernel radius 5 mm\",\"processingDate\":\"2024-04-03\",\"processingMethod\":\"mesh generation\",\"qaResult\":\"passed\",\"software\":\"Leica Cyclone 3DR\",\"softwareVersion\":\"2024.0.1\"}"^^rdf:JSON ;
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/gc-ceiling-mesh-2024.obj> ;
+    prov:wasDerivedFrom <https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> .
+
+
+```
+
 
 ### Malta — deviation map derived from UAV photogrammetric survey of Villa Portelli exterior
+A facade deviation map derived from the Villa Portelli UAV photogrammetric survey, comparing the surveyed geometry against a design BIM reference mesh, with a persistent DOI alongside the record's own URI.
+#### json
+```json
 {
   "type": "DerivedSurveyProduct",
-  "id": "https://heritage.gov.mt/products/villa-portelli-deviation-map-2025",
+  "id": "https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025",
   "title": "Facade Deviation Map — Villa Portelli exterior (derived from UAV survey 2025)",
-  "isAbout": "https://heritage.gov.mt/buildings/villa-portelli",
-  "parentDataset": "https://heritage.gov.mt/datasets/villa-portelli-uav-2025",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+  "parentDataset": "https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025",
   "mediaType": "image/tiff",
-  "url": "https://heritage.gov.mt/storage/villa-portelli-deviation-map-2025.tif",
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-deviation-map-2025.tif",
   "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-deviationmap-2025",
   "processingEvent": {
     "processingMethod": "deviation mapping",
@@ -132,6 +187,57 @@ are not individually mapped to RDF predicates — they are captured as processin
   "limitations": "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion.",
   "reviewStatus": "approved"
 }
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/context.jsonld",
+  "type": "DerivedSurveyProduct",
+  "id": "https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025",
+  "title": "Facade Deviation Map \u2014 Villa Portelli exterior (derived from UAV survey 2025)",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+  "parentDataset": "https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025",
+  "mediaType": "image/tiff",
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-deviation-map-2025.tif",
+  "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-deviationmap-2025",
+  "processingEvent": {
+    "processingMethod": "deviation mapping",
+    "processingDate": "2025-07-02",
+    "software": "CloudCompare",
+    "softwareVersion": "2.13.1",
+    "operator": "https://orcid.org/0000-0000-0000-0002",
+    "parameters": "Reference surface: design BIM mesh (IFC); max search radius 0.5 m; colour ramp \u00b1100 mm",
+    "accuracy": "RMS deviation 38 mm; 92 % of facade within \u00b150 mm of design intent",
+    "qaResult": "passed with remarks \u2014 two pilasters exceed \u00b180 mm threshold"
+  },
+  "limitations": "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion.",
+  "reviewStatus": "approved"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025> a crmdig:D9_Data_Object ;
+    dct:description "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion." ;
+    dct:format "image/tiff" ;
+    dct:title "Facade Deviation Map — Villa Portelli exterior (derived from UAV survey 2025)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/building/villa-portelli-main> ;
+    crm:P1_is_identified_by "https://doi.org/10.00000/villa-portelli-deviationmap-2025" ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"RMS deviation 38 mm; 92 % of facade within ±50 mm of design intent\",\"operator\":\"https://orcid.org/0000-0000-0000-0002\",\"parameters\":\"Reference surface: design BIM mesh (IFC); max search radius 0.5 m; colour ramp ±100 mm\",\"processingDate\":\"2025-07-02\",\"processingMethod\":\"deviation mapping\",\"qaResult\":\"passed with remarks — two pilasters exceed ±80 mm threshold\",\"software\":\"CloudCompare\",\"softwareVersion\":\"2.13.1\"}"^^rdf:JSON ;
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/villa-portelli-deviation-map-2025.tif> ;
+    prov:wasDerivedFrom <https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025> .
+
+
+```
 
 ## Schema
 

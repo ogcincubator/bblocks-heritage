@@ -3,7 +3,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/place/rv-site> a geojson:Feature ;
     crm:P1_is_identified_by "RV-SITE" ;
     crm:P87_is_identified_by "Reggia di Venaria" ;
     geojson:geometry [ a geojson:Point ;

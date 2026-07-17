@@ -1,0 +1,16 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025> a crmdig:D1_Digital_Object ;
+    dct:format "model/obj" ;
+    dct:title "UAV Photogrammetric Model — Villa Portelli Exterior (2025)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/building/villa-portelli-main> ;
+    crm:P1_is_identified_by "https://doi.org/10.00000/villa-portelli-survey-2025" ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"±5 cm\",\"acquisitionDate\":\"2025-06-10\",\"acquisitionMethod\":\"UAV-photogrammetry\",\"crs\":\"https://www.opengis.net/def/crs/EPSG/0/32633\",\"density\":\"3 cm/pixel ground sampling distance\",\"equipment\":\"DJI Matrice 300 RTK with Zenmuse P1\",\"processingHistory\":\"Processed in Agisoft Metashape 2.1 at medium quality: dense point cloud → mesh → texture. 42 GCPs used.\"}"^^rdf:JSON ;
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip> ;
+    geojson:geometry "{\"coordinates\":[[[14.432,35.902],[14.4335,35.902],[14.4335,35.903],[14.432,35.903],[14.432,35.902]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+

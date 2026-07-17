@@ -4,6 +4,7 @@
   "description": "A conservation threshold rule defining the acceptable value range for an environmental parameter at a heritage monitoring point or zone (SOSA ObservableProperty + QUDT units).",
   "type": "object",
   "required": [
+    "id",
     "type",
     "parameter",
     "thresholdType",

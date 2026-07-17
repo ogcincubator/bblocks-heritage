@@ -1,5 +1,6 @@
 {
-  "hasFeatureOfInterest": "https://example.org/heritalise/place/great-gallery",
+  "id": "https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300379098",
   "hasSimpleResult": "RH within tolerance, see paper log"
 }

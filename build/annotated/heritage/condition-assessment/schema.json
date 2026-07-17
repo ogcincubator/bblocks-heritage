@@ -3,6 +3,56 @@
   "title": "Condition Assessment",
   "description": "A qualitative conservation inspection (CRMsci E14 Condition Assessment) recording the condition state of a heritage object or place.",
   "type": "object",
+  "required": [
+    "id",
+    "type",
+    "affectedObject",
+    "conditionState",
+    "assessmentDate"
+  ],
+  "oneOf": [
+    {
+      "type": "object",
+      "description": "Condition assessment localised by its own embedded footprint geometry.",
+      "properties": {
+        "footprint": {
+          "type": "object",
+          "description": "GeoJSON geometry localising the condition on the affected object or surface (point, polyline or polygon patch).",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Point",
+                "LineString",
+                "Polygon",
+                "MultiPoint",
+                "MultiLineString",
+                "MultiPolygon"
+              ],
+              "x-jsonld-id": "@type"
+            },
+            "coordinates": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "x-jsonld-id": "https://purl.org/geojson/vocab#geometry",
+          "x-jsonld-type": "@json"
+        }
+      },
+      "not": {
+        "required": [
+          "references"
+        ]
+      }
+    },
+    {
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.json"
+    }
+  ],
   "properties": {
     "id": {
       "type": "string",
@@ -99,41 +149,8 @@
     "reviewStatus": {
       "type": "string",
       "description": "Workflow status of this record (e.g. draft, reviewed, approved)."
-    },
-    "footprint": {
-      "type": "object",
-      "description": "GeoJSON geometry localising the condition on the affected object or surface (point, polyline or polygon patch).",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Point",
-            "LineString",
-            "Polygon",
-            "MultiPoint",
-            "MultiLineString",
-            "MultiPolygon"
-          ],
-          "x-jsonld-id": "@type"
-        },
-        "coordinates": {
-          "type": "array"
-        }
-      },
-      "required": [
-        "type",
-        "coordinates"
-      ],
-      "x-jsonld-id": "https://purl.org/geojson/vocab#geometry",
-      "x-jsonld-type": "@json"
     }
   },
-  "required": [
-    "type",
-    "affectedObject",
-    "conditionState",
-    "assessmentDate"
-  ],
   "x-jsonld-extra-terms": {
     "ConditionAssessment": "http://www.ics.forth.gr/isl/CRMsci/E14_Condition_Assessment"
   },

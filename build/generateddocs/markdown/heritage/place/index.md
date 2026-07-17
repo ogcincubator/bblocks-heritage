@@ -41,7 +41,7 @@ The Great Gallery room within the Reggia di Venaria, typed with a Getty AAT conc
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/place/great-gallery",
+  "id": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "type": "Feature",
   "geometry": {
     "type": "Point",
@@ -51,7 +51,7 @@ The Great Gallery room within the Reggia di Venaria, typed with a Getty AAT conc
     "identifier": "RV-ROOM-GG",
     "name": "Great Gallery, Reggia di Venaria",
     "placeType": "http://vocab.getty.edu/aat/300004826",
-    "partOf": "https://example.org/heritalise/place/reggia-di-venaria",
+    "partOf": "https://heritalise-eccch.eu/resource/place/reggia-di-venaria",
     "sameAs": "http://vocab.getty.edu/tgn/7274089"
   }
 }
@@ -62,7 +62,7 @@ The Great Gallery room within the Reggia di Venaria, typed with a Getty AAT conc
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
-  "id": "https://example.org/heritalise/place/great-gallery",
+  "id": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "type": "Feature",
   "geometry": {
     "type": "Point",
@@ -75,7 +75,7 @@ The Great Gallery room within the Reggia di Venaria, typed with a Getty AAT conc
     "identifier": "RV-ROOM-GG",
     "name": "Great Gallery, Reggia di Venaria",
     "placeType": "http://vocab.getty.edu/aat/300004826",
-    "partOf": "https://example.org/heritalise/place/reggia-di-venaria",
+    "partOf": "https://heritalise-eccch.eu/resource/place/reggia-di-venaria",
     "sameAs": "http://vocab.getty.edu/tgn/7274089"
   }
 }
@@ -89,11 +89,11 @@ The Great Gallery room within the Reggia di Venaria, typed with a Getty AAT conc
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/place/great-gallery> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/place/great-gallery> a geojson:Feature ;
     crm:P1_is_identified_by "RV-ROOM-GG" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300004826> ;
     crm:P87_is_identified_by "Great Gallery, Reggia di Venaria" ;
-    crm:P89_falls_within <https://example.org/heritalise/place/reggia-di-venaria> ;
+    crm:P89_falls_within <https://heritalise-eccch.eu/resource/place/reggia-di-venaria> ;
     owl:sameAs <http://vocab.getty.edu/tgn/7274089> ;
     geojson:geometry [ a geojson:Point ;
             geojson:coordinates ( 7.628e+00 4.5135e+01 ) ] .
@@ -107,6 +107,7 @@ Only `geometry`, `identifier` and `name` are required — type, broader-place li
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/place/rv-site",
   "type": "Feature",
   "geometry": {
     "type": "Point",
@@ -124,6 +125,7 @@ Only `geometry`, `identifier` and `name` are required — type, broader-place li
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/place/rv-site",
   "type": "Feature",
   "geometry": {
     "type": "Point",
@@ -146,7 +148,7 @@ Only `geometry`, `identifier` and `name` are required — type, broader-place li
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/place/rv-site> a geojson:Feature ;
     crm:P1_is_identified_by "RV-SITE" ;
     crm:P87_is_identified_by "Reggia di Venaria" ;
     geojson:geometry [ a geojson:Point ;
@@ -161,7 +163,7 @@ The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) 
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/place/central-garden-axis",
+  "id": "https://heritalise-eccch.eu/resource/place/central-garden-axis",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -179,7 +181,7 @@ The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) 
     "identifier": "RV-ZONE-CGA",
     "name": "Central Garden Axis",
     "placeType": "http://vocab.getty.edu/aat/300008087",
-    "partOf": "https://example.org/heritalise/site/reggia-di-venaria"
+    "partOf": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria"
   }
 }
 
@@ -189,7 +191,7 @@ The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) 
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
-  "id": "https://example.org/heritalise/place/central-garden-axis",
+  "id": "https://heritalise-eccch.eu/resource/place/central-garden-axis",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -222,7 +224,7 @@ The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) 
     "identifier": "RV-ZONE-CGA",
     "name": "Central Garden Axis",
     "placeType": "http://vocab.getty.edu/aat/300008087",
-    "partOf": "https://example.org/heritalise/site/reggia-di-venaria"
+    "partOf": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria"
   }
 }
 ```
@@ -234,11 +236,11 @@ The central garden axis of the Reggia di Venaria, typed as a garden (Getty AAT) 
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/place/central-garden-axis> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/place/central-garden-axis> a geojson:Feature ;
     crm:P1_is_identified_by "RV-ZONE-CGA" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300008087> ;
     crm:P87_is_identified_by "Central Garden Axis" ;
-    crm:P89_falls_within <https://example.org/heritalise/site/reggia-di-venaria> ;
+    crm:P89_falls_within <https://heritalise-eccch.eu/resource/site/reggia-di-venaria> ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 7.619e+00 4.5132e+01 ) ( 7.631e+00 4.5132e+01 ) ( 7.631e+00 4.514e+01 ) ( 7.619e+00 4.514e+01 ) ( 7.619e+00 4.5132e+01 ) ) ) ] .
 
@@ -251,7 +253,7 @@ The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/place/north-parterre",
+  "id": "https://heritalise-eccch.eu/resource/place/north-parterre",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -269,7 +271,7 @@ The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and
     "identifier": "RV-ZONE-NP",
     "name": "North Parterre",
     "placeType": "http://vocab.getty.edu/aat/300008106",
-    "partOf": "https://example.org/heritalise/place/central-garden-axis"
+    "partOf": "https://heritalise-eccch.eu/resource/place/central-garden-axis"
   }
 }
 
@@ -279,7 +281,7 @@ The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
-  "id": "https://example.org/heritalise/place/north-parterre",
+  "id": "https://heritalise-eccch.eu/resource/place/north-parterre",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -312,7 +314,7 @@ The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and
     "identifier": "RV-ZONE-NP",
     "name": "North Parterre",
     "placeType": "http://vocab.getty.edu/aat/300008106",
-    "partOf": "https://example.org/heritalise/place/central-garden-axis"
+    "partOf": "https://heritalise-eccch.eu/resource/place/central-garden-axis"
   }
 }
 ```
@@ -324,11 +326,11 @@ The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/place/north-parterre> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/place/north-parterre> a geojson:Feature ;
     crm:P1_is_identified_by "RV-ZONE-NP" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300008106> ;
     crm:P87_is_identified_by "North Parterre" ;
-    crm:P89_falls_within <https://example.org/heritalise/place/central-garden-axis> ;
+    crm:P89_falls_within <https://heritalise-eccch.eu/resource/place/central-garden-axis> ;
     geojson:geometry [ a geojson:Polygon ;
             geojson:coordinates ( ( ( 7.62e+00 4.5136e+01 ) ( 7.625e+00 4.5136e+01 ) ( 7.625e+00 4.514e+01 ) ( 7.62e+00 4.514e+01 ) ( 7.62e+00 4.5136e+01 ) ) ) ] .
 
@@ -356,6 +358,12 @@ allOf:
 - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml
 - type: object
   properties:
+    id:
+      type: string
+      format: uri
+      description: The persistent or local URI identifying this place (overrides the
+        inherited JSON-FG `id`, which also allows a bare number).
+      x-jsonld-id: '@id'
     properties:
       type: object
       description: CIDOC-CRM E53 Place attributes, nested per JSON-FG/GeoJSON convention.
@@ -394,6 +402,7 @@ allOf:
       - identifier
       - name
   required:
+  - id
   - properties
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/

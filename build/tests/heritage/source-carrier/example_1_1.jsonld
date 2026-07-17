@@ -1,0 +1,19 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/context.jsonld",
+  "type": "SourceCarrier",
+  "id": "https://heritalise-eccch.eu/resource/carrier/asto-venaria-mazzo12-n3",
+  "carrierType": "http://vocab.getty.edu/aat/300034787",
+  "title": "Pianta del piano nobile della Reggia di Venaria \u2014 Juvarra, c. 1716",
+  "creator": [
+    "https://vocab.getty.edu/ulan/500115568"
+  ],
+  "datePeriod": "c. 1716",
+  "language": "it",
+  "repository": "Archivio di Stato di Torino",
+  "archivalCode": "ASTo, Corte, Venaria Reale, mazzo 12, n. 3",
+  "collection": "Corte \u2014 Venaria Reale",
+  "physicalFormat": "58 \u00d7 82 cm, ink and wash on paper, rolled",
+  "condition": "good \u2014 minor foxing on margins",
+  "rights": "http://rightsstatements.org/vocab/InC-EDU/1.0/",
+  "documentsObject": "https://heritalise-eccch.eu/resource/building/galleria-grande"
+}

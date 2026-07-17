@@ -25,12 +25,12 @@ A photogrammetry-derived glTF model documenting the Great Gallery ceiling painti
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-model-01",
+  "id": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01",
   "identifier": "RV-GG-014-3D-01",
-  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "mediaType": "model/gltf-binary",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/giulia-bianchi"
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ]
 }
 
@@ -40,12 +40,12 @@ A photogrammetry-derived glTF model documenting the Great Gallery ceiling painti
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld",
-  "id": "https://example.org/heritalise/digital/great-gallery-painting-014-model-01",
+  "id": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01",
   "identifier": "RV-GG-014-3D-01",
-  "isAbout": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "mediaType": "model/gltf-binary",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/giulia-bianchi"
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ]
 }
 ```
@@ -56,10 +56,10 @@ A photogrammetry-derived glTF model documenting the Great Gallery ceiling painti
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/digital/great-gallery-painting-014-model-01> dct:format "model/gltf-binary" ;
-    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> dct:format "model/gltf-binary" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     crm:P1_is_identified_by "RV-GG-014-3D-01" ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .
 
 
 ```
@@ -70,13 +70,13 @@ A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as g
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/digital/villa-portelli-balustrade-gltf",
+  "id": "https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf",
   "identifier": "MT-3D-BAL-001",
-  "isAbout": "https://example.org/heritalise/object/south-balustrade",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/south-balustrade",
   "mediaType": "model/gltf+json",
-  "url": "https://example.org/heritalise/files/south-balustrade.gltf",
+  "url": "https://heritalise-eccch.eu/resource/files/south-balustrade.gltf",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/heritage-malta-digitisation"
+    "https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation"
   ]
 }
 
@@ -86,13 +86,13 @@ A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as g
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld",
-  "id": "https://example.org/heritalise/digital/villa-portelli-balustrade-gltf",
+  "id": "https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf",
   "identifier": "MT-3D-BAL-001",
-  "isAbout": "https://example.org/heritalise/object/south-balustrade",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/south-balustrade",
   "mediaType": "model/gltf+json",
-  "url": "https://example.org/heritalise/files/south-balustrade.gltf",
+  "url": "https://heritalise-eccch.eu/resource/files/south-balustrade.gltf",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/heritage-malta-digitisation"
+    "https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation"
   ]
 }
 ```
@@ -104,11 +104,11 @@ A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as g
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/digital/villa-portelli-balustrade-gltf> dct:format "model/gltf+json" ;
-    crm:P129_is_about <https://example.org/heritalise/object/south-balustrade> ;
+<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> dct:format "model/gltf+json" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/south-balustrade> ;
     crm:P1_is_identified_by "MT-3D-BAL-001" ;
-    dcat:accessURL <https://example.org/heritalise/files/south-balustrade.gltf> ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/heritage-malta-digitisation> .
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/south-balustrade.gltf> ;
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation> .
 
 
 ```

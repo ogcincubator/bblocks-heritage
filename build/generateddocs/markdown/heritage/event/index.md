@@ -36,18 +36,18 @@ A 2024 restoration of the Great Gallery ceiling painting, with a time-span, the 
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/event/restoration-2024",
+  "id": "https://heritalise-eccch.eu/resource/event/restoration-2024",
   "identifier": "RV-INT-2024-03",
   "eventType": "http://vocab.getty.edu/aat/300053683",
   "startedAtTime": "2024-03-04T00:00:00Z",
   "endedAtTime": "2024-06-21T00:00:00Z",
   "used": [
-    "https://example.org/heritalise/object/great-gallery-painting-014"
+    "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
   ],
   "wasAssociatedWith": [
-    "https://example.org/heritalise/actor/giulia-bianchi"
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ],
-  "atLocation": "https://example.org/heritalise/place/great-gallery"
+  "atLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
 }
 
 ```
@@ -56,18 +56,18 @@ A 2024 restoration of the Great Gallery ceiling painting, with a time-span, the 
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
-  "id": "https://example.org/heritalise/event/restoration-2024",
+  "id": "https://heritalise-eccch.eu/resource/event/restoration-2024",
   "identifier": "RV-INT-2024-03",
   "eventType": "http://vocab.getty.edu/aat/300053683",
   "startedAtTime": "2024-03-04T00:00:00Z",
   "endedAtTime": "2024-06-21T00:00:00Z",
   "used": [
-    "https://example.org/heritalise/object/great-gallery-painting-014"
+    "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
   ],
   "wasAssociatedWith": [
-    "https://example.org/heritalise/actor/giulia-bianchi"
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ],
-  "atLocation": "https://example.org/heritalise/place/great-gallery"
+  "atLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
 }
 ```
 
@@ -77,13 +77,13 @@ A 2024 restoration of the Great Gallery ceiling painting, with a time-span, the 
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/event/restoration-2024> crm:P1_is_identified_by "RV-INT-2024-03" ;
+<https://heritalise-eccch.eu/resource/event/restoration-2024> crm:P1_is_identified_by "RV-INT-2024-03" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300053683> ;
-    prov:atLocation <https://example.org/heritalise/place/great-gallery> ;
+    prov:atLocation <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     prov:endedAtTime "2024-06-21T00:00:00+00:00"^^xsd:dateTime ;
     prov:startedAtTime "2024-03-04T00:00:00+00:00"^^xsd:dateTime ;
-    prov:used <https://example.org/heritalise/object/great-gallery-painting-014> ;
-    prov:wasAssociatedWith <https://example.org/heritalise/actor/giulia-bianchi> .
+    prov:used <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
+    prov:wasAssociatedWith <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .
 
 
 ```
@@ -94,6 +94,7 @@ Only `identifier` is required at this level — older archive records (UC-V-3) m
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/event/rv-int-1987-legacy",
   "identifier": "RV-INT-1987-LEGACY"
 }
 
@@ -103,6 +104,7 @@ Only `identifier` is required at this level — older archive records (UC-V-3) m
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/event/rv-int-1987-legacy",
   "identifier": "RV-INT-1987-LEGACY"
 }
 ```
@@ -111,7 +113,7 @@ Only `identifier` is required at this level — older archive records (UC-V-3) m
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
-[] crm:P1_is_identified_by "RV-INT-1987-LEGACY" .
+<https://heritalise-eccch.eu/resource/event/rv-int-1987-legacy> crm:P1_is_identified_by "RV-INT-1987-LEGACY" .
 
 
 ```
@@ -122,14 +124,14 @@ The 1820 foundation of the Villa Portelli estate, typed as a ceremony/foundation
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/event/villa-portelli-founding-1820",
+  "id": "https://heritalise-eccch.eu/resource/event/villa-portelli-founding-1820",
   "identifier": "MT-EVT-1820-FOUND",
   "eventType": "http://vocab.getty.edu/aat/300069748",
   "startedAtTime": "1820-01-01T00:00:00Z",
   "wasAssociatedWith": [
-    "https://example.org/heritalise/actor/house-of-portelli"
+    "https://heritalise-eccch.eu/resource/actor/house-of-portelli"
   ],
-  "atLocation": "https://example.org/heritalise/site/villa-portelli",
+  "atLocation": "https://heritalise-eccch.eu/resource/site/villa-portelli",
   "description": "Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence."
 }
 
@@ -139,14 +141,14 @@ The 1820 foundation of the Villa Portelli estate, typed as a ceremony/foundation
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
-  "id": "https://example.org/heritalise/event/villa-portelli-founding-1820",
+  "id": "https://heritalise-eccch.eu/resource/event/villa-portelli-founding-1820",
   "identifier": "MT-EVT-1820-FOUND",
   "eventType": "http://vocab.getty.edu/aat/300069748",
   "startedAtTime": "1820-01-01T00:00:00Z",
   "wasAssociatedWith": [
-    "https://example.org/heritalise/actor/house-of-portelli"
+    "https://heritalise-eccch.eu/resource/actor/house-of-portelli"
   ],
-  "atLocation": "https://example.org/heritalise/site/villa-portelli",
+  "atLocation": "https://heritalise-eccch.eu/resource/site/villa-portelli",
   "description": "Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence."
 }
 ```
@@ -157,11 +159,11 @@ The 1820 foundation of the Villa Portelli estate, typed as a ceremony/foundation
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/event/villa-portelli-founding-1820> crm:P1_is_identified_by "MT-EVT-1820-FOUND" ;
+<https://heritalise-eccch.eu/resource/event/villa-portelli-founding-1820> crm:P1_is_identified_by "MT-EVT-1820-FOUND" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300069748> ;
-    prov:atLocation <https://example.org/heritalise/site/villa-portelli> ;
+    prov:atLocation <https://heritalise-eccch.eu/resource/site/villa-portelli> ;
     prov:startedAtTime "1820-01-01T00:00:00+00:00"^^xsd:dateTime ;
-    prov:wasAssociatedWith <https://example.org/heritalise/actor/house-of-portelli> .
+    prov:wasAssociatedWith <https://heritalise-eccch.eu/resource/actor/house-of-portelli> .
 
 
 ```
@@ -181,6 +183,8 @@ description: "An event in the history of a heritage object \u2014 production, re
 allOf:
 - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml
 - type: object
+  required:
+  - id
   properties:
     identifier:
       type: string

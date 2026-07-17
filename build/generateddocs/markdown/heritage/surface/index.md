@@ -247,22 +247,109 @@ The limestone floor surface of the Grand Salon at Villa Portelli. A minimal exam
 
 ```
 
+
+### Vault fresco with extent by reference (geometry-by-reference / topology)
+The fresco covering the vault of Galleria Grande bay 7 extends across the entire bay, so its spatial extent coincides exactly with the bay's own footprint (galleria-grande-bay.json) rather than a separately-drawn polygon. No `footprint` is given here — instead `references` points at the hostObject's own record, using the geometry-by-reference pattern from ogc.ogc-utils.topology to avoid duplicating coordinates.
+#### json
+```json
+{
+  "id": "https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco",
+  "type": "Surface",
+  "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+  "material": "http://vocab.getty.edu/aat/300178433",
+  "technique": "http://vocab.getty.edu/aat/300053343",
+  "historicalPhase": "1700–1710",
+  "exposure": "vault intrados",
+  "conditionSummary": "stable",
+  "references": [
+    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco",
+  "type": "Surface",
+  "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+  "material": "http://vocab.getty.edu/aat/300178433",
+  "technique": "http://vocab.getty.edu/aat/300053343",
+  "historicalPhase": "1700\u20131710",
+  "exposure": "vault intrados",
+  "conditionSummary": "stable",
+  "references": [
+    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco> a crm:E25_Man-Made_Feature ;
+    crm:P33_used_specific_technique <http://vocab.getty.edu/aat/300053343> ;
+    crm:P3_has_note "vault intrados" ;
+    crm:P44_has_condition "stable" ;
+    crm:P45_consists_of <http://vocab.getty.edu/aat/300178433> ;
+    crm:P4_has_time-span "1700–1710" ;
+    crm:P56i_is_found_on <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
+    geojson:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) .
+
+
+```
+
 ## Schema
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Surface
-description: A material finish layer or physical surface feature recognised on an
+description: "A material finish layer or physical surface feature recognised on an
   architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature). Records
   the host object, material and technique (Getty AAT), historical phase, exposure
-  context and a mandatory polygon or surface-patch geometry. May be linked to a condition-assessment
-  record for pathology documentation.
+  context and a mandatory polygon or surface-patch geometry \u2014 embedded, or given
+  by reference to shared/topological geometry (see ogc.ogc-utils.topology). May be
+  linked to a condition-assessment record for pathology documentation."
 type: object
 required:
+- id
 - type
 - hostObject
 - material
-- footprint
+oneOf:
+- type: object
+  description: Surface with its own embedded footprint geometry.
+  properties:
+    footprint:
+      type: object
+      description: GeoJSON Geometry delineating the spatial extent of this surface
+        as a polygon or surface-patch. Coordinates should be in the reference system
+        of the host structure's survey (local or EPSG:4326). Maps to geojson:geometry.
+      properties:
+        type:
+          type: string
+          enum:
+          - Polygon
+          - MultiPolygon
+          x-jsonld-id: '@type'
+        coordinates:
+          type: array
+      required:
+      - type
+      - coordinates
+      x-jsonld-id: https://purl.org/geojson/vocab#geometry
+      x-jsonld-type: '@json'
+  required:
+  - footprint
+  not:
+    required:
+    - references
+- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
 properties:
   id:
     type: string
@@ -328,25 +415,6 @@ properties:
   reviewStatus:
     type: string
     description: Workflow status of this record, e.g. "draft", "reviewed", "approved".
-  footprint:
-    type: object
-    description: GeoJSON Geometry delineating the spatial extent of this surface as
-      a polygon or surface-patch. Coordinates should be in the reference system of
-      the host structure's survey (local or EPSG:4326). Maps to geojson:geometry.
-    properties:
-      type:
-        type: string
-        enum:
-        - Polygon
-        - MultiPolygon
-        x-jsonld-id: '@type'
-      coordinates:
-        type: array
-    required:
-    - type
-    - coordinates
-    x-jsonld-id: https://purl.org/geojson/vocab#geometry
-    x-jsonld-type: '@json'
 x-jsonld-extra-terms:
   Surface: http://www.cidoc-crm.org/cidoc-crm/E25_Man-Made_Feature
 x-jsonld-prefixes:
@@ -366,9 +434,19 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "footprint": {
+      "@id": "geojson:geometry",
+      "@type": "@json"
+    },
+    "LineString": "geojson:LineString",
+    "type": "@type",
+    "references": {
+      "@id": "geojson:relatedFeatures",
+      "@type": "@id",
+      "@container": "@list"
+    },
     "Surface": "crm:E25_Man-Made_Feature",
     "id": "@id",
-    "type": "@type",
     "hostObject": {
       "@id": "crm:P56i_is_found_on",
       "@type": "@id"
@@ -388,12 +466,10 @@ Links to the schema:
       "@id": "crm:P70i_is_documented_in",
       "@type": "@id"
     },
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
-    },
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "geojson": "https://purl.org/geojson/vocab#",
+    "csdm": "https://linked.data.gov.au/def/csdm/",
+    "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }
 }

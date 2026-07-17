@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.heritage-object - Heritage Object
-Generated 2026-07-16T14:38:28.630792+00:00
+Generated 2026-07-17T10:15:36.992456+00:00
 === Files ===
 Using examples/minimal.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/heritage-object/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/heritage-object/shapes.shacl:
- - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: _:N68125dafdf8d49a7839691b9ae308f99
+ - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>
 
 === End SHACL ===
 

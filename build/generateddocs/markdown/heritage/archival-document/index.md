@@ -26,9 +26,9 @@ A LIDO/XML export of the fishing creel's catalogue record, migrated from a legac
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/digital/fishing-creel-lido-record",
+  "id": "https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record",
   "identifier": "WHM-1923.45-LIDO",
-  "isAbout": "https://example.org/heritalise/object/fishing-creel",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
   "mediaType": "text/xml",
   "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45"
 }
@@ -39,9 +39,9 @@ A LIDO/XML export of the fishing creel's catalogue record, migrated from a legac
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld",
-  "id": "https://example.org/heritalise/digital/fishing-creel-lido-record",
+  "id": "https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record",
   "identifier": "WHM-1923.45-LIDO",
-  "isAbout": "https://example.org/heritalise/object/fishing-creel",
+  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
   "mediaType": "text/xml",
   "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45"
 }
@@ -52,8 +52,8 @@ A LIDO/XML export of the fishing creel's catalogue record, migrated from a legac
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 
-<https://example.org/heritalise/digital/fishing-creel-lido-record> dct:format "text/xml" ;
-    crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> ;
+<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> dct:format "text/xml" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> ;
     crm:P1_is_identified_by "WHM-1923.45-LIDO",
         "https://hdl.handle.net/10.1234/whm-1923.45" .
 
@@ -66,14 +66,14 @@ A ground floor plan of Villa Portelli, held as an AutoCAD DWG file (`application
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/digital/villa-portelli-ground-floor-plan",
+  "id": "https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan",
   "identifier": "MT-CAD-GFP-001",
-  "isAbout": "https://example.org/heritalise/site/villa-portelli",
+  "isAbout": "https://heritalise-eccch.eu/resource/site/villa-portelli",
   "mediaType": "application/dwg",
   "persistentIdentifier": "https://hdl.handle.net/10.9999/mt-cad-gfp-001",
-  "url": "https://example.org/heritalise/files/villa-portelli-ground-floor.dwg",
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/heritage-malta-conservation"
+    "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation"
   ]
 }
 
@@ -83,14 +83,14 @@ A ground floor plan of Villa Portelli, held as an AutoCAD DWG file (`application
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld",
-  "id": "https://example.org/heritalise/digital/villa-portelli-ground-floor-plan",
+  "id": "https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan",
   "identifier": "MT-CAD-GFP-001",
-  "isAbout": "https://example.org/heritalise/site/villa-portelli",
+  "isAbout": "https://heritalise-eccch.eu/resource/site/villa-portelli",
   "mediaType": "application/dwg",
   "persistentIdentifier": "https://hdl.handle.net/10.9999/mt-cad-gfp-001",
-  "url": "https://example.org/heritalise/files/villa-portelli-ground-floor.dwg",
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/heritage-malta-conservation"
+    "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation"
   ]
 }
 ```
@@ -102,12 +102,12 @@ A ground floor plan of Villa Portelli, held as an AutoCAD DWG file (`application
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/digital/villa-portelli-ground-floor-plan> dct:format "application/dwg" ;
-    crm:P129_is_about <https://example.org/heritalise/site/villa-portelli> ;
+<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> dct:format "application/dwg" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/site/villa-portelli> ;
     crm:P1_is_identified_by "MT-CAD-GFP-001",
         "https://hdl.handle.net/10.9999/mt-cad-gfp-001" ;
-    dcat:accessURL <https://example.org/heritalise/files/villa-portelli-ground-floor.dwg> ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/heritage-malta-conservation> .
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg> ;
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation> .
 
 
 ```

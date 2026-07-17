@@ -57,21 +57,21 @@ A condition assessment of a moderate crack in the fresco plaster of bay 7 of the
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/condition/RV-CA-GG-2026-003",
+  "id": "https://heritalise-eccch.eu/resource/condition/RV-CA-GG-2026-003",
   "type": "ConditionAssessment",
-  "affectedObject": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "affectedObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "conditionState": {
     "conditionType": "http://vocab.getty.edu/aat/300379825",
     "severity": "moderate",
     "extent": "Linear crack approximately 80 cm long along the plaster joint between the vault fresco and the cornice moulding, north face of bay 7."
   },
   "assessmentDate": "2026-03-15",
-  "assessor": "https://example.org/heritalise/actor/sofia-bianchi",
+  "assessor": "https://heritalise-eccch.eu/resource/actor/sofia-bianchi",
   "method": "Visual inspection with raking-light photography",
   "confidence": "high",
   "evidence": [
-    "https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-01",
-    "https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-02"
+    "https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-01",
+    "https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-02"
   ],
   "recommendation": "Apply consolidant injection to crack edges within 6 months; re-assess after stabilisation.",
   "reviewStatus": "reviewed",
@@ -95,21 +95,21 @@ A condition assessment of a moderate crack in the fresco plaster of bay 7 of the
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/context.jsonld",
-  "id": "https://example.org/heritalise/condition/RV-CA-GG-2026-003",
+  "id": "https://heritalise-eccch.eu/resource/condition/RV-CA-GG-2026-003",
   "type": "ConditionAssessment",
-  "affectedObject": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "affectedObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "conditionState": {
     "conditionType": "http://vocab.getty.edu/aat/300379825",
     "severity": "moderate",
     "extent": "Linear crack approximately 80 cm long along the plaster joint between the vault fresco and the cornice moulding, north face of bay 7."
   },
   "assessmentDate": "2026-03-15",
-  "assessor": "https://example.org/heritalise/actor/sofia-bianchi",
+  "assessor": "https://heritalise-eccch.eu/resource/actor/sofia-bianchi",
   "method": "Visual inspection with raking-light photography",
   "confidence": "high",
   "evidence": [
-    "https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-01",
-    "https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-02"
+    "https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-01",
+    "https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-02"
   ],
   "recommendation": "Apply consolidant injection to crack edges within 6 months; re-assess after stabilisation.",
   "reviewStatus": "reviewed",
@@ -152,15 +152,15 @@ A condition assessment of a moderate crack in the fresco plaster of bay 7 of the
 @prefix sci: <http://www.ics.forth.gr/isl/CRMsci/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/condition/RV-CA-GG-2026-003> a sci:E14_Condition_Assessment ;
-    crm:P140_assigned_attribute_to <https://example.org/heritalise/space/galleria-grande-bay-7> ;
-    crm:P16_used_specific_object <https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-01>,
-        <https://example.org/heritalise/digital/RV-CA-GG-2026-003-photo-02> ;
+<https://heritalise-eccch.eu/resource/condition/RV-CA-GG-2026-003> a sci:E14_Condition_Assessment ;
+    crm:P140_assigned_attribute_to <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
+    crm:P16_used_specific_object <https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-01>,
+        <https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-02> ;
     crm:P33_used_specific_technique "Visual inspection with raking-light photography" ;
     crm:P35_has_identified "{\"conditionType\":\"http://vocab.getty.edu/aat/300379825\",\"extent\":\"Linear crack approximately 80 cm long along the plaster joint between the vault fresco and the cornice moulding, north face of bay 7.\",\"severity\":\"moderate\"}"^^rdf:JSON ;
     crm:P3_has_note "Apply consolidant injection to crack edges within 6 months; re-assess after stabilisation." ;
     crm:P4_has_time-span "2026-03-15"^^xsd:date ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/sofia-bianchi> ;
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/sofia-bianchi> ;
     geojson:geometry "{\"coordinates\":[[[7.62725,45.13442],[7.62731,45.13442],[7.62731,45.13438],[7.62725,45.13438],[7.62725,45.13442]]],\"type\":\"Polygon\"}"^^rdf:JSON .
 
 
@@ -172,16 +172,16 @@ A condition assessment of minor paint flaking on the west wall of the Grand Salo
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/condition/MT-CA-VP-2026-011",
+  "id": "https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011",
   "type": "ConditionAssessment",
-  "affectedObject": "https://example.org/heritalise/space/villa-portelli-salon",
+  "affectedObject": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "conditionState": {
     "conditionType": "http://vocab.getty.edu/aat/300379770",
     "severity": "minor",
     "extent": "Scattered flaking paint on lower 40 cm of the west wall, covering an area of approximately 0.3 m²."
   },
   "assessmentDate": "2026-04-20",
-  "assessor": "https://example.org/heritalise/actor/heritage-malta-conservation",
+  "assessor": "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation",
   "method": "Visual inspection",
   "confidence": "high",
   "recommendation": "Consolidate flaking paint layers; monitor humidity levels via adjacent monitoring-point.",
@@ -194,16 +194,16 @@ A condition assessment of minor paint flaking on the west wall of the Grand Salo
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/context.jsonld",
-  "id": "https://example.org/heritalise/condition/MT-CA-VP-2026-011",
+  "id": "https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011",
   "type": "ConditionAssessment",
-  "affectedObject": "https://example.org/heritalise/space/villa-portelli-salon",
+  "affectedObject": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "conditionState": {
     "conditionType": "http://vocab.getty.edu/aat/300379770",
     "severity": "minor",
     "extent": "Scattered flaking paint on lower 40 cm of the west wall, covering an area of approximately 0.3 m\u00b2."
   },
   "assessmentDate": "2026-04-20",
-  "assessor": "https://example.org/heritalise/actor/heritage-malta-conservation",
+  "assessor": "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation",
   "method": "Visual inspection",
   "confidence": "high",
   "recommendation": "Consolidate flaking paint layers; monitor humidity levels via adjacent monitoring-point.",
@@ -219,13 +219,13 @@ A condition assessment of minor paint flaking on the west wall of the Grand Salo
 @prefix sci: <http://www.ics.forth.gr/isl/CRMsci/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/condition/MT-CA-VP-2026-011> a sci:E14_Condition_Assessment ;
-    crm:P140_assigned_attribute_to <https://example.org/heritalise/space/villa-portelli-salon> ;
+<https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011> a sci:E14_Condition_Assessment ;
+    crm:P140_assigned_attribute_to <https://heritalise-eccch.eu/resource/space/villa-portelli-salon> ;
     crm:P33_used_specific_technique "Visual inspection" ;
     crm:P35_has_identified "{\"conditionType\":\"http://vocab.getty.edu/aat/300379770\",\"extent\":\"Scattered flaking paint on lower 40 cm of the west wall, covering an area of approximately 0.3 m².\",\"severity\":\"minor\"}"^^rdf:JSON ;
     crm:P3_has_note "Consolidate flaking paint layers; monitor humidity levels via adjacent monitoring-point." ;
     crm:P4_has_time-span "2026-04-20"^^xsd:date ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/heritage-malta-conservation> .
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation> .
 
 
 ```
@@ -238,6 +238,42 @@ title: Condition Assessment
 description: A qualitative conservation inspection (CRMsci E14 Condition Assessment)
   recording the condition state of a heritage object or place.
 type: object
+required:
+- id
+- type
+- affectedObject
+- conditionState
+- assessmentDate
+oneOf:
+- type: object
+  description: Condition assessment localised by its own embedded footprint geometry.
+  properties:
+    footprint:
+      type: object
+      description: GeoJSON geometry localising the condition on the affected object
+        or surface (point, polyline or polygon patch).
+      properties:
+        type:
+          type: string
+          enum:
+          - Point
+          - LineString
+          - Polygon
+          - MultiPoint
+          - MultiLineString
+          - MultiPolygon
+          x-jsonld-id: '@type'
+        coordinates:
+          type: array
+      required:
+      - type
+      - coordinates
+      x-jsonld-id: https://purl.org/geojson/vocab#geometry
+      x-jsonld-type: '@json'
+  not:
+    required:
+    - references
+- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
 properties:
   id:
     type: string
@@ -319,33 +355,6 @@ properties:
   reviewStatus:
     type: string
     description: Workflow status of this record (e.g. draft, reviewed, approved).
-  footprint:
-    type: object
-    description: GeoJSON geometry localising the condition on the affected object
-      or surface (point, polyline or polygon patch).
-    properties:
-      type:
-        type: string
-        enum:
-        - Point
-        - LineString
-        - Polygon
-        - MultiPoint
-        - MultiLineString
-        - MultiPolygon
-        x-jsonld-id: '@type'
-      coordinates:
-        type: array
-    required:
-    - type
-    - coordinates
-    x-jsonld-id: https://purl.org/geojson/vocab#geometry
-    x-jsonld-type: '@json'
-required:
-- type
-- affectedObject
-- conditionState
-- assessmentDate
 x-jsonld-extra-terms:
   ConditionAssessment: http://www.ics.forth.gr/isl/CRMsci/E14_Condition_Assessment
 x-jsonld-prefixes:
@@ -368,9 +377,19 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
+    "footprint": {
+      "@id": "geojson:geometry",
+      "@type": "@json"
+    },
+    "LineString": "geojson:LineString",
+    "type": "@type",
+    "references": {
+      "@id": "geojson:relatedFeatures",
+      "@type": "@id",
+      "@container": "@list"
+    },
     "ConditionAssessment": "sci:E14_Condition_Assessment",
     "id": "@id",
-    "type": "@type",
     "affectedObject": {
       "@id": "crm:P140_assigned_attribute_to",
       "@type": "@id"
@@ -394,15 +413,13 @@ Links to the schema:
       "@container": "@set"
     },
     "recommendation": "crm:P3_has_note",
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
-    },
     "sci": "http://www.ics.forth.gr/isl/CRMsci/",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "prov": "http://www.w3.org/ns/prov#",
     "geojson": "https://purl.org/geojson/vocab#",
+    "csdm": "https://linked.data.gov.au/def/csdm/",
+    "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }
 }

@@ -1,0 +1,23 @@
+Validation report for ogc.heritage.surface - Surface
+Generated 2026-07-17T10:15:37.922146+00:00
+=== Files ===
+Using examples/venaria-vault-fresco-shared-footprint.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_3_1.jsonld created
+Output Turtle example_3_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/surface/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/surface/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/surface/shapes.shacl#SurfaceShape>: <https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco>
+
+=== End SHACL ===
+

@@ -79,9 +79,12 @@ The JSON `type: "SourceCarrier"` token maps to `crm:E31_Document` via the JSON-L
 ## Examples
 
 ### Venaria — 18th-century architectural plan from the State Archive of Turin
+An 18th-century architectural plan of the Reggia di Venaria's piano nobile, held at the State Archive of Turin, with archival reference, creator, rights and a link to the building it documents.
+#### json
+```json
 {
   "type": "SourceCarrier",
-  "id": "https://heritage.venaria.it/carriers/asto-venaria-mazzo12-n3",
+  "id": "https://heritalise-eccch.eu/resource/carrier/asto-venaria-mazzo12-n3",
   "carrierType": "http://vocab.getty.edu/aat/300034787",
   "title": "Pianta del piano nobile della Reggia di Venaria — Juvarra, c. 1716",
   "creator": ["https://vocab.getty.edu/ulan/500115568"],
@@ -93,14 +96,64 @@ The JSON `type: "SourceCarrier"` token maps to `crm:E31_Document` via the JSON-L
   "physicalFormat": "58 × 82 cm, ink and wash on paper, rolled",
   "condition": "good — minor foxing on margins",
   "rights": "http://rightsstatements.org/vocab/InC-EDU/1.0/",
-  "documentsObject": "https://heritage.venaria.it/buildings/galleria-grande"
+  "documentsObject": "https://heritalise-eccch.eu/resource/building/galleria-grande"
 }
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/context.jsonld",
+  "type": "SourceCarrier",
+  "id": "https://heritalise-eccch.eu/resource/carrier/asto-venaria-mazzo12-n3",
+  "carrierType": "http://vocab.getty.edu/aat/300034787",
+  "title": "Pianta del piano nobile della Reggia di Venaria \u2014 Juvarra, c. 1716",
+  "creator": [
+    "https://vocab.getty.edu/ulan/500115568"
+  ],
+  "datePeriod": "c. 1716",
+  "language": "it",
+  "repository": "Archivio di Stato di Torino",
+  "archivalCode": "ASTo, Corte, Venaria Reale, mazzo 12, n. 3",
+  "collection": "Corte \u2014 Venaria Reale",
+  "physicalFormat": "58 \u00d7 82 cm, ink and wash on paper, rolled",
+  "condition": "good \u2014 minor foxing on margins",
+  "rights": "http://rightsstatements.org/vocab/InC-EDU/1.0/",
+  "documentsObject": "https://heritalise-eccch.eu/resource/building/galleria-grande"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://heritalise-eccch.eu/resource/carrier/asto-venaria-mazzo12-n3> a crm:E31_Document ;
+    dct:creator <https://vocab.getty.edu/ulan/500115568> ;
+    dct:isPartOf "Corte — Venaria Reale" ;
+    dct:rights "http://rightsstatements.org/vocab/InC-EDU/1.0/" ;
+    crm:P102_has_title "Pianta del piano nobile della Reggia di Venaria — Juvarra, c. 1716" ;
+    crm:P1_is_identified_by "ASTo, Corte, Venaria Reale, mazzo 12, n. 3" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300034787> ;
+    crm:P3_has_note "58 × 82 cm, ink and wash on paper, rolled" ;
+    crm:P44_has_condition "good — minor foxing on margins" ;
+    crm:P4_has_time-span "c. 1716" ;
+    crm:P50_has_current_keeper "Archivio di Stato di Torino" ;
+    crm:P70_documents <https://heritalise-eccch.eu/resource/building/galleria-grande> ;
+    crm:P72_has_language "it" .
+
+
+```
 
 
 ### Malta — historic photograph of Villa Portelli main facade (c. 1920)
+A c. 1920 photograph of the Villa Portelli main facade, held at the Malta National Archives, with archival reference, physical condition and a link to the building it documents.
+#### json
+```json
 {
   "type": "SourceCarrier",
-  "id": "https://heritage.gov.mt/carriers/mna-portelli-photo-1920-042",
+  "id": "https://heritalise-eccch.eu/resource/carrier/mna-portelli-photo-1920-042",
   "carrierType": "http://vocab.getty.edu/aat/300046300",
   "title": "Villa Portelli main facade — exterior view, c. 1920",
   "datePeriod": "c. 1920",
@@ -110,8 +163,49 @@ The JSON `type: "SourceCarrier"` token maps to `crm:E31_Document` via the JSON-L
   "physicalFormat": "13 × 18 cm silver gelatin print",
   "condition": "fair — surface scratches, slight yellowing",
   "rights": "http://rightsstatements.org/vocab/NoC-NC/1.0/",
-  "documentsObject": "https://heritage.gov.mt/buildings/villa-portelli"
+  "documentsObject": "https://heritalise-eccch.eu/resource/building/villa-portelli-main"
 }
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/context.jsonld",
+  "type": "SourceCarrier",
+  "id": "https://heritalise-eccch.eu/resource/carrier/mna-portelli-photo-1920-042",
+  "carrierType": "http://vocab.getty.edu/aat/300046300",
+  "title": "Villa Portelli main facade \u2014 exterior view, c. 1920",
+  "datePeriod": "c. 1920",
+  "repository": "Malta National Archives",
+  "archivalCode": "MNA/PHO/1920/042",
+  "collection": "Maltese Heritage Photography Collection",
+  "physicalFormat": "13 \u00d7 18 cm silver gelatin print",
+  "condition": "fair \u2014 surface scratches, slight yellowing",
+  "rights": "http://rightsstatements.org/vocab/NoC-NC/1.0/",
+  "documentsObject": "https://heritalise-eccch.eu/resource/building/villa-portelli-main"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://heritalise-eccch.eu/resource/carrier/mna-portelli-photo-1920-042> a crm:E31_Document ;
+    dct:isPartOf "Maltese Heritage Photography Collection" ;
+    dct:rights "http://rightsstatements.org/vocab/NoC-NC/1.0/" ;
+    crm:P102_has_title "Villa Portelli main facade — exterior view, c. 1920" ;
+    crm:P1_is_identified_by "MNA/PHO/1920/042" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300046300> ;
+    crm:P3_has_note "13 × 18 cm silver gelatin print" ;
+    crm:P44_has_condition "fair — surface scratches, slight yellowing" ;
+    crm:P4_has_time-span "c. 1920" ;
+    crm:P50_has_current_keeper "Malta National Archives" ;
+    crm:P70_documents <https://heritalise-eccch.eu/resource/building/villa-portelli-main> .
+
+
+```
 
 ## Schema
 
@@ -125,6 +219,7 @@ description: "A physical original document, photograph, drawing, negative or bou
   physical condition."
 type: object
 required:
+- id
 - type
 - carrierType
 - title
@@ -133,6 +228,7 @@ properties:
     type: string
     format: uri
     description: Persistent URI identifying this source carrier record.
+    x-jsonld-id: '@id'
   type:
     const: SourceCarrier
     description: Fixed type token identifying this record as a source carrier (maps
@@ -229,6 +325,7 @@ Links to the schema:
 {
   "@context": {
     "SourceCarrier": "crm:E31_Document",
+    "id": "@id",
     "type": "@type",
     "carrierType": {
       "@id": "crm:P2_has_type",

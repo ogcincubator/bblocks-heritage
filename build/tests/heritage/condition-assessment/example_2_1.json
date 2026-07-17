@@ -1,14 +1,14 @@
 {
-  "id": "https://example.org/heritalise/condition/MT-CA-VP-2026-011",
+  "id": "https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011",
   "type": "ConditionAssessment",
-  "affectedObject": "https://example.org/heritalise/space/villa-portelli-salon",
+  "affectedObject": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "conditionState": {
     "conditionType": "http://vocab.getty.edu/aat/300379770",
     "severity": "minor",
     "extent": "Scattered flaking paint on lower 40 cm of the west wall, covering an area of approximately 0.3 m\u00b2."
   },
   "assessmentDate": "2026-04-20",
-  "assessor": "https://example.org/heritalise/actor/heritage-malta-conservation",
+  "assessor": "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation",
   "method": "Visual inspection",
   "confidence": "high",
   "recommendation": "Consolidate flaking paint layers; monitor humidity levels via adjacent monitoring-point.",

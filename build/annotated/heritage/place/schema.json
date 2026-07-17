@@ -9,6 +9,12 @@
     {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "description": "The persistent or local URI identifying this place (overrides the inherited JSON-FG `id`, which also allows a bare number).",
+          "x-jsonld-id": "@id"
+        },
         "properties": {
           "type": "object",
           "description": "CIDOC-CRM E53 Place attributes, nested per JSON-FG/GeoJSON convention.",
@@ -52,6 +58,7 @@
         }
       },
       "required": [
+        "id",
         "properties"
       ]
     }

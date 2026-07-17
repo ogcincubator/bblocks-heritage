@@ -1,0 +1,14 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024> a crmdig:D1_Digital_Object ;
+    dct:description "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.ogc-utils.topology) instead of re-encoding the same polygon as `coverage`." ;
+    dct:format "application/vnd.las" ;
+    dct:title "TLS Point Cloud — Galleria Grande Bay 7 Vault (2024)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"±3 mm\",\"acquisitionDate\":\"2024-03-16\",\"acquisitionMethod\":\"TLS\",\"equipment\":\"Leica RTC360\"}"^^rdf:JSON ;
+    geojson:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) .
+

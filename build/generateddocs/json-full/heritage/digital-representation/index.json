@@ -59,20 +59,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/photograph.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.json",
-          "sizeBytes": 406,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}\n"
+          "sizeBytes": 424,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.jsonld",
-          "sizeBytes": 533,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}"
+          "sizeBytes": 551,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.ttl",
-          "sizeBytes": 534,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/great-gallery-painting-014-photo-01> dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .\n\n"
+          "sizeBytes": 552,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
         }
       ]
     },
@@ -84,20 +84,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.json",
-          "sizeBytes": 144,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\"\n}\n"
+          "sizeBytes": 156,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.jsonld",
-          "sizeBytes": 271,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\"\n}"
+          "sizeBytes": 283,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.ttl",
-          "sizeBytes": 193,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://example.org/heritalise/digital/fishing-creel-photo-01> crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> .\n\n"
+          "sizeBytes": 205,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .\n\n"
         }
       ]
     }

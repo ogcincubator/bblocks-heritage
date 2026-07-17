@@ -52,10 +52,11 @@ A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `S
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z",
   "type": "Observation",
-  "hasFeatureOfInterest": "https://example.org/heritalise/place/great-gallery",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://example.org/heritalise/sta/v1.1/Sensors(12)",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)",
   "hasSimpleResult": 54.2,
   "resultTime": "2024-03-04T12:00:00Z"
 }
@@ -66,10 +67,11 @@ A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `S
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z",
   "type": "Observation",
-  "hasFeatureOfInterest": "https://example.org/heritalise/place/great-gallery",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://example.org/heritalise/sta/v1.1/Sensors(12)",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)",
   "hasSimpleResult": 54.2,
   "resultTime": "2024-03-04T12:00:00Z"
 }
@@ -80,10 +82,10 @@ A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `S
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a sosa:Observation ;
-    sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;
+<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z> a sosa:Observation ;
+    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult 5.42e+01 ;
-    sosa:madeBySensor <https://example.org/heritalise/sta/v1.1/Sensors(12)> ;
+    sosa:madeBySensor <https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
     sosa:resultTime "2024-03-04T12:00:00Z" .
 
@@ -96,7 +98,8 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
 #### json
 ```json
 {
-  "hasFeatureOfInterest": "https://example.org/heritalise/place/great-gallery",
+  "id": "https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300379098",
   "hasSimpleResult": "RH within tolerance, see paper log"
 }
@@ -107,7 +110,8 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
-  "hasFeatureOfInterest": "https://example.org/heritalise/place/great-gallery",
+  "id": "https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300379098",
   "hasSimpleResult": "RH within tolerance, see paper log"
 }
@@ -117,7 +121,7 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
 ```ttl
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 
-[] sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;
+<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult <file:///github/workspace/> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
 
@@ -130,10 +134,11 @@ A relative humidity reading taken by a monitoring point in the Reggia di Venaria
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z",
   "type": "Observation",
-  "hasFeatureOfInterest": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "hasSimpleResult": 61.4,
   "resultTime": "2024-09-15T08:30:00Z"
 }
@@ -144,10 +149,11 @@ A relative humidity reading taken by a monitoring point in the Reggia di Venaria
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z",
   "type": "Observation",
-  "hasFeatureOfInterest": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "hasSimpleResult": 61.4,
   "resultTime": "2024-09-15T08:30:00Z"
 }
@@ -158,10 +164,10 @@ A relative humidity reading taken by a monitoring point in the Reggia di Venaria
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a sosa:Observation ;
-    sosa:hasFeatureOfInterest <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;
+<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z> a sosa:Observation ;
+    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;
     sosa:hasSimpleResult 6.14e+01 ;
-    sosa:madeBySensor <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;
+    sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
     sosa:resultTime "2024-09-15T08:30:00Z" .
 
@@ -203,6 +209,7 @@ allOf:
 - $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml
 - type: object
   required:
+  - id
   - hasFeatureOfInterest
   properties:
     type:

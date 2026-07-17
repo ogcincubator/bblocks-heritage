@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.oral-history - Oral History
-Generated 2026-07-16T14:38:31.994226+00:00
+Generated 2026-07-17T10:15:47.539224+00:00
 === Files ===
 Using examples/malta_oral_history.json from examples
 JSON-LD context is present - uplifting

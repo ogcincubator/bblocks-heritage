@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.event - Event
-Generated 2026-07-16T14:38:29.027748+00:00
+Generated 2026-07-17T10:15:41.095680+00:00
 === Files ===
 Using examples/restoration.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/event/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/event/shapes.shacl:
- - Shape <file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI>: <https://example.org/heritalise/event/restoration-2024>
+ - Shape <file:///github/workspace/_sources/event/shapes.shacl#EventTypeIsIRI>: <https://heritalise-eccch.eu/resource/event/restoration-2024>
 
 === End SHACL ===
 

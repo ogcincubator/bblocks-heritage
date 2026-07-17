@@ -1,0 +1,15 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/context.jsonld",
+  "type": "SourceCarrier",
+  "id": "https://heritalise-eccch.eu/resource/carrier/mna-portelli-photo-1920-042",
+  "carrierType": "http://vocab.getty.edu/aat/300046300",
+  "title": "Villa Portelli main facade \u2014 exterior view, c. 1920",
+  "datePeriod": "c. 1920",
+  "repository": "Malta National Archives",
+  "archivalCode": "MNA/PHO/1920/042",
+  "collection": "Maltese Heritage Photography Collection",
+  "physicalFormat": "13 \u00d7 18 cm silver gelatin print",
+  "condition": "fair \u2014 surface scratches, slight yellowing",
+  "rights": "http://rightsstatements.org/vocab/NoC-NC/1.0/",
+  "documentsObject": "https://heritalise-eccch.eu/resource/building/villa-portelli-main"
+}

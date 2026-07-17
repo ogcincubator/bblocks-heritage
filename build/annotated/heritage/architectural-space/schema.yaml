@@ -23,6 +23,13 @@ description: 'An interior room, bay, hall, corridor, vault, opening or zone with
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 - type: object
+  oneOf:
+  - type: object
+    description: Space with its own embedded footprint geometry (or none at all).
+    not:
+      required:
+      - references
+  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
     parentBuilding:
       type: string

@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.building - Building",
   "bblockName": "Building",
   "bblockId": "ogc.heritage.building",
-  "generated": "2026-07-16T14:38:29.093690+00:00",
+  "generated": "2026-07-17T10:15:37.537026+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/building/galleria-grande>"
+                    "<https://heritalise-eccch.eu/resource/building/galleria-grande>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/building/shapes.shacl:\n - Shape <file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>: <https://example.org/heritalise/building/galleria-grande>\n"
+              "message": "Focus nodes for _sources/building/shapes.shacl:\n - Shape <file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n"
             },
             {
               "op": "shacl-report",
@@ -93,12 +93,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/building/galleria-grande>"
+                    "<https://heritalise-eccch.eu/resource/building/galleria-grande>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/building/galleria-grande>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n"
             }
           ]
         }
@@ -173,12 +173,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/building/villa-portelli-main>"
+                    "<https://heritalise-eccch.eu/resource/building/villa-portelli-main>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/building/shapes.shacl:\n - Shape <file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>: <https://example.org/heritalise/building/villa-portelli-main>\n"
+              "message": "Focus nodes for _sources/building/shapes.shacl:\n - Shape <file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n"
             },
             {
               "op": "shacl-report",
@@ -192,12 +192,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/building/villa-portelli-main>"
+                    "<https://heritalise-eccch.eu/resource/building/villa-portelli-main>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/building/villa-portelli-main>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n"
             }
           ]
         }

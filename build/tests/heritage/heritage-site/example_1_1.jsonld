@@ -1,6 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld",
-  "id": "https://example.org/heritalise/site/reggia-di-venaria",
+  "id": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",

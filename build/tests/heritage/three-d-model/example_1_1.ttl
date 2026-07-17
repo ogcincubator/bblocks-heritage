@@ -2,8 +2,8 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/digital/great-gallery-painting-014-model-01> dct:format "model/gltf-binary" ;
-    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> dct:format "model/gltf-binary" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     crm:P1_is_identified_by "RV-GG-014-3D-01" ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/giulia-bianchi> .
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .
 

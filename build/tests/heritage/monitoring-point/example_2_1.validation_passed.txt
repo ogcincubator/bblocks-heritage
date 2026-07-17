@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.monitoring-point - Monitoring Point
-Generated 2026-07-16T14:38:29.212013+00:00
+Generated 2026-07-17T10:15:38.136108+00:00
 === Files ===
 Using examples/villa-portelli-temp-sensor.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/monitoring-point/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/monitoring-point/shapes.shacl:
- - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: _:Nd5620393503a41b5b2e3e7602ab5be65
+ - Shape <file:///github/workspace/_sources/monitoring-point/shapes.shacl#MonitoringPointShape>: <https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01>
 
 === End SHACL ===
 

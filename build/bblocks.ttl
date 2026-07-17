@@ -2,8 +2,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix ns1: <http://www.w3.org/ns/oa#> .
-@prefix ns2: <http://www.iana.org/assignments/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix ns2: <http://www.w3.org/ns/oa#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -22,12 +22,12 @@
     rdfs:label "Archival Document" ;
     dct:abstract "A digital-representation profile constrained to archival document formats (PDF/A, LIDO/XML), with a mandatory persistent identifier for long-term archival reference."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/archival-document/index.md> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.archival-document> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/archival-document/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/archival-document/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/archival-document/index.md> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-06-25"^^xsd:date ;
     dct:source <https://lido-schema.org/>,
@@ -39,23 +39,23 @@
         "digital-representation",
         "heritage",
         "lido" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.json> ;
             prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.yaml> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:validation ] ;
     prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
     bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
@@ -68,12 +68,12 @@
     rdfs:label "3D Model" ;
     dct:abstract "A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/three-d-model/index.md> ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/three-d-model/index.json> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.three-d-model> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.three-d-model> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/three-d-model/index.md> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-06-25"^^xsd:date ;
     dct:source <https://www.khronos.org/gltf/>,
@@ -85,22 +85,22 @@
         "digital-representation",
         "gltf",
         "heritage" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
             prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.yaml> ;
             prof:hasRole role:schema ] ;
     prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
     bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
@@ -139,18 +139,18 @@
 
 <https://ogcincubator.github.io/bblocks-heritage/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N4539296541554957a6676ee51337ee2f ;
+    prov:wasAttributedTo _:N139e3e06d47141cf871c978da5f7edde ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2026-07-16T14:38:36.351879"^^xsd:dateTime ;
-            prov:startedAtTime "2026-07-16T14:38:36.192336"^^xsd:dateTime ;
+            prov:endedAtTime "2026-07-17T10:15:48.291275"^^xsd:dateTime ;
+            prov:startedAtTime "2026-07-17T10:15:48.086501"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
-                    dct:format "application/yaml" ;
-                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
-                [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:432e1ff37dd9568fd2133bbfbe0332557e369c9e" ;
-                    rdfs:seeAlso <https://ogcincubator.github.io/bblocks-heritage/build/register.json> ] ;
-            prov:wasAssociatedWith _:N4539296541554957a6676ee51337ee2f ] .
+                    dct:hasVersion "git:e79f96c5205a0c2175426a2f7e2c9d5418743fac" ;
+                    rdfs:seeAlso <https://ogcincubator.github.io/bblocks-heritage/build/register.json> ],
+                [ a prov:Entity ;
+                    dct:format "application/yaml" ;
+                    rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
+            prov:wasAssociatedWith _:N139e3e06d47141cf871c978da5f7edde ] .
 
 <https://pro.europeana.eu/page/edm-documentation> rdfs:label "Europeana Data Model (EDM)" .
 
@@ -207,7 +207,15 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "cidoc-crm",
         "heritage",
         "prov" ;
-    prof:hasResource [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.actor> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl> ;
@@ -215,14 +223,6 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json> ;
             prof:hasRole role:schema ] ;
     prof:isProfileOf <bblocks://ogc.ogc-utils.prov-agent> ;
     bblocks:dependsOn <bblocks://ogc.ogc-utils.prov-agent> ;
@@ -237,12 +237,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Aggregation" ;
     dct:abstract "An EDM/ORE aggregation wrapping a heritage object together with its digital representations and the provider/rights metadata required to publish it to Europeana / ECCCH, modelled as edm:Aggregation (ore:Aggregation)."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.aggregation> ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/aggregation/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/aggregation/index.md> ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.aggregation> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/aggregation/index.md> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-06-25"^^xsd:date ;
     dct:source <http://www.openarchives.org/ore/1.0/datamodel>,
@@ -255,23 +255,23 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "edm",
         "europeana",
         "heritage" ;
-    prof:hasResource [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.aggregation> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld> ;
-            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.yaml> ;
-            prof:hasRole role:schema ] ;
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/aggregation/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -290,7 +290,7 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/architectural-space/index.md> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E22>,
         <https://heritalise-eccch.eu/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
@@ -307,24 +307,25 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             prof:hasRole role:mapping ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.heritage-object> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl> ;
+            rdfs:seeAlso <bblocks://ogc.heritage.architectural-space> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/architectural-space/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/schema.yaml> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/schema.json> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.architectural-space> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/architectural-space/shapes.shacl> ;
-            prof:hasRole role:validation ] ;
+            rdfs:seeAlso <bblocks://ogc.heritage.heritage-object> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/schema.yaml> ;
+            prof:hasRole role:schema ] ;
     prof:isProfileOf <bblocks://ogc.heritage.heritage-object> ;
-    bblocks:dependsOn <bblocks://ogc.heritage.heritage-object> ;
+    bblocks:dependsOn <bblocks://ogc.heritage.heritage-object>,
+        <bblocks://ogc.ogc-utils.topology> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/architectural-space/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -336,14 +337,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Building" ;
     dct:abstract "A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/building/index.json> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.building> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/building/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/building/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/building/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E22>,
         <https://heritalise-eccch.eu/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
@@ -353,7 +354,17 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "building",
         "cidoc-crm",
         "heritage" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.building> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/building/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.heritage-object> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/schema.yaml> ;
             prof:hasRole role:schema ],
@@ -361,22 +372,13 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.heritage-object> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.building> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/building/shapes.shacl> ;
-            prof:hasRole role:validation ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld> ;
             prof:hasRole role:mapping ] ;
     prof:isProfileOf <bblocks://ogc.heritage.heritage-object> ;
-    bblocks:dependsOn <bblocks://ogc.heritage.heritage-object> ;
+    bblocks:dependsOn <bblocks://ogc.heritage.heritage-object>,
+        <bblocks://ogc.ogc-utils.topology> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/building/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -388,14 +390,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Condition Assessment" ;
     dct:abstract "A qualitative conservation inspection event (CRMsci E14 Condition Assessment) recording the condition state of a heritage object or place at a point in time, with assessor, method, severity and optional spatial localisation."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.condition-assessment> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/condition-assessment/index.md> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/condition-assessment/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/condition-assessment/index.json> ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.condition-assessment> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E3>,
         <https://heritalise-eccch.eu/>,
         <https://www.ics.forth.gr/isl/CRMsci/CRMsci_v2.0.pdf> ;
@@ -407,23 +409,24 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "conservation",
         "crmsci",
         "heritage" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/context.jsonld> ;
-            prof:hasRole role:mapping ],
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/schema.yaml> ;
+            prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.condition-assessment> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/shapes.shacl> ;
-            prof:hasRole role:validation ] ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
+    bblocks:dependsOn <bblocks://ogc.ogc-utils.topology> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/condition-assessment/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -437,12 +440,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.derived-survey-product> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/derived-survey-product/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/derived-survey-product/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/derived-survey-product/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/derived-survey-product/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://heritalise-eccch.eu/>,
         <https://www.ics.forth.gr/isl/CRMdig/>,
         <https://www.w3.org/TR/prov-o/> ;
@@ -457,27 +460,27 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "processing",
         "prov",
         "survey" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/schema.json> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
             prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.derived-survey-product> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/derived-survey-product/shapes.shacl> ;
             prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/schema.yaml> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/schema.json> ;
             prof:hasRole role:schema ] ;
     prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
     bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
@@ -492,14 +495,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Digital Surrogate" ;
     dct:abstract "A digital file produced by digitising a physical source carrier (e.g. a photograph, drawing or bound volume), modelled as a CRMdig D1 Digital Object with a mandatory PROV derivation chain linking to the source-carrier and a D7 digitisation event sub-object. Profiles ogc.heritage.digital-representation."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/digital-surrogate/index.md> ],
-        [ dct:format "application/json" ;
+    dct:description [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/digital-surrogate/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/digital-surrogate/index.md> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.digital-surrogate> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://heritalise-eccch.eu/>,
         <https://iiif.io/api/presentation/3.0/>,
         <https://www.ics.forth.gr/isl/CRMdig/>,
@@ -514,28 +517,28 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "heritage",
         "iiif",
         "prov" ;
-    prof:hasResource [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.digital-surrogate> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/context.jsonld> ;
             prof:hasRole role:mapping ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
-            prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/schema.yaml> ;
             prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-surrogate> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/shapes.shacl> ;
+            prof:hasRole role:validation ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-surrogate/schema.json> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
+            prof:hasRole role:validation ] ;
     prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
     bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-surrogate/context.jsonld> ;
@@ -567,23 +570,23 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "event",
         "heritage",
         "prov" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld> ;
-            prof:hasRole role:mapping ],
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.yaml> ;
+            prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.event> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/event/shapes.shacl> ;
-            prof:hasRole role:validation ] ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     prof:isProfileOf <bblocks://ogc.ogc-utils.prov-activity> ;
     bblocks:dependsOn <bblocks://ogc.ogc-utils.prov-activity> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/event/context.jsonld> ;
@@ -597,12 +600,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Fabrication Output" ;
     dct:abstract "A digital-representation profile constrained to physical-fabrication formats (STL, 3MF), with a mandatory PROV derivation chain back to its source 3D model."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/fabrication-output/index.json> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/fabrication-output/index.md> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.fabrication-output> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.fabrication-output> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/fabrication-output/index.json> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-06-25"^^xsd:date ;
     dct:source <https://3mf.io/specification/> ;
@@ -613,28 +616,28 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "fabrication-output",
         "heritage",
         "prov" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.fabrication-output> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/schema.json> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.fabrication-output> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
     bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
@@ -647,14 +650,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Heritage Site" ;
     dct:abstract "A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/heritage-site/index.json> ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/heritage-site/index.md> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.heritage-site> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/heritage-site/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.heritage-site> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E27>,
         <https://heritalise-eccch.eu/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
@@ -669,23 +672,23 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             rdfs:seeAlso <bblocks://ogc.heritage.heritage-site> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-site/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld> ;
-            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.place> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl> ;
             prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
@@ -706,12 +709,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.historical-place> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/historical-place/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/historical-place/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/historical-place/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/historical-place/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E53>,
         <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#P89>,
         <https://heritalise-eccch.eu/> ;
@@ -723,32 +726,32 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "historical",
         "place",
         "spatial" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.place> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl> ;
+            rdfs:seeAlso <bblocks://ogc.heritage.historical-place> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.json> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
             prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
             prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.json> ;
+            prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-place/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.historical-place> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/shapes.shacl> ;
+            rdfs:seeAlso <bblocks://ogc.heritage.place> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl> ;
             prof:hasRole role:validation ] ;
     prof:isProfileOf <bblocks://ogc.heritage.place> ;
     bblocks:dependsOn <bblocks://ogc.heritage.place> ;
@@ -765,12 +768,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.historical-statement> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/historical-statement/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/historical-statement/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/historical-statement/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/historical-statement/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E13>,
         <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E33>,
         <https://heritalise-eccch.eu/>,
@@ -785,23 +788,23 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "historical-statement",
         "prov",
         "web-annotation" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-statement/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.historical-statement> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/historical-statement/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-statement/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-statement/schema.json> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.historical-statement> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/historical-statement/shapes.shacl> ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/historical-statement/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/historical-statement/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -813,14 +816,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Monitoring Point" ;
     dct:abstract "A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/monitoring-point/index.md> ],
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/monitoring-point/index.json> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.monitoring-point> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/monitoring-point/index.json> ] ;
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/monitoring-point/index.md> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E22>,
         <https://heritalise-eccch.eu/>,
         <https://www.w3.org/TR/vocab-ssn/#SOSASensor> ;
@@ -833,7 +836,15 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "sensor",
         "sosa",
         "ssn" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/context.jsonld> ;
             prof:hasRole role:mapping ],
@@ -841,15 +852,7 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.monitoring-point> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-point/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/monitoring-point/schema.yaml> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:validation ] ;
     prof:isProfileOf <bblocks://ogc.sosa.properties.sensor> ;
     bblocks:dependsOn <bblocks://ogc.sosa.properties.sensor> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/monitoring-point/context.jsonld> ;
@@ -865,12 +868,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.monitoring-threshold> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/monitoring-threshold/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/monitoring-threshold/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/monitoring-threshold/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/monitoring-threshold/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E55>,
         <https://heritalise-eccch.eu/>,
         <https://qudt.org/>,
@@ -912,12 +915,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Observation" ;
     dct:abstract "A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an OGC SensorThings API `Sensor`."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/observation/index.md> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.observation> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/observation/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/observation/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/observation/index.md> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-06-25"^^xsd:date ;
     dct:source <https://www.cidoc-crm.org/>,
@@ -932,28 +935,28 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "observation",
         "sosa",
         "sta" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.json> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.observation> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/observation/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.yaml> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.sosa.properties.observation> ;
             prof:hasArtifact <https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl> ;
-            prof:hasRole role:validation ] ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.json> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     prof:isProfileOf <bblocks://ogc.sosa.properties.observation> ;
     bblocks:dependsOn <bblocks://ogc.sosa.properties.observation> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/observation/context.jsonld> ;
@@ -967,14 +970,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Oral History" ;
     dct:abstract "An audio or video oral history recording or community narrative, modelled as a CIDOC-CRM E73 Information Object with a mandatory IIIF Presentation API manifest, interviewee reference, language, and consent status. Profiles ogc.heritage.digital-representation and adds schema.org AudioObject/VideoObject alignment for web visibility."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/oral-history/index.json> ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/oral-history/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/oral-history/index.json> ],
         [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.oral-history> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E73>,
         <https://heritalise-eccch.eu/>,
         <https://iiif.io/api/presentation/3.0/>,
@@ -990,19 +993,11 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "oral-history",
         "schema.org",
         "video" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/oral-history/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo shacl: ;
+    prof:hasResource [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.oral-history> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/oral-history/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/oral-history/schema.yaml> ;
-            prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/oral-history/schema.json> ;
@@ -1011,7 +1006,15 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
-            prof:hasRole role:validation ] ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/oral-history/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/oral-history/schema.yaml> ;
+            prof:hasRole role:schema ] ;
     prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
     bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/oral-history/context.jsonld> ;
@@ -1032,7 +1035,7 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/route/index.md> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E26>,
         <https://heritalise-eccch.eu/> ;
     skos:inScheme <https://ogcincubator.github.io/bblocks-heritage/> ;
@@ -1045,13 +1048,13 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "route" ;
     prof:hasResource [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.place> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl> ;
+            rdfs:seeAlso <bblocks://ogc.heritage.route> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/route/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld> ;
-            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/schema.json> ;
+            prof:hasRole role:schema ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
@@ -1061,14 +1064,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/schema.yaml> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/schema.json> ;
-            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.route> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/route/shapes.shacl> ;
+            rdfs:seeAlso <bblocks://ogc.heritage.place> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl> ;
             prof:hasRole role:validation ] ;
     prof:isProfileOf <bblocks://ogc.heritage.place> ;
     bblocks:dependsOn <bblocks://ogc.heritage.place> ;
@@ -1083,14 +1086,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Source Carrier" ;
     dct:abstract "A physical original document, photograph, drawing, negative or bound volume that carries heritage information, modelled as CIDOC-CRM E31 Document. Records the physical carrier from which digital surrogates are derived, with repository, archival code, and rights metadata."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/source-carrier/index.md> ],
+        [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.source-carrier> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/source-carrier/index.json> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/source-carrier/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/source-carrier/index.json> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E31>,
         <https://heritalise-eccch.eu/>,
         <https://www.ica.org/sites/default/files/CBPS_2000_Guidelines_ISAD%28G%29_Second-edition_EN.pdf> ;
@@ -1104,12 +1107,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "photograph",
         "source" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/source-carrier/schema.json> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
@@ -1138,7 +1141,7 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/surface/index.md> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E25>,
         <https://heritalise-eccch.eu/>,
         <https://www.getty.edu/research/tools/vocabularies/aat/> ;
@@ -1155,18 +1158,19 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             rdfs:seeAlso <bblocks://ogc.heritage.surface> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/surface/shapes.shacl> ;
             prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/schema.yaml> ;
-            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/schema.yaml> ;
+            prof:hasRole role:schema ] ;
+    bblocks:dependsOn <bblocks://ogc.ogc-utils.topology> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/surface/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -1178,14 +1182,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Survey Dataset" ;
     dct:abstract "A geometric survey dataset (point cloud, photogrammetric model or similar) acquired from a heritage asset, modelled as a CRMdig D1 Digital Object with a CRMdig D7 acquisition event and a spatial coverage geometry. Profiles ogc.heritage.digital-representation, adding survey acquisition paradata (method, equipment, CRS, density, accuracy) and a mandatory coverage polygon."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-07-16T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.survey-dataset> ],
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/survey-dataset/index.json> ],
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/survey-dataset/index.md> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/survey-dataset/index.json> ] ;
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.survey-dataset> ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2026-07-16"^^xsd:date ;
+    dct:modified "2026-07-17"^^xsd:date ;
     dct:source <https://heritalise-eccch.eu/>,
         <https://www.ics.forth.gr/isl/CRMdig/>,
         <https://www.w3.org/TR/vocab-dcat-3/> ;
@@ -1200,10 +1204,19 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "photogrammetry",
         "point-cloud",
         "survey" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/context.jsonld> ;
             prof:hasRole role:mapping ],
+        [ dct:conformsTo shacl: ;
+            dct:format "text/turtle" ;
+            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
+            prof:hasRole role:validation ],
         [ dct:conformsTo shacl: ;
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.survey-dataset> ;
@@ -1212,18 +1225,10 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/schema.json> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo shacl: ;
-            dct:format "text/turtle" ;
-            rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/schema.yaml> ;
             prof:hasRole role:schema ] ;
     prof:isProfileOf <bblocks://ogc.heritage.digital-representation> ;
-    bblocks:dependsOn <bblocks://ogc.heritage.digital-representation> ;
+    bblocks:dependsOn <bblocks://ogc.heritage.digital-representation>,
+        <bblocks://ogc.ogc-utils.topology> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/survey-dataset/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -1264,6 +1269,14 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "heritage",
         "object" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml> ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld> ;
+            prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.json> ;
             prof:hasRole role:schema ],
@@ -1271,15 +1284,7 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.heritage-object> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl> ;
-            prof:hasRole role:validation ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld> ;
-            prof:hasRole role:mapping ] ;
+            prof:hasRole role:validation ] ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/context.jsonld> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> ;
     bblocks:validationPassed true .
@@ -1291,12 +1296,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Place" ;
     dct:abstract "A spatial location relevant to cultural heritage — a site, building, room or landscape feature — modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/place/index.md> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.place> ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/place/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/place/index.json> ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/place/index.md> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-06-25"^^xsd:date ;
     dct:source <http://docs.ogc.org/per/21-017r1.html>,
@@ -1309,11 +1314,7 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
         "heritage",
         "json-fg",
         "place" ;
-    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld> ;
-            prof:hasRole role:mapping ],
-        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.yaml> ;
             prof:hasRole role:schema ],
@@ -1322,6 +1323,10 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             rdfs:seeAlso <bblocks://ogc.geo.features.feature> ;
             prof:hasArtifact <https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl> ;
             prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld> ;
+            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.json> ;
@@ -1362,12 +1367,12 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
     rdfs:label "Digital Representation" ;
     dct:abstract "A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2026-06-25T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/digital-representation/index.md> ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/digital-representation/index.json> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.digital-representation> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/digital-representation/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.digital-representation> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-06-25"^^xsd:date ;
     dct:source <https://www.cidoc-crm.org/>,
@@ -1384,10 +1389,6 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld> ;
-            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.json> ;
@@ -1396,7 +1397,11 @@ schema:AudioObject rdfs:label "schema.org AudioObject / VideoObject" .
             dct:format "text/turtle" ;
             rdfs:seeAlso <bblocks://ogc.heritage.digital-representation> ;
             prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl> ;
-            prof:hasRole role:validation ] ;
+            prof:hasRole role:validation ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     prof:isProfileOf <bblocks://ogc.ogc-utils.prov-entity> ;
     bblocks:dependsOn <bblocks://ogc.ogc-utils.prov-entity> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/context.jsonld> ;
@@ -1415,7 +1420,7 @@ heritage domain, building on CIDOC-CRM, PROV-O, SOSA/SSN, EDM and DCAT. It origi
 standards profiling work of the [HERITALISE](https://heritalise.eu) project (deliverables D8.1
 and D8.2), but is intended as a general-purpose register usable beyond that project.
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:modified "2026-07-16T14:38:13.390880"^^xsd:dateTime ;
+    dct:modified "2026-07-17T10:15:23.942800"^^xsd:dateTime ;
     owl:imports <https://ogcincubator.github.io/bblock-prov-schema/build/register.json>,
         <https://ogcincubator.github.io/bblocks-skos/build/register.json>,
         <https://ogcincubator.github.io/geodcat-ogcapi-records/build/register.json>,
@@ -1449,20 +1454,20 @@ and D8.2), but is intended as a general-purpose register usable beyond that proj
     skos:prefLabel "Building Blocks - Cultural Heritage Building Blocks" ;
     prof:hasResource [ rdfs:label "This Building Blocks Register in JSON format" ;
             dct:type "application/json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            ns1:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/register.json> ],
-        [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
-            dct:type "application/ld+json" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            ns1:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/bblocks.jsonld> ],
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            ns2:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/register.json> ],
         [ rdfs:label "This Building Blocks Register in RDF Turtle format" ;
             dct:type "text/turtle" ;
-            ns2:relation <http://www.iana.org/assignments/relation/self> ;
-            ns1:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/bblocks.ttl> ] ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            ns2:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/bblocks.ttl> ],
+        [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
+            dct:type "application/ld+json" ;
+            ns1:relation <http://www.iana.org/assignments/relation/self> ;
+            ns2:hasTarget <https://ogcincubator.github.io/bblocks-heritage/build/bblocks.jsonld> ] ;
     foaf:homepage <https://ogcincubator.github.io/bblocks-heritage/> ;
     bblocks:hasValidationReport <https://ogcincubator.github.io/bblocks-heritage/build/tests/report.html> .
 
-_:N4539296541554957a6676ee51337ee2f a prov:Agent,
+_:N139e3e06d47141cf871c978da5f7edde a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.5.31" ;

@@ -2,13 +2,212 @@
   "title": "Validation report for ogc.heritage.derived-survey-product - Derived Survey Product",
   "bblockName": "Derived Survey Product",
   "bblockId": "ogc.heritage.derived-survey-product",
-  "generated": "2026-07-16T14:38:31.632593+00:00",
+  "generated": "2026-07-17T10:15:46.901669+00:00",
   "result": true,
-  "items": [],
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/derived-survey-product/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/derived-survey-product/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/venaria-gc-ceiling-mesh.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 8,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/derived-survey-product/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/derived-survey-product/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/derived-survey-product/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/derived-survey-product/shapes.shacl#DerivedSurveyProductShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/derived-survey-product/shapes.shacl:\n - Shape <file:///github/workspace/_sources/derived-survey-product/shapes.shacl#DerivedSurveyProductShape>: <https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024>\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024>\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/derived-survey-product/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/derived-survey-product/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/malta-villa-portelli-deviation-map.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 9,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/derived-survey-product/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/derived-survey-product/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/derived-survey-product/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/derived-survey-product/shapes.shacl#DerivedSurveyProductShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/derived-survey-product/shapes.shacl:\n - Shape <file:///github/workspace/_sources/derived-survey-product/shapes.shacl#DerivedSurveyProductShape>: <https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025>\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025>\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "globalErrors": {},
   "counts": {
-    "total": 0,
-    "passed": 0,
+    "total": 2,
+    "passed": 2,
     "failed": 0
   }
 }

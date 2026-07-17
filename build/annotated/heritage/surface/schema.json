@@ -1,13 +1,55 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Surface",
-  "description": "A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature). Records the host object, material and technique (Getty AAT), historical phase, exposure context and a mandatory polygon or surface-patch geometry. May be linked to a condition-assessment record for pathology documentation.",
+  "description": "A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature). Records the host object, material and technique (Getty AAT), historical phase, exposure context and a mandatory polygon or surface-patch geometry \u2014 embedded, or given by reference to shared/topological geometry (see ogc.ogc-utils.topology). May be linked to a condition-assessment record for pathology documentation.",
   "type": "object",
   "required": [
+    "id",
     "type",
     "hostObject",
-    "material",
-    "footprint"
+    "material"
+  ],
+  "oneOf": [
+    {
+      "type": "object",
+      "description": "Surface with its own embedded footprint geometry.",
+      "properties": {
+        "footprint": {
+          "type": "object",
+          "description": "GeoJSON Geometry delineating the spatial extent of this surface as a polygon or surface-patch. Coordinates should be in the reference system of the host structure's survey (local or EPSG:4326). Maps to geojson:geometry.",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": [
+                "Polygon",
+                "MultiPolygon"
+              ],
+              "x-jsonld-id": "@type"
+            },
+            "coordinates": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ],
+          "x-jsonld-id": "https://purl.org/geojson/vocab#geometry",
+          "x-jsonld-type": "@json"
+        }
+      },
+      "required": [
+        "footprint"
+      ],
+      "not": {
+        "required": [
+          "references"
+        ]
+      }
+    },
+    {
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.json"
+    }
   ],
   "properties": {
     "id": {
@@ -72,29 +114,6 @@
     "reviewStatus": {
       "type": "string",
       "description": "Workflow status of this record, e.g. \"draft\", \"reviewed\", \"approved\"."
-    },
-    "footprint": {
-      "type": "object",
-      "description": "GeoJSON Geometry delineating the spatial extent of this surface as a polygon or surface-patch. Coordinates should be in the reference system of the host structure's survey (local or EPSG:4326). Maps to geojson:geometry.",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "Polygon",
-            "MultiPolygon"
-          ],
-          "x-jsonld-id": "@type"
-        },
-        "coordinates": {
-          "type": "array"
-        }
-      },
-      "required": [
-        "type",
-        "coordinates"
-      ],
-      "x-jsonld-id": "https://purl.org/geojson/vocab#geometry",
-      "x-jsonld-type": "@json"
     }
   },
   "x-jsonld-extra-terms": {

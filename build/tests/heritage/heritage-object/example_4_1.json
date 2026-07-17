@@ -1,5 +1,5 @@
 {
-  "id": "https://example.org/heritalise/object/venaria-tapestry-hunt-04",
+  "id": "https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04",
   "type": "HeritageObject",
   "identifier": "RV-MOV-TAP-004",
   "title": "Royal Hunt tapestry no. 4",
@@ -8,10 +8,10 @@
     "http://vocab.getty.edu/aat/300014224",
     "http://vocab.getty.edu/aat/300011727"
   ],
-  "currentLocation": "https://example.org/heritalise/space/storage-wing-b",
+  "currentLocation": "https://heritalise-eccch.eu/resource/space/storage-wing-b",
   "movementHistory": [
-    "https://example.org/heritalise/event/tapestry-relocation-2021",
-    "https://example.org/heritalise/event/tapestry-treatment-2019"
+    "https://heritalise-eccch.eu/resource/event/tapestry-relocation-2021",
+    "https://heritalise-eccch.eu/resource/event/tapestry-treatment-2019"
   ],
-  "conservationThresholdLink": "https://example.org/heritalise/threshold/textile-climate-rh"
+  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh"
 }

@@ -1,8 +1,18 @@
 {
   "@context": {
+    "footprint": {
+      "@id": "geojson:geometry",
+      "@type": "@json"
+    },
+    "LineString": "geojson:LineString",
+    "type": "@type",
+    "references": {
+      "@id": "geojson:relatedFeatures",
+      "@type": "@id",
+      "@container": "@list"
+    },
     "ConditionAssessment": "sci:E14_Condition_Assessment",
     "id": "@id",
-    "type": "@type",
     "affectedObject": {
       "@id": "crm:P140_assigned_attribute_to",
       "@type": "@id"
@@ -26,15 +36,13 @@
       "@container": "@set"
     },
     "recommendation": "crm:P3_has_note",
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
-    },
     "sci": "http://www.ics.forth.gr/isl/CRMsci/",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "prov": "http://www.w3.org/ns/prov#",
     "geojson": "https://purl.org/geojson/vocab#",
+    "csdm": "https://linked.data.gov.au/def/csdm/",
+    "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }
 }

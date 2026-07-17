@@ -59,20 +59,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/examples/restoration.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_1_1.json",
-          "sizeBytes": 487,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/event/restoration-2024\",\n  \"identifier\": \"RV-INT-2024-03\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300053683\",\n  \"startedAtTime\": \"2024-03-04T00:00:00Z\",\n  \"endedAtTime\": \"2024-06-21T00:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"atLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}\n"
+          "sizeBytes": 511,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/event/restoration-2024\",\n  \"identifier\": \"RV-INT-2024-03\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300053683\",\n  \"startedAtTime\": \"2024-03-04T00:00:00Z\",\n  \"endedAtTime\": \"2024-06-21T00:00:00Z\",\n  \"used\": [\n    \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"atLocation\": \"https://heritalise-eccch.eu/resource/place/great-gallery\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_1_1.jsonld",
-          "sizeBytes": 597,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/event/restoration-2024\",\n  \"identifier\": \"RV-INT-2024-03\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300053683\",\n  \"startedAtTime\": \"2024-03-04T00:00:00Z\",\n  \"endedAtTime\": \"2024-06-21T00:00:00Z\",\n  \"used\": [\n    \"https://example.org/heritalise/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/giulia-bianchi\"\n  ],\n  \"atLocation\": \"https://example.org/heritalise/place/great-gallery\"\n}"
+          "sizeBytes": 621,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/event/restoration-2024\",\n  \"identifier\": \"RV-INT-2024-03\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300053683\",\n  \"startedAtTime\": \"2024-03-04T00:00:00Z\",\n  \"endedAtTime\": \"2024-06-21T00:00:00Z\",\n  \"used\": [\n    \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"atLocation\": \"https://heritalise-eccch.eu/resource/place/great-gallery\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_1_1.ttl",
-          "sizeBytes": 684,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/event/restoration-2024> crm:P1_is_identified_by \"RV-INT-2024-03\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300053683> ;\n    prov:atLocation <https://example.org/heritalise/place/great-gallery> ;\n    prov:endedAtTime \"2024-06-21T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:startedAtTime \"2024-03-04T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    prov:wasAssociatedWith <https://example.org/heritalise/actor/giulia-bianchi> .\n\n"
+          "sizeBytes": 708,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/event/restoration-2024> crm:P1_is_identified_by \"RV-INT-2024-03\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300053683> ;\n    prov:atLocation <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    prov:endedAtTime \"2024-06-21T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:startedAtTime \"2024-03-04T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    prov:wasAssociatedWith <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
         }
       ]
     },
@@ -84,20 +84,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_2_1.json",
-          "sizeBytes": 41,
-          "code": "{\n  \"identifier\": \"RV-INT-1987-LEGACY\"\n}\n"
+          "sizeBytes": 114,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/event/rv-int-1987-legacy\",\n  \"identifier\": \"RV-INT-1987-LEGACY\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_2_1.jsonld",
-          "sizeBytes": 151,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"identifier\": \"RV-INT-1987-LEGACY\"\n}"
+          "sizeBytes": 224,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/event/rv-int-1987-legacy\",\n  \"identifier\": \"RV-INT-1987-LEGACY\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_2_1.ttl",
-          "sizeBytes": 105,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n[] crm:P1_is_identified_by \"RV-INT-1987-LEGACY\" .\n\n"
+          "sizeBytes": 166,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://heritalise-eccch.eu/resource/event/rv-int-1987-legacy> crm:P1_is_identified_by \"RV-INT-1987-LEGACY\" .\n\n"
         }
       ]
     },
@@ -109,25 +109,25 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/examples/malta-ceremony.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_3_1.json",
-          "sizeBytes": 576,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/event/villa-portelli-founding-1820\",\n  \"identifier\": \"MT-EVT-1820-FOUND\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300069748\",\n  \"startedAtTime\": \"1820-01-01T00:00:00Z\",\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/house-of-portelli\"\n  ],\n  \"atLocation\": \"https://example.org/heritalise/site/villa-portelli\",\n  \"description\": \"Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence.\"\n}\n"
+          "sizeBytes": 594,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/event/villa-portelli-founding-1820\",\n  \"identifier\": \"MT-EVT-1820-FOUND\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300069748\",\n  \"startedAtTime\": \"1820-01-01T00:00:00Z\",\n  \"wasAssociatedWith\": [\n    \"https://heritalise-eccch.eu/resource/actor/house-of-portelli\"\n  ],\n  \"atLocation\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"description\": \"Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence.\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_3_1.jsonld",
-          "sizeBytes": 686,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/event/villa-portelli-founding-1820\",\n  \"identifier\": \"MT-EVT-1820-FOUND\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300069748\",\n  \"startedAtTime\": \"1820-01-01T00:00:00Z\",\n  \"wasAssociatedWith\": [\n    \"https://example.org/heritalise/actor/house-of-portelli\"\n  ],\n  \"atLocation\": \"https://example.org/heritalise/site/villa-portelli\",\n  \"description\": \"Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence.\"\n}"
+          "sizeBytes": 704,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/event/villa-portelli-founding-1820\",\n  \"identifier\": \"MT-EVT-1820-FOUND\",\n  \"eventType\": \"http://vocab.getty.edu/aat/300069748\",\n  \"startedAtTime\": \"1820-01-01T00:00:00Z\",\n  \"wasAssociatedWith\": [\n    \"https://heritalise-eccch.eu/resource/actor/house-of-portelli\"\n  ],\n  \"atLocation\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"description\": \"Foundation ceremony for the Villa Portelli estate, attended by the Portelli family and local clergy. Marks the beginning of the property's documented history as a noble residence.\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_3_1.ttl",
-          "sizeBytes": 554,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/event/villa-portelli-founding-1820> crm:P1_is_identified_by \"MT-EVT-1820-FOUND\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300069748> ;\n    prov:atLocation <https://example.org/heritalise/site/villa-portelli> ;\n    prov:startedAtTime \"1820-01-01T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:wasAssociatedWith <https://example.org/heritalise/actor/house-of-portelli> .\n\n"
+          "sizeBytes": 572,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/event/villa-portelli-founding-1820> crm:P1_is_identified_by \"MT-EVT-1820-FOUND\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300069748> ;\n    prov:atLocation <https://heritalise-eccch.eu/resource/site/villa-portelli> ;\n    prov:startedAtTime \"1820-01-01T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:wasAssociatedWith <https://heritalise-eccch.eu/resource/actor/house-of-portelli> .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Event\ndescription: \"An event in the history of a heritage object \\u2014 production, restoration,\n  modification,\\nacquisition \\u2014 modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's\n  Activity: `startedAtTime`/\\n`endedAtTime` carry the time-span (P4_has_time-span),\n  `wasAssociatedWith` the actors who\\ncarried it out (P14_carried_out_by), `used`/`generated`\n  the objects involved (P16_used_specific_object\\n/ P108_has_produced / P31_has_modified)\n  and `atLocation` where it took place (P7_took_place_at).\\nThis block adds a local\n  identifier and a CIDOC-CRM event type.\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this event (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    eventType:\n      type: string\n      format: uri\n      description: The type of event, typically a Getty AAT concept URI, e.g. production\n        or restoration (CIDOC-CRM P2_has_type).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Event\ndescription: \"An event in the history of a heritage object \\u2014 production, restoration,\n  modification,\\nacquisition \\u2014 modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's\n  Activity: `startedAtTime`/\\n`endedAtTime` carry the time-span (P4_has_time-span),\n  `wasAssociatedWith` the actors who\\ncarried it out (P14_carried_out_by), `used`/`generated`\n  the objects involved (P16_used_specific_object\\n/ P108_has_produced / P31_has_modified)\n  and `atLocation` where it took place (P7_took_place_at).\\nThis block adds a local\n  identifier and a CIDOC-CRM event type.\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  required:\n  - id\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this event (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    eventType:\n      type: string\n      format: uri\n      description: The type of event, typically a Getty AAT concept URI, e.g. production\n        or restoration (CIDOC-CRM P2_has_type).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/event"
 }

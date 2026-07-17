@@ -8,7 +8,7 @@
   "dateTimeAddition": "2026-07-16T00:00:00Z",
   "itemClass": "schema",
   "version": "0.1",
-  "dateOfLastChange": "2026-07-16",
+  "dateOfLastChange": "2026-07-17",
   "sources": [
     {
       "title": "CIDOC-CRM E26 Physical Feature",
@@ -63,20 +63,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/examples/venaria-visitor-path.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/route/example_1_1.json",
-          "sizeBytes": 619,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/route/venaria-main-path\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [7.619, 45.132],\n      [7.623, 45.135],\n      [7.628, 45.137],\n      [7.633, 45.138]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROUTE-001\",\n    \"name\": \"Viale centrale dei Giardini\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300178825\",\n    \"surface\": \"gravel\",\n    \"width\": 4.5,\n    \"accessibilityRating\": \"partially accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://example.org/heritalise/site/reggia-di-venaria\"\n  }\n}\n"
+          "sizeBytes": 631,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/route/venaria-main-path\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [7.619, 45.132],\n      [7.623, 45.135],\n      [7.628, 45.137],\n      [7.633, 45.138]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROUTE-001\",\n    \"name\": \"Viale centrale dei Giardini\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300178825\",\n    \"surface\": \"gravel\",\n    \"width\": 4.5,\n    \"accessibilityRating\": \"partially accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://heritalise-eccch.eu/resource/site/reggia-di-venaria\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/route/example_1_1.jsonld",
-          "sizeBytes": 825,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/route/venaria-main-path\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [\n        7.619,\n        45.132\n      ],\n      [\n        7.623,\n        45.135\n      ],\n      [\n        7.628,\n        45.137\n      ],\n      [\n        7.633,\n        45.138\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROUTE-001\",\n    \"name\": \"Viale centrale dei Giardini\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300178825\",\n    \"surface\": \"gravel\",\n    \"width\": 4.5,\n    \"accessibilityRating\": \"partially accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://example.org/heritalise/site/reggia-di-venaria\"\n  }\n}"
+          "sizeBytes": 837,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/route/venaria-main-path\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [\n        7.619,\n        45.132\n      ],\n      [\n        7.623,\n        45.135\n      ],\n      [\n        7.628,\n        45.137\n      ],\n      [\n        7.633,\n        45.138\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"RV-ROUTE-001\",\n    \"name\": \"Viale centrale dei Giardini\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300178825\",\n    \"surface\": \"gravel\",\n    \"width\": 4.5,\n    \"accessibilityRating\": \"partially accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://heritalise-eccch.eu/resource/site/reggia-di-venaria\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/route/example_1_1.ttl",
-          "sizeBytes": 784,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/route/venaria-main-path> a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-ROUTE-001\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300178825> ;\n    crm:P44_has_condition \"partially accessible\" ;\n    crm:P87_is_identified_by \"Viale centrale dei Giardini\" ;\n    crm:P89_falls_within <https://example.org/heritalise/site/reggia-di-venaria> ;\n    geojson:geometry [ a geojson:LineString ;\n            geojson:coordinates ( ( 7.619e+00 4.5132e+01 ) ( 7.623e+00 4.5135e+01 ) ( 7.628e+00 4.5137e+01 ) ( 7.633e+00 4.5138e+01 ) ) ] .\n\n"
+          "sizeBytes": 796,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/route/venaria-main-path> a geojson:Feature ;\n    crm:P1_is_identified_by \"RV-ROUTE-001\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300178825> ;\n    crm:P44_has_condition \"partially accessible\" ;\n    crm:P87_is_identified_by \"Viale centrale dei Giardini\" ;\n    crm:P89_falls_within <https://heritalise-eccch.eu/resource/site/reggia-di-venaria> ;\n    geojson:geometry [ a geojson:LineString ;\n            geojson:coordinates ( ( 7.619e+00 4.5132e+01 ) ( 7.623e+00 4.5135e+01 ) ( 7.628e+00 4.5137e+01 ) ( 7.633e+00 4.5138e+01 ) ) ] .\n\n"
         }
       ]
     },
@@ -88,20 +88,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/route/examples/malta-heritage-trail.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/route/example_2_1.json",
-          "sizeBytes": 587,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/route/malta-garden-trail\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [14.4421, 35.9023],\n      [14.4425, 35.9027],\n      [14.4430, 35.9031]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"MT-ROUTE-001\",\n    \"name\": \"Villa Portelli Garden Trail\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300006958\",\n    \"surface\": \"stone paving\",\n    \"accessibilityRating\": \"fully accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://example.org/heritalise/site/villa-portelli\"\n  }\n}\n"
+          "sizeBytes": 599,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/route/malta-garden-trail\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [14.4421, 35.9023],\n      [14.4425, 35.9027],\n      [14.4430, 35.9031]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"MT-ROUTE-001\",\n    \"name\": \"Villa Portelli Garden Trail\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300006958\",\n    \"surface\": \"stone paving\",\n    \"accessibilityRating\": \"fully accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/route/example_2_1.jsonld",
-          "sizeBytes": 768,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/route/malta-garden-trail\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [\n        14.4421,\n        35.9023\n      ],\n      [\n        14.4425,\n        35.9027\n      ],\n      [\n        14.443,\n        35.9031\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"MT-ROUTE-001\",\n    \"name\": \"Villa Portelli Garden Trail\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300006958\",\n    \"surface\": \"stone paving\",\n    \"accessibilityRating\": \"fully accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://example.org/heritalise/site/villa-portelli\"\n  }\n}"
+          "sizeBytes": 780,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/route/malta-garden-trail\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"LineString\",\n    \"coordinates\": [\n      [\n        14.4421,\n        35.9023\n      ],\n      [\n        14.4425,\n        35.9027\n      ],\n      [\n        14.443,\n        35.9031\n      ]\n    ]\n  },\n  \"properties\": {\n    \"identifier\": \"MT-ROUTE-001\",\n    \"name\": \"Villa Portelli Garden Trail\",\n    \"routeType\": \"http://vocab.getty.edu/aat/300006958\",\n    \"surface\": \"stone paving\",\n    \"accessibilityRating\": \"fully accessible\",\n    \"permittedUse\": \"pedestrian only\",\n    \"parentSite\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/route/example_2_1.ttl",
-          "sizeBytes": 761,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/heritalise/route/malta-garden-trail> a geojson:Feature ;\n    crm:P1_is_identified_by \"MT-ROUTE-001\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300006958> ;\n    crm:P44_has_condition \"fully accessible\" ;\n    crm:P87_is_identified_by \"Villa Portelli Garden Trail\" ;\n    crm:P89_falls_within <https://example.org/heritalise/site/villa-portelli> ;\n    geojson:geometry [ a geojson:LineString ;\n            geojson:coordinates ( ( 1.44421e+01 3.59023e+01 ) ( 1.44425e+01 3.59027e+01 ) ( 1.4443e+01 3.59031e+01 ) ) ] .\n\n"
+          "sizeBytes": 773,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/route/malta-garden-trail> a geojson:Feature ;\n    crm:P1_is_identified_by \"MT-ROUTE-001\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300006958> ;\n    crm:P44_has_condition \"fully accessible\" ;\n    crm:P87_is_identified_by \"Villa Portelli Garden Trail\" ;\n    crm:P89_falls_within <https://heritalise-eccch.eu/resource/site/villa-portelli> ;\n    geojson:geometry [ a geojson:LineString ;\n            geojson:coordinates ( ( 1.44421e+01 3.59023e+01 ) ( 1.44425e+01 3.59027e+01 ) ( 1.4443e+01 3.59031e+01 ) ) ] .\n\n"
         }
       ]
     }

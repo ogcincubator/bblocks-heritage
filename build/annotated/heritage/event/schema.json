@@ -8,6 +8,9 @@
     },
     {
       "type": "object",
+      "required": [
+        "id"
+      ],
       "properties": {
         "identifier": {
           "type": "string",

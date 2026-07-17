@@ -6,6 +6,7 @@ description: A piece of historical knowledge extracted from a document or legacy
   Annotation evidence locator identifying the precise passage, and reviewer provenance.
 type: object
 required:
+- id
 - type
 - statementType
 - sourceRecord
@@ -16,6 +17,7 @@ properties:
     type: string
     format: uri
     description: Persistent URI identifying this historical statement record.
+    x-jsonld-id: '@id'
   type:
     const: HistoricalStatement
     description: Fixed type token (maps to crm:E13_Attribute_Assignment).

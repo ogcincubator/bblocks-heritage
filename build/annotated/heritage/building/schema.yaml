@@ -20,6 +20,13 @@ description: 'A principal building or architectural unit (palace wing, chapel, o
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 - type: object
+  oneOf:
+  - type: object
+    description: Building with its own embedded footprint geometry (or none at all).
+    not:
+      required:
+      - references
+  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
     parentSite:
       type: string

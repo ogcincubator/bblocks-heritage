@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.fabrication-output - Fabrication Output
-Generated 2026-07-16T14:38:31.878119+00:00
+Generated 2026-07-17T10:15:47.334847+00:00
 === Files ===
 Using examples/stl.json from examples
 JSON-LD context is present - uplifting
@@ -17,14 +17,14 @@ Validation result for _sources/fabrication-output/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/fabrication-output/shapes.shacl:
- - Shape <file:///github/workspace/_sources/fabrication-output/shapes.shacl#FabricationOutputHasDerivation>: <https://example.org/heritalise/digital/great-gallery-painting-014-replica-01>
+ - Shape <file:///github/workspace/_sources/fabrication-output/shapes.shacl#FabricationOutputHasDerivation>: <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01>
 
 Validation result for _sources/digital-representation/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for _sources/digital-representation/shapes.shacl:
- - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/great-gallery-painting-014-replica-01>
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01>
 
 === End SHACL ===
 

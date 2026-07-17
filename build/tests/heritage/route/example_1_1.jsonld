@@ -1,6 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld",
-  "id": "https://example.org/heritalise/route/venaria-main-path",
+  "id": "https://heritalise-eccch.eu/resource/route/venaria-main-path",
   "type": "Feature",
   "geometry": {
     "type": "LineString",
@@ -31,6 +31,6 @@
     "width": 4.5,
     "accessibilityRating": "partially accessible",
     "permittedUse": "pedestrian only",
-    "parentSite": "https://example.org/heritalise/site/reggia-di-venaria"
+    "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria"
   }
 }

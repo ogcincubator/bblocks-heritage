@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.route - Route",
   "bblockName": "Route",
   "bblockId": "ogc.heritage.route",
-  "generated": "2026-07-16T14:38:36.124861+00:00",
+  "generated": "2026-07-17T10:15:46.122506+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/route/shapes.shacl#RouteShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/route/venaria-main-path>"
+                    "<https://heritalise-eccch.eu/resource/route/venaria-main-path>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/route/shapes.shacl:\n - Shape <file:///github/workspace/_sources/route/shapes.shacl#RouteShape>: <https://example.org/heritalise/route/venaria-main-path>\n"
+              "message": "Focus nodes for _sources/route/shapes.shacl:\n - Shape <file:///github/workspace/_sources/route/shapes.shacl#RouteShape>: <https://heritalise-eccch.eu/resource/route/venaria-main-path>\n"
             },
             {
               "op": "shacl-report",
@@ -93,12 +93,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/route/venaria-main-path>"
+                    "<https://heritalise-eccch.eu/resource/route/venaria-main-path>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://example.org/heritalise/route/venaria-main-path>\n"
+              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://heritalise-eccch.eu/resource/route/venaria-main-path>\n"
             },
             {
               "op": "shacl-report",
@@ -110,26 +110,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/route/venaria-main-path>"
+                  ]
                 },
                 "geojson:GeometryShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://example.org/heritalise/route/venaria-main-path>"
-                  ]
-                },
-                "geojson:LinkShape": {
+                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.org/heritalise/route/venaria-main-path>\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/route/venaria-main-path>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
             }
           ]
         }
@@ -204,12 +204,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/route/shapes.shacl#RouteShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/route/malta-garden-trail>"
+                    "<https://heritalise-eccch.eu/resource/route/malta-garden-trail>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/route/shapes.shacl:\n - Shape <file:///github/workspace/_sources/route/shapes.shacl#RouteShape>: <https://example.org/heritalise/route/malta-garden-trail>\n"
+              "message": "Focus nodes for _sources/route/shapes.shacl:\n - Shape <file:///github/workspace/_sources/route/shapes.shacl#RouteShape>: <https://heritalise-eccch.eu/resource/route/malta-garden-trail>\n"
             },
             {
               "op": "shacl-report",
@@ -223,12 +223,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/route/malta-garden-trail>"
+                    "<https://heritalise-eccch.eu/resource/route/malta-garden-trail>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://example.org/heritalise/route/malta-garden-trail>\n"
+              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://heritalise-eccch.eu/resource/route/malta-garden-trail>\n"
             },
             {
               "op": "shacl-report",
@@ -240,26 +240,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/route/malta-garden-trail>"
+                  ]
                 },
                 "geojson:GeometryShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://example.org/heritalise/route/malta-garden-trail>"
-                  ]
-                },
-                "geojson:LinkShape": {
+                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
+                "geojson:GeometryShape/sh:or/rdf:first": {
+                  "nodes": []
+                },
+                "geojson:LinkShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.org/heritalise/route/malta-garden-trail>\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/route/malta-garden-trail>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
             }
           ]
         }

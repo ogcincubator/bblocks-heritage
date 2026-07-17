@@ -3,9 +3,9 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/digital/villa-portelli-balustrade-gltf> dct:format "model/gltf+json" ;
-    crm:P129_is_about <https://example.org/heritalise/object/south-balustrade> ;
+<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> dct:format "model/gltf+json" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/south-balustrade> ;
     crm:P1_is_identified_by "MT-3D-BAL-001" ;
-    dcat:accessURL <https://example.org/heritalise/files/south-balustrade.gltf> ;
-    prov:wasAttributedTo <https://example.org/heritalise/actor/heritage-malta-digitisation> .
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/south-balustrade.gltf> ;
+    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation> .
 

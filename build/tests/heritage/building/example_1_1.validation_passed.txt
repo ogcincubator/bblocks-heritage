@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.building - Building
-Generated 2026-07-16T14:38:29.086500+00:00
+Generated 2026-07-17T10:15:37.530792+00:00
 === Files ===
 Using examples/galleria-grande.json from examples
 JSON-LD context is present - uplifting
@@ -17,14 +17,14 @@ Validation result for _sources/building/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/building/shapes.shacl:
- - Shape <file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>: <https://example.org/heritalise/building/galleria-grande>
+ - Shape <file:///github/workspace/_sources/building/shapes.shacl#BuildingShape>: <https://heritalise-eccch.eu/resource/building/galleria-grande>
 
 Validation result for _sources/heritage-object/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for _sources/heritage-object/shapes.shacl:
- - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/building/galleria-grande>
+ - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/galleria-grande>
 
 === End SHACL ===
 

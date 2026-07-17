@@ -1,5 +1,5 @@
 {
-  "id": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "id": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "type": "HeritageObject",
   "identifier": "RV-GG-014",
   "title": "Allegorical ceiling painting, Great Gallery",
@@ -7,5 +7,5 @@
   "material": [
     "http://vocab.getty.edu/aat/300014078"
   ],
-  "currentLocation": "https://example.org/heritalise/place/great-gallery"
+  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
 }

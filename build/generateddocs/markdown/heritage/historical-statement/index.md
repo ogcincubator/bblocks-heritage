@@ -155,7 +155,7 @@ An art historian's attribution of the ceiling fresco in the Galleria Grande to t
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-[] a crm:E13_Attribute_Assignment ;
+<https://data.regiadivenaria.it/historical-statement/attr-morello-galleria-grande-2024-001> a crm:E13_Attribute_Assignment ;
     crm:P140_assigned_attribute_to <https://data.regiadivenaria.it/heritage-object/galleria-grande-ceiling-fresco> ;
     crm:P141_assigned "{\"datePeriod\":\"1699\",\"keywords\":[\"ceiling fresco\",\"attribution\",\"Morello\",\"Galleria Grande\",\"Savoy commission\"],\"language\":\"it\",\"text\":\"La volta della Galleria Grande fu dipinta da Michelangelo Morello per commissione del Duca Vittorio Amedeo II nel 1699, come attestato dalla lettera del 14 marzo di quell'anno.\"}"^^rdf:JSON ;
     crm:P16_used_specific_object <https://data.regiadivenaria.it/source-carrier/ASTo-VR-lett-1699-mar14> ;
@@ -222,7 +222,7 @@ A statement identifying rubble-stone masonry technique in the north wing of Vill
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-[] a crm:E13_Attribute_Assignment ;
+<https://data.heritagemalta.org/historical-statement/hs-villap-north-wing-masonry-2023-001> a crm:E13_Attribute_Assignment ;
     crm:P140_assigned_attribute_to <https://data.heritagemalta.org/architectural-space/villa-portelli-north-wing> ;
     crm:P141_assigned "{\"datePeriod\":\"mid-19th century\",\"keywords\":[\"rubble masonry\",\"franka limestone\",\"vernacular\",\"north wing\"],\"language\":\"en\",\"text\":\"The north wing of Villa Portelli shows coursed rubble-stone masonry (ħaġar tal-franka) typical of mid-19th century Maltese vernacular construction.\"}"^^rdf:JSON ;
     crm:P16_used_specific_object <https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig> ;
@@ -244,6 +244,7 @@ description: A piece of historical knowledge extracted from a document or legacy
   Annotation evidence locator identifying the precise passage, and reviewer provenance.
 type: object
 required:
+- id
 - type
 - statementType
 - sourceRecord
@@ -254,6 +255,7 @@ properties:
     type: string
     format: uri
     description: Persistent URI identifying this historical statement record.
+    x-jsonld-id: '@id'
   type:
     const: HistoricalStatement
     description: Fixed type token (maps to crm:E13_Attribute_Assignment).
@@ -373,6 +375,7 @@ Links to the schema:
 {
   "@context": {
     "HistoricalStatement": "crm:E13_Attribute_Assignment",
+    "id": "@id",
     "type": "@type",
     "statementType": "crm:P2_has_type",
     "statement": {

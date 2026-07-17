@@ -2,7 +2,7 @@
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://example.org/heritalise/space/villa-portelli-salon> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/space/villa-portelli-salon> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "Villa Portelli — Grand Salon" ;
     crm:P1_is_identified_by "3DkP9qRsTwUv2xYzAcBdEf",
         "MT-SPC-VP-SALON",
@@ -10,6 +10,6 @@
     crm:P2_has_type <http://vocab.getty.edu/aat/300004733> ;
     crm:P3_has_note "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space." ;
     crm:P44_has_condition "open to public" ;
-    crm:P46i_forms_part_of <https://example.org/heritalise/building/villa-portelli-main> ;
+    crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/villa-portelli-main> ;
     geojson:geometry "{\"coordinates\":[[[14.5132,35.8962],[14.5138,35.8962],[14.5138,35.8966],[14.5132,35.8966],[14.5132,35.8962]]],\"type\":\"Polygon\"}"^^rdf:JSON .
 

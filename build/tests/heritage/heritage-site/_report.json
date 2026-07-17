@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.heritage-site - Heritage Site",
   "bblockName": "Heritage Site",
   "bblockId": "ogc.heritage.heritage-site",
-  "generated": "2026-07-16T14:38:33.585023+00:00",
+  "generated": "2026-07-17T10:15:43.133926+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/site/reggia-di-venaria>"
+                    "<https://heritalise-eccch.eu/resource/site/reggia-di-venaria>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://example.org/heritalise/site/reggia-di-venaria>\n"
+              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n"
             },
             {
               "op": "shacl-report",
@@ -93,12 +93,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/site/reggia-di-venaria>"
+                    "<https://heritalise-eccch.eu/resource/site/reggia-di-venaria>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://example.org/heritalise/site/reggia-di-venaria>\n"
+              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n"
             },
             {
               "op": "shacl-report",
@@ -110,26 +110,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
                 "geojson:FeatureShape": {
                   "nodes": [
-                    "<https://example.org/heritalise/site/reggia-di-venaria>"
+                    "<https://heritalise-eccch.eu/resource/site/reggia-di-venaria>"
                   ]
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.org/heritalise/site/reggia-di-venaria>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             }
           ]
         }
@@ -204,12 +204,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/site/villa-portelli-garden>"
+                    "<https://heritalise-eccch.eu/resource/site/villa-portelli-garden>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://example.org/heritalise/site/villa-portelli-garden>\n"
+              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n"
             },
             {
               "op": "shacl-report",
@@ -223,12 +223,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/site/villa-portelli-garden>"
+                    "<https://heritalise-eccch.eu/resource/site/villa-portelli-garden>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://example.org/heritalise/site/villa-portelli-garden>\n"
+              "message": "Focus nodes for _sources/place/shapes.shacl:\n - Shape <file:///github/workspace/_sources/place/shapes.shacl#PlaceLinksAreIRIs>: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n"
             },
             {
               "op": "shacl-report",
@@ -240,26 +240,26 @@
             {
               "shaclFile": "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl",
               "focusNodes": {
-                "geojson:GeometryShape/sh:or/rdf:first": {
-                  "nodes": []
-                },
-                "geojson:GeometryShape": {
-                  "nodes": []
-                },
                 "geojson:FeatureShape": {
                   "nodes": [
-                    "<https://example.org/heritalise/site/villa-portelli-garden>"
+                    "<https://heritalise-eccch.eu/resource/site/villa-portelli-garden>"
                   ]
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
+                "geojson:GeometryShape": {
+                  "nodes": []
+                },
                 "geojson:LinkShape": {
+                  "nodes": []
+                },
+                "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureShape: <https://example.org/heritalise/site/villa-portelli-garden>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             }
           ]
         }

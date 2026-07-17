@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.three-d-model - 3D Model
-Generated 2026-07-16T14:38:32.120886+00:00
+Generated 2026-07-17T10:15:48.037441+00:00
 === Files ===
 Using examples/gltf.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/digital-representation/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/digital-representation/shapes.shacl:
- - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://example.org/heritalise/digital/great-gallery-painting-014-model-01>
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01>
 
 === End SHACL ===
 

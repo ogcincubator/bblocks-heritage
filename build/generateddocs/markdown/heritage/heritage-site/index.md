@@ -51,7 +51,7 @@ The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage desig
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/site/reggia-di-venaria",
+  "id": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -82,7 +82,7 @@ The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage desig
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld",
-  "id": "https://example.org/heritalise/site/reggia-di-venaria",
+  "id": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -132,7 +132,7 @@ The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage desig
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/site/reggia-di-venaria> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/site/reggia-di-venaria> a geojson:Feature ;
     dct:rights "https://creativecommons.org/licenses/by/4.0/" ;
     crm:P1_is_identified_by "RV-SITE-001",
         "UNESCO World Heritage List no. 823" ;
@@ -152,7 +152,7 @@ The Villa Portelli garden (Malta pilot) as a heritage site: national monument de
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/site/villa-portelli-garden",
+  "id": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -182,7 +182,7 @@ The Villa Portelli garden (Malta pilot) as a heritage site: national monument de
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld",
-  "id": "https://example.org/heritalise/site/villa-portelli-garden",
+  "id": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -230,7 +230,7 @@ The Villa Portelli garden (Malta pilot) as a heritage site: national monument de
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/site/villa-portelli-garden> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/site/villa-portelli-garden> a geojson:Feature ;
     dct:rights "https://creativecommons.org/licenses/by-nc/4.0/" ;
     crm:P1_is_identified_by "Grade 1 Scheduled Monument (Malta)",
         "MT-SITE-GARDEN-01" ;

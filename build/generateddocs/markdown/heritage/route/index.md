@@ -71,7 +71,7 @@ A gravel visitor path through the gardens of the Reggia di Venaria Reale, classi
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/route/venaria-main-path",
+  "id": "https://heritalise-eccch.eu/resource/route/venaria-main-path",
   "type": "Feature",
   "geometry": {
     "type": "LineString",
@@ -90,7 +90,7 @@ A gravel visitor path through the gardens of the Reggia di Venaria Reale, classi
     "width": 4.5,
     "accessibilityRating": "partially accessible",
     "permittedUse": "pedestrian only",
-    "parentSite": "https://example.org/heritalise/site/reggia-di-venaria"
+    "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria"
   }
 }
 
@@ -100,7 +100,7 @@ A gravel visitor path through the gardens of the Reggia di Venaria Reale, classi
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld",
-  "id": "https://example.org/heritalise/route/venaria-main-path",
+  "id": "https://heritalise-eccch.eu/resource/route/venaria-main-path",
   "type": "Feature",
   "geometry": {
     "type": "LineString",
@@ -131,7 +131,7 @@ A gravel visitor path through the gardens of the Reggia di Venaria Reale, classi
     "width": 4.5,
     "accessibilityRating": "partially accessible",
     "permittedUse": "pedestrian only",
-    "parentSite": "https://example.org/heritalise/site/reggia-di-venaria"
+    "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria"
   }
 }
 ```
@@ -143,12 +143,12 @@ A gravel visitor path through the gardens of the Reggia di Venaria Reale, classi
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/route/venaria-main-path> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/route/venaria-main-path> a geojson:Feature ;
     crm:P1_is_identified_by "RV-ROUTE-001" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300178825> ;
     crm:P44_has_condition "partially accessible" ;
     crm:P87_is_identified_by "Viale centrale dei Giardini" ;
-    crm:P89_falls_within <https://example.org/heritalise/site/reggia-di-venaria> ;
+    crm:P89_falls_within <https://heritalise-eccch.eu/resource/site/reggia-di-venaria> ;
     geojson:geometry [ a geojson:LineString ;
             geojson:coordinates ( ( 7.619e+00 4.5132e+01 ) ( 7.623e+00 4.5135e+01 ) ( 7.628e+00 4.5137e+01 ) ( 7.633e+00 4.5138e+01 ) ) ] .
 
@@ -161,7 +161,7 @@ A stone-paved garden trail at Villa Portelli (Malta pilot), classified as a heri
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/route/malta-garden-trail",
+  "id": "https://heritalise-eccch.eu/resource/route/malta-garden-trail",
   "type": "Feature",
   "geometry": {
     "type": "LineString",
@@ -178,7 +178,7 @@ A stone-paved garden trail at Villa Portelli (Malta pilot), classified as a heri
     "surface": "stone paving",
     "accessibilityRating": "fully accessible",
     "permittedUse": "pedestrian only",
-    "parentSite": "https://example.org/heritalise/site/villa-portelli"
+    "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli"
   }
 }
 
@@ -188,7 +188,7 @@ A stone-paved garden trail at Villa Portelli (Malta pilot), classified as a heri
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/route/context.jsonld",
-  "id": "https://example.org/heritalise/route/malta-garden-trail",
+  "id": "https://heritalise-eccch.eu/resource/route/malta-garden-trail",
   "type": "Feature",
   "geometry": {
     "type": "LineString",
@@ -214,7 +214,7 @@ A stone-paved garden trail at Villa Portelli (Malta pilot), classified as a heri
     "surface": "stone paving",
     "accessibilityRating": "fully accessible",
     "permittedUse": "pedestrian only",
-    "parentSite": "https://example.org/heritalise/site/villa-portelli"
+    "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli"
   }
 }
 ```
@@ -226,12 +226,12 @@ A stone-paved garden trail at Villa Portelli (Malta pilot), classified as a heri
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/heritalise/route/malta-garden-trail> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/route/malta-garden-trail> a geojson:Feature ;
     crm:P1_is_identified_by "MT-ROUTE-001" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300006958> ;
     crm:P44_has_condition "fully accessible" ;
     crm:P87_is_identified_by "Villa Portelli Garden Trail" ;
-    crm:P89_falls_within <https://example.org/heritalise/site/villa-portelli> ;
+    crm:P89_falls_within <https://heritalise-eccch.eu/resource/site/villa-portelli> ;
     geojson:geometry [ a geojson:LineString ;
             geojson:coordinates ( ( 1.44421e+01 3.59023e+01 ) ( 1.44425e+01 3.59027e+01 ) ( 1.4443e+01 3.59031e+01 ) ) ] .
 

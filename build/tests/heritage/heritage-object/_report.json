@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.heritage-object - Heritage Object",
   "bblockName": "Heritage Object",
   "bblockId": "ogc.heritage.heritage-object",
-  "generated": "2026-07-16T14:38:28.644633+00:00",
+  "generated": "2026-07-17T10:15:37.003974+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/object/great-gallery-painting-014>"
+                    "<https://heritalise-eccch.eu/resource/object/great-gallery-painting-014>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/object/great-gallery-painting-014>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014>\n"
             }
           ]
         }
@@ -154,12 +154,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
-                    "_:N68125dafdf8d49a7839691b9ae308f99"
+                    "<https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: _:N68125dafdf8d49a7839691b9ae308f99\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>\n"
             }
           ]
         }
@@ -234,12 +234,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/object/north-vault-bay-3>"
+                    "<https://heritalise-eccch.eu/resource/object/north-vault-bay-3>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/object/north-vault-bay-3>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/north-vault-bay-3>\n"
             }
           ]
         }
@@ -314,12 +314,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/object/venaria-tapestry-hunt-04>"
+                    "<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/object/venaria-tapestry-hunt-04>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04>\n"
             }
           ]
         }
@@ -394,12 +394,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
-                    "<https://example.org/heritalise/object/diana-fountain>"
+                    "<https://heritalise-eccch.eu/resource/object/diana-fountain>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/object/diana-fountain>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/diana-fountain>\n"
             }
           ]
         }

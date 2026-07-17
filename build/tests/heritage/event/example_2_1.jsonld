@@ -1,4 +1,5 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/event/rv-int-1987-legacy",
   "identifier": "RV-INT-1987-LEGACY"
 }

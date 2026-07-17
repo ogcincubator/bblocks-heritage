@@ -80,11 +80,14 @@ as an opaque JSON value to avoid deep blank-node expansion.
 ## Examples
 
 ### Venaria — TLS point cloud of Galleria Grande ceiling
+A terrestrial laser scan point cloud of the Galleria Grande ceiling, with acquisition metadata (method, equipment, accuracy) and a polygon coverage geometry.
+#### json
+```json
 {
   "type": "SurveyDataset",
-  "id": "https://heritage.venaria.it/datasets/gc-ceiling-tls-2024",
+  "id": "https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024",
   "title": "TLS Point Cloud — Galleria Grande Ceiling (2024)",
-  "isAbout": "https://heritage.venaria.it/buildings/galleria-grande",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
   "mediaType": "application/vnd.las",
   "acquisitionEvent": {
     "acquisitionMethod": "TLS",
@@ -108,18 +111,96 @@ as an opaque JSON value to avoid deep blank-node expansion.
       ]
     ]
   },
-  "url": "https://heritage.venaria.it/storage/gc-ceiling-tls-2024.laz",
+  "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz",
   "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
   "reviewStatus": "reviewed"
 }
 
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/context.jsonld",
+  "type": "SurveyDataset",
+  "id": "https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024",
+  "title": "TLS Point Cloud \u2014 Galleria Grande Ceiling (2024)",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "mediaType": "application/vnd.las",
+  "acquisitionEvent": {
+    "acquisitionMethod": "TLS",
+    "acquisitionDate": "2024-03-15",
+    "operator": "https://orcid.org/0000-0000-0000-0001",
+    "equipment": "Leica RTC360",
+    "crs": "https://www.opengis.net/def/crs/EPSG/0/32632",
+    "density": "~3500 pts/m\u00b2",
+    "accuracy": "\u00b13 mm",
+    "processingHistory": "Registration: Leica Cyclone REGISTER 360 v1.8; automatic noise filter applied; colourised from concurrent RGB imagery."
+  },
+  "coverage": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          7.6025,
+          45.129
+        ],
+        [
+          7.6035,
+          45.129
+        ],
+        [
+          7.6035,
+          45.1295
+        ],
+        [
+          7.6025,
+          45.1295
+        ],
+        [
+          7.6025,
+          45.129
+        ]
+      ]
+    ]
+  },
+  "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz",
+  "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
+  "reviewStatus": "reviewed"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> a crmdig:D1_Digital_Object ;
+    dct:description "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition." ;
+    dct:format "application/vnd.las" ;
+    dct:title "TLS Point Cloud — Galleria Grande Ceiling (2024)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/building/galleria-grande> ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"±3 mm\",\"acquisitionDate\":\"2024-03-15\",\"acquisitionMethod\":\"TLS\",\"crs\":\"https://www.opengis.net/def/crs/EPSG/0/32632\",\"density\":\"~3500 pts/m²\",\"equipment\":\"Leica RTC360\",\"operator\":\"https://orcid.org/0000-0000-0000-0001\",\"processingHistory\":\"Registration: Leica Cyclone REGISTER 360 v1.8; automatic noise filter applied; colourised from concurrent RGB imagery.\"}"^^rdf:JSON ;
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz> ;
+    geojson:geometry "{\"coordinates\":[[[7.6025,45.129],[7.6035,45.129],[7.6035,45.1295],[7.6025,45.1295],[7.6025,45.129]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+
+
+```
+
 
 ### Malta — UAV photogrammetric model of Villa Portelli exterior
+A UAV photogrammetric model of the Villa Portelli exterior, with acquisition metadata and a persistent DOI identifier alongside the record's own URI.
+#### json
+```json
 {
   "type": "SurveyDataset",
-  "id": "https://heritage.gov.mt/datasets/villa-portelli-uav-2025",
+  "id": "https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025",
   "title": "UAV Photogrammetric Model — Villa Portelli Exterior (2025)",
-  "isAbout": "https://heritage.gov.mt/buildings/villa-portelli",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
   "mediaType": "model/obj",
   "acquisitionEvent": {
     "acquisitionMethod": "UAV-photogrammetry",
@@ -142,10 +223,152 @@ as an opaque JSON value to avoid deep blank-node expansion.
       ]
     ]
   },
-  "url": "https://heritage.gov.mt/storage/villa-portelli-uav-2025.zip",
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip",
   "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-survey-2025",
   "reviewStatus": "approved"
 }
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/context.jsonld",
+  "type": "SurveyDataset",
+  "id": "https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025",
+  "title": "UAV Photogrammetric Model \u2014 Villa Portelli Exterior (2025)",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+  "mediaType": "model/obj",
+  "acquisitionEvent": {
+    "acquisitionMethod": "UAV-photogrammetry",
+    "acquisitionDate": "2025-06-10",
+    "equipment": "DJI Matrice 300 RTK with Zenmuse P1",
+    "crs": "https://www.opengis.net/def/crs/EPSG/0/32633",
+    "density": "3 cm/pixel ground sampling distance",
+    "accuracy": "\u00b15 cm",
+    "processingHistory": "Processed in Agisoft Metashape 2.1 at medium quality: dense point cloud \u2192 mesh \u2192 texture. 42 GCPs used."
+  },
+  "coverage": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          14.432,
+          35.902
+        ],
+        [
+          14.4335,
+          35.902
+        ],
+        [
+          14.4335,
+          35.903
+        ],
+        [
+          14.432,
+          35.903
+        ],
+        [
+          14.432,
+          35.902
+        ]
+      ]
+    ]
+  },
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip",
+  "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-survey-2025",
+  "reviewStatus": "approved"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025> a crmdig:D1_Digital_Object ;
+    dct:format "model/obj" ;
+    dct:title "UAV Photogrammetric Model — Villa Portelli Exterior (2025)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/building/villa-portelli-main> ;
+    crm:P1_is_identified_by "https://doi.org/10.00000/villa-portelli-survey-2025" ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"±5 cm\",\"acquisitionDate\":\"2025-06-10\",\"acquisitionMethod\":\"UAV-photogrammetry\",\"crs\":\"https://www.opengis.net/def/crs/EPSG/0/32633\",\"density\":\"3 cm/pixel ground sampling distance\",\"equipment\":\"DJI Matrice 300 RTK with Zenmuse P1\",\"processingHistory\":\"Processed in Agisoft Metashape 2.1 at medium quality: dense point cloud → mesh → texture. 42 GCPs used.\"}"^^rdf:JSON ;
+    dcat:accessURL <https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip> ;
+    geojson:geometry "{\"coordinates\":[[[14.432,35.902],[14.4335,35.902],[14.4335,35.903],[14.432,35.903],[14.432,35.902]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+
+
+```
+
+
+### Venaria — TLS scan of Galleria Grande bay 7 vault, coverage by reference (geometry-by-reference / topology)
+A TLS scan whose coverage coincides exactly with the surveyed bay's own footprint (see ogc.heritage.architectural-space's galleria-grande-bay.json). Instead of re-encoding the same polygon as `coverage`, this record uses `references` — the geometry-by-reference pattern from ogc.ogc-utils.topology — to point at the surveyed space directly.
+#### json
+```json
+{
+  "type": "SurveyDataset",
+  "id": "https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024",
+  "title": "TLS Point Cloud — Galleria Grande Bay 7 Vault (2024)",
+  "isAbout": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+  "mediaType": "application/vnd.las",
+  "acquisitionEvent": {
+    "acquisitionMethod": "TLS",
+    "acquisitionDate": "2024-03-16",
+    "equipment": "Leica RTC360",
+    "accuracy": "±3 mm"
+  },
+  "references": [
+    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+  ],
+  "limitations": "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.ogc-utils.topology) instead of re-encoding the same polygon as `coverage`.",
+  "reviewStatus": "reviewed"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/context.jsonld",
+  "type": "SurveyDataset",
+  "id": "https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024",
+  "title": "TLS Point Cloud \u2014 Galleria Grande Bay 7 Vault (2024)",
+  "isAbout": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+  "mediaType": "application/vnd.las",
+  "acquisitionEvent": {
+    "acquisitionMethod": "TLS",
+    "acquisitionDate": "2024-03-16",
+    "equipment": "Leica RTC360",
+    "accuracy": "\u00b13 mm"
+  },
+  "references": [
+    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+  ],
+  "limitations": "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.ogc-utils.topology) instead of re-encoding the same polygon as `coverage`.",
+  "reviewStatus": "reviewed"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024> a crmdig:D1_Digital_Object ;
+    dct:description "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.ogc-utils.topology) instead of re-encoding the same polygon as `coverage`." ;
+    dct:format "application/vnd.las" ;
+    dct:title "TLS Point Cloud — Galleria Grande Bay 7 Vault (2024)" ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
+    crmdig:L11i_was_output_of "{\"accuracy\":\"±3 mm\",\"acquisitionDate\":\"2024-03-16\",\"acquisitionMethod\":\"TLS\",\"equipment\":\"Leica RTC360\"}"^^rdf:JSON ;
+    geojson:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) .
+
+
+```
 
 ## Schema
 
@@ -163,7 +386,15 @@ allOf:
   - type
   - title
   - acquisitionEvent
-  - coverage
+  oneOf:
+  - type: object
+    description: Survey dataset with its own embedded coverage geometry.
+    required:
+    - coverage
+    not:
+      required:
+      - references
+  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
     type:
       const: SurveyDataset
@@ -621,6 +852,12 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "LineString": "geojson:LineString",
+    "references": {
+      "@id": "geojson:relatedFeatures",
+      "@type": "@id",
+      "@container": "@list"
+    },
     "title": "dct:title",
     "acquisitionEvent": {
       "@id": "crmdig:L11i_was_output_of",
@@ -642,6 +879,7 @@ Links to the schema:
     "dcat": "http://www.w3.org/ns/dcat#",
     "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
     "geojson": "https://purl.org/geojson/vocab#",
+    "csdm": "https://linked.data.gov.au/def/csdm/",
     "@version": 1.1
   }
 }

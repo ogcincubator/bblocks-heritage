@@ -1,0 +1,22 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/derived-survey-product/context.jsonld",
+  "type": "DerivedSurveyProduct",
+  "id": "https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024",
+  "title": "Triangulated Mesh \u2014 Galleria Grande Ceiling (derived from TLS 2024)",
+  "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "parentDataset": "https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024",
+  "mediaType": "model/obj",
+  "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-mesh-2024.obj",
+  "processingEvent": {
+    "processingMethod": "mesh generation",
+    "processingDate": "2024-04-03",
+    "software": "Leica Cyclone 3DR",
+    "softwareVersion": "2024.0.1",
+    "operator": "https://orcid.org/0000-0000-0000-0001",
+    "parameters": "Poisson reconstruction; octree depth 10; smoothing kernel radius 5 mm",
+    "accuracy": "mean deviation from source cloud \u00b11.8 mm",
+    "qaResult": "passed"
+  },
+  "limitations": "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud.",
+  "reviewStatus": "reviewed"
+}

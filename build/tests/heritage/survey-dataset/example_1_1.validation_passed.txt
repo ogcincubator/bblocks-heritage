@@ -1,0 +1,30 @@
+Validation report for ogc.heritage.survey-dataset - Survey Dataset
+Generated 2026-07-17T10:15:47.760339+00:00
+=== Files ===
+Using examples/venaria-gc-ceiling-tls.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_1_1.jsonld created
+Output Turtle example_1_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/survey-dataset/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/survey-dataset/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/survey-dataset/shapes.shacl#SurveyDatasetShape>: <https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024>
+
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024>
+
+=== End SHACL ===
+

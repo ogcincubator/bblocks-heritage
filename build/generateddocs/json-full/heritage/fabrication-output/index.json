@@ -54,20 +54,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/fabrication-output/examples/stl.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/fabrication-output/example_1_1.json",
-          "sizeBytes": 344,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-replica-01\",\n  \"identifier\": \"RV-GG-014-STL-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/stl\",\n  \"wasDerivedFrom\": [\n    \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\"\n  ]\n}\n"
+          "sizeBytes": 362,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01\",\n  \"identifier\": \"RV-GG-014-STL-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/stl\",\n  \"wasDerivedFrom\": [\n    \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\"\n  ]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/fabrication-output/example_1_1.jsonld",
-          "sizeBytes": 467,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/great-gallery-painting-014-replica-01\",\n  \"identifier\": \"RV-GG-014-STL-01\",\n  \"isAbout\": \"https://example.org/heritalise/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/stl\",\n  \"wasDerivedFrom\": [\n    \"https://example.org/heritalise/digital/great-gallery-painting-014-model-01\"\n  ]\n}"
+          "sizeBytes": 485,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/fabrication-output/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01\",\n  \"identifier\": \"RV-GG-014-STL-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/stl\",\n  \"wasDerivedFrom\": [\n    \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\"\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/fabrication-output/example_1_1.ttl",
-          "sizeBytes": 490,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/great-gallery-painting-014-replica-01> dct:format \"model/stl\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-STL-01\" ;\n    prov:wasDerivedFrom <https://example.org/heritalise/digital/great-gallery-painting-014-model-01> .\n\n"
+          "sizeBytes": 508,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01> dct:format \"model/stl\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-STL-01\" ;\n    prov:wasDerivedFrom <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> .\n\n"
         }
       ]
     }

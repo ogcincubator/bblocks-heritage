@@ -1,12 +1,12 @@
 {
-  "id": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "type": "HeritageObject",
   "identifier": "RV-SPC-GG-B07",
   "title": "Galleria Grande \u2014 Bay 7",
   "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
   "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://example.org/heritalise/building/galleria-grande",
-  "partOf": "https://example.org/heritalise/space/galleria-grande",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
   "historicalNames": [
     {
       "name": "Sala VII",

@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.historical-statement - Historical Statement
-Generated 2026-07-16T14:38:28.695131+00:00
+Generated 2026-07-17T10:15:37.024531+00:00
 === Files ===
 Using examples/malta_technique_note.json from examples
 JSON-LD context is present - uplifting
@@ -17,7 +17,7 @@ Validation result for _sources/historical-statement/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/historical-statement/shapes.shacl:
- - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: _:N1eefcb0b129542ad872c7f9172d4a950
+ - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: <https://data.heritagemalta.org/historical-statement/hs-villap-north-wing-masonry-2023-001>
 
 === End SHACL ===
 

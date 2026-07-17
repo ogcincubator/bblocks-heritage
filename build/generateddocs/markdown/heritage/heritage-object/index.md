@@ -32,7 +32,7 @@ A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materia
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "id": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "type": "HeritageObject",
   "identifier": "RV-GG-014",
   "title": "Allegorical ceiling painting, Great Gallery",
@@ -40,7 +40,7 @@ A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materia
   "material": [
     "http://vocab.getty.edu/aat/300014078"
   ],
-  "currentLocation": "https://example.org/heritalise/place/great-gallery"
+  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
 }
 
 ```
@@ -49,7 +49,7 @@ A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materia
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
-  "id": "https://example.org/heritalise/object/great-gallery-painting-014",
+  "id": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
   "type": "HeritageObject",
   "identifier": "RV-GG-014",
   "title": "Allegorical ceiling painting, Great Gallery",
@@ -57,7 +57,7 @@ A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materia
   "material": [
     "http://vocab.getty.edu/aat/300014078"
   ],
-  "currentLocation": "https://example.org/heritalise/place/great-gallery"
+  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
 }
 ```
 
@@ -65,12 +65,12 @@ A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materia
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
-<https://example.org/heritalise/object/great-gallery-painting-014> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "Allegorical ceiling painting, Great Gallery" ;
     crm:P1_is_identified_by "RV-GG-014" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300033618> ;
     crm:P45_consists_of <http://vocab.getty.edu/aat/300014078> ;
-    crm:P53_has_former_or_current_location <https://example.org/heritalise/place/great-gallery> .
+    crm:P53_has_former_or_current_location <https://heritalise-eccch.eu/resource/place/great-gallery> .
 
 
 ```
@@ -81,6 +81,7 @@ Only `identifier` and `title` are required — everything else can be added incr
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45",
   "type": "HeritageObject",
   "identifier": "WHM-1923.45",
   "title": "Fishing creel"
@@ -92,6 +93,7 @@ Only `identifier` and `title` are required — everything else can be added incr
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45",
   "type": "HeritageObject",
   "identifier": "WHM-1923.45",
   "title": "Fishing creel"
@@ -102,7 +104,7 @@ Only `identifier` and `title` are required — everything else can be added incr
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
-[] a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "Fishing creel" ;
     crm:P1_is_identified_by "WHM-1923.45" .
 
@@ -115,7 +117,7 @@ A load-bearing vault section within the Reggia di Venaria north gallery, typed a
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/object/north-vault-bay-3",
+  "id": "https://heritalise-eccch.eu/resource/object/north-vault-bay-3",
   "type": "HeritageObject",
   "identifier": "RV-ARCH-NV-003",
   "title": "North gallery vault, bay 3",
@@ -124,7 +126,7 @@ A load-bearing vault section within the Reggia di Venaria north gallery, typed a
     "http://vocab.getty.edu/aat/300010439",
     "http://vocab.getty.edu/aat/300014130"
   ],
-  "parentSpace": "https://example.org/heritalise/space/north-gallery",
+  "parentSpace": "https://heritalise-eccch.eu/resource/space/north-gallery",
   "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
 }
 
@@ -134,7 +136,7 @@ A load-bearing vault section within the Reggia di Venaria north gallery, typed a
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
-  "id": "https://example.org/heritalise/object/north-vault-bay-3",
+  "id": "https://heritalise-eccch.eu/resource/object/north-vault-bay-3",
   "type": "HeritageObject",
   "identifier": "RV-ARCH-NV-003",
   "title": "North gallery vault, bay 3",
@@ -143,7 +145,7 @@ A load-bearing vault section within the Reggia di Venaria north gallery, typed a
     "http://vocab.getty.edu/aat/300010439",
     "http://vocab.getty.edu/aat/300014130"
   ],
-  "parentSpace": "https://example.org/heritalise/space/north-gallery",
+  "parentSpace": "https://heritalise-eccch.eu/resource/space/north-gallery",
   "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
 }
 ```
@@ -152,14 +154,14 @@ A load-bearing vault section within the Reggia di Venaria north gallery, typed a
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
-<https://example.org/heritalise/object/north-vault-bay-3> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/north-vault-bay-3> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "North gallery vault, bay 3" ;
     crm:P1_is_identified_by "RV-ARCH-NV-003" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300002862> ;
     crm:P3_has_note "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown." ;
     crm:P45_consists_of <http://vocab.getty.edu/aat/300010439>,
         <http://vocab.getty.edu/aat/300014130> ;
-    crm:P46i_forms_part_of <https://example.org/heritalise/space/north-gallery> .
+    crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/space/north-gallery> .
 
 
 ```
@@ -170,7 +172,7 @@ A historical tapestry from the Reggia di Venaria — a movable item catalogued w
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/object/venaria-tapestry-hunt-04",
+  "id": "https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04",
   "type": "HeritageObject",
   "identifier": "RV-MOV-TAP-004",
   "title": "Royal Hunt tapestry no. 4",
@@ -179,12 +181,12 @@ A historical tapestry from the Reggia di Venaria — a movable item catalogued w
     "http://vocab.getty.edu/aat/300014224",
     "http://vocab.getty.edu/aat/300011727"
   ],
-  "currentLocation": "https://example.org/heritalise/space/storage-wing-b",
+  "currentLocation": "https://heritalise-eccch.eu/resource/space/storage-wing-b",
   "movementHistory": [
-    "https://example.org/heritalise/event/tapestry-relocation-2021",
-    "https://example.org/heritalise/event/tapestry-treatment-2019"
+    "https://heritalise-eccch.eu/resource/event/tapestry-relocation-2021",
+    "https://heritalise-eccch.eu/resource/event/tapestry-treatment-2019"
   ],
-  "conservationThresholdLink": "https://example.org/heritalise/threshold/textile-climate-rh"
+  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh"
 }
 
 ```
@@ -193,7 +195,7 @@ A historical tapestry from the Reggia di Venaria — a movable item catalogued w
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
-  "id": "https://example.org/heritalise/object/venaria-tapestry-hunt-04",
+  "id": "https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04",
   "type": "HeritageObject",
   "identifier": "RV-MOV-TAP-004",
   "title": "Royal Hunt tapestry no. 4",
@@ -202,12 +204,12 @@ A historical tapestry from the Reggia di Venaria — a movable item catalogued w
     "http://vocab.getty.edu/aat/300014224",
     "http://vocab.getty.edu/aat/300011727"
   ],
-  "currentLocation": "https://example.org/heritalise/space/storage-wing-b",
+  "currentLocation": "https://heritalise-eccch.eu/resource/space/storage-wing-b",
   "movementHistory": [
-    "https://example.org/heritalise/event/tapestry-relocation-2021",
-    "https://example.org/heritalise/event/tapestry-treatment-2019"
+    "https://heritalise-eccch.eu/resource/event/tapestry-relocation-2021",
+    "https://heritalise-eccch.eu/resource/event/tapestry-treatment-2019"
   ],
-  "conservationThresholdLink": "https://example.org/heritalise/threshold/textile-climate-rh"
+  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh"
 }
 ```
 
@@ -216,15 +218,15 @@ A historical tapestry from the Reggia di Venaria — a movable item catalogued w
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://example.org/heritalise/object/venaria-tapestry-hunt-04> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "Royal Hunt tapestry no. 4" ;
     crm:P1_is_identified_by "RV-MOV-TAP-004" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300205002> ;
     crm:P45_consists_of <http://vocab.getty.edu/aat/300011727>,
         <http://vocab.getty.edu/aat/300014224> ;
-    crm:P53_has_former_or_current_location <https://example.org/heritalise/space/storage-wing-b> ;
-    prov:wasUsedBy <https://example.org/heritalise/event/tapestry-relocation-2021>,
-        <https://example.org/heritalise/event/tapestry-treatment-2019> .
+    crm:P53_has_former_or_current_location <https://heritalise-eccch.eu/resource/space/storage-wing-b> ;
+    prov:wasUsedBy <https://heritalise-eccch.eu/resource/event/tapestry-relocation-2021>,
+        <https://heritalise-eccch.eu/resource/event/tapestry-treatment-2019> .
 
 
 ```
@@ -235,7 +237,7 @@ The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Get
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/object/diana-fountain",
+  "id": "https://heritalise-eccch.eu/resource/object/diana-fountain",
   "type": "HeritageObject",
   "identifier": "RV-GARD-FNT-001",
   "title": "Fountain of Diana, central garden axis",
@@ -243,7 +245,7 @@ The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Get
   "material": [
     "http://vocab.getty.edu/aat/300011443"
   ],
-  "currentLocation": "https://example.org/heritalise/site/reggia-di-venaria",
+  "currentLocation": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
 }
 
@@ -253,7 +255,7 @@ The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Get
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
-  "id": "https://example.org/heritalise/object/diana-fountain",
+  "id": "https://heritalise-eccch.eu/resource/object/diana-fountain",
   "type": "HeritageObject",
   "identifier": "RV-GARD-FNT-001",
   "title": "Fountain of Diana, central garden axis",
@@ -261,7 +263,7 @@ The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Get
   "material": [
     "http://vocab.getty.edu/aat/300011443"
   ],
-  "currentLocation": "https://example.org/heritalise/site/reggia-di-venaria",
+  "currentLocation": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
   "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
 }
 ```
@@ -270,13 +272,13 @@ The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Get
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
-<https://example.org/heritalise/object/diana-fountain> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/diana-fountain> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "Fountain of Diana, central garden axis" ;
     crm:P1_is_identified_by <https://w3id.org/heritalise/obj/RV-GARD-FNT-001>,
         "RV-GARD-FNT-001" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300006858> ;
     crm:P45_consists_of <http://vocab.getty.edu/aat/300011443> ;
-    crm:P53_has_former_or_current_location <https://example.org/heritalise/site/reggia-di-venaria> .
+    crm:P53_has_former_or_current_location <https://heritalise-eccch.eu/resource/site/reggia-di-venaria> .
 
 
 ```
@@ -345,6 +347,7 @@ properties:
     x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
     x-jsonld-type: '@id'
 required:
+- id
 - identifier
 - title
 x-jsonld-extra-terms:

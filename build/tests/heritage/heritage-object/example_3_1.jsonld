@@ -1,6 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/context.jsonld",
-  "id": "https://example.org/heritalise/object/north-vault-bay-3",
+  "id": "https://heritalise-eccch.eu/resource/object/north-vault-bay-3",
   "type": "HeritageObject",
   "identifier": "RV-ARCH-NV-003",
   "title": "North gallery vault, bay 3",
@@ -9,6 +9,6 @@
     "http://vocab.getty.edu/aat/300010439",
     "http://vocab.getty.edu/aat/300014130"
   ],
-  "parentSpace": "https://example.org/heritalise/space/north-gallery",
+  "parentSpace": "https://heritalise-eccch.eu/resource/space/north-gallery",
   "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
 }

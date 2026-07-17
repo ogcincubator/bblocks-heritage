@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.historical-statement - Historical Statement",
   "bblockName": "Historical Statement",
   "bblockId": "ogc.heritage.historical-statement",
-  "generated": "2026-07-16T14:38:28.695193+00:00",
+  "generated": "2026-07-17T10:15:37.024593+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>": {
                   "nodes": [
-                    "_:N8e7d1add9d924f7c82e9020931f388c5"
+                    "<https://data.regiadivenaria.it/historical-statement/attr-morello-galleria-grande-2024-001>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/historical-statement/shapes.shacl:\n - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: _:N8e7d1add9d924f7c82e9020931f388c5\n"
+              "message": "Focus nodes for _sources/historical-statement/shapes.shacl:\n - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: <https://data.regiadivenaria.it/historical-statement/attr-morello-galleria-grande-2024-001>\n"
             }
           ]
         }
@@ -154,12 +154,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>": {
                   "nodes": [
-                    "_:N1eefcb0b129542ad872c7f9172d4a950"
+                    "<https://data.heritagemalta.org/historical-statement/hs-villap-north-wing-masonry-2023-001>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/historical-statement/shapes.shacl:\n - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: _:N1eefcb0b129542ad872c7f9172d4a950\n"
+              "message": "Focus nodes for _sources/historical-statement/shapes.shacl:\n - Shape <file:///github/workspace/_sources/historical-statement/shapes.shacl#HistoricalStatementShape>: <https://data.heritagemalta.org/historical-statement/hs-villap-north-wing-masonry-2023-001>\n"
             }
           ]
         }

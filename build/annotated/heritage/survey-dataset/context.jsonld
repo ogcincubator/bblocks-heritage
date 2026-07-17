@@ -355,6 +355,12 @@
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "LineString": "geojson:LineString",
+    "references": {
+      "@id": "geojson:relatedFeatures",
+      "@type": "@id",
+      "@container": "@list"
+    },
     "title": "dct:title",
     "acquisitionEvent": {
       "@id": "crmdig:L11i_was_output_of",
@@ -376,6 +382,7 @@
     "dcat": "http://www.w3.org/ns/dcat#",
     "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
     "geojson": "https://purl.org/geojson/vocab#",
+    "csdm": "https://linked.data.gov.au/def/csdm/",
     "@version": 1.1
   }
 }

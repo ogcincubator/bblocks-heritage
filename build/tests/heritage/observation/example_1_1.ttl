@@ -1,10 +1,10 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] a sosa:Observation ;
-    sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;
+<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z> a sosa:Observation ;
+    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult 5.42e+01 ;
-    sosa:madeBySensor <https://example.org/heritalise/sta/v1.1/Sensors(12)> ;
+    sosa:madeBySensor <https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
     sosa:resultTime "2024-03-04T12:00:00Z" .
 

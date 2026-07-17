@@ -1,6 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
-  "id": "https://example.org/heritalise/place/central-garden-axis",
+  "id": "https://heritalise-eccch.eu/resource/place/central-garden-axis",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",
@@ -33,6 +33,6 @@
     "identifier": "RV-ZONE-CGA",
     "name": "Central Garden Axis",
     "placeType": "http://vocab.getty.edu/aat/300008087",
-    "partOf": "https://example.org/heritalise/site/reggia-di-venaria"
+    "partOf": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria"
   }
 }

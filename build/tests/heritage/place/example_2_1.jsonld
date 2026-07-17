@@ -1,5 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/place/rv-site",
   "type": "Feature",
   "geometry": {
     "type": "Point",

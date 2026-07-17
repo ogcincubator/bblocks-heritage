@@ -2,13 +2,311 @@
   "title": "Validation report for ogc.heritage.survey-dataset - Survey Dataset",
   "bblockName": "Survey Dataset",
   "bblockId": "ogc.heritage.survey-dataset",
-  "generated": "2026-07-16T14:38:32.018296+00:00",
+  "generated": "2026-07-17T10:15:47.774109+00:00",
   "result": true,
-  "items": [],
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/survey-dataset/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/survey-dataset/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/venaria-gc-ceiling-tls.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 8,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/survey-dataset/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/survey-dataset/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/survey-dataset/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/survey-dataset/shapes.shacl#SurveyDatasetShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/survey-dataset/shapes.shacl:\n - Shape <file:///github/workspace/_sources/survey-dataset/shapes.shacl#SurveyDatasetShape>: <https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024>\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024>\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/survey-dataset/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/survey-dataset/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/malta-villa-portelli-uav.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 8,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/survey-dataset/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/survey-dataset/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/survey-dataset/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/survey-dataset/shapes.shacl#SurveyDatasetShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/survey-dataset/shapes.shacl:\n - Shape <file:///github/workspace/_sources/survey-dataset/shapes.shacl#SurveyDatasetShape>: <https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025>\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025>\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/survey-dataset/example_3_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/survey-dataset/example_3_1.json",
+        "exampleIndex": 3,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/gg-bay7-vault-tls-shared-coverage.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_3_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_3_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_3_1.ttl",
+              "size": 9,
+              "isError": false,
+              "message": "Output Turtle example_3_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/survey-dataset/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/survey-dataset/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/survey-dataset/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/survey-dataset/shapes.shacl#SurveyDatasetShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/survey-dataset/shapes.shacl:\n - Shape <file:///github/workspace/_sources/survey-dataset/shapes.shacl#SurveyDatasetShape>: <https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024>\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/digital-representation/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/digital-representation/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/digital-representation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024>\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "globalErrors": {},
   "counts": {
-    "total": 0,
-    "passed": 0,
+    "total": 3,
+    "passed": 3,
     "failed": 0
   }
 }

@@ -1,6 +1,6 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-site/context.jsonld",
-  "id": "https://example.org/heritalise/site/villa-portelli-garden",
+  "id": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
   "type": "Feature",
   "geometry": {
     "type": "Polygon",

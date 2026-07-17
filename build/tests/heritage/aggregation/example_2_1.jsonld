@@ -1,4 +1,5 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld",
-  "aggregatedCHO": "https://example.org/heritalise/object/great-gallery-painting-014"
+  "id": "https://heritalise-eccch.eu/resource/aggregation/great-gallery-painting-014",
+  "aggregatedCHO": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
 }

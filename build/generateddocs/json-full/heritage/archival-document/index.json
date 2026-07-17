@@ -55,20 +55,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/examples/lido.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.json",
-          "sizeBytes": 282,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}\n"
+          "sizeBytes": 294,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.jsonld",
-          "sizeBytes": 404,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://example.org/heritalise/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}"
+          "sizeBytes": 416,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.ttl",
-          "sizeBytes": 370,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n\n<https://example.org/heritalise/digital/fishing-creel-lido-record> dct:format \"text/xml\" ;\n    crm:P129_is_about <https://example.org/heritalise/object/fishing-creel> ;\n    crm:P1_is_identified_by \"WHM-1923.45-LIDO\",\n        \"https://hdl.handle.net/10.1234/whm-1923.45\" .\n\n"
+          "sizeBytes": 382,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n\n<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> dct:format \"text/xml\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> ;\n    crm:P1_is_identified_by \"WHM-1923.45-LIDO\",\n        \"https://hdl.handle.net/10.1234/whm-1923.45\" .\n\n"
         }
       ]
     },
@@ -80,20 +80,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/examples/malta-cad-plan.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_2_1.json",
-          "sizeBytes": 476,
-          "code": "{\n  \"id\": \"https://example.org/heritalise/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://example.org/heritalise/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://example.org/heritalise/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/heritage-malta-conservation\"\n  ]\n}\n"
+          "sizeBytes": 500,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation\"\n  ]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_2_1.jsonld",
-          "sizeBytes": 598,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://example.org/heritalise/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://example.org/heritalise/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://example.org/heritalise/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://example.org/heritalise/actor/heritage-malta-conservation\"\n  ]\n}"
+          "sizeBytes": 622,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation\"\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_2_1.ttl",
-          "sizeBytes": 660,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://example.org/heritalise/digital/villa-portelli-ground-floor-plan> dct:format \"application/dwg\" ;\n    crm:P129_is_about <https://example.org/heritalise/site/villa-portelli> ;\n    crm:P1_is_identified_by \"MT-CAD-GFP-001\",\n        \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\" ;\n    dcat:accessURL <https://example.org/heritalise/files/villa-portelli-ground-floor.dwg> ;\n    prov:wasAttributedTo <https://example.org/heritalise/actor/heritage-malta-conservation> .\n\n"
+          "sizeBytes": 684,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> dct:format \"application/dwg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/site/villa-portelli> ;\n    crm:P1_is_identified_by \"MT-CAD-GFP-001\",\n        \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\" ;\n    dcat:accessURL <https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg> ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation> .\n\n"
         }
       ]
     }

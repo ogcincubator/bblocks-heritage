@@ -57,14 +57,14 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "type": "HeritageObject",
   "identifier": "RV-SPC-GG-B07",
   "title": "Galleria Grande — Bay 7",
   "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
   "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://example.org/heritalise/building/galleria-grande",
-  "partOf": "https://example.org/heritalise/space/galleria-grande",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
   "historicalNames": [
     {
       "name": "Sala VII",
@@ -101,14 +101,14 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
-  "id": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "type": "HeritageObject",
   "identifier": "RV-SPC-GG-B07",
   "title": "Galleria Grande \u2014 Bay 7",
   "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
   "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://example.org/heritalise/building/galleria-grande",
-  "partOf": "https://example.org/heritalise/space/galleria-grande",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
   "historicalNames": [
     {
       "name": "Sala VII",
@@ -161,7 +161,7 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://example.org/heritalise/space/galleria-grande-bay-7> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "Galleria Grande — Bay 7" ;
     crm:P1_is_identified_by "[{\"datePeriod\":\"1714/1798\",\"name\":\"Sala VII\",\"source\":\"Guarini inventory 1714\"},{\"datePeriod\":\"1800/1870\",\"name\":\"Baia Settima\",\"source\":\"Archivio di Stato di Torino, sec. XIX\"}]"^^rdf:JSON,
         "B07",
@@ -170,8 +170,8 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
     crm:P2_has_type <http://vocab.getty.edu/aat/300004829> ;
     crm:P3_has_note "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate." ;
     crm:P44_has_condition "open to public" ;
-    crm:P46i_forms_part_of <https://example.org/heritalise/building/galleria-grande>,
-        <https://example.org/heritalise/space/galleria-grande> ;
+    crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/galleria-grande>,
+        <https://heritalise-eccch.eu/resource/space/galleria-grande> ;
     geojson:geometry "{\"coordinates\":[[[7.6272,45.1343],[7.6275,45.1343],[7.6275,45.1345],[7.6272,45.1345],[7.6272,45.1343]]],\"type\":\"Polygon\"}"^^rdf:JSON .
 
 
@@ -183,13 +183,13 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
 #### json
 ```json
 {
-  "id": "https://example.org/heritalise/space/villa-portelli-salon",
+  "id": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "type": "HeritageObject",
   "identifier": "MT-SPC-VP-SALON",
   "title": "Villa Portelli — Grand Salon",
   "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
   "objectType": "http://vocab.getty.edu/aat/300004733",
-  "parentBuilding": "https://example.org/heritalise/building/villa-portelli-main",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
   "floorLevel": "ground floor",
   "accessibilityStatus": "open to public",
   "monitoringRelevance": true,
@@ -214,13 +214,13 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
-  "id": "https://example.org/heritalise/space/villa-portelli-salon",
+  "id": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
   "type": "HeritageObject",
   "identifier": "MT-SPC-VP-SALON",
   "title": "Villa Portelli \u2014 Grand Salon",
   "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
   "objectType": "http://vocab.getty.edu/aat/300004733",
-  "parentBuilding": "https://example.org/heritalise/building/villa-portelli-main",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
   "floorLevel": "ground floor",
   "accessibilityStatus": "open to public",
   "monitoringRelevance": true,
@@ -261,7 +261,7 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://example.org/heritalise/space/villa-portelli-salon> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/space/villa-portelli-salon> a crm:E22_Man-Made_Object ;
     crm:P102_has_title "Villa Portelli — Grand Salon" ;
     crm:P1_is_identified_by "3DkP9qRsTwUv2xYzAcBdEf",
         "MT-SPC-VP-SALON",
@@ -269,8 +269,74 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
     crm:P2_has_type <http://vocab.getty.edu/aat/300004733> ;
     crm:P3_has_note "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space." ;
     crm:P44_has_condition "open to public" ;
-    crm:P46i_forms_part_of <https://example.org/heritalise/building/villa-portelli-main> ;
+    crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/villa-portelli-main> ;
     geojson:geometry "{\"coordinates\":[[[14.5132,35.8962],[14.5138,35.8962],[14.5138,35.8966],[14.5132,35.8966],[14.5132,35.8962]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+
+
+```
+
+
+### Galleria Grande bay with footprint by reference (geometry-by-reference / topology)
+Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-grande-bay.json) and shares exactly the same floor-plan footprint. Rather than re-embedding identical coordinates, its geometry is given as a `references` array pointing at bay 7's own record — the geometry-by-reference pattern from ogc.ogc-utils.topology, reused here to avoid duplicating shared coordinates.
+#### json
+```json
+{
+  "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8",
+  "type": "HeritageObject",
+  "identifier": "RV-SPC-GG-B08",
+  "title": "Galleria Grande — Bay 8",
+  "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
+  "objectType": "http://vocab.getty.edu/aat/300004829",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+  "floorLevel": "piano nobile",
+  "bayCode": "B08",
+  "accessibilityStatus": "open to public",
+  "references": [
+    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+  ]
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8",
+  "type": "HeritageObject",
+  "identifier": "RV-SPC-GG-B08",
+  "title": "Galleria Grande \u2014 Bay 8",
+  "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
+  "objectType": "http://vocab.getty.edu/aat/300004829",
+  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+  "floorLevel": "piano nobile",
+  "bayCode": "B08",
+  "accessibilityStatus": "open to public",
+  "references": [
+    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8> a crm:E22_Man-Made_Object ;
+    crm:P102_has_title "Galleria Grande — Bay 8" ;
+    crm:P1_is_identified_by "B08",
+        "RV-SPC-GG-B08",
+        "piano nobile" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300004829> ;
+    crm:P3_has_note "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates." ;
+    crm:P44_has_condition "open to public" ;
+    crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/galleria-grande>,
+        <https://heritalise-eccch.eu/resource/space/galleria-grande> ;
+    geojson:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) .
 
 
 ```
@@ -303,6 +369,13 @@ description: 'An interior room, bay, hall, corridor, vault, opening or zone with
 allOf:
 - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 - type: object
+  oneOf:
+  - type: object
+    description: Space with its own embedded footprint geometry (or none at all).
+    not:
+      required:
+      - references
+  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
     parentBuilding:
       type: string
@@ -428,6 +501,12 @@ Links to the schema:
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
     },
+    "LineString": "geojson:LineString",
+    "references": {
+      "@id": "geojson:relatedFeatures",
+      "@type": "@id",
+      "@container": "@list"
+    },
     "parentBuilding": {
       "@id": "crm:P46i_forms_part_of",
       "@type": "@id"
@@ -451,6 +530,8 @@ Links to the schema:
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "prov": "http://www.w3.org/ns/prov#",
     "geojson": "https://purl.org/geojson/vocab#",
+    "csdm": "https://linked.data.gov.au/def/csdm/",
+    "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }
 }

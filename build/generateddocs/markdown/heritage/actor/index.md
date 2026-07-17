@@ -44,6 +44,7 @@ A conservation staff member, typed as a `Person`, with a local staff identifier 
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/actor/giulia-bianchi",
   "agentType": "Person",
   "name": "Giulia Bianchi",
   "identifier": "RV-STAFF-042",
@@ -56,6 +57,7 @@ A conservation staff member, typed as a `Person`, with a local staff identifier 
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/actor/giulia-bianchi",
   "agentType": "Person",
   "name": "Giulia Bianchi",
   "identifier": "RV-STAFF-042",
@@ -70,7 +72,7 @@ A conservation staff member, typed as a `Person`, with a local staff identifier 
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-[] a prov:Person ;
+<https://heritalise-eccch.eu/resource/actor/giulia-bianchi> a prov:Person ;
     rdfs:label "Giulia Bianchi" ;
     crm:P1_is_identified_by "RV-STAFF-042" ;
     owl:sameAs <http://vocab.getty.edu/ulan/500123456> .
@@ -80,10 +82,11 @@ A conservation staff member, typed as a `Person`, with a local staff identifier 
 
 
 ### A minimal record for an unidentified creator
-PROV-O's Agent only requires a `name` or an `id` — useful for an attributed-but-unnamed workshop or studio, common in older catalogue records (UC-V-3 legacy-archive migration).
+`id` is required register-wide (see ogc.heritage.actor), but `name` remains the only other populated field — useful for an attributed-but-unnamed workshop or studio, common in older catalogue records (UC-V-3 legacy-archive migration).
 #### json
 ```json
 {
+  "id": "https://heritalise-eccch.eu/resource/actor/unidentified-venaria-court-painter-workshop",
   "name": "Workshop of an unidentified Venaria court painter"
 }
 
@@ -93,6 +96,7 @@ PROV-O's Agent only requires a `name` or an `id` — useful for an attributed-bu
 ```jsonld
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/actor/unidentified-venaria-court-painter-workshop",
   "name": "Workshop of an unidentified Venaria court painter"
 }
 ```
@@ -101,7 +105,7 @@ PROV-O's Agent only requires a `name` or an `id` — useful for an attributed-bu
 ```ttl
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-[] rdfs:label "Workshop of an unidentified Venaria court painter" .
+<https://heritalise-eccch.eu/resource/actor/unidentified-venaria-court-painter-workshop> rdfs:label "Workshop of an unidentified Venaria court painter" .
 
 
 ```

@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.architectural-space - Architectural Space
-Generated 2026-07-16T14:38:29.059456+00:00
+Generated 2026-07-17T10:15:37.291257+00:00
 === Files ===
 Using examples/galleria-grande-bay.json from examples
 JSON-LD context is present - uplifting
@@ -17,14 +17,14 @@ Validation result for _sources/architectural-space/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/architectural-space/shapes.shacl:
- - Shape <file:///github/workspace/_sources/architectural-space/shapes.shacl#ArchitecturalSpaceShape>: <https://example.org/heritalise/space/galleria-grande-bay-7>
+ - Shape <file:///github/workspace/_sources/architectural-space/shapes.shacl#ArchitecturalSpaceShape>: <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7>
 
 Validation result for _sources/heritage-object/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for _sources/heritage-object/shapes.shacl:
- - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://example.org/heritalise/space/galleria-grande-bay-7>
+ - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7>
 
 === End SHACL ===
 

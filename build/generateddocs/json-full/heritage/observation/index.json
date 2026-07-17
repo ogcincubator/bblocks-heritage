@@ -67,20 +67,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/humidity-reading.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.json",
-          "sizeBytes": 310,
-          "code": "{\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}\n"
+          "sizeBytes": 426,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.jsonld",
-          "sizeBytes": 426,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}"
+          "sizeBytes": 542,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.ttl",
-          "sizeBytes": 433,
-          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;\n    sosa:hasSimpleResult 5.42e+01 ;\n    sosa:madeBySensor <https://example.org/heritalise/sta/v1.1/Sensors(12)> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-03-04T12:00:00Z\" .\n\n"
+          "sizeBytes": 537,
+          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z> a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult 5.42e+01 ;\n    sosa:madeBySensor <https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-03-04T12:00:00Z\" .\n\n"
         }
       ]
     },
@@ -92,20 +92,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.json",
-          "sizeBytes": 204,
-          "code": "{\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}\n"
+          "sizeBytes": 292,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.jsonld",
-          "sizeBytes": 320,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}"
+          "sizeBytes": 408,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.ttl",
-          "sizeBytes": 253,
-          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n\n[] sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;\n    sosa:hasSimpleResult <file:///github/workspace/> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .\n\n"
+          "sizeBytes": 329,
+          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n\n<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult <file:///github/workspace/> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .\n\n"
         }
       ]
     },
@@ -117,25 +117,25 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/monitoring-point-reading.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.json",
-          "sizeBytes": 343,
-          "code": "{\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}\n"
+          "sizeBytes": 456,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.jsonld",
-          "sizeBytes": 459,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://example.org/heritalise/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}"
+          "sizeBytes": 572,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.ttl",
-          "sizeBytes": 466,
-          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;\n    sosa:hasSimpleResult 6.14e+01 ;\n    sosa:madeBySensor <https://example.org/heritalise/monitoring-point/north-gallery-mp-01> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-09-15T08:30:00Z\" .\n\n"
+          "sizeBytes": 567,
+          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z> a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;\n    sosa:hasSimpleResult 6.14e+01 ;\n    sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-09-15T08:30:00Z\" .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Observation\ndescription: 'A scientific observation or measurement, profiling the SOSA/SSN Observation\n  rather than\n\n  redefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n\n  `hasResult`/`hasSimpleResult` and `resultTime`/`phenomenonTime` all come from\n\n  `ogc.sosa.properties.observation`. This block only narrows `hasFeatureOfInterest`\n  from\n\n  optional to required, since every reading in this register is expected to reference\n  the\n\n  `heritage-object` or `place` it was taken of/at by URI (the CIDOC-CRM/CRMsci \"scientific\n\n  observation context\"), and sets `type` so the uplifted graph is actually typed\n\n  `sosa:Observation` (the profiled block''s own examples never set it). For observations\n  that\n\n  need their own geometry independent of an existing `place`, compose the properties\n  from this\n\n  block inside `ogc.sosa.features.observation` instead.\n\n  '\nallOf:\n- $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml\n- type: object\n  required:\n  - hasFeatureOfInterest\n  properties:\n    type:\n      const: Observation\n      x-jsonld-id: '@type'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Observation\ndescription: 'A scientific observation or measurement, profiling the SOSA/SSN Observation\n  rather than\n\n  redefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n\n  `hasResult`/`hasSimpleResult` and `resultTime`/`phenomenonTime` all come from\n\n  `ogc.sosa.properties.observation`. This block only narrows `hasFeatureOfInterest`\n  from\n\n  optional to required, since every reading in this register is expected to reference\n  the\n\n  `heritage-object` or `place` it was taken of/at by URI (the CIDOC-CRM/CRMsci \"scientific\n\n  observation context\"), and sets `type` so the uplifted graph is actually typed\n\n  `sosa:Observation` (the profiled block''s own examples never set it). For observations\n  that\n\n  need their own geometry independent of an existing `place`, compose the properties\n  from this\n\n  block inside `ogc.sosa.features.observation` instead.\n\n  '\nallOf:\n- $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml\n- type: object\n  required:\n  - id\n  - hasFeatureOfInterest\n  properties:\n    type:\n      const: Observation\n      x-jsonld-id: '@type'\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/observation"
 }

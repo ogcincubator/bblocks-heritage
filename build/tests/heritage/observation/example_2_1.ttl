@@ -1,6 +1,6 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 
-[] sosa:hasFeatureOfInterest <https://example.org/heritalise/place/great-gallery> ;
+<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult <file:///github/workspace/> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
 

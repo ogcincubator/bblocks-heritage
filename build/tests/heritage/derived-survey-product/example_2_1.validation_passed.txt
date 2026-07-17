@@ -1,0 +1,30 @@
+Validation report for ogc.heritage.derived-survey-product - Derived Survey Product
+Generated 2026-07-17T10:15:46.901620+00:00
+=== Files ===
+Using examples/malta-villa-portelli-deviation-map.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/derived-survey-product/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/derived-survey-product/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/derived-survey-product/shapes.shacl#DerivedSurveyProductShape>: <https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025>
+
+Validation result for _sources/digital-representation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/digital-representation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/digital-representation/shapes.shacl#DigitalRepresentationIsAboutIsIRI>: <https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025>
+
+=== End SHACL ===
+

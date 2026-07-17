@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.condition-assessment - Condition Assessment",
   "bblockName": "Condition Assessment",
   "bblockId": "ogc.heritage.condition-assessment",
-  "generated": "2026-07-16T14:38:28.672259+00:00",
+  "generated": "2026-07-17T10:15:37.681586+00:00",
   "result": true,
   "items": [
     {
@@ -74,12 +74,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/condition/RV-CA-GG-2026-003>"
+                    "<https://heritalise-eccch.eu/resource/condition/RV-CA-GG-2026-003>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/condition-assessment/shapes.shacl:\n - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://example.org/heritalise/condition/RV-CA-GG-2026-003>\n"
+              "message": "Focus nodes for _sources/condition-assessment/shapes.shacl:\n - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://heritalise-eccch.eu/resource/condition/RV-CA-GG-2026-003>\n"
             }
           ]
         }
@@ -154,12 +154,12 @@
               "focusNodes": {
                 "<file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>": {
                   "nodes": [
-                    "<https://example.org/heritalise/condition/MT-CA-VP-2026-011>"
+                    "<https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/condition-assessment/shapes.shacl:\n - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://example.org/heritalise/condition/MT-CA-VP-2026-011>\n"
+              "message": "Focus nodes for _sources/condition-assessment/shapes.shacl:\n - Shape <file:///github/workspace/_sources/condition-assessment/shapes.shacl#ConditionAssessmentShape>: <https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011>\n"
             }
           ]
         }

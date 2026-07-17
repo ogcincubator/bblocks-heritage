@@ -1,0 +1,15 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+<https://heritalise-eccch.eu/resource/carrier/mna-portelli-photo-1920-042> a crm:E31_Document ;
+    dct:isPartOf "Maltese Heritage Photography Collection" ;
+    dct:rights "http://rightsstatements.org/vocab/NoC-NC/1.0/" ;
+    crm:P102_has_title "Villa Portelli main facade — exterior view, c. 1920" ;
+    crm:P1_is_identified_by "MNA/PHO/1920/042" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300046300> ;
+    crm:P3_has_note "13 × 18 cm silver gelatin print" ;
+    crm:P44_has_condition "fair — surface scratches, slight yellowing" ;
+    crm:P4_has_time-span "c. 1920" ;
+    crm:P50_has_current_keeper "Malta National Archives" ;
+    crm:P70_documents <https://heritalise-eccch.eu/resource/building/villa-portelli-main> .
+

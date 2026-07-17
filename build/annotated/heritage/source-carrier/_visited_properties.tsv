@@ -1,5 +1,5 @@
 path	@id	schema
-/id		/github/workspace/build/annotated/heritage/source-carrier/schema.yaml
+/id	@id	/github/workspace/build/annotated/heritage/source-carrier/schema.yaml
 /type	@type	/github/workspace/build/annotated/heritage/source-carrier/schema.yaml
 /carrierType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/source-carrier/schema.yaml
 /title	http://www.cidoc-crm.org/cidoc-crm/P102_has_title	/github/workspace/build/annotated/heritage/source-carrier/schema.yaml

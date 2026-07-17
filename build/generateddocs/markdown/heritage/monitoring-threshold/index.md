@@ -214,6 +214,7 @@ description: A conservation threshold rule defining the acceptable value range f
   + QUDT units).
 type: object
 required:
+- id
 - type
 - parameter
 - thresholdType

@@ -1,10 +1,11 @@
 {
+  "id": "https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01",
   "type": "MonitoringPoint",
   "name": "Galleria Grande Bay 7 \u2014 Relative Humidity Sensor RH01",
   "description": "Capacitive relative humidity sensor mounted at 2.5 m height on the north wall of bay 7, Galleria Grande. Primary MHS hotspot for microclimate monitoring in the painted vault zone.",
   "identifier": "RV-MP-GG-B07-RH01",
   "sensorType": "http://vocab.getty.edu/aat/300379649",
-  "locatedIn": "https://example.org/heritalise/space/galleria-grande-bay-7",
+  "locatedIn": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
   "operationalStatus": "active",
   "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
   "position": {

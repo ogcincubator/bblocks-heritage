@@ -4,6 +4,7 @@
   "description": "A piece of historical knowledge extracted from a document or legacy record, modelled as a CIDOC-CRM E13 Attribute Assignment. Captures the statement text (inner E33 Linguistic Object), the source record it was drawn from, an optional W3C Web Annotation evidence locator identifying the precise passage, and reviewer provenance.",
   "type": "object",
   "required": [
+    "id",
     "type",
     "statementType",
     "sourceRecord",
@@ -14,7 +15,8 @@
     "id": {
       "type": "string",
       "format": "uri",
-      "description": "Persistent URI identifying this historical statement record."
+      "description": "Persistent URI identifying this historical statement record.",
+      "x-jsonld-id": "@id"
     },
     "type": {
       "const": "HistoricalStatement",

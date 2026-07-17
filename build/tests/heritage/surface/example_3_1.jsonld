@@ -1,14 +1,21 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco",
-  "type": "Surface",
-  "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
-  "material": "http://vocab.getty.edu/aat/300178433",
-  "technique": "http://vocab.getty.edu/aat/300053343",
-  "historicalPhase": "1700\u20131710",
-  "exposure": "vault intrados",
-  "conditionSummary": "stable",
-  "references": [
-    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
-  ]
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+    ]
+  },
+  "properties": {
+    "choType": "Surface",
+    "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+    "material": "http://vocab.getty.edu/aat/300178433",
+    "technique": "http://vocab.getty.edu/aat/300053343",
+    "historicalPhase": "1700\u20131710",
+    "exposure": "vault intrados",
+    "conditionSummary": "stable"
+  }
 }

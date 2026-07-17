@@ -1,0 +1,22 @@
+{
+  "id": "https://heritalise-eccch.eu/resource/object/north-vault-bay-3",
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      7.6187,
+      45.1337
+    ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-ARCH-NV-003",
+    "title": "North gallery vault, bay 3",
+    "objectType": "http://vocab.getty.edu/aat/300002862",
+    "material": [
+      "http://vocab.getty.edu/aat/300010439",
+      "http://vocab.getty.edu/aat/300014130"
+    ],
+    "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+  }
+}

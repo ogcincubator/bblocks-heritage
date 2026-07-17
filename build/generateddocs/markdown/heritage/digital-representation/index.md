@@ -124,40 +124,43 @@ description: 'A digital asset (image, 3D model, document...) representing or doc
   (the heritage object it represents), a media type and an optional persistent identifier.
 
   '
+$defs:
+  properties:
+    type: object
+    required:
+    - isAbout
+    properties:
+      identifier:
+        type: string
+        description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+      isAbout:
+        type: string
+        format: uri
+        description: URI of the heritage object (or other CRM entity) this digital
+          asset represents or documents (CIDOC-CRM P129_is_about).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about
+        x-jsonld-type: '@id'
+      mediaType:
+        type: string
+        description: The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`
+          (dct:format).
+        x-jsonld-id: http://purl.org/dc/terms/format
+      persistentIdentifier:
+        type: string
+        format: uri
+        description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this
+          asset.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+      url:
+        type: string
+        format: uri
+        description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).
+        x-jsonld-id: http://www.w3.org/ns/dcat#accessURL
+        x-jsonld-type: '@id'
 allOf:
 - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
-- type: object
-  required:
-  - isAbout
-  properties:
-    identifier:
-      type: string
-      description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    isAbout:
-      type: string
-      format: uri
-      description: URI of the heritage object (or other CRM entity) this digital asset
-        represents or documents (CIDOC-CRM P129_is_about).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about
-      x-jsonld-type: '@id'
-    mediaType:
-      type: string
-      description: The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`
-        (dct:format).
-      x-jsonld-id: http://purl.org/dc/terms/format
-    persistentIdentifier:
-      type: string
-      format: uri
-      description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this
-        asset.
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    url:
-      type: string
-      format: uri
-      description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).
-      x-jsonld-id: http://www.w3.org/ns/dcat#accessURL
-      x-jsonld-type: '@id'
+- $ref: '#/$defs/properties'
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/

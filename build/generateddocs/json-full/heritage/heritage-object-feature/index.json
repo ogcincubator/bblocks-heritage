@@ -1,0 +1,121 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.heritage-object-feature",
+  "name": "Heritage Object Feature",
+  "abstract": "Feature-envelope wrapper for Heritage Object: a spatially located CIDOC-CRM E22 Man-Made Object encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-17T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-17",
+  "isProfileOf": "ogc.heritage.heritage-object",
+  "sources": [
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "OGC topo-feature",
+      "link": "https://github.com/opengeospatial/topo-feature"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "object",
+    "feature",
+    "topology"
+  ],
+  "group": "Core",
+  "shaclShapes": {
+    "ogc.geo.topo.features.topo-feature": [
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl",
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl"
+    ],
+    "ogc.geo.topo.features.topo-feature-collection": [
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl",
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl"
+    ],
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ],
+    "ogc.geo.features.featureCollection": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
+    ],
+    "ogc.heritage.heritage-object": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.geo.topo.features.topo-feature",
+    "ogc.geo.json-fg.feature-lenient",
+    "ogc.heritage.heritage-object"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object-feature/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object-feature/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object-feature/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/heritage-object-feature/",
+  "examples": [
+    {
+      "title": "North gallery vault, bay 3 \u2014 located by embedded point geometry",
+      "content": "A heritage object with an embedded GeoJSON point marking its location. `properties` nests the CIDOC-CRM attributes from heritage-object; `choType` carries the crm:E22_Man-Made_Object class as a second alias to `@type`, alongside the fixed `type: \"Feature\"`.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object-feature/examples/wall-component-located.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object-feature/example_1_1.json",
+          "sizeBytes": 675,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/object/north-vault-bay-3\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [7.6187, 45.1337]\n  },\n  \"properties\": {\n    \"choType\": \"HeritageObject\",\n    \"identifier\": \"RV-ARCH-NV-003\",\n    \"title\": \"North gallery vault, bay 3\",\n    \"objectType\": \"http://vocab.getty.edu/aat/300002862\",\n    \"material\": [\n      \"http://vocab.getty.edu/aat/300010439\",\n      \"http://vocab.getty.edu/aat/300014130\"\n    ],\n    \"description\": \"Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object-feature/example_1_1.jsonld",
+          "sizeBytes": 821,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/object/north-vault-bay-3\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.6187,\n      45.1337\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"HeritageObject\",\n    \"identifier\": \"RV-ARCH-NV-003\",\n    \"title\": \"North gallery vault, bay 3\",\n    \"objectType\": \"http://vocab.getty.edu/aat/300002862\",\n    \"material\": [\n      \"http://vocab.getty.edu/aat/300010439\",\n      \"http://vocab.getty.edu/aat/300014130\"\n    ],\n    \"description\": \"Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object-feature/example_1_1.ttl",
+          "sizeBytes": 909,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/object/north-vault-bay-3> a crm:E22_Man-Made_Object,\n        geojson:Feature ;\n    crm:P102_has_title \"North gallery vault, bay 3\" ;\n    crm:P1_is_identified_by \"RV-ARCH-NV-003\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300002862> ;\n    crm:P3_has_note \"Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.\" ;\n    crm:P45_consists_of <http://vocab.getty.edu/aat/300010439>,\n        <http://vocab.getty.edu/aat/300014130> ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.6187e+00 4.51337e+01 ) ] .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "North gallery vault, bay 3 \u2014 location by topology reference",
+      "content": "The same object located by reference instead of embedded coordinates: `geometry` is `null` and `topology.references` points at the parent space's own record, using ogc.geo.topo.features.topo-feature to avoid duplicating coordinates.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-object-feature/examples/wall-component-topology.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object-feature/example_2_1.json",
+          "sizeBytes": 449,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/object/north-vault-bay-3-topo\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/north-gallery\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"HeritageObject\",\n    \"identifier\": \"RV-ARCH-NV-003\",\n    \"title\": \"North gallery vault, bay 3\",\n    \"objectType\": \"http://vocab.getty.edu/aat/300002862\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object-feature/example_2_1.jsonld",
+          "sizeBytes": 577,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/object/north-vault-bay-3-topo\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/north-gallery\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"HeritageObject\",\n    \"identifier\": \"RV-ARCH-NV-003\",\n    \"title\": \"North gallery vault, bay 3\",\n    \"objectType\": \"http://vocab.getty.edu/aat/300002862\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-object-feature/example_2_1.ttl",
+          "sizeBytes": 645,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix topo: <https://purl.org/geojson/topo#> .\n\n<https://heritalise-eccch.eu/resource/object/north-vault-bay-3-topo> a crm:E22_Man-Made_Object,\n        geojson:Feature ;\n    crm:P102_has_title \"North gallery vault, bay 3\" ;\n    crm:P1_is_identified_by \"RV-ARCH-NV-003\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300002862> ;\n    geojson:topology [ a geojson:Polygon ;\n            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/north-gallery> ) ] .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Object Feature\ndescription: \"Feature-envelope wrapper for ogc.heritage.heritage-object: a spatially\n  located heritage object encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature\n  when its geometry is defined by reference/topology rather than embedded coordinates.\n  heritage-object's CIDOC-CRM attributes nest under `properties` (GeoJSON convention);\n  `properties.choType` carries the CIDOC-CRM class (Cultural Heritage Object type)\n  as a second alias to `@type`, alongside the fixed `type: \\\"Feature\\\"` \\u2014 the\n  same secondary-typing pattern PROV-O's own prov-entity block uses for its `provType`\n  property, kept as a distinct name here since this block has no PROV-O involvement.\"\nallOf:\n- oneOf:\n  - allOf:\n    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml\n    - type: object\n      description: Object with its own embedded footprint geometry (or none at all).\n      not:\n        required:\n        - topology\n  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml\n- type: object\n  required:\n  - id\n  properties:\n    id:\n      type: string\n      format: uri\n      description: Persistent URI identifying this record (overrides the inherited\n        `id`, which also allows a bare number).\n    properties:\n      allOf:\n      - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml#/$defs/properties\n      - type: object\n        required:\n        - choType\n        properties:\n          choType:\n            const: HeritageObject\n            description: 'CIDOC-CRM class discriminator for this record (maps to crm:E22_Man-Made_Object\n              via a second alias to @type, alongside the fixed GeoJSON `type: \"Feature\"`).'\n            x-jsonld-id: '@type'\nx-jsonld-extra-terms:\n  HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object\n  identifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  title: http://www.cidoc-crm.org/cidoc-crm/P102_has_title\n  description: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n  objectType:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n    x-jsonld-type: '@id'\n  material:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  currentLocation:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location\n    x-jsonld-type: '@id'\n  persistentIdentifier:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/heritage-object-feature"
+}

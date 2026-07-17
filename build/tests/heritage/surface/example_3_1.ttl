@@ -1,13 +1,16 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix topo: <https://purl.org/geojson/topo#> .
 
-<https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco> a crm:E25_Man-Made_Feature ;
+<https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco> a crm:E25_Man-Made_Feature,
+        geojson:Feature ;
     crm:P33_used_specific_technique <http://vocab.getty.edu/aat/300053343> ;
     crm:P3_has_note "vault intrados" ;
     crm:P44_has_condition "stable" ;
     crm:P45_consists_of <http://vocab.getty.edu/aat/300178433> ;
     crm:P4_has_time-span "1700–1710" ;
     crm:P56i_is_found_on <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
-    geojson:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) .
+    geojson:topology [ a geojson:Polygon ;
+            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) ] .
 

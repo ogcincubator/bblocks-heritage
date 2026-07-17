@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.digital-representation - Digital Representation
-Generated 2026-07-17T10:15:41.476488+00:00
+Generated 2026-07-17T14:25:17.083917+00:00
 === Files ===
 Using examples/photograph.json from examples
 JSON-LD context is present - uplifting

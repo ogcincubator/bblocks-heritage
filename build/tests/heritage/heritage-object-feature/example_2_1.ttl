@@ -1,0 +1,13 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix topo: <https://purl.org/geojson/topo#> .
+
+<https://heritalise-eccch.eu/resource/object/north-vault-bay-3-topo> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
+    crm:P102_has_title "North gallery vault, bay 3" ;
+    crm:P1_is_identified_by "RV-ARCH-NV-003" ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300002862> ;
+    geojson:topology [ a geojson:Polygon ;
+            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/north-gallery> ) ] .
+

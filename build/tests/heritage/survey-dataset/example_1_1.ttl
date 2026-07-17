@@ -4,13 +4,16 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> a crmdig:D1_Digital_Object ;
+<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> a crmdig:D1_Digital_Object,
+        geojson:Feature ;
     dct:description "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition." ;
     dct:format "application/vnd.las" ;
     dct:title "TLS Point Cloud — Galleria Grande Ceiling (2024)" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/building/galleria-grande> ;
     crmdig:L11i_was_output_of "{\"accuracy\":\"±3 mm\",\"acquisitionDate\":\"2024-03-15\",\"acquisitionMethod\":\"TLS\",\"crs\":\"https://www.opengis.net/def/crs/EPSG/0/32632\",\"density\":\"~3500 pts/m²\",\"equipment\":\"Leica RTC360\",\"operator\":\"https://orcid.org/0000-0000-0000-0001\",\"processingHistory\":\"Registration: Leica Cyclone REGISTER 360 v1.8; automatic noise filter applied; colourised from concurrent RGB imagery.\"}"^^rdf:JSON ;
     dcat:accessURL <https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz> ;
-    geojson:geometry "{\"coordinates\":[[[7.6025,45.129],[7.6035,45.129],[7.6035,45.1295],[7.6025,45.1295],[7.6025,45.129]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.6025e+00 4.5129e+01 ) ( 7.6035e+00 4.5129e+01 ) ( 7.6035e+00 4.51295e+01 ) ( 7.6025e+00 4.51295e+01 ) ( 7.6025e+00 4.5129e+01 ) ) ) ] .
 

@@ -1,8 +1,10 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
     crm:P102_has_title "Galleria Grande — Bay 7" ;
     crm:P1_is_identified_by "[{\"datePeriod\":\"1714/1798\",\"name\":\"Sala VII\",\"source\":\"Guarini inventory 1714\"},{\"datePeriod\":\"1800/1870\",\"name\":\"Baia Settima\",\"source\":\"Archivio di Stato di Torino, sec. XIX\"}]"^^rdf:JSON,
         "B07",
@@ -13,5 +15,6 @@
     crm:P44_has_condition "open to public" ;
     crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/galleria-grande>,
         <https://heritalise-eccch.eu/resource/space/galleria-grande> ;
-    geojson:geometry "{\"coordinates\":[[[7.6272,45.1343],[7.6275,45.1343],[7.6275,45.1345],[7.6272,45.1345],[7.6272,45.1343]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.6272e+00 4.51343e+01 ) ( 7.6275e+00 4.51343e+01 ) ( 7.6275e+00 4.51345e+01 ) ( 7.6272e+00 4.51345e+01 ) ( 7.6272e+00 4.51343e+01 ) ) ) ] .
 

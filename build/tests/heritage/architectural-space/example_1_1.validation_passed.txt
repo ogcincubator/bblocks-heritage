@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.architectural-space - Architectural Space
-Generated 2026-07-17T10:15:37.291257+00:00
+Generated 2026-07-17T14:25:31.437188+00:00
 === Files ===
 Using examples/galleria-grande-bay.json from examples
 JSON-LD context is present - uplifting
@@ -18,6 +18,47 @@ Validation result for _sources/architectural-space/shapes.shacl:
   
 Focus nodes for _sources/architectural-space/shapes.shacl:
  - Shape <file:///github/workspace/_sources/architectural-space/shapes.shacl#ArchitecturalSpaceShape>: <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7>
+
+Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
+ - Shape _:n793cc64309904c4dbc3e20b3ba821789b3: <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7>/geojson:geometry
+ - Shape _:n793cc64309904c4dbc3e20b3ba821789b1: *none*
+
+Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
+ - Shape toporules:testTopoEdgesReferencePoints: *none*
+ - Shape toporules:testTopoDirectedReferencesExist: *none*
+ - Shape toporules:testTopoLinesReferencePoints: *none*
+ - Shape toporules:testTopoReferencesExist: *none*
+
+Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7>
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+
+Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
+ - Shape geojson:GeometryShape: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:FeatureCollectionShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
 
 Validation result for _sources/heritage-object/shapes.shacl:
   Validation Report

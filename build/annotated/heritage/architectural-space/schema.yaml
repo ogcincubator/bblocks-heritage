@@ -3,109 +3,89 @@ title: Architectural Space
 description: 'An interior room, bay, hall, corridor, vault, opening or zone within
   a building, modelled
 
-  as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object and adds
-  the
+  as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object-feature
+  and adds
 
-  containment link to a parent building, historical name crosswalk (for legacy Guarini-style
+  the containment link to a parent building, historical name crosswalk (for legacy
 
-  inventories), floor/bay subdivision identifiers, optional IFC IfcSpace reference,
-  and an
+  Guarini-style inventories), floor/bay subdivision identifiers and an optional IFC
+  IfcSpace
 
-  optional geometry for the spatial footprint or volume.
+  reference. Geometry (footprint) is inherited from heritage-object-feature: embedded
+
+  directly, given by reference/topology, or omitted entirely.
 
 
-  Instances have type "HeritageObject" (inherited). Space category is conveyed via
-  objectType
+  Instances carry `properties.choType: "HeritageObject"` (inherited). Space category
+  is
 
-  (Getty AAT room/space concept).
+  conveyed via `properties.objectType` (Getty AAT room/space concept).
 
   '
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/schema.yaml
 - type: object
-  oneOf:
-  - type: object
-    description: Space with its own embedded footprint geometry (or none at all).
-    not:
-      required:
-      - references
-  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
-    parentBuilding:
-      type: string
-      format: uri
-      description: URI of the building this space belongs to (crm:P46i_forms_part_of).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
-      x-jsonld-type: '@id'
-    partOf:
-      type: string
-      format: uri
-      description: URI of a broader space this space is contained within, for multi-level
-        hierarchies (e.g. a bay within a gallery wing). Also crm:P46i_forms_part_of.
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
-      x-jsonld-type: '@id'
-    historicalNames:
-      type: array
-      description: Historical names or codes for this space from legacy inventories
-        (e.g. Guarini room numbers, archival room labels). Each entry has a name,
-        an optional date period and an optional source reference.
-      items:
-        type: object
-        properties:
-          name:
-            type: string
-          datePeriod:
-            type: string
-            description: ISO 8601 date or period string (e.g. "1700/1750").
-          source:
-            type: string
-            description: Reference to the inventory or document where this name appears.
-        required:
-        - name
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-      x-jsonld-type: '@json'
-    floorLevel:
-      type: string
-      description: Floor or storey identifier (e.g. "ground floor", "piano nobile",
-        "1") (crm:P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    bayCode:
-      type: string
-      description: Bay or module code within the parent space, from a legacy inventory
-        or survey (crm:P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    accessibilityStatus:
-      type: string
-      description: Current accessibility status (e.g. "open to public", "restricted",
-        "closed for restoration"). Maps to crm:P44_has_condition.
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
-    monitoringRelevance:
-      type: boolean
-      description: True when environmental or condition monitoring equipment is deployed
-        in this space (links to monitoring-point records).
-    ifcSpaceRef:
-      type: string
-      description: IFC Global ID (GUID) of the corresponding IfcSpace element in an
-        HBIM model, when available (crm:P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    footprint:
+    properties:
       type: object
-      description: Optional GeoJSON geometry representing the space's floor plan polygon
-        or volumetric extent.
       properties:
-        type:
+        parentBuilding:
           type: string
-          enum:
-          - Point
-          - Polygon
-          - MultiPolygon
-        coordinates:
+          format: uri
+          description: URI of the building this space belongs to (crm:P46i_forms_part_of).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
+          x-jsonld-type: '@id'
+        partOf:
+          type: string
+          format: uri
+          description: URI of a broader space this space is contained within, for
+            multi-level hierarchies (e.g. a bay within a gallery wing). Also crm:P46i_forms_part_of.
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
+          x-jsonld-type: '@id'
+        historicalNames:
           type: array
-      required:
-      - type
-      - coordinates
-      x-jsonld-id: https://purl.org/geojson/vocab#geometry
-      x-jsonld-type: '@json'
+          description: Historical names or codes for this space from legacy inventories
+            (e.g. Guarini room numbers, archival room labels). Each entry has a name,
+            an optional date period and an optional source reference.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              datePeriod:
+                type: string
+                description: ISO 8601 date or period string (e.g. "1700/1750").
+              source:
+                type: string
+                description: Reference to the inventory or document where this name
+                  appears.
+            required:
+            - name
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+          x-jsonld-type: '@json'
+        floorLevel:
+          type: string
+          description: Floor or storey identifier (e.g. "ground floor", "piano nobile",
+            "1") (crm:P1_is_identified_by).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+        bayCode:
+          type: string
+          description: Bay or module code within the parent space, from a legacy inventory
+            or survey (crm:P1_is_identified_by).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+        accessibilityStatus:
+          type: string
+          description: Current accessibility status (e.g. "open to public", "restricted",
+            "closed for restoration"). Maps to crm:P44_has_condition.
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
+        monitoringRelevance:
+          type: boolean
+          description: True when environmental or condition monitoring equipment is
+            deployed in this space (links to monitoring-point records).
+        ifcSpaceRef:
+          type: string
+          description: IFC Global ID (GUID) of the corresponding IfcSpace element
+            in an HBIM model, when available (crm:P1_is_identified_by).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
-  geojson: https://purl.org/geojson/vocab#

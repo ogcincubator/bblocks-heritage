@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.monitoring-point - Monitoring Point
-Generated 2026-07-17T10:15:38.136108+00:00
+Generated 2026-07-17T14:25:08.825850+00:00
 === Files ===
 Using examples/villa-portelli-temp-sensor.json from examples
 JSON-LD context is present - uplifting

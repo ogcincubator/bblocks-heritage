@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.historical-place - Historical Place
-Generated 2026-07-17T10:15:44.619544+00:00
+Generated 2026-07-17T14:25:14.857314+00:00
 === Files ===
 Using examples/venaria-sala-scudieri.json from examples
 JSON-LD context is present - uplifting
@@ -32,10 +32,10 @@ Validation result for https://opengeospatial.github.io/bblocks/registereditems/g
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
  - Shape geojson:FeatureShape: <https://heritalise.eu/venaria/historical-place/sala-scudieri-1720>
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape geojson:GeometryShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
 
 === End SHACL ===
 

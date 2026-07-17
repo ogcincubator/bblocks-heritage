@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.historical-statement - Historical Statement
-Generated 2026-07-17T10:15:37.024531+00:00
+Generated 2026-07-17T14:25:08.525688+00:00
 === Files ===
 Using examples/malta_technique_note.json from examples
 JSON-LD context is present - uplifting

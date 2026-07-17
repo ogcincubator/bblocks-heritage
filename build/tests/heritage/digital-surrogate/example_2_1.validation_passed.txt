@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.digital-surrogate - Digital Surrogate
-Generated 2026-07-17T10:15:47.111340+00:00
+Generated 2026-07-17T14:25:17.817653+00:00
 === Files ===
 Using examples/malta_photograph.json from examples
 JSON-LD context is present - uplifting

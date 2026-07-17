@@ -1,7 +1,6 @@
 path
-/historicalNames/name
-/historicalNames/datePeriod
-/historicalNames/source
-/monitoringRelevance
-/footprint/type
-/footprint/coordinates
+/properties
+/properties/historicalNames/name
+/properties/historicalNames/datePeriod
+/properties/historicalNames/source
+/properties/monitoringRelevance

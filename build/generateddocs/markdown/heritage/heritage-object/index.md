@@ -294,62 +294,72 @@ description: 'A physical cultural heritage item (artwork, building element, gard
   modelled as a CIDOC-CRM E22 Man-Made Object.
 
   '
+$defs:
+  properties:
+    type: object
+    properties:
+      identifier:
+        type: string
+        description: A local catalogue or inventory number (CIDOC-CRM P1_is_identified_by).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+      title:
+        type: string
+        description: A human-readable title or name for the object (CIDOC-CRM P102_has_title).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P102_has_title
+      description:
+        type: string
+        description: Free-text description or curatorial note (CIDOC-CRM P3_has_note).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+      objectType:
+        type: string
+        format: uri
+        description: The type of object, typically a Getty AAT concept URI (CIDOC-CRM
+          P2_has_type).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type
+        x-jsonld-type: '@id'
+      material:
+        type: array
+        description: Materials the object consists of, typically Getty AAT concept
+          URIs (CIDOC-CRM P45_consists_of).
+        items:
+          type: string
+          format: uri
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of
+        x-jsonld-type: '@id'
+        x-jsonld-container: '@set'
+      currentLocation:
+        type: string
+        format: uri
+        description: URI of the place where the object is currently or was last located
+          (CIDOC-CRM P53_has_former_or_current_location).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location
+        x-jsonld-type: '@id'
+      persistentIdentifier:
+        type: string
+        format: uri
+        description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this
+          object.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+        x-jsonld-type: '@id'
+    required:
+    - identifier
+    - title
 type: object
-properties:
-  id:
-    type: string
-    format: uri
-    description: The persistent or local URI identifying this object.
-    x-jsonld-id: '@id'
-  type:
-    const: HeritageObject
-    x-jsonld-id: '@type'
-  identifier:
-    type: string
-    description: A local catalogue or inventory number (CIDOC-CRM P1_is_identified_by).
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-  title:
-    type: string
-    description: A human-readable title or name for the object (CIDOC-CRM P102_has_title).
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P102_has_title
-  description:
-    type: string
-    description: Free-text description or curatorial note (CIDOC-CRM P3_has_note).
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
-  objectType:
-    type: string
-    format: uri
-    description: The type of object, typically a Getty AAT concept URI (CIDOC-CRM
-      P2_has_type).
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type
-    x-jsonld-type: '@id'
-  material:
-    type: array
-    description: Materials the object consists of, typically Getty AAT concept URIs
-      (CIDOC-CRM P45_consists_of).
-    items:
+allOf:
+- type: object
+  properties:
+    id:
       type: string
       format: uri
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of
-    x-jsonld-type: '@id'
-    x-jsonld-container: '@set'
-  currentLocation:
-    type: string
-    format: uri
-    description: URI of the place where the object is currently or was last located
-      (CIDOC-CRM P53_has_former_or_current_location).
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location
-    x-jsonld-type: '@id'
-  persistentIdentifier:
-    type: string
-    format: uri
-    description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this object.
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    x-jsonld-type: '@id'
-required:
-- id
-- identifier
-- title
+      description: The persistent or local URI identifying this object.
+      x-jsonld-id: '@id'
+    type:
+      const: HeritageObject
+      x-jsonld-id: '@type'
+  required:
+  - id
+  - type
+- $ref: '#/$defs/properties'
 x-jsonld-extra-terms:
   HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object
   parentSpace:
@@ -376,16 +386,6 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "HeritageObject": "crm:E22_Man-Made_Object",
-    "parentSpace": {
-      "@id": "crm:P46i_forms_part_of",
-      "@type": "@id"
-    },
-    "movementHistory": {
-      "@id": "prov:wasUsedBy",
-      "@type": "@id",
-      "@container": "@set"
-    },
     "id": "@id",
     "type": "@type",
     "identifier": "crm:P1_is_identified_by",
@@ -407,6 +407,16 @@ Links to the schema:
     "persistentIdentifier": {
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
+    },
+    "HeritageObject": "crm:E22_Man-Made_Object",
+    "parentSpace": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "movementHistory": {
+      "@id": "prov:wasUsedBy",
+      "@type": "@id",
+      "@container": "@set"
     },
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "prov": "http://www.w3.org/ns/prov#",

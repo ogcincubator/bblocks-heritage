@@ -13,14 +13,15 @@ An interior room, bay, hall, zone or level within a building, modelled as CIDOC-
 
 An `ArchitecturalSpace` is an interior room, bay, hall, corridor, vault, opening or zone
 within a building, modelled as CIDOC-CRM **E22 Man-Made Object**. It profiles
-[`ogc.heritage.heritage-object`](../heritage-object) and adds a containment hierarchy,
-historical name crosswalk, floor/bay identifiers, an optional IFC IfcSpace reference, and an
-optional GeoJSON footprint for the floor plan or volumetric extent.
+[`ogc.heritage.heritage-object-feature`](../heritage-object-feature) and adds a containment
+hierarchy, historical name crosswalk, floor/bay identifiers, and an optional IFC IfcSpace
+reference (all nested under `properties`).
 
-The space category is conveyed through `objectType` pointing to a Getty AAT spatial concept
-(e.g. `aat:300004829` *room*). The `type` field is fixed to `"HeritageObject"` from the parent.
+The space category is conveyed through `properties.objectType` pointing to a Getty AAT spatial
+concept (e.g. `aat:300004829` *room*). `properties.choType` is fixed to `"HeritageObject"` from
+the parent (a second alias to `@type`, alongside the fixed `type: "Feature"`).
 
-Properties added by this block:
+Properties added by this block (all nested under `properties`):
 
 | Property | CRM mapping | Notes |
 |---|---|---|
@@ -32,7 +33,10 @@ Properties added by this block:
 | `accessibilityStatus` | `crm:P44_has_condition` | Open/restricted/closed status string |
 | `monitoringRelevance` | *(unmapped)* | Boolean flag — no CRM predicate; survives in JSON |
 | `ifcSpaceRef` | `crm:P1_is_identified_by` | IFC IfcSpace GUID for HBIM linkage |
-| `footprint` | `geojson:geometry` (@json) | GeoJSON Polygon floor plan or volumetric extent |
+
+Geometry is inherited from `heritage-object-feature`: a top-level `geometry` (GeoJSON Polygon
+floor plan or volumetric extent, or omitted entirely), or `geometry: null` with a `topology`
+reference into a shared/topological geometry (`ogc.geo.topo.features.topo-feature`).
 
 ### Design notes
 
@@ -58,30 +62,8 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
 ```json
 {
   "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
-  "type": "HeritageObject",
-  "identifier": "RV-SPC-GG-B07",
-  "title": "Galleria Grande — Bay 7",
-  "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
-  "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
-  "historicalNames": [
-    {
-      "name": "Sala VII",
-      "datePeriod": "1714/1798",
-      "source": "Guarini inventory 1714"
-    },
-    {
-      "name": "Baia Settima",
-      "datePeriod": "1800/1870",
-      "source": "Archivio di Stato di Torino, sec. XIX"
-    }
-  ],
-  "floorLevel": "piano nobile",
-  "bayCode": "B07",
-  "accessibilityStatus": "open to public",
-  "monitoringRelevance": true,
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -92,6 +74,31 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
         [7.6272, 45.1343]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-SPC-GG-B07",
+    "title": "Galleria Grande — Bay 7",
+    "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
+    "objectType": "http://vocab.getty.edu/aat/300004829",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+    "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+    "historicalNames": [
+      {
+        "name": "Sala VII",
+        "datePeriod": "1714/1798",
+        "source": "Guarini inventory 1714"
+      },
+      {
+        "name": "Baia Settima",
+        "datePeriod": "1800/1870",
+        "source": "Archivio di Stato di Torino, sec. XIX"
+      }
+    ],
+    "floorLevel": "piano nobile",
+    "bayCode": "B07",
+    "accessibilityStatus": "open to public",
+    "monitoringRelevance": true
   }
 }
 
@@ -102,30 +109,8 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
-  "type": "HeritageObject",
-  "identifier": "RV-SPC-GG-B07",
-  "title": "Galleria Grande \u2014 Bay 7",
-  "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
-  "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
-  "historicalNames": [
-    {
-      "name": "Sala VII",
-      "datePeriod": "1714/1798",
-      "source": "Guarini inventory 1714"
-    },
-    {
-      "name": "Baia Settima",
-      "datePeriod": "1800/1870",
-      "source": "Archivio di Stato di Torino, sec. XIX"
-    }
-  ],
-  "floorLevel": "piano nobile",
-  "bayCode": "B07",
-  "accessibilityStatus": "open to public",
-  "monitoringRelevance": true,
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -151,6 +136,31 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-SPC-GG-B07",
+    "title": "Galleria Grande \u2014 Bay 7",
+    "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
+    "objectType": "http://vocab.getty.edu/aat/300004829",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+    "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+    "historicalNames": [
+      {
+        "name": "Sala VII",
+        "datePeriod": "1714/1798",
+        "source": "Guarini inventory 1714"
+      },
+      {
+        "name": "Baia Settima",
+        "datePeriod": "1800/1870",
+        "source": "Archivio di Stato di Torino, sec. XIX"
+      }
+    ],
+    "floorLevel": "piano nobile",
+    "bayCode": "B07",
+    "accessibilityStatus": "open to public",
+    "monitoringRelevance": true
   }
 }
 ```
@@ -160,8 +170,10 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
     crm:P102_has_title "Galleria Grande — Bay 7" ;
     crm:P1_is_identified_by "[{\"datePeriod\":\"1714/1798\",\"name\":\"Sala VII\",\"source\":\"Guarini inventory 1714\"},{\"datePeriod\":\"1800/1870\",\"name\":\"Baia Settima\",\"source\":\"Archivio di Stato di Torino, sec. XIX\"}]"^^rdf:JSON,
         "B07",
@@ -172,7 +184,8 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
     crm:P44_has_condition "open to public" ;
     crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/galleria-grande>,
         <https://heritalise-eccch.eu/resource/space/galleria-grande> ;
-    geojson:geometry "{\"coordinates\":[[[7.6272,45.1343],[7.6275,45.1343],[7.6275,45.1345],[7.6272,45.1345],[7.6272,45.1343]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.6272e+00 4.51343e+01 ) ( 7.6275e+00 4.51343e+01 ) ( 7.6275e+00 4.51345e+01 ) ( 7.6272e+00 4.51345e+01 ) ( 7.6272e+00 4.51343e+01 ) ) ) ] .
 
 
 ```
@@ -184,17 +197,8 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
 ```json
 {
   "id": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
-  "type": "HeritageObject",
-  "identifier": "MT-SPC-VP-SALON",
-  "title": "Villa Portelli — Grand Salon",
-  "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
-  "objectType": "http://vocab.getty.edu/aat/300004733",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
-  "floorLevel": "ground floor",
-  "accessibilityStatus": "open to public",
-  "monitoringRelevance": true,
-  "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -205,6 +209,18 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
         [14.5132, 35.8962]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "MT-SPC-VP-SALON",
+    "title": "Villa Portelli — Grand Salon",
+    "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
+    "objectType": "http://vocab.getty.edu/aat/300004733",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+    "floorLevel": "ground floor",
+    "accessibilityStatus": "open to public",
+    "monitoringRelevance": true,
+    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf"
   }
 }
 
@@ -215,17 +231,8 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
-  "type": "HeritageObject",
-  "identifier": "MT-SPC-VP-SALON",
-  "title": "Villa Portelli \u2014 Grand Salon",
-  "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
-  "objectType": "http://vocab.getty.edu/aat/300004733",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
-  "floorLevel": "ground floor",
-  "accessibilityStatus": "open to public",
-  "monitoringRelevance": true,
-  "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -251,6 +258,18 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "MT-SPC-VP-SALON",
+    "title": "Villa Portelli \u2014 Grand Salon",
+    "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
+    "objectType": "http://vocab.getty.edu/aat/300004733",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+    "floorLevel": "ground floor",
+    "accessibilityStatus": "open to public",
+    "monitoringRelevance": true,
+    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf"
   }
 }
 ```
@@ -260,8 +279,10 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/space/villa-portelli-salon> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/space/villa-portelli-salon> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
     crm:P102_has_title "Villa Portelli — Grand Salon" ;
     crm:P1_is_identified_by "3DkP9qRsTwUv2xYzAcBdEf",
         "MT-SPC-VP-SALON",
@@ -270,31 +291,39 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
     crm:P3_has_note "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space." ;
     crm:P44_has_condition "open to public" ;
     crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/villa-portelli-main> ;
-    geojson:geometry "{\"coordinates\":[[[14.5132,35.8962],[14.5138,35.8962],[14.5138,35.8966],[14.5132,35.8966],[14.5132,35.8962]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 1.45132e+01 3.58962e+01 ) ( 1.45138e+01 3.58962e+01 ) ( 1.45138e+01 3.58966e+01 ) ( 1.45132e+01 3.58966e+01 ) ( 1.45132e+01 3.58962e+01 ) ) ) ] .
 
 
 ```
 
 
 ### Galleria Grande bay with footprint by reference (geometry-by-reference / topology)
-Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-grande-bay.json) and shares exactly the same floor-plan footprint. Rather than re-embedding identical coordinates, its geometry is given as a `references` array pointing at bay 7's own record — the geometry-by-reference pattern from ogc.ogc-utils.topology, reused here to avoid duplicating shared coordinates.
+Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-grande-bay.json) and shares exactly the same floor-plan footprint. Rather than re-embedding identical coordinates, `geometry` is `null` and `topology.references` points at bay 7's own record — the topology-by-reference pattern from ogc.geo.topo.features.topo-feature, reused here to avoid duplicating shared coordinates.
 #### json
 ```json
 {
   "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8",
-  "type": "HeritageObject",
-  "identifier": "RV-SPC-GG-B08",
-  "title": "Galleria Grande — Bay 8",
-  "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
-  "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
-  "floorLevel": "piano nobile",
-  "bayCode": "B08",
-  "accessibilityStatus": "open to public",
-  "references": [
-    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
-  ]
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+    ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-SPC-GG-B08",
+    "title": "Galleria Grande — Bay 8",
+    "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
+    "objectType": "http://vocab.getty.edu/aat/300004829",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+    "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+    "floorLevel": "piano nobile",
+    "bayCode": "B08",
+    "accessibilityStatus": "open to public"
+  }
 }
 
 ```
@@ -304,19 +333,26 @@ Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8",
-  "type": "HeritageObject",
-  "identifier": "RV-SPC-GG-B08",
-  "title": "Galleria Grande \u2014 Bay 8",
-  "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
-  "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
-  "floorLevel": "piano nobile",
-  "bayCode": "B08",
-  "accessibilityStatus": "open to public",
-  "references": [
-    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
-  ]
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+    ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-SPC-GG-B08",
+    "title": "Galleria Grande \u2014 Bay 8",
+    "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
+    "objectType": "http://vocab.getty.edu/aat/300004829",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+    "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+    "floorLevel": "piano nobile",
+    "bayCode": "B08",
+    "accessibilityStatus": "open to public"
+  }
 }
 ```
 
@@ -325,8 +361,10 @@ Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix topo: <https://purl.org/geojson/topo#> .
 
-<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
     crm:P102_has_title "Galleria Grande — Bay 8" ;
     crm:P1_is_identified_by "B08",
         "RV-SPC-GG-B08",
@@ -336,7 +374,8 @@ Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-
     crm:P44_has_condition "open to public" ;
     crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/building/galleria-grande>,
         <https://heritalise-eccch.eu/resource/space/galleria-grande> ;
-    geojson:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) .
+    geojson:topology [ a geojson:Polygon ;
+            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) ] .
 
 
 ```
@@ -349,112 +388,92 @@ title: Architectural Space
 description: 'An interior room, bay, hall, corridor, vault, opening or zone within
   a building, modelled
 
-  as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object and adds
-  the
+  as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object-feature
+  and adds
 
-  containment link to a parent building, historical name crosswalk (for legacy Guarini-style
+  the containment link to a parent building, historical name crosswalk (for legacy
 
-  inventories), floor/bay subdivision identifiers, optional IFC IfcSpace reference,
-  and an
+  Guarini-style inventories), floor/bay subdivision identifiers and an optional IFC
+  IfcSpace
 
-  optional geometry for the spatial footprint or volume.
+  reference. Geometry (footprint) is inherited from heritage-object-feature: embedded
+
+  directly, given by reference/topology, or omitted entirely.
 
 
-  Instances have type "HeritageObject" (inherited). Space category is conveyed via
-  objectType
+  Instances carry `properties.choType: "HeritageObject"` (inherited). Space category
+  is
 
-  (Getty AAT room/space concept).
+  conveyed via `properties.objectType` (Getty AAT room/space concept).
 
   '
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/schema.yaml
 - type: object
-  oneOf:
-  - type: object
-    description: Space with its own embedded footprint geometry (or none at all).
-    not:
-      required:
-      - references
-  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
-    parentBuilding:
-      type: string
-      format: uri
-      description: URI of the building this space belongs to (crm:P46i_forms_part_of).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
-      x-jsonld-type: '@id'
-    partOf:
-      type: string
-      format: uri
-      description: URI of a broader space this space is contained within, for multi-level
-        hierarchies (e.g. a bay within a gallery wing). Also crm:P46i_forms_part_of.
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
-      x-jsonld-type: '@id'
-    historicalNames:
-      type: array
-      description: Historical names or codes for this space from legacy inventories
-        (e.g. Guarini room numbers, archival room labels). Each entry has a name,
-        an optional date period and an optional source reference.
-      items:
-        type: object
-        properties:
-          name:
-            type: string
-          datePeriod:
-            type: string
-            description: ISO 8601 date or period string (e.g. "1700/1750").
-          source:
-            type: string
-            description: Reference to the inventory or document where this name appears.
-        required:
-        - name
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-      x-jsonld-type: '@json'
-    floorLevel:
-      type: string
-      description: Floor or storey identifier (e.g. "ground floor", "piano nobile",
-        "1") (crm:P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    bayCode:
-      type: string
-      description: Bay or module code within the parent space, from a legacy inventory
-        or survey (crm:P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    accessibilityStatus:
-      type: string
-      description: Current accessibility status (e.g. "open to public", "restricted",
-        "closed for restoration"). Maps to crm:P44_has_condition.
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
-    monitoringRelevance:
-      type: boolean
-      description: True when environmental or condition monitoring equipment is deployed
-        in this space (links to monitoring-point records).
-    ifcSpaceRef:
-      type: string
-      description: IFC Global ID (GUID) of the corresponding IfcSpace element in an
-        HBIM model, when available (crm:P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    footprint:
+    properties:
       type: object
-      description: Optional GeoJSON geometry representing the space's floor plan polygon
-        or volumetric extent.
       properties:
-        type:
+        parentBuilding:
           type: string
-          enum:
-          - Point
-          - Polygon
-          - MultiPolygon
-        coordinates:
+          format: uri
+          description: URI of the building this space belongs to (crm:P46i_forms_part_of).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
+          x-jsonld-type: '@id'
+        partOf:
+          type: string
+          format: uri
+          description: URI of a broader space this space is contained within, for
+            multi-level hierarchies (e.g. a bay within a gallery wing). Also crm:P46i_forms_part_of.
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
+          x-jsonld-type: '@id'
+        historicalNames:
           type: array
-      required:
-      - type
-      - coordinates
-      x-jsonld-id: https://purl.org/geojson/vocab#geometry
-      x-jsonld-type: '@json'
+          description: Historical names or codes for this space from legacy inventories
+            (e.g. Guarini room numbers, archival room labels). Each entry has a name,
+            an optional date period and an optional source reference.
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              datePeriod:
+                type: string
+                description: ISO 8601 date or period string (e.g. "1700/1750").
+              source:
+                type: string
+                description: Reference to the inventory or document where this name
+                  appears.
+            required:
+            - name
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+          x-jsonld-type: '@json'
+        floorLevel:
+          type: string
+          description: Floor or storey identifier (e.g. "ground floor", "piano nobile",
+            "1") (crm:P1_is_identified_by).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+        bayCode:
+          type: string
+          description: Bay or module code within the parent space, from a legacy inventory
+            or survey (crm:P1_is_identified_by).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+        accessibilityStatus:
+          type: string
+          description: Current accessibility status (e.g. "open to public", "restricted",
+            "closed for restoration"). Maps to crm:P44_has_condition.
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
+        monitoringRelevance:
+          type: boolean
+          description: True when environmental or condition monitoring equipment is
+            deployed in this space (links to monitoring-point records).
+        ifcSpaceRef:
+          type: string
+          description: IFC Global ID (GUID) of the corresponding IfcSpace element
+            in an HBIM model, when available (crm:P1_is_identified_by).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
-  geojson: https://purl.org/geojson/vocab#
 
 ```
 
@@ -469,18 +488,143 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "HeritageObject": "crm:E22_Man-Made_Object",
-    "parentSpace": {
-      "@id": "crm:P46i_forms_part_of",
-      "@type": "@id"
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeometryCollection": "geojson:GeometryCollection",
+    "LineString": "geojson:LineString",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
     },
-    "movementHistory": {
-      "@id": "prov:wasUsedBy",
-      "@type": "@id",
-      "@container": "@set"
-    },
-    "id": "@id",
     "type": "@type",
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": "geojson:geometry",
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+    "links": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "featureType": "@type",
+    "time": {
+      "@context": {
+        "date": {
+          "@id": "owlTime:hasTime",
+          "@type": "xsd:date"
+        },
+        "timestamp": {
+          "@id": "owlTime:hasTime",
+          "@type": "xsd:dateTime"
+        },
+        "interval": {
+          "@id": "owlTime:hasTime",
+          "@container": "@list"
+        }
+      },
+      "@id": "dct:time"
+    },
+    "coordRefSys": "http://www.opengis.net/def/glossary/term/CoordinateReferenceSystemCRS",
+    "place": "dct:spatial",
+    "Polyhedron": "geojson:Polyhedron",
+    "MultiPolyhedron": "geojson:MultiPolyhedron",
+    "Prism": {
+      "@id": "geojson:Prism",
+      "@context": {
+        "base": "geojson:prismBase",
+        "lower": "geojson:prismLower",
+        "upper": "geojson:prismUpper"
+      }
+    },
+    "MultiPrism": {
+      "@id": "geojson:MultiPrism",
+      "@context": {
+        "prisms": "geojson:prisms"
+      }
+    },
+    "coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    },
+    "geometries": {
+      "@id": "geojson:geometry",
+      "@container": "@list"
+    },
+    "topology": {
+      "@context": {
+        "references": {
+          "@id": "topo:relatedFeatures",
+          "@type": "@id",
+          "@container": "@list"
+        },
+        "directed_references": {
+          "@context": {
+            "ref": {
+              "@type": "@id",
+              "@id": "topo:ref"
+            }
+          },
+          "@id": "topo:directedReferences",
+          "@container": "@list"
+        },
+        "relationships": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent",
+            "role": {
+              "@id": "prof:hasRole",
+              "@type": "@id"
+            },
+            "conformsTo": {
+              "@id": "dct:conformsTo",
+              "@type": "@id"
+            }
+          },
+          "@id": "topo:relatedFeatures",
+          "@type": "@id",
+          "@container": "@list"
+        }
+      },
+      "@type": "@id",
+      "@id": "geojson:topology"
+    },
+    "HeritageObject": "crm:E22_Man-Made_Object",
     "identifier": "crm:P1_is_identified_by",
     "title": "crm:P102_has_title",
     "description": "crm:P3_has_note",
@@ -501,12 +645,6 @@ Links to the schema:
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
     },
-    "LineString": "geojson:LineString",
-    "references": {
-      "@id": "geojson:relatedFeatures",
-      "@type": "@id",
-      "@container": "@list"
-    },
     "parentBuilding": {
       "@id": "crm:P46i_forms_part_of",
       "@type": "@id"
@@ -523,15 +661,54 @@ Links to the schema:
     "bayCode": "crm:P1_is_identified_by",
     "accessibilityStatus": "crm:P44_has_condition",
     "ifcSpaceRef": "crm:P1_is_identified_by",
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
+    "Arc": "geojson:Arc",
+    "ArcWithCenter": "geojson:ArcWithCenter",
+    "ArcByChord": "geojson:ArcByChord",
+    "CircleByCenter": "geojson:CircleByCenter",
+    "CubicSpline": "geojson:CubicSpline",
+    "radius": "geojson:radius",
+    "arcLength": "geojson:arcLength",
+    "startTangentVector": "geojson:startTangentVector",
+    "endTangentVector": "geojson:endTangentVector",
+    "ref": "topo:ref",
+    "orientation": "topo:orientation",
+    "Edge": "topo:Edge",
+    "Face": "topo:Face",
+    "Ring": "topo:Ring",
+    "Shell": "topo:Shell",
+    "Solid": "topo:Solid",
+    "rings": {
+      "@id": "topo:rings",
+      "@container": "@list"
     },
-    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
-    "prov": "http://www.w3.org/ns/prov#",
+    "shells": {
+      "@id": "topo:shells",
+      "@container": "@list"
+    },
+    "faces": {
+      "@id": "topo:faces",
+      "@container": "@list"
+    },
+    "parentSpace": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "movementHistory": {
+      "@id": "prov:wasUsedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "geojson": "https://purl.org/geojson/vocab#",
-    "csdm": "https://linked.data.gov.au/def/csdm/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
     "dct": "http://purl.org/dc/terms/",
+    "owlTime": "http://www.w3.org/2006/time#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "topo": "https://purl.org/geojson/topo#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "choType": "@type",
     "@version": 1.1
   }
 }

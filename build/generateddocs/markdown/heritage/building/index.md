@@ -13,16 +13,17 @@ A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object wi
 
 A `Building` is a principal building or architectural unit — a palace wing, chapel,
 outbuilding, or villa — modelled as CIDOC-CRM **E22 Man-Made Object**. It profiles
-[`ogc.heritage.heritage-object`](../heritage-object), inheriting the inventory identifier,
-title, object type, materials, and provenance fields, and adds site containment, construction
-history, operational status, an optional GeoJSON footprint, and an optional IFC GUID for
-HBIM cross-referencing.
+[`ogc.heritage.heritage-object-feature`](../heritage-object-feature), inheriting the inventory
+identifier, title, object type, materials and provenance fields (nested under `properties`),
+and adds site containment, construction history, operational status, and an optional IFC GUID
+for HBIM cross-referencing.
 
-The building category is conveyed through `objectType` pointing to a Getty AAT architectural
-concept (e.g. `aat:300007733` *palace*). The `type` field is fixed to `"HeritageObject"` from
-the parent; overriding it would make the schema unsatisfiable.
+The building category is conveyed through `properties.objectType` pointing to a Getty AAT
+architectural concept (e.g. `aat:300007733` *palace*). `properties.choType` is fixed to
+`"HeritageObject"` from the parent (a second alias to `@type`, alongside the fixed
+`type: "Feature"`); overriding it would make the schema unsatisfiable.
 
-Properties added by this block:
+Properties added by this block (all nested under `properties`):
 
 | Property | CRM / standard mapping | Notes |
 |---|---|---|
@@ -31,13 +32,15 @@ Properties added by this block:
 | `currentStatus` | `crm:P44_has_condition` | Operational/conservation status string |
 | `responsibleOrganisation` | `crm:P50_has_current_keeper` | Managing body name or URI |
 | `ifcGlobalId` | `crm:P1_is_identified_by` | IFC IfcBuilding GUID for HBIM linkage |
-| `footprint` | `geojson:geometry` (@json) | GeoJSON Polygon/MultiPolygon ground plan |
+
+Geometry is inherited from `heritage-object-feature`: a top-level `geometry` (GeoJSON
+Polygon/MultiPolygon ground plan, or omitted entirely), or `geometry: null` with a `topology`
+reference into a shared/topological geometry (`ogc.geo.topo.features.topo-feature`).
 
 ### Design notes
 
-`footprint` holds a **generalised** ground-level geometry for mapping and spatial queries.
-Detailed BIM geometry lives in the IFC model, linked via `ifcGlobalId`. Coordinates are stored
-as `@type: "@json"` to prevent coordinate arrays from being misread as RDF lists.
+The top-level `geometry` holds a **generalised** ground-level geometry for mapping and spatial
+queries. Detailed BIM geometry lives in the IFC model, linked via `ifcGlobalId`.
 
 [`architectural-space`](../architectural-space) records reference a `Building` via their
 `parentBuilding` property (`crm:P46i_forms_part_of`).
@@ -55,16 +58,8 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
 ```json
 {
   "id": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "type": "HeritageObject",
-  "identifier": "RV-BLD-GG",
-  "title": "Galleria Grande, Reggia di Venaria Reale",
-  "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
-  "objectType": "http://vocab.getty.edu/aat/300007733",
-  "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
-  "constructionPeriod": "1699/1733",
-  "currentStatus": "in use",
-  "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -75,6 +70,17 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
         [7.627, 45.134]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-BLD-GG",
+    "title": "Galleria Grande, Reggia di Venaria Reale",
+    "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
+    "objectType": "http://vocab.getty.edu/aat/300007733",
+    "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
+    "constructionPeriod": "1699/1733",
+    "currentStatus": "in use",
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude"
   }
 }
 
@@ -85,16 +91,8 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "type": "HeritageObject",
-  "identifier": "RV-BLD-GG",
-  "title": "Galleria Grande, Reggia di Venaria Reale",
-  "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
-  "objectType": "http://vocab.getty.edu/aat/300007733",
-  "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
-  "constructionPeriod": "1699/1733",
-  "currentStatus": "in use",
-  "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -120,6 +118,17 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-BLD-GG",
+    "title": "Galleria Grande, Reggia di Venaria Reale",
+    "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
+    "objectType": "http://vocab.getty.edu/aat/300007733",
+    "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
+    "constructionPeriod": "1699/1733",
+    "currentStatus": "in use",
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude"
   }
 }
 ```
@@ -130,8 +139,10 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/building/galleria-grande> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/building/galleria-grande> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
     dct:created "1699/1733" ;
     crm:P102_has_title "Galleria Grande, Reggia di Venaria Reale" ;
     crm:P1_is_identified_by "RV-BLD-GG" ;
@@ -140,7 +151,8 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
     crm:P44_has_condition "in use" ;
     crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/site/reggia-di-venaria> ;
     crm:P50_has_current_keeper "Consorzio delle Residenze Reali Sabaude" ;
-    geojson:geometry "{\"coordinates\":[[[7.627,45.134],[7.63,45.134],[7.63,45.136],[7.627,45.136],[7.627,45.134]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.627e+00 4.5134e+01 ) ( 7.63e+00 4.5134e+01 ) ( 7.63e+00 4.5136e+01 ) ( 7.627e+00 4.5136e+01 ) ( 7.627e+00 4.5134e+01 ) ) ) ] .
 
 
 ```
@@ -152,17 +164,8 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 ```json
 {
   "id": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
-  "type": "HeritageObject",
-  "identifier": "MT-BLD-VP-01",
-  "title": "Villa Portelli — Main Villa Building",
-  "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
-  "objectType": "http://vocab.getty.edu/aat/300005433",
-  "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
-  "constructionPeriod": "18th century",
-  "currentStatus": "under restoration",
-  "responsibleOrganisation": "Heritage Malta",
-  "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -173,6 +176,18 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
         [14.513, 35.896]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "MT-BLD-VP-01",
+    "title": "Villa Portelli — Main Villa Building",
+    "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
+    "objectType": "http://vocab.getty.edu/aat/300005433",
+    "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
+    "constructionPeriod": "18th century",
+    "currentStatus": "under restoration",
+    "responsibleOrganisation": "Heritage Malta",
+    "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA"
   }
 }
 
@@ -183,17 +198,8 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/building/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
-  "type": "HeritageObject",
-  "identifier": "MT-BLD-VP-01",
-  "title": "Villa Portelli \u2014 Main Villa Building",
-  "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
-  "objectType": "http://vocab.getty.edu/aat/300005433",
-  "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
-  "constructionPeriod": "18th century",
-  "currentStatus": "under restoration",
-  "responsibleOrganisation": "Heritage Malta",
-  "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -219,6 +225,18 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "MT-BLD-VP-01",
+    "title": "Villa Portelli \u2014 Main Villa Building",
+    "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
+    "objectType": "http://vocab.getty.edu/aat/300005433",
+    "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
+    "constructionPeriod": "18th century",
+    "currentStatus": "under restoration",
+    "responsibleOrganisation": "Heritage Malta",
+    "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA"
   }
 }
 ```
@@ -229,8 +247,10 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/building/villa-portelli-main> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/building/villa-portelli-main> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
     dct:created "18th century" ;
     crm:P102_has_title "Villa Portelli — Main Villa Building" ;
     crm:P1_is_identified_by "2WrR4Z9bT8RvKsJMlNpQxA",
@@ -240,7 +260,8 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
     crm:P44_has_condition "under restoration" ;
     crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/site/villa-portelli-garden> ;
     crm:P50_has_current_keeper "Heritage Malta" ;
-    geojson:geometry "{\"coordinates\":[[[14.513,35.896],[14.515,35.896],[14.515,35.897],[14.513,35.897],[14.513,35.896]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 1.4513e+01 3.5896e+01 ) ( 1.4515e+01 3.5896e+01 ) ( 1.4515e+01 3.5897e+01 ) ( 1.4513e+01 3.5897e+01 ) ( 1.4513e+01 3.5896e+01 ) ) ) ] .
 
 
 ```
@@ -253,79 +274,59 @@ title: Building
 description: 'A principal building or architectural unit (palace wing, chapel, outbuilding,
   villa)
 
-  modelled as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object
-  and
+  modelled as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object-feature
 
-  adds site containment, construction history, operational status, optional IFC cross-reference
+  and adds site containment, construction history, operational status and an optional
+  IFC
 
-  and an optional GeoJSON footprint geometry.
+  cross-reference. Geometry (footprint) is inherited from heritage-object-feature:
+  embedded
+
+  directly, given by reference/topology, or omitted entirely.
 
 
-  Instances have type "HeritageObject" (inherited); the building category is conveyed
-  through
+  Instances carry `properties.choType: "HeritageObject"` (inherited); the building
+  category
 
-  objectType pointing to a Getty AAT architectural concept.
+  is conveyed through `objectType` pointing to a Getty AAT architectural concept.
 
   '
 allOf:
-- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/schema.yaml
 - type: object
-  oneOf:
-  - type: object
-    description: Building with its own embedded footprint geometry (or none at all).
-    not:
-      required:
-      - references
-  - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
   properties:
-    parentSite:
-      type: string
-      format: uri
-      description: URI of the heritage-site this building belongs to (crm:P46i_forms_part_of).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
-      x-jsonld-type: '@id'
-    constructionPeriod:
-      type: string
-      description: Date or date range of original construction, ISO 8601 or free text
-        (e.g. "1675-1690"). Maps to dct:created.
-      x-jsonld-id: http://purl.org/dc/terms/created
-    currentStatus:
-      type: string
-      description: Operational or conservation status (e.g. "in use", "under restoration",
-        "closed"). Maps to crm:P44_has_condition.
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
-    responsibleOrganisation:
-      type: string
-      description: Name or URI of the body responsible for managing this building
-        (crm:P50_has_current_keeper).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper
-    ifcGlobalId:
-      type: string
-      description: IFC Global ID (GUID) of the corresponding IfcBuilding element in
-        an HBIM model, when available (crm:P1_is_identified_by).
-      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
-    footprint:
+    properties:
       type: object
-      description: Optional GeoJSON geometry representing the building's ground-level
-        footprint or spatial extent.
       properties:
-        type:
+        parentSite:
           type: string
-          enum:
-          - Point
-          - Polygon
-          - MultiPolygon
-        coordinates:
-          type: array
-      required:
-      - type
-      - coordinates
-      x-jsonld-id: https://purl.org/geojson/vocab#geometry
-      x-jsonld-type: '@json'
+          format: uri
+          description: URI of the heritage-site this building belongs to (crm:P46i_forms_part_of).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P46i_forms_part_of
+          x-jsonld-type: '@id'
+        constructionPeriod:
+          type: string
+          description: Date or date range of original construction, ISO 8601 or free
+            text (e.g. "1675-1690"). Maps to dct:created.
+          x-jsonld-id: http://purl.org/dc/terms/created
+        currentStatus:
+          type: string
+          description: Operational or conservation status (e.g. "in use", "under restoration",
+            "closed"). Maps to crm:P44_has_condition.
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
+        responsibleOrganisation:
+          type: string
+          description: Name or URI of the body responsible for managing this building
+            (crm:P50_has_current_keeper).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper
+        ifcGlobalId:
+          type: string
+          description: IFC Global ID (GUID) of the corresponding IfcBuilding element
+            in an HBIM model, when available (crm:P1_is_identified_by).
+          x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
-  geojson: https://purl.org/geojson/vocab#
 
 ```
 
@@ -340,18 +341,143 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "HeritageObject": "crm:E22_Man-Made_Object",
-    "parentSpace": {
-      "@id": "crm:P46i_forms_part_of",
-      "@type": "@id"
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeometryCollection": "geojson:GeometryCollection",
+    "LineString": "geojson:LineString",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
     },
-    "movementHistory": {
-      "@id": "prov:wasUsedBy",
-      "@type": "@id",
-      "@container": "@set"
-    },
-    "id": "@id",
     "type": "@type",
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": "geojson:geometry",
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+    "links": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "featureType": "@type",
+    "time": {
+      "@context": {
+        "date": {
+          "@id": "owlTime:hasTime",
+          "@type": "xsd:date"
+        },
+        "timestamp": {
+          "@id": "owlTime:hasTime",
+          "@type": "xsd:dateTime"
+        },
+        "interval": {
+          "@id": "owlTime:hasTime",
+          "@container": "@list"
+        }
+      },
+      "@id": "dct:time"
+    },
+    "coordRefSys": "http://www.opengis.net/def/glossary/term/CoordinateReferenceSystemCRS",
+    "place": "dct:spatial",
+    "Polyhedron": "geojson:Polyhedron",
+    "MultiPolyhedron": "geojson:MultiPolyhedron",
+    "Prism": {
+      "@id": "geojson:Prism",
+      "@context": {
+        "base": "geojson:prismBase",
+        "lower": "geojson:prismLower",
+        "upper": "geojson:prismUpper"
+      }
+    },
+    "MultiPrism": {
+      "@id": "geojson:MultiPrism",
+      "@context": {
+        "prisms": "geojson:prisms"
+      }
+    },
+    "coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    },
+    "geometries": {
+      "@id": "geojson:geometry",
+      "@container": "@list"
+    },
+    "topology": {
+      "@context": {
+        "references": {
+          "@id": "topo:relatedFeatures",
+          "@type": "@id",
+          "@container": "@list"
+        },
+        "directed_references": {
+          "@context": {
+            "ref": {
+              "@type": "@id",
+              "@id": "topo:ref"
+            }
+          },
+          "@id": "topo:directedReferences",
+          "@container": "@list"
+        },
+        "relationships": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent",
+            "role": {
+              "@id": "prof:hasRole",
+              "@type": "@id"
+            },
+            "conformsTo": {
+              "@id": "dct:conformsTo",
+              "@type": "@id"
+            }
+          },
+          "@id": "topo:relatedFeatures",
+          "@type": "@id",
+          "@container": "@list"
+        }
+      },
+      "@type": "@id",
+      "@id": "geojson:topology"
+    },
+    "HeritageObject": "crm:E22_Man-Made_Object",
     "identifier": "crm:P1_is_identified_by",
     "title": "crm:P102_has_title",
     "description": "crm:P3_has_note",
@@ -372,12 +498,6 @@ Links to the schema:
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
     },
-    "LineString": "geojson:LineString",
-    "references": {
-      "@id": "geojson:relatedFeatures",
-      "@type": "@id",
-      "@container": "@list"
-    },
     "parentSite": {
       "@id": "crm:P46i_forms_part_of",
       "@type": "@id"
@@ -386,15 +506,54 @@ Links to the schema:
     "currentStatus": "crm:P44_has_condition",
     "responsibleOrganisation": "crm:P50_has_current_keeper",
     "ifcGlobalId": "crm:P1_is_identified_by",
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
+    "Arc": "geojson:Arc",
+    "ArcWithCenter": "geojson:ArcWithCenter",
+    "ArcByChord": "geojson:ArcByChord",
+    "CircleByCenter": "geojson:CircleByCenter",
+    "CubicSpline": "geojson:CubicSpline",
+    "radius": "geojson:radius",
+    "arcLength": "geojson:arcLength",
+    "startTangentVector": "geojson:startTangentVector",
+    "endTangentVector": "geojson:endTangentVector",
+    "ref": "topo:ref",
+    "orientation": "topo:orientation",
+    "Edge": "topo:Edge",
+    "Face": "topo:Face",
+    "Ring": "topo:Ring",
+    "Shell": "topo:Shell",
+    "Solid": "topo:Solid",
+    "rings": {
+      "@id": "topo:rings",
+      "@container": "@list"
     },
-    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "dct": "http://purl.org/dc/terms/",
+    "shells": {
+      "@id": "topo:shells",
+      "@container": "@list"
+    },
+    "faces": {
+      "@id": "topo:faces",
+      "@container": "@list"
+    },
+    "parentSpace": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "movementHistory": {
+      "@id": "prov:wasUsedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "geojson": "https://purl.org/geojson/vocab#",
-    "csdm": "https://linked.data.gov.au/def/csdm/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "dct": "http://purl.org/dc/terms/",
+    "owlTime": "http://www.w3.org/2006/time#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "topo": "https://purl.org/geojson/topo#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "choType": "@type",
     "@version": 1.1
   }
 }

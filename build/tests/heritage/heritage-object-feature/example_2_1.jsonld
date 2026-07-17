@@ -1,0 +1,18 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/object/north-vault-bay-3-topo",
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/north-gallery"
+    ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-ARCH-NV-003",
+    "title": "North gallery vault, bay 3",
+    "objectType": "http://vocab.getty.edu/aat/300002862"
+  }
+}

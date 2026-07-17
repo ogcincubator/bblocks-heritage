@@ -1,19 +1,26 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/survey-dataset/context.jsonld",
-  "type": "SurveyDataset",
   "id": "https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024",
-  "title": "TLS Point Cloud \u2014 Galleria Grande Bay 7 Vault (2024)",
-  "isAbout": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
-  "mediaType": "application/vnd.las",
-  "acquisitionEvent": {
-    "acquisitionMethod": "TLS",
-    "acquisitionDate": "2024-03-16",
-    "equipment": "Leica RTC360",
-    "accuracy": "\u00b13 mm"
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+    ]
   },
-  "references": [
-    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
-  ],
-  "limitations": "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.ogc-utils.topology) instead of re-encoding the same polygon as `coverage`.",
-  "reviewStatus": "reviewed"
+  "properties": {
+    "choType": "SurveyDataset",
+    "title": "TLS Point Cloud \u2014 Galleria Grande Bay 7 Vault (2024)",
+    "isAbout": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+    "mediaType": "application/vnd.las",
+    "acquisitionEvent": {
+      "acquisitionMethod": "TLS",
+      "acquisitionDate": "2024-03-16",
+      "equipment": "Leica RTC360",
+      "accuracy": "\u00b13 mm"
+    },
+    "limitations": "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.geo.topo.features.topo-feature) instead of re-encoding the same polygon as `geometry`.",
+    "reviewStatus": "reviewed"
+  }
 }

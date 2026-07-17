@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.archival-document - Archival Document
-Generated 2026-07-17T10:15:46.684860+00:00
+Generated 2026-07-17T14:25:17.381567+00:00
 === Files ===
 Using examples/malta-cad-plan.json from examples
 JSON-LD context is present - uplifting

@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.actor - Actor
-Generated 2026-07-17T10:15:46.370365+00:00
+Generated 2026-07-17T14:25:16.659607+00:00
 === Files ===
 Using examples/restorer.json from examples
 JSON-LD context is present - uplifting

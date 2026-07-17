@@ -1,30 +1,8 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
-  "type": "HeritageObject",
-  "identifier": "RV-SPC-GG-B07",
-  "title": "Galleria Grande \u2014 Bay 7",
-  "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
-  "objectType": "http://vocab.getty.edu/aat/300004829",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
-  "historicalNames": [
-    {
-      "name": "Sala VII",
-      "datePeriod": "1714/1798",
-      "source": "Guarini inventory 1714"
-    },
-    {
-      "name": "Baia Settima",
-      "datePeriod": "1800/1870",
-      "source": "Archivio di Stato di Torino, sec. XIX"
-    }
-  ],
-  "floorLevel": "piano nobile",
-  "bayCode": "B07",
-  "accessibilityStatus": "open to public",
-  "monitoringRelevance": true,
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -50,5 +28,30 @@
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-SPC-GG-B07",
+    "title": "Galleria Grande \u2014 Bay 7",
+    "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
+    "objectType": "http://vocab.getty.edu/aat/300004829",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+    "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
+    "historicalNames": [
+      {
+        "name": "Sala VII",
+        "datePeriod": "1714/1798",
+        "source": "Guarini inventory 1714"
+      },
+      {
+        "name": "Baia Settima",
+        "datePeriod": "1800/1870",
+        "source": "Archivio di Stato di Torino, sec. XIX"
+      }
+    ],
+    "floorLevel": "piano nobile",
+    "bayCode": "B07",
+    "accessibilityStatus": "open to public",
+    "monitoringRelevance": true
   }
 }

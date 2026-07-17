@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.digital-surrogate - Digital Surrogate
-Generated 2026-07-17T10:15:47.104991+00:00
+Generated 2026-07-17T14:25:17.812474+00:00
 === Files ===
 Using examples/venaria_plan_scan.json from examples
 JSON-LD context is present - uplifting

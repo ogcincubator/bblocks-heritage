@@ -79,17 +79,8 @@ The painted fresco plaster of vault bay 7 in the Galleria Grande at Reggia di Ve
 ```json
 {
   "id": "https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco",
-  "type": "Surface",
-  "hostObject": "https://heritalise.eu/venaria/space/galleria-grande-bay7",
-  "material": "http://vocab.getty.edu/aat/300178433",
-  "technique": "http://vocab.getty.edu/aat/300053343",
-  "historicalPhase": "1699–1707",
-  "exposure": "vault intrados",
-  "conditionSummary": "localised cracking on north edge; stable elsewhere",
-  "conditionAssessment": "https://heritalise.eu/venaria/condition/CA-GG-bay7-2024-06",
-  "sourceEvidence": "https://heritalise.eu/venaria/survey/photogrammetry-GG-2023",
-  "reviewStatus": "reviewed",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -100,6 +91,18 @@ The painted fresco plaster of vault bay 7 in the Galleria Grande at Reggia di Ve
         [7.6046, 45.1286]
       ]
     ]
+  },
+  "properties": {
+    "choType": "Surface",
+    "hostObject": "https://heritalise.eu/venaria/space/galleria-grande-bay7",
+    "material": "http://vocab.getty.edu/aat/300178433",
+    "technique": "http://vocab.getty.edu/aat/300053343",
+    "historicalPhase": "1699–1707",
+    "exposure": "vault intrados",
+    "conditionSummary": "localised cracking on north edge; stable elsewhere",
+    "conditionAssessment": "https://heritalise.eu/venaria/condition/CA-GG-bay7-2024-06",
+    "sourceEvidence": "https://heritalise.eu/venaria/survey/photogrammetry-GG-2023",
+    "reviewStatus": "reviewed"
   }
 }
 
@@ -110,17 +113,8 @@ The painted fresco plaster of vault bay 7 in the Galleria Grande at Reggia di Ve
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
   "id": "https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco",
-  "type": "Surface",
-  "hostObject": "https://heritalise.eu/venaria/space/galleria-grande-bay7",
-  "material": "http://vocab.getty.edu/aat/300178433",
-  "technique": "http://vocab.getty.edu/aat/300053343",
-  "historicalPhase": "1699\u20131707",
-  "exposure": "vault intrados",
-  "conditionSummary": "localised cracking on north edge; stable elsewhere",
-  "conditionAssessment": "https://heritalise.eu/venaria/condition/CA-GG-bay7-2024-06",
-  "sourceEvidence": "https://heritalise.eu/venaria/survey/photogrammetry-GG-2023",
-  "reviewStatus": "reviewed",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -146,6 +140,18 @@ The painted fresco plaster of vault bay 7 in the Galleria Grande at Reggia di Ve
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "Surface",
+    "hostObject": "https://heritalise.eu/venaria/space/galleria-grande-bay7",
+    "material": "http://vocab.getty.edu/aat/300178433",
+    "technique": "http://vocab.getty.edu/aat/300053343",
+    "historicalPhase": "1699\u20131707",
+    "exposure": "vault intrados",
+    "conditionSummary": "localised cracking on north edge; stable elsewhere",
+    "conditionAssessment": "https://heritalise.eu/venaria/condition/CA-GG-bay7-2024-06",
+    "sourceEvidence": "https://heritalise.eu/venaria/survey/photogrammetry-GG-2023",
+    "reviewStatus": "reviewed"
   }
 }
 ```
@@ -155,8 +161,10 @@ The painted fresco plaster of vault bay 7 in the Galleria Grande at Reggia di Ve
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco> a crm:E25_Man-Made_Feature ;
+<https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco> a crm:E25_Man-Made_Feature,
+        geojson:Feature ;
     crm:P33_used_specific_technique <http://vocab.getty.edu/aat/300053343> ;
     crm:P3_has_note "vault intrados" ;
     crm:P44_has_condition "localised cracking on north edge; stable elsewhere" ;
@@ -164,22 +172,21 @@ The painted fresco plaster of vault bay 7 in the Galleria Grande at Reggia di Ve
     crm:P4_has_time-span "1699–1707" ;
     crm:P56i_is_found_on <https://heritalise.eu/venaria/space/galleria-grande-bay7> ;
     crm:P70i_is_documented_in <https://heritalise.eu/venaria/survey/photogrammetry-GG-2023> ;
-    geojson:geometry "{\"coordinates\":[[[7.6046,45.1286],[7.6049,45.1286],[7.6049,45.1288],[7.6046,45.1288],[7.6046,45.1286]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.6046e+00 4.51286e+01 ) ( 7.6049e+00 4.51286e+01 ) ( 7.6049e+00 4.51288e+01 ) ( 7.6046e+00 4.51288e+01 ) ( 7.6046e+00 4.51286e+01 ) ) ) ] .
 
 
 ```
 
 
 ### Stone floor surface, Grand Salon — Villa Portelli, Malta
-The limestone floor surface of the Grand Salon at Villa Portelli. A minimal example — only type, hostObject, material and footprint are provided — demonstrating the required fields. Material is mapped to the Getty AAT stone concept (300011176).
+The limestone floor surface of the Grand Salon at Villa Portelli. A minimal example — only choType, hostObject, material and geometry are provided — demonstrating the required fields. Material is mapped to the Getty AAT stone concept (300011176).
 #### json
 ```json
 {
   "id": "https://heritalise.eu/malta/surface/VP-grand-salon-floor",
-  "type": "Surface",
-  "hostObject": "https://heritalise.eu/malta/space/grand-salon",
-  "material": "http://vocab.getty.edu/aat/300011176",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -190,6 +197,11 @@ The limestone floor surface of the Grand Salon at Villa Portelli. A minimal exam
         [14.4519, 35.8896]
       ]
     ]
+  },
+  "properties": {
+    "choType": "Surface",
+    "hostObject": "https://heritalise.eu/malta/space/grand-salon",
+    "material": "http://vocab.getty.edu/aat/300011176"
   }
 }
 
@@ -200,10 +212,8 @@ The limestone floor surface of the Grand Salon at Villa Portelli. A minimal exam
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
   "id": "https://heritalise.eu/malta/surface/VP-grand-salon-floor",
-  "type": "Surface",
-  "hostObject": "https://heritalise.eu/malta/space/grand-salon",
-  "material": "http://vocab.getty.edu/aat/300011176",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -229,6 +239,11 @@ The limestone floor surface of the Grand Salon at Villa Portelli. A minimal exam
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "Surface",
+    "hostObject": "https://heritalise.eu/malta/space/grand-salon",
+    "material": "http://vocab.getty.edu/aat/300011176"
   }
 }
 ```
@@ -238,32 +253,42 @@ The limestone floor surface of the Grand Salon at Villa Portelli. A minimal exam
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise.eu/malta/surface/VP-grand-salon-floor> a crm:E25_Man-Made_Feature ;
+<https://heritalise.eu/malta/surface/VP-grand-salon-floor> a crm:E25_Man-Made_Feature,
+        geojson:Feature ;
     crm:P45_consists_of <http://vocab.getty.edu/aat/300011176> ;
     crm:P56i_is_found_on <https://heritalise.eu/malta/space/grand-salon> ;
-    geojson:geometry "{\"coordinates\":[[[14.4519,35.8896],[14.4523,35.8896],[14.4523,35.8899],[14.4519,35.8899],[14.4519,35.8896]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 1.44519e+01 3.58896e+01 ) ( 1.44523e+01 3.58896e+01 ) ( 1.44523e+01 3.58899e+01 ) ( 1.44519e+01 3.58899e+01 ) ( 1.44519e+01 3.58896e+01 ) ) ) ] .
 
 
 ```
 
 
 ### Vault fresco with extent by reference (geometry-by-reference / topology)
-The fresco covering the vault of Galleria Grande bay 7 extends across the entire bay, so its spatial extent coincides exactly with the bay's own footprint (galleria-grande-bay.json) rather than a separately-drawn polygon. No `footprint` is given here — instead `references` points at the hostObject's own record, using the geometry-by-reference pattern from ogc.ogc-utils.topology to avoid duplicating coordinates.
+The fresco covering the vault of Galleria Grande bay 7 extends across the entire bay, so its spatial extent coincides exactly with the bay's own footprint rather than a separately-drawn polygon. `geometry` is `null` — instead `topology.references` points at the hostObject's own record, using the topology-by-reference pattern from ogc.geo.topo.features.topo-feature to avoid duplicating coordinates.
 #### json
 ```json
 {
   "id": "https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco",
-  "type": "Surface",
-  "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
-  "material": "http://vocab.getty.edu/aat/300178433",
-  "technique": "http://vocab.getty.edu/aat/300053343",
-  "historicalPhase": "1700–1710",
-  "exposure": "vault intrados",
-  "conditionSummary": "stable",
-  "references": [
-    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
-  ]
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+    ]
+  },
+  "properties": {
+    "choType": "Surface",
+    "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+    "material": "http://vocab.getty.edu/aat/300178433",
+    "technique": "http://vocab.getty.edu/aat/300053343",
+    "historicalPhase": "1700–1710",
+    "exposure": "vault intrados",
+    "conditionSummary": "stable"
+  }
 }
 
 ```
@@ -273,16 +298,23 @@ The fresco covering the vault of Galleria Grande bay 7 extends across the entire
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco",
-  "type": "Surface",
-  "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
-  "material": "http://vocab.getty.edu/aat/300178433",
-  "technique": "http://vocab.getty.edu/aat/300053343",
-  "historicalPhase": "1700\u20131710",
-  "exposure": "vault intrados",
-  "conditionSummary": "stable",
-  "references": [
-    "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
-  ]
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+    ]
+  },
+  "properties": {
+    "choType": "Surface",
+    "hostObject": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
+    "material": "http://vocab.getty.edu/aat/300178433",
+    "technique": "http://vocab.getty.edu/aat/300053343",
+    "historicalPhase": "1700\u20131710",
+    "exposure": "vault intrados",
+    "conditionSummary": "stable"
+  }
 }
 ```
 
@@ -291,15 +323,18 @@ The fresco covering the vault of Galleria Grande bay 7 extends across the entire
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix topo: <https://purl.org/geojson/topo#> .
 
-<https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco> a crm:E25_Man-Made_Feature ;
+<https://heritalise-eccch.eu/resource/surface/galleria-grande-bay-7-vault-fresco> a crm:E25_Man-Made_Feature,
+        geojson:Feature ;
     crm:P33_used_specific_technique <http://vocab.getty.edu/aat/300053343> ;
     crm:P3_has_note "vault intrados" ;
     crm:P44_has_condition "stable" ;
     crm:P45_consists_of <http://vocab.getty.edu/aat/300178433> ;
     crm:P4_has_time-span "1700–1710" ;
     crm:P56i_is_found_on <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
-    geojson:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) .
+    geojson:topology [ a geojson:Polygon ;
+            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) ] .
 
 
 ```
@@ -309,117 +344,125 @@ The fresco covering the vault of Galleria Grande bay 7 extends across the entire
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Surface
-description: "A material finish layer or physical surface feature recognised on an
-  architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature). Records
-  the host object, material and technique (Getty AAT), historical phase, exposure
-  context and a mandatory polygon or surface-patch geometry \u2014 embedded, or given
-  by reference to shared/topological geometry (see ogc.ogc-utils.topology). May be
-  linked to a condition-assessment record for pathology documentation."
-type: object
-required:
-- id
-- type
-- hostObject
-- material
-oneOf:
-- type: object
-  description: Surface with its own embedded footprint geometry.
+description: 'A material finish layer or physical surface feature recognised on an
+  architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), encoded
+  as a GeoJSON/ JSON-FG Feature: CIDOC-CRM attributes nest under `properties` (GeoJSON
+  convention), and a `choType` property carries the CIDOC-CRM class as a second alias
+  to `@type`, alongside the fixed `type: "Feature"`. Geometry is either embedded directly
+  (`geometry`) or defined by reference via topology (`topology`, see ogc.geo.topo.features.topo-feature),
+  letting a surface share its host object''s geometry without duplicating coordinates.
+  May be linked to a condition-assessment record for pathology documentation.'
+$defs:
   properties:
-    footprint:
-      type: object
-      description: GeoJSON Geometry delineating the spatial extent of this surface
-        as a polygon or surface-patch. Coordinates should be in the reference system
-        of the host structure's survey (local or EPSG:4326). Maps to geojson:geometry.
-      properties:
-        type:
-          type: string
-          enum:
-          - Polygon
-          - MultiPolygon
-          x-jsonld-id: '@type'
-        coordinates:
-          type: array
-      required:
-      - type
-      - coordinates
-      x-jsonld-id: https://purl.org/geojson/vocab#geometry
-      x-jsonld-type: '@json'
-  required:
-  - footprint
-  not:
+    type: object
     required:
-    - references
-- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
-properties:
-  id:
-    type: string
-    format: uri
-    description: Persistent URI identifying this surface record.
-    x-jsonld-id: '@id'
-  type:
-    const: Surface
-    description: Fixed type token identifying this record as a surface (maps to crm:E25_Man-Made_Feature).
-    x-jsonld-id: '@type'
-  hostObject:
-    type: string
-    format: uri
-    description: URI of the heritage-object, architectural-space or building that
-      this surface is recognised on (crm:P56i_is_found_on).
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P56i_is_found_on
-    x-jsonld-type: '@id'
-  material:
-    type: string
-    format: uri
-    description: 'Getty AAT URI for the primary surface material, e.g.: painted plaster
-      (300014927), stucco (300014927), stone (300011176), fresco (300177433), gold
-      leaf (300263998). Maps to crm:P45_consists_of.'
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of
-    x-jsonld-type: '@id'
-  technique:
-    type: string
-    format: uri
-    description: 'Getty AAT URI for the application or fabrication technique, e.g.:
-      fresco (300053343), oil painting (300178684), polishing (300053344). Maps to
-      crm:P33_used_specific_technique.'
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique
-    x-jsonld-type: '@id'
-  historicalPhase:
-    type: string
-    description: "Date or period label of the phase in which this surface was applied
-      or last significantly altered, e.g. \"1690\u20131710\", \"post-1945 restoration\".
-      Maps to crm:P4_has_time-span."
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span
-  exposure:
-    type: string
-    description: Positional context of the surface within the architectural element,
-      e.g. "vault intrados", "north wall", "floor", "exterior facade". Maps to crm:P3_has_note.
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
-  conditionSummary:
-    type: string
-    description: Brief description of the current conservation condition of this surface,
-      e.g. "stable", "localised cracking", "active moisture ingress". Maps to crm:P44_has_condition.
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
-  conditionAssessment:
-    type: string
-    format: uri
-    description: URI of a condition-assessment record (ogc.heritage.condition-assessment)
-      that provides detailed pathology documentation for this surface.
-  sourceEvidence:
-    type: string
-    format: uri
-    description: URI of the archival or survey source (ogc.heritage.source-carrier
-      or ogc.heritage.digital-surrogate) that documents this surface's existence and
-      attributes. Maps to crm:P70i_is_documented_in.
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in
-    x-jsonld-type: '@id'
-  reviewStatus:
-    type: string
-    description: Workflow status of this record, e.g. "draft", "reviewed", "approved".
+    - choType
+    - hostObject
+    - material
+    properties:
+      choType:
+        const: Surface
+        description: 'CIDOC-CRM class discriminator for this record (maps to crm:E25_Man-Made_Feature
+          via a second alias to @type, alongside the fixed GeoJSON `type: "Feature"`).'
+        x-jsonld-id: '@type'
+      hostObject:
+        type: string
+        format: uri
+        description: URI of the heritage-object, architectural-space or building that
+          this surface is recognised on (crm:P56i_is_found_on).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P56i_is_found_on
+        x-jsonld-type: '@id'
+      material:
+        type: string
+        format: uri
+        description: 'Getty AAT URI for the primary surface material, e.g.: painted
+          plaster (300014927), stucco (300014927), stone (300011176), fresco (300177433),
+          gold leaf (300263998). Maps to crm:P45_consists_of.'
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of
+        x-jsonld-type: '@id'
+      technique:
+        type: string
+        format: uri
+        description: 'Getty AAT URI for the application or fabrication technique,
+          e.g.: fresco (300053343), oil painting (300178684), polishing (300053344).
+          Maps to crm:P33_used_specific_technique.'
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique
+        x-jsonld-type: '@id'
+      historicalPhase:
+        type: string
+        description: "Date or period label of the phase in which this surface was
+          applied or last significantly altered, e.g. \"1690\u20131710\", \"post-1945
+          restoration\". Maps to crm:P4_has_time-span."
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span
+      exposure:
+        type: string
+        description: Positional context of the surface within the architectural element,
+          e.g. "vault intrados", "north wall", "floor", "exterior facade". Maps to
+          crm:P3_has_note.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+      conditionSummary:
+        type: string
+        description: Brief description of the current conservation condition of this
+          surface, e.g. "stable", "localised cracking", "active moisture ingress".
+          Maps to crm:P44_has_condition.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
+      conditionAssessment:
+        type: string
+        format: uri
+        description: URI of a condition-assessment record (ogc.heritage.condition-assessment)
+          that provides detailed pathology documentation for this surface.
+      sourceEvidence:
+        type: string
+        format: uri
+        description: URI of the archival or survey source (ogc.heritage.source-carrier
+          or ogc.heritage.digital-surrogate) that documents this surface's existence
+          and attributes. Maps to crm:P70i_is_documented_in.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in
+        x-jsonld-type: '@id'
+      reviewStatus:
+        type: string
+        description: Workflow status of this record, e.g. "draft", "reviewed", "approved".
+allOf:
+- oneOf:
+  - allOf:
+    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml
+    - type: object
+      description: Surface with its own embedded footprint geometry.
+      not:
+        required:
+        - topology
+      required:
+      - geometry
+      properties:
+        geometry:
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - Polygon
+              - MultiPolygon
+              - Polyhedron
+              - MultiPolyhedron
+  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml
+- type: object
+  required:
+  - id
+  properties:
+    id:
+      type: string
+      format: uri
+      description: Persistent URI identifying this surface record (overrides the inherited
+        `id`, which also allows a bare number).
+    properties:
+      $ref: '#/$defs/properties'
 x-jsonld-extra-terms:
   Surface: http://www.cidoc-crm.org/cidoc-crm/E25_Man-Made_Feature
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
-  geojson: https://purl.org/geojson/vocab#
 
 ```
 
@@ -434,19 +477,143 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
-    },
+    "Feature": "geojson:Feature",
+    "FeatureCollection": "geojson:FeatureCollection",
+    "GeometryCollection": "geojson:GeometryCollection",
     "LineString": "geojson:LineString",
+    "MultiLineString": "geojson:MultiLineString",
+    "MultiPoint": "geojson:MultiPoint",
+    "MultiPolygon": "geojson:MultiPolygon",
+    "Point": "geojson:Point",
+    "Polygon": "geojson:Polygon",
+    "features": {
+      "@container": "@set",
+      "@id": "geojson:features"
+    },
     "type": "@type",
-    "references": {
-      "@id": "geojson:relatedFeatures",
-      "@type": "@id",
+    "id": "@id",
+    "properties": "@nest",
+    "geometry": "geojson:geometry",
+    "bbox": {
+      "@container": "@list",
+      "@id": "geojson:bbox"
+    },
+    "links": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "featureType": "@type",
+    "time": {
+      "@context": {
+        "date": {
+          "@id": "owlTime:hasTime",
+          "@type": "xsd:date"
+        },
+        "timestamp": {
+          "@id": "owlTime:hasTime",
+          "@type": "xsd:dateTime"
+        },
+        "interval": {
+          "@id": "owlTime:hasTime",
+          "@container": "@list"
+        }
+      },
+      "@id": "dct:time"
+    },
+    "coordRefSys": "http://www.opengis.net/def/glossary/term/CoordinateReferenceSystemCRS",
+    "place": "dct:spatial",
+    "Polyhedron": "geojson:Polyhedron",
+    "MultiPolyhedron": "geojson:MultiPolyhedron",
+    "Prism": {
+      "@id": "geojson:Prism",
+      "@context": {
+        "base": "geojson:prismBase",
+        "lower": "geojson:prismLower",
+        "upper": "geojson:prismUpper"
+      }
+    },
+    "MultiPrism": {
+      "@id": "geojson:MultiPrism",
+      "@context": {
+        "prisms": "geojson:prisms"
+      }
+    },
+    "coordinates": {
+      "@container": "@list",
+      "@id": "geojson:coordinates"
+    },
+    "geometries": {
+      "@id": "geojson:geometry",
       "@container": "@list"
     },
-    "Surface": "crm:E25_Man-Made_Feature",
-    "id": "@id",
+    "topology": {
+      "@context": {
+        "references": {
+          "@id": "topo:relatedFeatures",
+          "@type": "@id",
+          "@container": "@list"
+        },
+        "directed_references": {
+          "@context": {
+            "ref": {
+              "@type": "@id",
+              "@id": "topo:ref"
+            }
+          },
+          "@id": "topo:directedReferences",
+          "@container": "@list"
+        },
+        "relationships": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent",
+            "role": {
+              "@id": "prof:hasRole",
+              "@type": "@id"
+            },
+            "conformsTo": {
+              "@id": "dct:conformsTo",
+              "@type": "@id"
+            }
+          },
+          "@id": "topo:relatedFeatures",
+          "@type": "@id",
+          "@container": "@list"
+        }
+      },
+      "@type": "@id",
+      "@id": "geojson:topology"
+    },
+    "choType": "@type",
     "hostObject": {
       "@id": "crm:P56i_is_found_on",
       "@type": "@id"
@@ -466,10 +633,44 @@ Links to the schema:
       "@id": "crm:P70i_is_documented_in",
       "@type": "@id"
     },
-    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "Surface": "crm:E25_Man-Made_Feature",
+    "Arc": "geojson:Arc",
+    "ArcWithCenter": "geojson:ArcWithCenter",
+    "ArcByChord": "geojson:ArcByChord",
+    "CircleByCenter": "geojson:CircleByCenter",
+    "CubicSpline": "geojson:CubicSpline",
+    "radius": "geojson:radius",
+    "arcLength": "geojson:arcLength",
+    "startTangentVector": "geojson:startTangentVector",
+    "endTangentVector": "geojson:endTangentVector",
+    "ref": "topo:ref",
+    "orientation": "topo:orientation",
+    "Edge": "topo:Edge",
+    "Face": "topo:Face",
+    "Ring": "topo:Ring",
+    "Shell": "topo:Shell",
+    "Solid": "topo:Solid",
+    "rings": {
+      "@id": "topo:rings",
+      "@container": "@list"
+    },
+    "shells": {
+      "@id": "topo:shells",
+      "@container": "@list"
+    },
+    "faces": {
+      "@id": "topo:faces",
+      "@container": "@list"
+    },
     "geojson": "https://purl.org/geojson/vocab#",
-    "csdm": "https://linked.data.gov.au/def/csdm/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "oa": "http://www.w3.org/ns/oa#",
     "dct": "http://purl.org/dc/terms/",
+    "owlTime": "http://www.w3.org/2006/time#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "topo": "https://purl.org/geojson/topo#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
     "@version": 1.1
   }
 }

@@ -1,0 +1,64 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Digital Representation Feature
+description: "Feature-envelope wrapper for ogc.heritage.digital-representation: a
+  spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature
+  when its geometry is defined by reference/topology rather than embedded coordinates.
+  PROV-O's prov-entity (id, provType, wasAttributedTo, wasGeneratedBy, wasDerivedFrom,
+  ...) is inherited flat at the top level, since prov-entity does not fix `type` to
+  a specific class the way ogc.heritage.heritage-object does; digital-representation's
+  own additions (isAbout, mediaType, persistentIdentifier, url) nest under `properties`,
+  per GeoJSON convention. Like digital-representation itself, this block asserts no
+  fixed CIDOC-CRM class of its own \u2014 `properties.choType` is required but left
+  open (no `const`) for concrete profiles (e.g. ogc.heritage.survey-dataset) to pin
+  to their own class, the same way digital-representation's other profiles (digital-surrogate,
+  oral-history, derived-survey-product) each pin their own `type`."
+allOf:
+- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
+- oneOf:
+  - allOf:
+    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml
+    - type: object
+      description: Digital representation with its own embedded footprint geometry
+        (or none at all).
+      not:
+        required:
+        - topology
+  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml
+- type: object
+  required:
+  - id
+  properties:
+    id:
+      type: string
+      format: uri
+      description: Persistent URI identifying this record (overrides the inherited
+        `id`, which also allows a bare number or non-URI string).
+    properties:
+      allOf:
+      - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml#/$defs/properties
+      - type: object
+        required:
+        - choType
+        properties:
+          choType:
+            type: string
+            description: 'CIDOC-CRM (or CRMdig) class discriminator for this record,
+              a second alias to @type alongside the fixed GeoJSON `type: "Feature"`.
+              Left open here; concrete profiles of this block pin it to their own
+              class (e.g. `"SurveyDataset"` in ogc.heritage.survey-dataset).'
+            x-jsonld-id: '@type'
+x-jsonld-extra-terms:
+  DigitalRepresentation: http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object
+  identifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+  isAbout:
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about
+    x-jsonld-type: '@id'
+  mediaType: http://purl.org/dc/terms/format
+  persistentIdentifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+  url:
+    x-jsonld-id: http://www.w3.org/ns/dcat#accessURL
+    x-jsonld-type: '@id'
+x-jsonld-prefixes:
+  crm: http://www.cidoc-crm.org/cidoc-crm/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#

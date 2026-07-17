@@ -1,15 +1,5 @@
 {
   "@context": {
-    "HeritageObject": "crm:E22_Man-Made_Object",
-    "parentSpace": {
-      "@id": "crm:P46i_forms_part_of",
-      "@type": "@id"
-    },
-    "movementHistory": {
-      "@id": "prov:wasUsedBy",
-      "@type": "@id",
-      "@container": "@set"
-    },
     "id": "@id",
     "type": "@type",
     "identifier": "crm:P1_is_identified_by",
@@ -31,6 +21,16 @@
     "persistentIdentifier": {
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
+    },
+    "HeritageObject": "crm:E22_Man-Made_Object",
+    "parentSpace": {
+      "@id": "crm:P46i_forms_part_of",
+      "@type": "@id"
+    },
+    "movementHistory": {
+      "@id": "prov:wasUsedBy",
+      "@type": "@id",
+      "@container": "@set"
     },
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "prov": "http://www.w3.org/ns/prov#",

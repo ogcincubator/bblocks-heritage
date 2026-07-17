@@ -5,7 +5,8 @@
 @prefix sci: <http://www.ics.forth.gr/isl/CRMsci/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/condition/RV-CA-GG-2026-003> a sci:E14_Condition_Assessment ;
+<https://heritalise-eccch.eu/resource/condition/RV-CA-GG-2026-003> a sci:E14_Condition_Assessment,
+        geojson:Feature ;
     crm:P140_assigned_attribute_to <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ;
     crm:P16_used_specific_object <https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-01>,
         <https://heritalise-eccch.eu/resource/digital/RV-CA-GG-2026-003-photo-02> ;
@@ -14,5 +15,6 @@
     crm:P3_has_note "Apply consolidant injection to crack edges within 6 months; re-assess after stabilisation." ;
     crm:P4_has_time-span "2026-03-15"^^xsd:date ;
     prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/sofia-bianchi> ;
-    geojson:geometry "{\"coordinates\":[[[7.62725,45.13442],[7.62731,45.13442],[7.62731,45.13438],[7.62725,45.13438],[7.62725,45.13442]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 7.62725e+00 4.513442e+01 ) ( 7.62731e+00 4.513442e+01 ) ( 7.62731e+00 4.513438e+01 ) ( 7.62725e+00 4.513438e+01 ) ( 7.62725e+00 4.513442e+01 ) ) ) ] .
 

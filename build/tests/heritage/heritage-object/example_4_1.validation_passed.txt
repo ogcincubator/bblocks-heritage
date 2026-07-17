@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.heritage-object - Heritage Object
-Generated 2026-07-17T10:15:37.000216+00:00
+Generated 2026-07-17T14:25:08.506950+00:00
 === Files ===
 Using examples/tapestry.json from examples
 JSON-LD context is present - uplifting

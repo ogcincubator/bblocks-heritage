@@ -1,0 +1,17 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02",
+  "type": "Feature",
+  "geometry": null,
+  "topology": {
+    "type": "Polygon",
+    "references": [
+      "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7"
+    ]
+  },
+  "properties": {
+    "choType": "DigitalRepresentation",
+    "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
+    "mediaType": "image/jpeg"
+  }
+}

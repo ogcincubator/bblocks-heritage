@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.three-d-model - 3D Model
-Generated 2026-07-17T10:15:48.037441+00:00
+Generated 2026-07-17T14:25:18.497423+00:00
 === Files ===
 Using examples/gltf.json from examples
 JSON-LD context is present - uplifting

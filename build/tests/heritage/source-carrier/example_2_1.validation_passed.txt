@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.source-carrier - Source Carrier
-Generated 2026-07-17T10:15:37.060650+00:00
+Generated 2026-07-17T14:25:08.554873+00:00
 === Files ===
 Using examples/malta-villa-portelli-photo.json from examples
 JSON-LD context is present - uplifting

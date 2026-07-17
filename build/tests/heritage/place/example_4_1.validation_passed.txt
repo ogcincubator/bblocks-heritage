@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.place - Place
-Generated 2026-07-17T10:15:40.638182+00:00
+Generated 2026-07-17T14:25:10.943582+00:00
 === Files ===
 Using examples/garden-sub-zone.json from examples
 JSON-LD context is present - uplifting
@@ -24,11 +24,11 @@ Validation result for https://opengeospatial.github.io/bblocks/registereditems/g
   Conforms: True
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/place/north-parterre>
  - Shape geojson:GeometryShape: *none*
  - Shape geojson:LinkShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
 
 === End SHACL ===
 

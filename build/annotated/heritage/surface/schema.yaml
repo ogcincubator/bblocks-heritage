@@ -1,113 +1,121 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Surface
-description: "A material finish layer or physical surface feature recognised on an
-  architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature). Records
-  the host object, material and technique (Getty AAT), historical phase, exposure
-  context and a mandatory polygon or surface-patch geometry \u2014 embedded, or given
-  by reference to shared/topological geometry (see ogc.ogc-utils.topology). May be
-  linked to a condition-assessment record for pathology documentation."
-type: object
-required:
-- id
-- type
-- hostObject
-- material
-oneOf:
-- type: object
-  description: Surface with its own embedded footprint geometry.
+description: 'A material finish layer or physical surface feature recognised on an
+  architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), encoded
+  as a GeoJSON/ JSON-FG Feature: CIDOC-CRM attributes nest under `properties` (GeoJSON
+  convention), and a `choType` property carries the CIDOC-CRM class as a second alias
+  to `@type`, alongside the fixed `type: "Feature"`. Geometry is either embedded directly
+  (`geometry`) or defined by reference via topology (`topology`, see ogc.geo.topo.features.topo-feature),
+  letting a surface share its host object''s geometry without duplicating coordinates.
+  May be linked to a condition-assessment record for pathology documentation.'
+$defs:
   properties:
-    footprint:
-      type: object
-      description: GeoJSON Geometry delineating the spatial extent of this surface
-        as a polygon or surface-patch. Coordinates should be in the reference system
-        of the host structure's survey (local or EPSG:4326). Maps to geojson:geometry.
-      properties:
-        type:
-          type: string
-          enum:
-          - Polygon
-          - MultiPolygon
-          x-jsonld-id: '@type'
-        coordinates:
-          type: array
-      required:
-      - type
-      - coordinates
-      x-jsonld-id: https://purl.org/geojson/vocab#geometry
-      x-jsonld-type: '@json'
-  required:
-  - footprint
-  not:
+    type: object
     required:
-    - references
-- $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/topology/schema.yaml
-properties:
-  id:
-    type: string
-    format: uri
-    description: Persistent URI identifying this surface record.
-    x-jsonld-id: '@id'
-  type:
-    const: Surface
-    description: Fixed type token identifying this record as a surface (maps to crm:E25_Man-Made_Feature).
-    x-jsonld-id: '@type'
-  hostObject:
-    type: string
-    format: uri
-    description: URI of the heritage-object, architectural-space or building that
-      this surface is recognised on (crm:P56i_is_found_on).
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P56i_is_found_on
-    x-jsonld-type: '@id'
-  material:
-    type: string
-    format: uri
-    description: 'Getty AAT URI for the primary surface material, e.g.: painted plaster
-      (300014927), stucco (300014927), stone (300011176), fresco (300177433), gold
-      leaf (300263998). Maps to crm:P45_consists_of.'
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of
-    x-jsonld-type: '@id'
-  technique:
-    type: string
-    format: uri
-    description: 'Getty AAT URI for the application or fabrication technique, e.g.:
-      fresco (300053343), oil painting (300178684), polishing (300053344). Maps to
-      crm:P33_used_specific_technique.'
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique
-    x-jsonld-type: '@id'
-  historicalPhase:
-    type: string
-    description: "Date or period label of the phase in which this surface was applied
-      or last significantly altered, e.g. \"1690\u20131710\", \"post-1945 restoration\".
-      Maps to crm:P4_has_time-span."
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span
-  exposure:
-    type: string
-    description: Positional context of the surface within the architectural element,
-      e.g. "vault intrados", "north wall", "floor", "exterior facade". Maps to crm:P3_has_note.
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
-  conditionSummary:
-    type: string
-    description: Brief description of the current conservation condition of this surface,
-      e.g. "stable", "localised cracking", "active moisture ingress". Maps to crm:P44_has_condition.
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
-  conditionAssessment:
-    type: string
-    format: uri
-    description: URI of a condition-assessment record (ogc.heritage.condition-assessment)
-      that provides detailed pathology documentation for this surface.
-  sourceEvidence:
-    type: string
-    format: uri
-    description: URI of the archival or survey source (ogc.heritage.source-carrier
-      or ogc.heritage.digital-surrogate) that documents this surface's existence and
-      attributes. Maps to crm:P70i_is_documented_in.
-    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in
-    x-jsonld-type: '@id'
-  reviewStatus:
-    type: string
-    description: Workflow status of this record, e.g. "draft", "reviewed", "approved".
+    - choType
+    - hostObject
+    - material
+    properties:
+      choType:
+        const: Surface
+        description: 'CIDOC-CRM class discriminator for this record (maps to crm:E25_Man-Made_Feature
+          via a second alias to @type, alongside the fixed GeoJSON `type: "Feature"`).'
+        x-jsonld-id: '@type'
+      hostObject:
+        type: string
+        format: uri
+        description: URI of the heritage-object, architectural-space or building that
+          this surface is recognised on (crm:P56i_is_found_on).
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P56i_is_found_on
+        x-jsonld-type: '@id'
+      material:
+        type: string
+        format: uri
+        description: 'Getty AAT URI for the primary surface material, e.g.: painted
+          plaster (300014927), stucco (300014927), stone (300011176), fresco (300177433),
+          gold leaf (300263998). Maps to crm:P45_consists_of.'
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of
+        x-jsonld-type: '@id'
+      technique:
+        type: string
+        format: uri
+        description: 'Getty AAT URI for the application or fabrication technique,
+          e.g.: fresco (300053343), oil painting (300178684), polishing (300053344).
+          Maps to crm:P33_used_specific_technique.'
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique
+        x-jsonld-type: '@id'
+      historicalPhase:
+        type: string
+        description: "Date or period label of the phase in which this surface was
+          applied or last significantly altered, e.g. \"1690\u20131710\", \"post-1945
+          restoration\". Maps to crm:P4_has_time-span."
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P4_has_time-span
+      exposure:
+        type: string
+        description: Positional context of the surface within the architectural element,
+          e.g. "vault intrados", "north wall", "floor", "exterior facade". Maps to
+          crm:P3_has_note.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+      conditionSummary:
+        type: string
+        description: Brief description of the current conservation condition of this
+          surface, e.g. "stable", "localised cracking", "active moisture ingress".
+          Maps to crm:P44_has_condition.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P44_has_condition
+      conditionAssessment:
+        type: string
+        format: uri
+        description: URI of a condition-assessment record (ogc.heritage.condition-assessment)
+          that provides detailed pathology documentation for this surface.
+      sourceEvidence:
+        type: string
+        format: uri
+        description: URI of the archival or survey source (ogc.heritage.source-carrier
+          or ogc.heritage.digital-surrogate) that documents this surface's existence
+          and attributes. Maps to crm:P70i_is_documented_in.
+        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P70i_is_documented_in
+        x-jsonld-type: '@id'
+      reviewStatus:
+        type: string
+        description: Workflow status of this record, e.g. "draft", "reviewed", "approved".
+allOf:
+- oneOf:
+  - allOf:
+    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml
+    - type: object
+      description: Surface with its own embedded footprint geometry.
+      not:
+        required:
+        - topology
+      required:
+      - geometry
+      properties:
+        geometry:
+          type: object
+          required:
+          - type
+          - coordinates
+          properties:
+            type:
+              type: string
+              enum:
+              - Polygon
+              - MultiPolygon
+              - Polyhedron
+              - MultiPolyhedron
+  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml
+- type: object
+  required:
+  - id
+  properties:
+    id:
+      type: string
+      format: uri
+      description: Persistent URI identifying this surface record (overrides the inherited
+        `id`, which also allows a bare number).
+    properties:
+      $ref: '#/$defs/properties'
 x-jsonld-extra-terms:
   Surface: http://www.cidoc-crm.org/cidoc-crm/E25_Man-Made_Feature
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
-  geojson: https://purl.org/geojson/vocab#

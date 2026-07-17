@@ -1,17 +1,8 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/architectural-space/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
-  "type": "HeritageObject",
-  "identifier": "MT-SPC-VP-SALON",
-  "title": "Villa Portelli \u2014 Grand Salon",
-  "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
-  "objectType": "http://vocab.getty.edu/aat/300004733",
-  "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
-  "floorLevel": "ground floor",
-  "accessibilityStatus": "open to public",
-  "monitoringRelevance": true,
-  "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -37,5 +28,17 @@
         ]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "MT-SPC-VP-SALON",
+    "title": "Villa Portelli \u2014 Grand Salon",
+    "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
+    "objectType": "http://vocab.getty.edu/aat/300004733",
+    "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+    "floorLevel": "ground floor",
+    "accessibilityStatus": "open to public",
+    "monitoringRelevance": true,
+    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf"
   }
 }

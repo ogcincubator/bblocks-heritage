@@ -2,8 +2,10 @@
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/building/villa-portelli-main> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/building/villa-portelli-main> a crm:E22_Man-Made_Object,
+        geojson:Feature ;
     dct:created "18th century" ;
     crm:P102_has_title "Villa Portelli — Main Villa Building" ;
     crm:P1_is_identified_by "2WrR4Z9bT8RvKsJMlNpQxA",
@@ -13,5 +15,6 @@
     crm:P44_has_condition "under restoration" ;
     crm:P46i_forms_part_of <https://heritalise-eccch.eu/resource/site/villa-portelli-garden> ;
     crm:P50_has_current_keeper "Heritage Malta" ;
-    geojson:geometry "{\"coordinates\":[[[14.513,35.896],[14.515,35.896],[14.515,35.897],[14.513,35.897],[14.513,35.896]]],\"type\":\"Polygon\"}"^^rdf:JSON .
+    geojson:geometry [ a geojson:Polygon ;
+            geojson:coordinates ( ( ( 1.4513e+01 3.5896e+01 ) ( 1.4515e+01 3.5896e+01 ) ( 1.4515e+01 3.5897e+01 ) ( 1.4513e+01 3.5897e+01 ) ( 1.4513e+01 3.5896e+01 ) ) ) ] .
 

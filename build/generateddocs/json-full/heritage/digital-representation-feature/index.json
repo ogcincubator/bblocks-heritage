@@ -1,0 +1,127 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.digital-representation-feature",
+  "name": "Digital Representation Feature",
+  "abstract": "Feature-envelope wrapper for Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-17T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-17",
+  "isProfileOf": "ogc.heritage.digital-representation",
+  "sources": [
+    {
+      "title": "CIDOC-CRM E73 Information Object",
+      "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E73"
+    },
+    {
+      "title": "PROV-O",
+      "link": "https://www.w3.org/TR/prov-o/"
+    },
+    {
+      "title": "OGC topo-feature",
+      "link": "https://github.com/opengeospatial/topo-feature"
+    }
+  ],
+  "tags": [
+    "cidoc-crm",
+    "prov",
+    "heritage",
+    "digital-representation",
+    "feature",
+    "topology"
+  ],
+  "group": "Core",
+  "shaclShapes": {
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ],
+    "ogc.geo.topo.features.topo-feature": [
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl",
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl"
+    ],
+    "ogc.geo.topo.features.topo-feature-collection": [
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl",
+      "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl"
+    ],
+    "ogc.geo.features.featureCollection": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
+    ],
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.ogc-utils.prov-entity",
+    "ogc.geo.json-fg.feature-lenient",
+    "ogc.geo.topo.features.topo-feature",
+    "ogc.heritage.digital-representation"
+  ],
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation-feature/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation-feature/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation-feature/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/digital-representation-feature/",
+  "examples": [
+    {
+      "title": "Great Gallery painting photograph \u2014 located by embedded point geometry",
+      "content": "A digital photograph with an embedded GeoJSON point marking where it was captured. PROV-O provenance (`wasAttributedTo`) stays flat at the top level, inherited from ogc.ogc-utils.prov-entity; `isAbout`/`mediaType`/etc. nest under `properties`. `properties.choType` is left open at this abstract level \u2014 concrete profiles (e.g. ogc.heritage.survey-dataset) pin it to their own class.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation-feature/examples/photograph-located.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_1_1.json",
+          "sizeBytes": 594,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [7.6273, 45.1344]\n  },\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"identifier\": \"RV-GG-014-PHOTO-01\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_1_1.jsonld",
+          "sizeBytes": 747,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.6273,\n      45.1344\n    ]\n  },\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"identifier\": \"RV-GG-014-PHOTO-01\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_1_1.ttl",
+          "sizeBytes": 881,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> a crm:E73_Information_Object,\n        geojson:Feature ;\n    dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.6273e+00 4.51344e+01 ) ] .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "Great Gallery painting photograph \u2014 location by topology reference",
+      "content": "The same kind of photograph located by reference instead of embedded coordinates: `geometry` is `null` and `topology.references` points at the depicted bay's own record, using ogc.geo.topo.features.topo-feature to avoid duplicating coordinates.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation-feature/examples/photograph-topology.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_2_1.json",
+          "sizeBytes": 461,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\"\n  }\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_2_1.jsonld",
+          "sizeBytes": 596,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\"\n  }\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_2_1.ttl",
+          "sizeBytes": 678,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix topo: <https://purl.org/geojson/topo#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02> a crm:E73_Information_Object,\n        geojson:Feature ;\n    dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    geojson:topology [ a geojson:Polygon ;\n            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) ] .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Digital Representation Feature\ndescription: \"Feature-envelope wrapper for ogc.heritage.digital-representation: a\n  spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature\n  when its geometry is defined by reference/topology rather than embedded coordinates.\n  PROV-O's prov-entity (id, provType, wasAttributedTo, wasGeneratedBy, wasDerivedFrom,\n  ...) is inherited flat at the top level, since prov-entity does not fix `type` to\n  a specific class the way ogc.heritage.heritage-object does; digital-representation's\n  own additions (isAbout, mediaType, persistentIdentifier, url) nest under `properties`,\n  per GeoJSON convention. Like digital-representation itself, this block asserts no\n  fixed CIDOC-CRM class of its own \\u2014 `properties.choType` is required but left\n  open (no `const`) for concrete profiles (e.g. ogc.heritage.survey-dataset) to pin\n  to their own class, the same way digital-representation's other profiles (digital-surrogate,\n  oral-history, derived-survey-product) each pin their own `type`.\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml\n- oneOf:\n  - allOf:\n    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml\n    - type: object\n      description: Digital representation with its own embedded footprint geometry\n        (or none at all).\n      not:\n        required:\n        - topology\n  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml\n- type: object\n  required:\n  - id\n  properties:\n    id:\n      type: string\n      format: uri\n      description: Persistent URI identifying this record (overrides the inherited\n        `id`, which also allows a bare number or non-URI string).\n    properties:\n      allOf:\n      - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml#/$defs/properties\n      - type: object\n        required:\n        - choType\n        properties:\n          choType:\n            type: string\n            description: 'CIDOC-CRM (or CRMdig) class discriminator for this record,\n              a second alias to @type alongside the fixed GeoJSON `type: \"Feature\"`.\n              Left open here; concrete profiles of this block pin it to their own\n              class (e.g. `\"SurveyDataset\"` in ogc.heritage.survey-dataset).'\n            x-jsonld-id: '@type'\nx-jsonld-extra-terms:\n  DigitalRepresentation: http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object\n  identifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  isAbout:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about\n    x-jsonld-type: '@id'\n  mediaType: http://purl.org/dc/terms/format\n  persistentIdentifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  url:\n    x-jsonld-id: http://www.w3.org/ns/dcat#accessURL\n    x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n  dcat: http://www.w3.org/ns/dcat#\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/digital-representation-feature"
+}

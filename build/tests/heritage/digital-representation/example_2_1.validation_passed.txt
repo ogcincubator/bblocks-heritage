@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.digital-representation - Digital Representation
-Generated 2026-07-17T10:15:41.480243+00:00
+Generated 2026-07-17T14:25:17.087101+00:00
 === Files ===
 Using examples/minimal.json from examples
 JSON-LD context is present - uplifting

@@ -1,0 +1,61 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Heritage Object Feature
+description: "Feature-envelope wrapper for ogc.heritage.heritage-object: a spatially
+  located heritage object encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature
+  when its geometry is defined by reference/topology rather than embedded coordinates.
+  heritage-object's CIDOC-CRM attributes nest under `properties` (GeoJSON convention);
+  `properties.choType` carries the CIDOC-CRM class (Cultural Heritage Object type)
+  as a second alias to `@type`, alongside the fixed `type: \"Feature\"` \u2014 the
+  same secondary-typing pattern PROV-O's own prov-entity block uses for its `provType`
+  property, kept as a distinct name here since this block has no PROV-O involvement."
+allOf:
+- oneOf:
+  - allOf:
+    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml
+    - type: object
+      description: Object with its own embedded footprint geometry (or none at all).
+      not:
+        required:
+        - topology
+  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml
+- type: object
+  required:
+  - id
+  properties:
+    id:
+      type: string
+      format: uri
+      description: Persistent URI identifying this record (overrides the inherited
+        `id`, which also allows a bare number).
+    properties:
+      allOf:
+      - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml#/$defs/properties
+      - type: object
+        required:
+        - choType
+        properties:
+          choType:
+            const: HeritageObject
+            description: 'CIDOC-CRM class discriminator for this record (maps to crm:E22_Man-Made_Object
+              via a second alias to @type, alongside the fixed GeoJSON `type: "Feature"`).'
+            x-jsonld-id: '@type'
+x-jsonld-extra-terms:
+  HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object
+  identifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+  title: http://www.cidoc-crm.org/cidoc-crm/P102_has_title
+  description: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
+  objectType:
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type
+    x-jsonld-type: '@id'
+  material:
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of
+    x-jsonld-type: '@id'
+    x-jsonld-container: '@set'
+  currentLocation:
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location
+    x-jsonld-type: '@id'
+  persistentIdentifier:
+    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+    x-jsonld-type: '@id'
+x-jsonld-prefixes:
+  crm: http://www.cidoc-crm.org/cidoc-crm/

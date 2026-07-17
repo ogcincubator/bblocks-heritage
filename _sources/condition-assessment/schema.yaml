@@ -5,6 +5,34 @@ description: >-
   condition state of a heritage object or place.
 x-jsonld-context: context.jsonld
 type: object
+required:
+  - id
+  - type
+  - affectedObject
+  - conditionState
+  - assessmentDate
+oneOf:
+  - type: object
+    description: Condition assessment localised by its own embedded footprint geometry.
+    properties:
+      footprint:
+        type: object
+        description: >-
+          GeoJSON geometry localising the condition on the affected object or surface
+          (point, polyline or polygon patch).
+        properties:
+          type:
+            type: string
+            enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon]
+          coordinates:
+            type: array
+        required:
+          - type
+          - coordinates
+    not:
+      required:
+        - references
+  - "$ref": bblocks://ogc.ogc-utils.topology
 properties:
   id:
     type: string
@@ -65,22 +93,3 @@ properties:
   reviewStatus:
     type: string
     description: Workflow status of this record (e.g. draft, reviewed, approved).
-  footprint:
-    type: object
-    description: >-
-      GeoJSON geometry localising the condition on the affected object or surface
-      (point, polyline or polygon patch).
-    properties:
-      type:
-        type: string
-        enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon]
-      coordinates:
-        type: array
-    required:
-      - type
-      - coordinates
-required:
-  - type
-  - affectedObject
-  - conditionState
-  - assessmentDate

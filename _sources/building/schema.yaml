@@ -12,6 +12,13 @@ x-jsonld-context: context.jsonld
 allOf:
   - $ref: bblocks://ogc.heritage.heritage-object
   - type: object
+    oneOf:
+      - type: object
+        description: Building with its own embedded footprint geometry (or none at all).
+        not:
+          required:
+            - references
+      - "$ref": bblocks://ogc.ogc-utils.topology
     properties:
       parentSite:
         type: string

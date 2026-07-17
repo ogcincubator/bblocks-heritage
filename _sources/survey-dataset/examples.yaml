@@ -1,70 +1,27 @@
-- title: Venaria — TLS point cloud of Galleria Grande ceiling
-  content: |
-    {
-      "type": "SurveyDataset",
-      "id": "https://heritage.venaria.it/datasets/gc-ceiling-tls-2024",
-      "title": "TLS Point Cloud — Galleria Grande Ceiling (2024)",
-      "isAbout": "https://heritage.venaria.it/buildings/galleria-grande",
-      "mediaType": "application/vnd.las",
-      "acquisitionEvent": {
-        "acquisitionMethod": "TLS",
-        "acquisitionDate": "2024-03-15",
-        "operator": "https://orcid.org/0000-0000-0000-0001",
-        "equipment": "Leica RTC360",
-        "crs": "https://www.opengis.net/def/crs/EPSG/0/32632",
-        "density": "~3500 pts/m²",
-        "accuracy": "±3 mm",
-        "processingHistory": "Registration: Leica Cyclone REGISTER 360 v1.8; automatic noise filter applied; colourised from concurrent RGB imagery."
-      },
-      "coverage": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [7.6025, 45.1290],
-            [7.6035, 45.1290],
-            [7.6035, 45.1295],
-            [7.6025, 45.1295],
-            [7.6025, 45.1290]
-          ]
-        ]
-      },
-      "url": "https://heritage.venaria.it/storage/gc-ceiling-tls-2024.laz",
-      "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
-      "reviewStatus": "reviewed"
-    }
-  mediatype: application/json
+examples:
+  - title: Venaria — TLS point cloud of Galleria Grande ceiling
+    content: >-
+      A terrestrial laser scan point cloud of the Galleria Grande ceiling, with acquisition
+      metadata (method, equipment, accuracy) and a polygon coverage geometry.
+    snippets:
+      - language: json
+        ref: examples/venaria-gc-ceiling-tls.json
 
-- title: Malta — UAV photogrammetric model of Villa Portelli exterior
-  content: |
-    {
-      "type": "SurveyDataset",
-      "id": "https://heritage.gov.mt/datasets/villa-portelli-uav-2025",
-      "title": "UAV Photogrammetric Model — Villa Portelli Exterior (2025)",
-      "isAbout": "https://heritage.gov.mt/buildings/villa-portelli",
-      "mediaType": "model/obj",
-      "acquisitionEvent": {
-        "acquisitionMethod": "UAV-photogrammetry",
-        "acquisitionDate": "2025-06-10",
-        "equipment": "DJI Matrice 300 RTK with Zenmuse P1",
-        "crs": "https://www.opengis.net/def/crs/EPSG/0/32633",
-        "density": "3 cm/pixel ground sampling distance",
-        "accuracy": "±5 cm",
-        "processingHistory": "Processed in Agisoft Metashape 2.1 at medium quality: dense point cloud → mesh → texture. 42 GCPs used."
-      },
-      "coverage": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [14.4320, 35.9020],
-            [14.4335, 35.9020],
-            [14.4335, 35.9030],
-            [14.4320, 35.9030],
-            [14.4320, 35.9020]
-          ]
-        ]
-      },
-      "url": "https://heritage.gov.mt/storage/villa-portelli-uav-2025.zip",
-      "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-survey-2025",
-      "reviewStatus": "approved"
-    }
-  mediatype: application/json
+  - title: Malta — UAV photogrammetric model of Villa Portelli exterior
+    content: >-
+      A UAV photogrammetric model of the Villa Portelli exterior, with acquisition metadata
+      and a persistent DOI identifier alongside the record's own URI.
+    snippets:
+      - language: json
+        ref: examples/malta-villa-portelli-uav.json
+
+  - title: Venaria — TLS scan of Galleria Grande bay 7 vault, coverage by reference (geometry-by-reference / topology)
+    content: >-
+      A TLS scan whose coverage coincides exactly with the surveyed bay's own footprint
+      (see ogc.heritage.architectural-space's galleria-grande-bay.json). Instead of
+      re-encoding the same polygon as `coverage`, this record uses `references` — the
+      geometry-by-reference pattern from ogc.ogc-utils.topology — to point at the surveyed
+      space directly.
+    snippets:
+      - language: json
+        ref: examples/gg-bay7-vault-tls-shared-coverage.json

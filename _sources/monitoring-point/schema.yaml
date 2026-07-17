@@ -61,6 +61,7 @@ allOf:
           - type
           - coordinates
     required:
+      - id
       - type
       - identifier
       - sensorType

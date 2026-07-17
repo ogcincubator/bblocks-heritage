@@ -10,6 +10,10 @@ allOf:
   - "$ref": bblocks://ogc.geo.json-fg.feature-lenient
   - type: object
     properties:
+      id:
+        type: string
+        format: uri
+        description: The persistent or local URI identifying this place (overrides the inherited JSON-FG `id`, which also allows a bare number).
       properties:
         type: object
         description: CIDOC-CRM E53 Place attributes, nested per JSON-FG/GeoJSON convention.
@@ -43,4 +47,5 @@ allOf:
           - identifier
           - name
     required:
+      - id
       - properties

@@ -3,6 +3,7 @@
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dct": "http://purl.org/dc/terms/",
     "type": "@type",
+    "id": "@id",
     "SourceCarrier": "crm:E31_Document",
     "carrierType": {
       "@id": "crm:P2_has_type",

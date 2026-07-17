@@ -11,6 +11,8 @@ x-jsonld-context: context.jsonld
 allOf:
   - "$ref": bblocks://ogc.ogc-utils.prov-activity
   - type: object
+    required:
+      - id
     properties:
       identifier:
         type: string

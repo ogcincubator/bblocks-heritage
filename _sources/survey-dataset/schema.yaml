@@ -12,7 +12,15 @@ allOf:
       - type
       - title
       - acquisitionEvent
-      - coverage
+    oneOf:
+      - type: object
+        description: Survey dataset with its own embedded coverage geometry.
+        required:
+          - coverage
+        not:
+          required:
+            - references
+      - "$ref": bblocks://ogc.ogc-utils.topology
     properties:
       type:
         const: SurveyDataset

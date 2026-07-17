@@ -1,11 +1,11 @@
 {
-  "id": "https://example.org/heritalise/digital/villa-portelli-ground-floor-plan",
+  "id": "https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan",
   "identifier": "MT-CAD-GFP-001",
-  "isAbout": "https://example.org/heritalise/site/villa-portelli",
+  "isAbout": "https://heritalise-eccch.eu/resource/site/villa-portelli",
   "mediaType": "application/dwg",
   "persistentIdentifier": "https://hdl.handle.net/10.9999/mt-cad-gfp-001",
-  "url": "https://example.org/heritalise/files/villa-portelli-ground-floor.dwg",
+  "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg",
   "wasAttributedTo": [
-    "https://example.org/heritalise/actor/heritage-malta-conservation"
+    "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation"
   ]
 }

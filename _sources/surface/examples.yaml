@@ -18,3 +18,15 @@ examples:
     snippets:
       - language: json
         ref: examples/malta-grand-salon-floor.json
+
+  - title: Vault fresco with extent by reference (geometry-by-reference / topology)
+    content: >-
+      The fresco covering the vault of Galleria Grande bay 7 extends across the entire bay,
+      so its spatial extent coincides exactly with the bay's own footprint
+      (galleria-grande-bay.json) rather than a separately-drawn polygon. No `footprint` is
+      given here — instead `references` points at the hostObject's own record, using the
+      geometry-by-reference pattern from ogc.ogc-utils.topology to avoid duplicating
+      coordinates.
+    snippets:
+      - language: json
+        ref: examples/venaria-vault-fresco-shared-footprint.json

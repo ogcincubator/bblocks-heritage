@@ -4,6 +4,7 @@
     "prov": "http://www.w3.org/ns/prov#",
     "oa": "http://www.w3.org/ns/oa#",
     "type": "@type",
+    "id": "@id",
     "HistoricalStatement": "crm:E13_Attribute_Assignment",
     "statementType": "crm:P2_has_type",
     "statement": {

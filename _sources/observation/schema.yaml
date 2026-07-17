@@ -16,6 +16,7 @@ allOf:
   - "$ref": bblocks://ogc.sosa.properties.observation
   - type: object
     required:
+      - id
       - hasFeatureOfInterest
     properties:
       type:

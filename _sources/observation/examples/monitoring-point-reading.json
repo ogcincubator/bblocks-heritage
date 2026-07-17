@@ -1,8 +1,9 @@
 {
+  "id": "https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z",
   "type": "Observation",
-  "hasFeatureOfInterest": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://example.org/heritalise/monitoring-point/north-gallery-mp-01",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "hasSimpleResult": 61.4,
   "resultTime": "2024-09-15T08:30:00Z"
 }

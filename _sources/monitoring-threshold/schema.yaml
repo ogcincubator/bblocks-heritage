@@ -6,6 +6,7 @@ description: >-
 x-jsonld-context: context.jsonld
 type: object
 required:
+  - id
   - type
   - parameter
   - thresholdType

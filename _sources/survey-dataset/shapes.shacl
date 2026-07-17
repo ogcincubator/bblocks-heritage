@@ -21,11 +21,11 @@
         sh:minCount 1 ;
         sh:message "acquisitionEvent (crmdig:L11i_was_output_of, i.e. the D7 acquisition event) is required." ;
     ] ;
-    sh:property [
-        sh:path geojson:geometry ;
-        sh:minCount 1 ;
-        sh:message "coverage geometry (geojson:geometry) is required." ;
-    ] ;
+    sh:or (
+        [ sh:path geojson:geometry ; sh:minCount 1 ]
+        [ sh:path geojson:relatedFeatures ; sh:minCount 1 ]
+    ) ;
+    sh:message "coverage is required: either an embedded geojson:geometry or a geojson:relatedFeatures reference (see ogc.ogc-utils.topology)." ;
     sh:property [
         sh:path crm:P129_is_about ;
         sh:minCount 1 ;

@@ -61,4 +61,5 @@ properties:
       URI of a rights statement governing reuse of the aggregated content, typically from
       rightsstatements.org or a Creative Commons license (edm:rights).
 required:
+  - id
   - aggregatedCHO

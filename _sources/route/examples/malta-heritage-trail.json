@@ -1,5 +1,5 @@
 {
-  "id": "https://example.org/heritalise/route/malta-garden-trail",
+  "id": "https://heritalise-eccch.eu/resource/route/malta-garden-trail",
   "type": "Feature",
   "geometry": {
     "type": "LineString",
@@ -16,6 +16,6 @@
     "surface": "stone paving",
     "accessibilityRating": "fully accessible",
     "permittedUse": "pedestrian only",
-    "parentSite": "https://example.org/heritalise/site/villa-portelli"
+    "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli"
   }
 }

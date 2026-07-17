@@ -18,3 +18,14 @@ examples:
     snippets:
       - language: json
         ref: examples/villa-portelli-room.json
+
+  - title: Galleria Grande bay with footprint by reference (geometry-by-reference / topology)
+    content: >-
+      Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see
+      galleria-grande-bay.json) and shares exactly the same floor-plan footprint. Rather than
+      re-embedding identical coordinates, its geometry is given as a `references` array
+      pointing at bay 7's own record — the geometry-by-reference pattern from
+      ogc.ogc-utils.topology, reused here to avoid duplicating shared coordinates.
+    snippets:
+      - language: json
+        ref: examples/galleria-grande-bay-shared-footprint.json

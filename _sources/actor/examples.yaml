@@ -9,8 +9,9 @@ examples:
 
   - title: A minimal record for an unidentified creator
     content: >-
-      PROV-O's Agent only requires a `name` or an `id` — useful for an attributed-but-unnamed
-      workshop or studio, common in older catalogue records (UC-V-3 legacy-archive migration).
+      `id` is required register-wide (see ogc.heritage.actor), but `name` remains the only
+      other populated field — useful for an attributed-but-unnamed workshop or studio, common
+      in older catalogue records (UC-V-3 legacy-archive migration).
     snippets:
       - language: json
         ref: examples/minimal.json

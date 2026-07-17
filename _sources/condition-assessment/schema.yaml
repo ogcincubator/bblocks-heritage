@@ -2,94 +2,114 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: Condition Assessment
 description: >-
   A qualitative conservation inspection (CRMsci E14 Condition Assessment) recording the
-  condition state of a heritage object or place.
+  condition state of a heritage object or place, encoded as a GeoJSON/JSON-FG Feature:
+  CIDOC-CRM/CRMsci attributes nest under `properties` (GeoJSON convention), and a `choType`
+  property carries the CRMsci class as a second alias to `@type`, alongside the fixed
+  `type: "Feature"`. Localisation is optional: `geometry` may be `null` (no spatial
+  localisation), an embedded GeoJSON geometry, or given by reference via topology
+  (`topology`, see ogc.geo.topo.features.topo-feature) to avoid duplicating coordinates
+  already recorded on the affected object.
 x-jsonld-context: context.jsonld
-type: object
-required:
-  - id
-  - type
-  - affectedObject
-  - conditionState
-  - assessmentDate
-oneOf:
-  - type: object
-    description: Condition assessment localised by its own embedded footprint geometry.
-    properties:
-      footprint:
-        type: object
-        description: >-
-          GeoJSON geometry localising the condition on the affected object or surface
-          (point, polyline or polygon patch).
-        properties:
-          type:
-            type: string
-            enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon]
-          coordinates:
-            type: array
-        required:
-          - type
-          - coordinates
-    not:
-      required:
-        - references
-  - "$ref": bblocks://ogc.ogc-utils.topology
-properties:
-  id:
-    type: string
-    format: uri
-    description: Persistent URI identifying this condition assessment record.
-  type:
-    const: ConditionAssessment
-  affectedObject:
-    type: string
-    format: uri
-    description: URI of the heritage-object, architectural-space or place being assessed.
-  conditionState:
+$defs:
+  properties:
     type: object
-    description: >-
-      The E3 Condition State found by this assessment: the type of condition, its severity
-      and a textual description of its spatial extent.
+    required:
+      - choType
+      - affectedObject
+      - conditionState
+      - assessmentDate
     properties:
-      conditionType:
+      choType:
+        const: ConditionAssessment
+        description: >-
+          CRMsci class discriminator for this record (maps to sci:E14_Condition_Assessment
+          via a second alias to @type, alongside the fixed GeoJSON `type: "Feature"`).
+      affectedObject:
         type: string
         format: uri
-        description: Getty AAT URI for the type of condition (e.g. crack, moisture, corrosion).
-      severity:
+        description: URI of the heritage-object, architectural-space or place being assessed.
+      conditionState:
+        type: object
+        description: >-
+          The E3 Condition State found by this assessment: the type of condition, its severity
+          and a textual description of its spatial extent.
+        properties:
+          conditionType:
+            type: string
+            format: uri
+            description: Getty AAT URI for the type of condition (e.g. crack, moisture, corrosion).
+          severity:
+            type: string
+            enum: [minor, moderate, severe, critical]
+            description: Qualitative severity level.
+          extent:
+            type: string
+            description: Textual description of the area, length or volume affected.
+        required:
+          - conditionType
+          - severity
+      assessmentDate:
         type: string
-        enum: [minor, moderate, severe, critical]
-        description: Qualitative severity level.
-      extent:
+        format: date
+        description: Date on which the assessment was carried out (ISO 8601).
+      assessor:
         type: string
-        description: Textual description of the area, length or volume affected.
+        format: uri
+        description: URI of the agent (person or organisation) who carried out the assessment.
+      method:
+        type: string
+        description: >-
+          Label or URI of the inspection technique used (e.g. "visual inspection",
+          "thermographic survey", "photogrammetric analysis").
+      confidence:
+        type: string
+        enum: [low, medium, high]
+        description: Confidence level in the assessment result.
+      evidence:
+        type: array
+        description: URIs of digital representations or archival documents used as evidence.
+        items:
+          type: string
+          format: uri
+      recommendation:
+        type: string
+        description: Free-text conservation recommendation arising from this assessment.
+      reviewStatus:
+        type: string
+        description: Workflow status of this record (e.g. draft, reviewed, approved).
+allOf:
+  - oneOf:
+      - allOf:
+          - "$ref": bblocks://ogc.geo.json-fg.feature-lenient
+          - type: object
+            description: >-
+              Condition assessment localised by its own embedded geometry, or not spatially
+              localised at all (`geometry: null`).
+            not:
+              required:
+                - topology
+            properties:
+              geometry:
+                oneOf:
+                  - type: 'null'
+                  - type: object
+                    required:
+                      - type
+                      - coordinates
+                    properties:
+                      type:
+                        type: string
+                        enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon]
+      - "$ref": bblocks://ogc.geo.topo.features.topo-feature
+  - type: object
     required:
-      - conditionType
-      - severity
-  assessmentDate:
-    type: string
-    format: date
-    description: Date on which the assessment was carried out (ISO 8601).
-  assessor:
-    type: string
-    format: uri
-    description: URI of the agent (person or organisation) who carried out the assessment.
-  method:
-    type: string
-    description: >-
-      Label or URI of the inspection technique used (e.g. "visual inspection",
-      "thermographic survey", "photogrammetric analysis").
-  confidence:
-    type: string
-    enum: [low, medium, high]
-    description: Confidence level in the assessment result.
-  evidence:
-    type: array
-    description: URIs of digital representations or archival documents used as evidence.
-    items:
-      type: string
-      format: uri
-  recommendation:
-    type: string
-    description: Free-text conservation recommendation arising from this assessment.
-  reviewStatus:
-    type: string
-    description: Workflow status of this record (e.g. draft, reviewed, approved).
+      - id
+    properties:
+      id:
+        type: string
+        format: uri
+        description: >-
+          Persistent URI identifying this condition assessment record (overrides the
+          inherited `id`, which also allows a bare number).
+      properties:
+        "$ref": "#/$defs/properties"

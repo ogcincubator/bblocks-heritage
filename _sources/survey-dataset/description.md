@@ -5,9 +5,10 @@ product — acquired from a heritage asset. Models the dataset as a **CRMdig D1 
 (itself a subclass of CIDOC-CRM E73 Information Object) and captures the acquisition paradata as a
 **CRMdig D7 Digital Machine Event** sub-object.
 
-Profiles [`ogc.heritage.digital-representation`](../digital-representation/) and inherits its PROV-O
-provenance fields (`wasAttributedTo`, `wasGeneratedBy`, `wasDerivedFrom`) and its `isAbout` link to
-the surveyed heritage asset.
+Profiles [`ogc.heritage.digital-representation-feature`](../digital-representation-feature/) — the
+Feature-envelope wrapper for `digital-representation` — and inherits its flat PROV-O provenance
+fields (`wasAttributedTo`, `wasGeneratedBy`, `wasDerivedFrom`, top-level, not nested) and, nested
+under `properties`, its `isAbout` link to the surveyed heritage asset.
 
 ## CRM anchor
 
@@ -16,15 +17,16 @@ the surveyed heritage asset.
 | `crmdig:D1_Digital_Object` | `http://www.ics.forth.gr/isl/CRMdig/` | The survey dataset itself |
 | `crmdig:D7_Digital_Machine_Event` | `http://www.ics.forth.gr/isl/CRMdig/` | The acquisition event (embedded as `acquisitionEvent`) |
 
-The JSON `type: "SurveyDataset"` token maps to `crmdig:D1_Digital_Object` via the JSON-LD context.
-The `acquisitionEvent` sub-object maps to `crmdig:L11i_was_output_of` (D1 was output of D7), treated
-as an opaque JSON value to avoid deep blank-node expansion.
+`properties.choType: "SurveyDataset"` maps to `crmdig:D1_Digital_Object` via the JSON-LD context —
+a second alias to `@type`, alongside the fixed GeoJSON `type: "Feature"`. The `acquisitionEvent`
+sub-object maps to `crmdig:L11i_was_output_of` (D1 was output of D7), treated as an opaque JSON
+value to avoid deep blank-node expansion.
 
-## Properties
+## Properties (nested under `properties` unless noted)
 
 | Property | JSON key | Mapping | Required |
 |----------|----------|---------|----------|
-| Type token | `type` | `@type` → `crmdig:D1_Digital_Object` | yes |
+| Class discriminator | `choType` | second `@type` alias → `crmdig:D1_Digital_Object` | yes |
 | Dataset title | `title` | `dct:title` | yes |
 | Surveyed asset | `isAbout` | `crm:P129_is_about` (inherited) | yes |
 | Acquisition event | `acquisitionEvent` | `crmdig:L11i_was_output_of` | yes |
@@ -36,14 +38,15 @@ as an opaque JSON value to avoid deep blank-node expansion.
 | — density | `acquisitionEvent.density` | (opaque JSON) | no |
 | — accuracy | `acquisitionEvent.accuracy` | (opaque JSON) | no |
 | — processing | `acquisitionEvent.processingHistory` | (opaque JSON) | no |
-| Coverage geometry | `coverage` | `geojson:geometry` | yes |
+| Coverage geometry | *(top-level)* `geometry` | `geojson:geometry` (inherited) | yes, unless `topology` used |
+| Coverage by reference | *(top-level)* `topology` | `geojson:topology` (inherited) | alternative to `geometry` |
 | Media type | `mediaType` | `dct:format` (inherited) | no |
-| File location | `url` | `dcat:accessURL` | no |
+| File location | `url` | `dcat:accessURL` (inherited) | no |
 | Limitations | `limitations` | `dct:description` | no |
 | Workflow status | `reviewStatus` | (unmapped) | no |
 | Persistent ID | `persistentIdentifier` | `crm:P1_is_identified_by` (inherited) | no |
-| PROV attribution | `wasAttributedTo` | `prov:wasAttributedTo` (inherited) | no |
-| PROV derivation | `wasDerivedFrom` | `prov:wasDerivedFrom` (inherited) | no |
+| PROV attribution | *(top-level)* `wasAttributedTo` | `prov:wasAttributedTo` (inherited) | no |
+| PROV derivation | *(top-level)* `wasDerivedFrom` | `prov:wasDerivedFrom` (inherited) | no |
 
 ## Design notes
 
@@ -52,9 +55,11 @@ as an opaque JSON value to avoid deep blank-node expansion.
   acquisition paradata is thus preserved in the JSON payload without deep uplift.
 - **`isAbout` is required** (inherited from `digital-representation`). It should reference the URI
   of the heritage-site, building, architectural-space or heritage-object that was surveyed.
-- **Coverage geometry** uses the `geojson:geometry` predicate (WGS 84 coordinates by default). For
-  interior surveys where a 2D WGS 84 polygon is not meaningful, a bounding rectangle or a GeoJSON
-  Point at the centroid of the asset is acceptable.
+- **Coverage** is the top-level `geometry` (WGS 84 coordinates by default; mandatory unless
+  `topology` is used instead). For interior surveys where a 2D WGS 84 polygon is not meaningful, a
+  bounding rectangle or a GeoJSON Point at the centroid of the asset is acceptable. `topology`
+  (`ogc.geo.topo.features.topo-feature`) lets the coverage be given by reference to geometry
+  already recorded on the surveyed space, avoiding duplicated coordinates.
 - **Derived products** (processed meshes, deviation maps, registration reports) are modelled as
   `ogc.heritage.derived-survey-product`, which profiles this block and adds a mandatory
   `prov:wasDerivedFrom` link back to the parent survey dataset.

@@ -1,9 +1,7 @@
 {
   "@context": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
-    "geojson": "https://purl.org/geojson/vocab#",
-    "id": "@id",
-    "type": "@type",
+    "choType": "@type",
     "Surface": "crm:E25_Man-Made_Feature",
     "hostObject": {
       "@id": "crm:P56i_is_found_on",
@@ -23,10 +21,6 @@
     "sourceEvidence": {
       "@id": "crm:P70i_is_documented_in",
       "@type": "@id"
-    },
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
     }
   }
 }

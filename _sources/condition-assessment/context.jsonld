@@ -4,9 +4,7 @@
     "sci": "http://www.ics.forth.gr/isl/CRMsci/",
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "geojson": "https://purl.org/geojson/vocab#",
-    "id": "@id",
-    "type": "@type",
+    "choType": "@type",
     "ConditionAssessment": "sci:E14_Condition_Assessment",
     "affectedObject": {
       "@id": "crm:P140_assigned_attribute_to",
@@ -30,10 +28,6 @@
       "@type": "@id",
       "@container": "@set"
     },
-    "recommendation": "crm:P3_has_note",
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
-    }
+    "recommendation": "crm:P3_has_note"
   }
 }

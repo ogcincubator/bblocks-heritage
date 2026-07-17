@@ -1,0 +1,45 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Heritage Object Feature
+description: >-
+  Feature-envelope wrapper for ogc.heritage.heritage-object: a spatially located heritage
+  object encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature
+  when its geometry is defined by reference/topology rather than embedded coordinates.
+  heritage-object's CIDOC-CRM attributes nest under `properties` (GeoJSON convention);
+  `properties.choType` carries the CIDOC-CRM class (Cultural Heritage Object type) as a
+  second alias to `@type`, alongside the fixed `type: "Feature"` — the same secondary-typing
+  pattern PROV-O's own prov-entity block uses for its `provType` property, kept as a
+  distinct name here since this block has no PROV-O involvement.
+x-jsonld-context: context.jsonld
+allOf:
+  - oneOf:
+      - allOf:
+          - "$ref": bblocks://ogc.geo.json-fg.feature-lenient
+          - type: object
+            description: Object with its own embedded footprint geometry (or none at all).
+            not:
+              required:
+                - topology
+      - "$ref": bblocks://ogc.geo.topo.features.topo-feature
+  - type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+        format: uri
+        description: >-
+          Persistent URI identifying this record (overrides the inherited `id`, which
+          also allows a bare number).
+      properties:
+        allOf:
+          - "$ref": ../heritage-object/schema.yaml#/$defs/properties
+          - type: object
+            required:
+              - choType
+            properties:
+              choType:
+                const: HeritageObject
+                description: >-
+                  CIDOC-CRM class discriminator for this record (maps to
+                  crm:E22_Man-Made_Object via a second alias to @type, alongside the
+                  fixed GeoJSON `type: "Feature"`).

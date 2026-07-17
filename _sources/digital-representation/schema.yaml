@@ -6,9 +6,9 @@ description: |
   `wasGeneratedBy` and `wasDerivedFrom` carry its provenance chain. This block adds `isAbout`
   (the heritage object it represents), a media type and an optional persistent identifier.
 x-jsonld-context: context.jsonld
-allOf:
-  - "$ref": bblocks://ogc.ogc-utils.prov-entity
-  - type: object
+$defs:
+  properties:
+    type: object
     required:
       - isAbout
     properties:
@@ -34,3 +34,6 @@ allOf:
         type: string
         format: uri
         description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).
+allOf:
+  - "$ref": bblocks://ogc.ogc-utils.prov-entity
+  - "$ref": "#/$defs/properties"

@@ -2,7 +2,6 @@
   "@context": {
     "dct": "http://purl.org/dc/terms/",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
-    "geojson": "https://purl.org/geojson/vocab#",
     "parentSite": {
       "@id": "crm:P46i_forms_part_of",
       "@type": "@id"
@@ -10,10 +9,6 @@
     "constructionPeriod": "dct:created",
     "currentStatus": "crm:P44_has_condition",
     "responsibleOrganisation": "crm:P50_has_current_keeper",
-    "ifcGlobalId": "crm:P1_is_identified_by",
-    "footprint": {
-      "@id": "geojson:geometry",
-      "@type": "@json"
-    }
+    "ifcGlobalId": "crm:P1_is_identified_by"
   }
 }

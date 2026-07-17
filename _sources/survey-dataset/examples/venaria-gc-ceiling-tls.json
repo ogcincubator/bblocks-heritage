@@ -1,20 +1,7 @@
 {
-  "type": "SurveyDataset",
   "id": "https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024",
-  "title": "TLS Point Cloud — Galleria Grande Ceiling (2024)",
-  "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "mediaType": "application/vnd.las",
-  "acquisitionEvent": {
-    "acquisitionMethod": "TLS",
-    "acquisitionDate": "2024-03-15",
-    "operator": "https://orcid.org/0000-0000-0000-0001",
-    "equipment": "Leica RTC360",
-    "crs": "https://www.opengis.net/def/crs/EPSG/0/32632",
-    "density": "~3500 pts/m²",
-    "accuracy": "±3 mm",
-    "processingHistory": "Registration: Leica Cyclone REGISTER 360 v1.8; automatic noise filter applied; colourised from concurrent RGB imagery."
-  },
-  "coverage": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -26,7 +13,23 @@
       ]
     ]
   },
-  "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz",
-  "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
-  "reviewStatus": "reviewed"
+  "properties": {
+    "choType": "SurveyDataset",
+    "title": "TLS Point Cloud — Galleria Grande Ceiling (2024)",
+    "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
+    "mediaType": "application/vnd.las",
+    "acquisitionEvent": {
+      "acquisitionMethod": "TLS",
+      "acquisitionDate": "2024-03-15",
+      "operator": "https://orcid.org/0000-0000-0000-0001",
+      "equipment": "Leica RTC360",
+      "crs": "https://www.opengis.net/def/crs/EPSG/0/32632",
+      "density": "~3500 pts/m²",
+      "accuracy": "±3 mm",
+      "processingHistory": "Registration: Leica Cyclone REGISTER 360 v1.8; automatic noise filter applied; colourised from concurrent RGB imagery."
+    },
+    "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz",
+    "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
+    "reviewStatus": "reviewed"
+  }
 }

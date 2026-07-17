@@ -1,7 +1,8 @@
 @prefix sh:  <http://www.w3.org/ns/shacl#> .
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
-# type: "Surface" maps via context to crm:E25_Man-Made_Feature.
+# properties.choType: "Surface" maps via context to crm:E25_Man-Made_Feature (a second
+# alias to @type, alongside the fixed GeoJSON `type: "Feature"`).
 # No other block in the register uses this class, so sh:targetClass is safe.
 <#SurfaceShape>
     a sh:NodeShape ;

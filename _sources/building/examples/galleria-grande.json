@@ -1,15 +1,7 @@
 {
   "id": "https://heritalise-eccch.eu/resource/building/galleria-grande",
-  "type": "HeritageObject",
-  "identifier": "RV-BLD-GG",
-  "title": "Galleria Grande, Reggia di Venaria Reale",
-  "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
-  "objectType": "http://vocab.getty.edu/aat/300007733",
-  "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
-  "constructionPeriod": "1699/1733",
-  "currentStatus": "in use",
-  "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
-  "footprint": {
+  "type": "Feature",
+  "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
@@ -20,5 +12,16 @@
         [7.627, 45.134]
       ]
     ]
+  },
+  "properties": {
+    "choType": "HeritageObject",
+    "identifier": "RV-BLD-GG",
+    "title": "Galleria Grande, Reggia di Venaria Reale",
+    "description": "The main ceremonial gallery of the Reggia di Venaria, designed by Michelangelo Garove and completed by Filippo Juvara.",
+    "objectType": "http://vocab.getty.edu/aat/300007733",
+    "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
+    "constructionPeriod": "1699/1733",
+    "currentStatus": "in use",
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude"
   }
 }

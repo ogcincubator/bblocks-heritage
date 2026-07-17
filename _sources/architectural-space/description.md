@@ -2,14 +2,15 @@
 
 An `ArchitecturalSpace` is an interior room, bay, hall, corridor, vault, opening or zone
 within a building, modelled as CIDOC-CRM **E22 Man-Made Object**. It profiles
-[`ogc.heritage.heritage-object`](../heritage-object) and adds a containment hierarchy,
-historical name crosswalk, floor/bay identifiers, an optional IFC IfcSpace reference, and an
-optional GeoJSON footprint for the floor plan or volumetric extent.
+[`ogc.heritage.heritage-object-feature`](../heritage-object-feature) and adds a containment
+hierarchy, historical name crosswalk, floor/bay identifiers, and an optional IFC IfcSpace
+reference (all nested under `properties`).
 
-The space category is conveyed through `objectType` pointing to a Getty AAT spatial concept
-(e.g. `aat:300004829` *room*). The `type` field is fixed to `"HeritageObject"` from the parent.
+The space category is conveyed through `properties.objectType` pointing to a Getty AAT spatial
+concept (e.g. `aat:300004829` *room*). `properties.choType` is fixed to `"HeritageObject"` from
+the parent (a second alias to `@type`, alongside the fixed `type: "Feature"`).
 
-Properties added by this block:
+Properties added by this block (all nested under `properties`):
 
 | Property | CRM mapping | Notes |
 |---|---|---|
@@ -21,7 +22,10 @@ Properties added by this block:
 | `accessibilityStatus` | `crm:P44_has_condition` | Open/restricted/closed status string |
 | `monitoringRelevance` | *(unmapped)* | Boolean flag — no CRM predicate; survives in JSON |
 | `ifcSpaceRef` | `crm:P1_is_identified_by` | IFC IfcSpace GUID for HBIM linkage |
-| `footprint` | `geojson:geometry` (@json) | GeoJSON Polygon floor plan or volumetric extent |
+
+Geometry is inherited from `heritage-object-feature`: a top-level `geometry` (GeoJSON Polygon
+floor plan or volumetric extent, or omitted entirely), or `geometry: null` with a `topology`
+reference into a shared/topological geometry (`ogc.geo.topo.features.topo-feature`).
 
 ### Design notes
 

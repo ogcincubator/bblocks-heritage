@@ -2,8 +2,9 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix sci: <http://www.ics.forth.gr/isl/CRMsci/> .
 
-# type: "ConditionAssessment" maps via context to sci:E14_Condition_Assessment,
-# so sh:targetClass works for standalone blocks with that const.
+# properties.choType: "ConditionAssessment" maps via context to sci:E14_Condition_Assessment
+# (a second alias to @type, alongside the fixed GeoJSON `type: "Feature"`), so sh:targetClass
+# still works for standalone blocks with that const.
 <#ConditionAssessmentShape>
     a sh:NodeShape ;
     sh:targetClass sci:E14_Condition_Assessment ;

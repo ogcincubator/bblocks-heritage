@@ -2,16 +2,17 @@
 
 A `Building` is a principal building or architectural unit — a palace wing, chapel,
 outbuilding, or villa — modelled as CIDOC-CRM **E22 Man-Made Object**. It profiles
-[`ogc.heritage.heritage-object`](../heritage-object), inheriting the inventory identifier,
-title, object type, materials, and provenance fields, and adds site containment, construction
-history, operational status, an optional GeoJSON footprint, and an optional IFC GUID for
-HBIM cross-referencing.
+[`ogc.heritage.heritage-object-feature`](../heritage-object-feature), inheriting the inventory
+identifier, title, object type, materials and provenance fields (nested under `properties`),
+and adds site containment, construction history, operational status, and an optional IFC GUID
+for HBIM cross-referencing.
 
-The building category is conveyed through `objectType` pointing to a Getty AAT architectural
-concept (e.g. `aat:300007733` *palace*). The `type` field is fixed to `"HeritageObject"` from
-the parent; overriding it would make the schema unsatisfiable.
+The building category is conveyed through `properties.objectType` pointing to a Getty AAT
+architectural concept (e.g. `aat:300007733` *palace*). `properties.choType` is fixed to
+`"HeritageObject"` from the parent (a second alias to `@type`, alongside the fixed
+`type: "Feature"`); overriding it would make the schema unsatisfiable.
 
-Properties added by this block:
+Properties added by this block (all nested under `properties`):
 
 | Property | CRM / standard mapping | Notes |
 |---|---|---|
@@ -20,13 +21,15 @@ Properties added by this block:
 | `currentStatus` | `crm:P44_has_condition` | Operational/conservation status string |
 | `responsibleOrganisation` | `crm:P50_has_current_keeper` | Managing body name or URI |
 | `ifcGlobalId` | `crm:P1_is_identified_by` | IFC IfcBuilding GUID for HBIM linkage |
-| `footprint` | `geojson:geometry` (@json) | GeoJSON Polygon/MultiPolygon ground plan |
+
+Geometry is inherited from `heritage-object-feature`: a top-level `geometry` (GeoJSON
+Polygon/MultiPolygon ground plan, or omitted entirely), or `geometry: null` with a `topology`
+reference into a shared/topological geometry (`ogc.geo.topo.features.topo-feature`).
 
 ### Design notes
 
-`footprint` holds a **generalised** ground-level geometry for mapping and spatial queries.
-Detailed BIM geometry lives in the IFC model, linked via `ifcGlobalId`. Coordinates are stored
-as `@type: "@json"` to prevent coordinate arrays from being misread as RDF lists.
+The top-level `geometry` holds a **generalised** ground-level geometry for mapping and spatial
+queries. Detailed BIM geometry lives in the IFC model, linked via `ifcGlobalId`.
 
 [`architectural-space`](../architectural-space) records reference a `Building` via their
 `parentBuilding` property (`crm:P46i_forms_part_of`).

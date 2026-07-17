@@ -1,0 +1,19 @@
+examples:
+  - title: North gallery vault, bay 3 — located by embedded point geometry
+    content: >-
+      A heritage object with an embedded GeoJSON point marking its location. `properties`
+      nests the CIDOC-CRM attributes from heritage-object; `choType` carries the
+      crm:E22_Man-Made_Object class as a second alias to `@type`, alongside the fixed
+      `type: "Feature"`.
+    snippets:
+      - language: json
+        ref: examples/wall-component-located.json
+
+  - title: North gallery vault, bay 3 — location by topology reference
+    content: >-
+      The same object located by reference instead of embedded coordinates: `geometry`
+      is `null` and `topology.references` points at the parent space's own record, using
+      ogc.geo.topo.features.topo-feature to avoid duplicating coordinates.
+    snippets:
+      - language: json
+        ref: examples/wall-component-topology.json

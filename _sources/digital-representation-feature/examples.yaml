@@ -1,0 +1,20 @@
+examples:
+  - title: Great Gallery painting photograph — located by embedded point geometry
+    content: >-
+      A digital photograph with an embedded GeoJSON point marking where it was captured.
+      PROV-O provenance (`wasAttributedTo`) stays flat at the top level, inherited from
+      ogc.ogc-utils.prov-entity; `isAbout`/`mediaType`/etc. nest under `properties`.
+      `properties.choType` is left open at this abstract level — concrete profiles (e.g.
+      ogc.heritage.survey-dataset) pin it to their own class.
+    snippets:
+      - language: json
+        ref: examples/photograph-located.json
+
+  - title: Great Gallery painting photograph — location by topology reference
+    content: >-
+      The same kind of photograph located by reference instead of embedded coordinates:
+      `geometry` is `null` and `topology.references` points at the depicted bay's own
+      record, using ogc.geo.topo.features.topo-feature to avoid duplicating coordinates.
+    snippets:
+      - language: json
+        ref: examples/photograph-topology.json

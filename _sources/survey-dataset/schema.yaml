@@ -2,87 +2,88 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: Survey Dataset
 description: >-
   A geometric survey dataset (point cloud, photogrammetric model, etc.) acquired from a heritage
-  asset. Profiles digital-representation (CRMdig D1 / E73 Information Object) and adds a
-  CRMdig D7 acquisition event sub-object and a mandatory spatial coverage geometry.
+  asset. Profiles ogc.heritage.digital-representation-feature (CRMdig D1 / E73 Information
+  Object over PROV-O Entity, wrapped as a GeoJSON/JSON-FG Feature or topo-feature) and adds a
+  CRMdig D7 acquisition event sub-object. `properties.choType` is pinned to `"SurveyDataset"`.
+  Coverage is either the top-level embedded `geometry` (mandatory unless `topology` is used
+  instead) or a `topology` reference into geometry already recorded elsewhere (e.g. the
+  surveyed space's own footprint).
 x-jsonld-context: context.jsonld
 allOf:
-  - $ref: bblocks://ogc.heritage.digital-representation
+  - "$ref": bblocks://ogc.heritage.digital-representation-feature
+  - anyOf:
+      - required:
+          - topology
+      - required:
+          - geometry
+        properties:
+          geometry:
+            type: object
+            required:
+              - type
+              - coordinates
+            properties:
+              type:
+                type: string
+                enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection]
   - type: object
-    required:
-      - type
-      - title
-      - acquisitionEvent
-    oneOf:
-      - type: object
-        description: Survey dataset with its own embedded coverage geometry.
-        required:
-          - coverage
-        not:
-          required:
-            - references
-      - "$ref": bblocks://ogc.ogc-utils.topology
     properties:
-      type:
-        const: SurveyDataset
-        description: Fixed type token identifying this record as a survey dataset (maps to crmdig:D1_Digital_Object).
-      title:
-        type: string
-        description: Human-readable title of the dataset (dct:title).
-      acquisitionEvent:
+      properties:
         type: object
-        description: >-
-          CRMdig D7 Digital Machine Event recording the survey acquisition: the method, equipment,
-          operator, date and spatial/quality parameters.
         required:
-          - acquisitionMethod
-          - acquisitionDate
+          - choType
+          - title
+          - acquisitionEvent
         properties:
-          acquisitionMethod:
-            type: string
+          choType:
+            const: SurveyDataset
             description: >-
-              Acquisition technique label or controlled-vocabulary URI
-              (e.g. "TLS", "UAV-photogrammetry", "SLAM", "structured-light", "terrestrial-photogrammetry").
-          acquisitionDate:
+              CRMdig class discriminator for this record (maps to crmdig:D1_Digital_Object
+              via a second alias to @type, alongside the fixed GeoJSON `type: "Feature"`).
+          title:
             type: string
-            format: date
-            description: Date (ISO 8601) on which the survey data was collected.
-          operator:
+            description: Human-readable title of the dataset (dct:title).
+          acquisitionEvent:
+            type: object
+            description: >-
+              CRMdig D7 Digital Machine Event recording the survey acquisition: the method, equipment,
+              operator, date and spatial/quality parameters.
+            required:
+              - acquisitionMethod
+              - acquisitionDate
+            properties:
+              acquisitionMethod:
+                type: string
+                description: >-
+                  Acquisition technique label or controlled-vocabulary URI
+                  (e.g. "TLS", "UAV-photogrammetry", "SLAM", "structured-light", "terrestrial-photogrammetry").
+              acquisitionDate:
+                type: string
+                format: date
+                description: Date (ISO 8601) on which the survey data was collected.
+              operator:
+                type: string
+                format: uri
+                description: URI of the person or organisation who carried out the survey.
+              equipment:
+                type: string
+                description: Make and model of the primary acquisition instrument.
+              crs:
+                type: string
+                format: uri
+                description: EPSG URI for the coordinate reference system of the output data (e.g. https://www.opengis.net/def/crs/EPSG/0/32632).
+              density:
+                type: string
+                description: Point density or ground sampling distance (e.g. "~3500 pts/m²", "3 cm/pixel GSD").
+              accuracy:
+                type: string
+                description: Stated absolute or relative accuracy of the dataset (e.g. "±3 mm").
+              processingHistory:
+                type: string
+                description: Software and processing steps applied before delivery (registration, noise filtering, etc.).
+          limitations:
             type: string
-            format: uri
-            description: URI of the person or organisation who carried out the survey.
-          equipment:
+            description: Known limitations, coverage gaps or quality caveats of the dataset.
+          reviewStatus:
             type: string
-            description: Make and model of the primary acquisition instrument.
-          crs:
-            type: string
-            format: uri
-            description: EPSG URI for the coordinate reference system of the output data (e.g. https://www.opengis.net/def/crs/EPSG/0/32632).
-          density:
-            type: string
-            description: Point density or ground sampling distance (e.g. "~3500 pts/m²", "3 cm/pixel GSD").
-          accuracy:
-            type: string
-            description: Stated absolute or relative accuracy of the dataset (e.g. "±3 mm").
-          processingHistory:
-            type: string
-            description: Software and processing steps applied before delivery (registration, noise filtering, etc.).
-      coverage:
-        type: object
-        description: >-
-          GeoJSON geometry delineating the spatial extent of the surveyed area (polygon or
-          bounding box in WGS 84 unless stated otherwise in acquisitionEvent.crs).
-        required:
-          - type
-          - coordinates
-        properties:
-          type:
-            type: string
-            enum: [Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, GeometryCollection]
-          coordinates:
-            type: array
-      limitations:
-        type: string
-        description: Known limitations, coverage gaps or quality caveats of the dataset.
-      reviewStatus:
-        type: string
-        description: Workflow status of this record (e.g. draft, reviewed, approved).
+            description: Workflow status of this record (e.g. draft, reviewed, approved).

@@ -13,7 +13,7 @@ examples:
   - title: Stone floor surface, Grand Salon — Villa Portelli, Malta
     content: >-
       The limestone floor surface of the Grand Salon at Villa Portelli. A minimal example
-      — only type, hostObject, material and footprint are provided — demonstrating the
+      — only choType, hostObject, material and geometry are provided — demonstrating the
       required fields. Material is mapped to the Getty AAT stone concept (300011176).
     snippets:
       - language: json
@@ -22,11 +22,10 @@ examples:
   - title: Vault fresco with extent by reference (geometry-by-reference / topology)
     content: >-
       The fresco covering the vault of Galleria Grande bay 7 extends across the entire bay,
-      so its spatial extent coincides exactly with the bay's own footprint
-      (galleria-grande-bay.json) rather than a separately-drawn polygon. No `footprint` is
-      given here — instead `references` points at the hostObject's own record, using the
-      geometry-by-reference pattern from ogc.ogc-utils.topology to avoid duplicating
-      coordinates.
+      so its spatial extent coincides exactly with the bay's own footprint rather than a
+      separately-drawn polygon. `geometry` is `null` — instead `topology.references` points
+      at the hostObject's own record, using the topology-by-reference pattern from
+      ogc.geo.topo.features.topo-feature to avoid duplicating coordinates.
     snippets:
       - language: json
         ref: examples/venaria-vault-fresco-shared-footprint.json

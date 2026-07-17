@@ -12,5 +12,5 @@
   ],
   "tags": ["heritage", "cidoc-crm", "building", "architecture"],
   "group": "Heritage object profiles",
-  "isProfileOf": "bblocks://ogc.heritage.heritage-object"
+  "isProfileOf": "bblocks://ogc.heritage.heritage-object-feature"
 }

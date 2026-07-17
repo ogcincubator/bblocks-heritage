@@ -19,9 +19,8 @@ examples:
     content: >-
       A TLS scan whose coverage coincides exactly with the surveyed bay's own footprint
       (see ogc.heritage.architectural-space's galleria-grande-bay.json). Instead of
-      re-encoding the same polygon as `coverage`, this record uses `references` — the
-      geometry-by-reference pattern from ogc.ogc-utils.topology — to point at the surveyed
-      space directly.
+      re-encoding the same polygon, `geometry` is `null` and `topology.references` points
+      at the surveyed space directly, using ogc.geo.topo.features.topo-feature.
     snippets:
       - language: json
         ref: examples/gg-bay7-vault-tls-shared-coverage.json

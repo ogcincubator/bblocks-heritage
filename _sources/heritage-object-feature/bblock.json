@@ -1,0 +1,16 @@
+{
+  "name": "Heritage Object Feature",
+  "abstract": "Feature-envelope wrapper for Heritage Object: a spatially located CIDOC-CRM E22 Man-Made Object encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-17T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-17",
+  "isProfileOf": "bblocks://ogc.heritage.heritage-object",
+  "sources": [
+    { "title": "CIDOC-CRM", "link": "https://www.cidoc-crm.org/" },
+    { "title": "OGC topo-feature", "link": "https://github.com/opengeospatial/topo-feature" }
+  ],
+  "tags": ["cidoc-crm", "heritage", "object", "feature", "topology"],
+  "group": "Core"
+}

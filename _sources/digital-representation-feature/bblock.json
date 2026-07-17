@@ -1,0 +1,17 @@
+{
+  "name": "Digital Representation Feature",
+  "abstract": "Feature-envelope wrapper for Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-07-17T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-07-17",
+  "isProfileOf": "bblocks://ogc.heritage.digital-representation",
+  "sources": [
+    { "title": "CIDOC-CRM E73 Information Object", "link": "https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E73" },
+    { "title": "PROV-O", "link": "https://www.w3.org/TR/prov-o/" },
+    { "title": "OGC topo-feature", "link": "https://github.com/opengeospatial/topo-feature" }
+  ],
+  "tags": ["cidoc-crm", "prov", "heritage", "digital-representation", "feature", "topology"],
+  "group": "Core"
+}

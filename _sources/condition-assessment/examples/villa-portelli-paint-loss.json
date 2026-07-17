@@ -1,16 +1,20 @@
 {
   "id": "https://heritalise-eccch.eu/resource/condition/MT-CA-VP-2026-011",
-  "type": "ConditionAssessment",
-  "affectedObject": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
-  "conditionState": {
-    "conditionType": "http://vocab.getty.edu/aat/300379770",
-    "severity": "minor",
-    "extent": "Scattered flaking paint on lower 40 cm of the west wall, covering an area of approximately 0.3 m²."
-  },
-  "assessmentDate": "2026-04-20",
-  "assessor": "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation",
-  "method": "Visual inspection",
-  "confidence": "high",
-  "recommendation": "Consolidate flaking paint layers; monitor humidity levels via adjacent monitoring-point.",
-  "reviewStatus": "draft"
+  "type": "Feature",
+  "geometry": null,
+  "properties": {
+    "choType": "ConditionAssessment",
+    "affectedObject": "https://heritalise-eccch.eu/resource/space/villa-portelli-salon",
+    "conditionState": {
+      "conditionType": "http://vocab.getty.edu/aat/300379770",
+      "severity": "minor",
+      "extent": "Scattered flaking paint on lower 40 cm of the west wall, covering an area of approximately 0.3 m²."
+    },
+    "assessmentDate": "2026-04-20",
+    "assessor": "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation",
+    "method": "Visual inspection",
+    "confidence": "high",
+    "recommendation": "Consolidate flaking paint layers; monitor humidity levels via adjacent monitoring-point.",
+    "reviewStatus": "draft"
+  }
 }

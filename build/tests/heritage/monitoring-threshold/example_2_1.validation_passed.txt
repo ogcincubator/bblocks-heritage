@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.monitoring-threshold - Monitoring Threshold
-Generated 2026-09-16T15:07:27.743562+00:00
+Generated 2026-09-16T22:14:55.434958+00:00
 === Files ===
 Using examples/malta-temp-threshold.json from examples
 JSON-LD context is present - uplifting

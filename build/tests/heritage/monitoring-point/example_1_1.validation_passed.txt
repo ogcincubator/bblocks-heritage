@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.monitoring-point - Monitoring Point
-Generated 2026-09-16T15:07:31.674433+00:00
+Generated 2026-09-16T22:15:06.771079+00:00
 === Files ===
 Using examples/venaria-humidity-sensor.json from examples
 JSON-LD context is present - uplifting

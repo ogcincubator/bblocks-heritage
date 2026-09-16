@@ -10,6 +10,12 @@ allOf:
       - mediaType
       - persistentIdentifier
     properties:
+      hdtoType:
+        const: hdto:HC5_Digital_Representation
+        description: >-
+          Pins the inherited hdtoType (from digital-representation, otherwise an enum of
+          HC5/HC7/HC8) to plain HC5 — a digitised archival document has no more specific
+          HC5-family class in D7.1.
       mediaType:
         type: string
         enum:

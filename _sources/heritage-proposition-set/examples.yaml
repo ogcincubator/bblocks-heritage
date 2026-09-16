@@ -1,0 +1,18 @@
+examples:
+  - title: Photographic and 3D documentation batch (Venaria)
+    content: >-
+      A proposition set aggregating a photograph and a 3D model of the Great Gallery ceiling
+      painting, composed by the same HC11-co-typed `event` referenced from that entity's
+      `heritage-digital-twin` example.
+    snippets:
+      - language: json
+        ref: examples/great-gallery-painting-1.json
+
+  - title: A re-documentation batch superseding an earlier one (Malta)
+    content: >-
+      The current proposition set for Villa Portelli's main building, referencing a UAV survey
+      dataset and declaring `replaces` against the proposition set it supersedes — demonstrates
+      HP32 alongside `heritage-digital-twin`'s own HP33/HP34 versioning example.
+    snippets:
+      - language: json
+        ref: examples/villa-portelli-main-2-current.json

@@ -1,11 +1,16 @@
-@prefix sh:  <http://www.w3.org/ns/shacl#> .
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix crm:    <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 
-# MonitoringPoint instances uplift to crm:E22_Man-Made_Object via the type:MonitoringPoint
-# const, which the context maps to that class.
+# MonitoringPoint instances uplift to crmdig:D8_Digital_Device (not crm:E22_Man-Made_Object) via
+# the type:MonitoringPoint const, which the context maps to that class. Corrected 2026-09-16 per
+# HDTO's own OGC SensorThings API crosswalk table (D7.1 Table 1, p.28): STA Sensor -> D8 Digital
+# Device. crm:E22_Man-Made_Object was a workaround (SOSA Sensor has no native `type` property) —
+# see description.md for the full correction note, including the caveat that D8 Digital Device
+# isn't itself formally declared in HDTO's own class list (only cited in the crosswalk table).
 <#MonitoringPointShape>
     a sh:NodeShape ;
-    sh:targetClass crm:E22_Man-Made_Object ;
+    sh:targetClass crmdig:D8_Digital_Device ;
     sh:property [
         sh:path crm:P1_is_identified_by ;
         sh:nodeKind sh:Literal ;

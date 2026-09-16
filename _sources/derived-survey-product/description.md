@@ -15,6 +15,11 @@ Modelled as a **CRMdig D9 Data Object** (a derived digital object). Profiles
 The spatial extent of the derived product is inherited from the parent survey dataset; no
 separate coverage geometry is required.
 
+**Namespace corrected 2026-09-16**: `crmdig:` now resolves to
+`http://www.cidoc-crm.org/extensions/crmdig/` (CRMdig v5.0, HDTO's own stated namespace), not the
+earlier `http://www.ics.forth.gr/isl/CRMdig/`. See `PLAN.md`'s "HDTO alignment" section for the
+resolved decision. URI-only change — no class names, properties, or JSON structure changed.
+
 ## CRM anchor
 
 | Term | URI |
@@ -60,8 +65,13 @@ are not individually mapped to RDF predicates — they are captured as processin
   products do not have. The semantic relationship to the source dataset is captured via
   `prov:wasDerivedFrom`. CRMdig D9 IS-A D1 Digital Object, consistent with profiling the
   D1-anchored `digital-representation` block.
-- **SHACL targeting:** `sh:targetClass crmdig:D9_Data_Object` is safe because no other block in
-  this register maps any type token to that class.
+- **SHACL targeting:** uses `sh:targetSubjectsOf crmdig:L11i_was_output_of` (not
+  `sh:targetClass crmdig:D9_Data_Object`), since `digital-representation` and its profiles now all
+  assert D9 too as part of the HDTO co-typing work — see `digital-representation`'s description
+  for the collision and the fix.
+- **HDTO alignment:** `hdtoType` (required, inherited from `digital-representation`) is pinned to
+  a fixed `const` of `hdto:HC5_Digital_Representation` — a derived survey product has no more
+  specific HC5-family class in D7.1.
 - **processingEvent as @json:** Consistent with the `acquisitionEvent` pattern in `survey-dataset`.
   Inner fields are not SHACL-validated; the shape only checks that the sub-object is present.
 

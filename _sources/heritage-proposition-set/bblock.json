@@ -1,0 +1,22 @@
+{
+  "name": "Heritage Proposition Set",
+  "abstract": "The ECCCH Heritage Digital Twin Ontology's HC16 Heritage Proposition Set: a named-graph content unit — what an HC2 Heritage Digital Twin actually contains, referencing the rest of this register's HDTO-typed content.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-09-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-09-16",
+  "rdfType": [
+    "http://isl.ics.forth.gr/ontology/echoes/HC16_Heritage_Proposition_Set"
+  ],
+  "sources": [
+    { "title": "ECHOES D7.1 \"The Digital Commons\" v1.0 (HDTO)", "link": "https://zenodo.org/records/20445938" },
+    { "title": "HDTO live ontology page", "link": "https://isl.ics.forth.gr/ontology/echoes/html/HDT_v1.1.html" }
+  ],
+  "tags": ["heritage", "hdto", "digital-twin", "echoes", "eccch"],
+  "group": "HDTO digital twin infrastructure",
+  "seeAlso": [
+    "bblocks://ogc.heritage.heritage-digital-twin",
+    "bblocks://ogc.heritage.event"
+  ]
+}

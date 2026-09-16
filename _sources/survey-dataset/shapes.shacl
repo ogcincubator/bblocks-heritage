@@ -1,6 +1,6 @@
 @prefix sh:      <http://www.w3.org/ns/shacl#> .
 @prefix dct:     <http://purl.org/dc/terms/> .
-@prefix crmdig:  <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig:  <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
 
 # properties.choType: "SurveyDataset" maps via context to crmdig:D1_Digital_Object (a second

@@ -1,0 +1,17 @@
+examples:
+  - title: A Venaria painting's digital twin, freshly composed
+    content: >-
+      The HDT of the Great Gallery ceiling painting (`heritage-object` HC3 instance), with a
+      single current proposition set and the HC11-co-typed `event` that composed it.
+    snippets:
+      - language: json
+        ref: examples/great-gallery-painting.json
+
+  - title: A Malta building's digital twin with version history
+    content: >-
+      The HDT of Villa Portelli's main building, showing HC2 versioning: the current content
+      (`containsPropositionSet`) plus one superseded proposition set preserved in
+      `containedPropositionSet` for referential integrity, per HP33/HP34.
+    snippets:
+      - language: json
+        ref: examples/villa-portelli-with-history.json

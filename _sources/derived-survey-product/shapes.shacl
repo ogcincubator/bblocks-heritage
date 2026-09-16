@@ -1,16 +1,19 @@
 @prefix sh:      <http://www.w3.org/ns/shacl#> .
 @prefix prov:    <http://www.w3.org/ns/prov#> .
-@prefix crmdig:  <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig:  <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct:     <http://purl.org/dc/terms/> .
 @prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
 
-# type: "DerivedSurveyProduct" maps via context to crmdig:D9_Data_Object, which
-# is not used by any other block in this register — sh:targetClass is safe here.
-# Shape only checks properties introduced by this profile; parent constraints are
-# inherited via isProfileOf.
+# type: "DerivedSurveyProduct" maps via context to crmdig:D9_Data_Object. D9 is no longer unique
+# to this block, though: digital-representation and its profiles (oral-history, three-d-model,
+# archival-document) now all assert crmdig:D9_Data_Object too (their shared crmdigType, required
+# HDTO-compliance work). Targeting by class here would false-positive-fail a plain photo/3D-model/
+# document that lacks processingEvent. Target instead on crmdig:L11i_was_output_of
+# (processingEvent), a predicate unique to this block, per the register's own convention for
+# exactly this situation (see feedback_bblocks_authoring memory).
 <#DerivedSurveyProductShape>
     a sh:NodeShape ;
-    sh:targetClass crmdig:D9_Data_Object ;
+    sh:targetSubjectsOf crmdig:L11i_was_output_of ;
     sh:property [
         sh:path dct:title ;
         sh:minCount 1 ;

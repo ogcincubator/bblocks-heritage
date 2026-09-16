@@ -9,5 +9,6 @@
     "http://vocab.getty.edu/aat/300014130"
   ],
   "parentSpace": "https://heritalise-eccch.eu/resource/space/north-gallery",
-  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }

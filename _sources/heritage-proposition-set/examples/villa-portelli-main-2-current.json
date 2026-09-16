@@ -1,0 +1,10 @@
+{
+  "id": "https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2",
+  "type": "HeritagePropositionSet",
+  "label": "UAV survey and deviation-map re-documentation batch, Villa Portelli main building, 2026",
+  "content": [
+    "https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025"
+  ],
+  "composedBy": "https://heritalise-eccch.eu/resource/event/hdt-maintenance-villa-portelli-main-2026",
+  "replaces": "https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1"
+}

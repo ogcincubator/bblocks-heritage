@@ -41,9 +41,19 @@ $defs:
         type: string
         format: uri
         description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this object.
+      hdtoType:
+        type: string
+        const: hdto:HC3_Tangible_Heritage_Entity
+        description: >-
+          Fixed HDTO co-type (ECCCH Heritage Digital Twin Ontology, D7.1). Maps via context
+          directly to rdf:type, alongside crm:E22_Man-Made_Object — additive, not a replacement
+          (D7.1 Figure 20's own worked example shows the same node typed as both classes at once).
+          Required so every valid instance is HDTO-typed on a plain JSON-LD parse, with no extra
+          post-processing step needed.
     required:
       - identifier
       - title
+      - hdtoType
 type: object
 allOf:
   - type: object

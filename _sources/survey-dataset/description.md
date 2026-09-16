@@ -14,8 +14,15 @@ under `properties`, its `isAbout` link to the surveyed heritage asset.
 
 | Class | Namespace | Role |
 |-------|-----------|------|
-| `crmdig:D1_Digital_Object` | `http://www.ics.forth.gr/isl/CRMdig/` | The survey dataset itself |
-| `crmdig:D7_Digital_Machine_Event` | `http://www.ics.forth.gr/isl/CRMdig/` | The acquisition event (embedded as `acquisitionEvent`) |
+| `crmdig:D1_Digital_Object` | `http://www.cidoc-crm.org/extensions/crmdig/` | The survey dataset itself |
+| `crmdig:D7_Digital_Machine_Event` | `http://www.cidoc-crm.org/extensions/crmdig/` | The acquisition event (embedded as `acquisitionEvent`) |
+
+**Namespace corrected 2026-09-16**: previously `http://www.ics.forth.gr/isl/CRMdig/`. Retrofitted
+to HDTO's own stated CRMdig namespace (v5.0) per the resolved decision recorded in `PLAN.md`'s
+"HDTO alignment" section — HDTO is this project's actual target ontology, so its namespace choice
+wins over the register's earlier one. This is a URI-only change; no class names, properties, or
+JSON structure changed, so existing consumer code that only reads the JSON is unaffected — only
+RDF/SPARQL consumers that hardcoded the old namespace need to update.
 
 `properties.choType: "SurveyDataset"` maps to `crmdig:D1_Digital_Object` via the JSON-LD context —
 a second alias to `@type`, alongside the fixed GeoJSON `type: "Feature"`. The `acquisitionEvent`
@@ -70,3 +77,10 @@ value to avoid deep blank-node expansion.
   decorative systems at Reggia di Venaria Reale.
 - **Malta MT-01 / MT-03** — UAV photogrammetric models and 3D scans of Villa Portelli and its
   gardens.
+
+## HDTO alignment
+
+`hdtoType` (required, inherited via `digital-representation-feature`) is pinned to a fixed
+`const` of `hdto:HC5_Digital_Representation` — safe and always-correct even for sensor-derived
+instances that could narrow further to HC6 (⊑ HC5) once real pilot data distinguishes them.
+`crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required.

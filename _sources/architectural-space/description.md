@@ -42,3 +42,22 @@ they are deployed in.
 
 - **REQ-003** — Galleria Grande bays as monitoring and historical location anchors (Venaria)
 - **MT-02** — Interior rooms of Villa Portelli with dynamic attributes and oral history links
+
+## HDTO alignment
+
+`properties.hdtoType` (fixed `const` `hdto:HC3_Tangible_Heritage_Entity`) is inherited, and
+therefore required, from [`heritage-object`](../heritage-object) via
+[`heritage-object-feature`](../heritage-object-feature) — JSON Schema `allOf` composition means a
+profile cannot selectively opt out of a requirement its parent block declares. This is a
+**structural default, not a deliberate OGC classification decision**: whether an
+`architectural-space` instance (a room, bay, or zone) is independently "the" heritage entity, or
+just a component of its containing `building`, is still the partner (CRRS/Venaria) judgment call
+noted above and in the integration plan — it isn't resolved by this default applying, and should
+be revisited once that input arrives, potentially by overriding `hdtoType` per-instance or
+narrowing this block's own parent profile if the answer turns out to be "no."
+
+**Pending question, data-dependent:** this isn't just a one-time partner opinion to collect -- the
+right answer plausibly depends on what real Venaria/Malta pilot data actually looks like once it
+arrives (e.g. whether rooms are consistently catalogued/valued as standalone records in CRRS's own
+systems, or only ever referenced through their containing building). Treat this as open until real
+pilot data lands, not just until a partner gives a one-off answer in the abstract.

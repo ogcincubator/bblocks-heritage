@@ -32,3 +32,12 @@ top-level boundary; the place hierarchy handles subdivision.
 - **REQ-001** — Reggia di Venaria Reale overall pilot boundary (UNESCO WHC no. 823)
 - **MT-03** — Villa Portelli garden as a named national monument (Heritage Malta)
 - **REQ-018** — Venaria garden as a site-level entity (sub-zone linkage via `place`)
+
+## HDTO alignment
+
+Every instance requires `properties.hdtoType`, a fixed `const` of
+`hdto:HC3_Tangible_Heritage_Entity`, mapped via `context.jsonld` directly to `rdf:type` — asserted
+on a plain JSON-LD parse, no post-processing step needed. Unlike `heritage-object`, this block has
+no other CIDOC-CRM class triple to derive HC3 from (it profiles `place`, whose JSON-FG envelope
+fixes `type` to the literal `"Feature"`), so `hdtoType` is declared directly rather than derived
+from an existing class.

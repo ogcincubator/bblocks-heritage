@@ -4,13 +4,25 @@
   "status": "under-development",
   "dateTimeAddition": "2026-07-17T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
-  "dateOfLastChange": "2026-07-17",
+  "version": "0.3",
+  "dateOfLastChange": "2026-09-16",
   "isProfileOf": "bblocks://ogc.heritage.heritage-object",
   "sources": [
-    { "title": "CIDOC-CRM", "link": "https://www.cidoc-crm.org/" },
-    { "title": "OGC topo-feature", "link": "https://github.com/opengeospatial/topo-feature" }
+    {
+      "title": "CIDOC-CRM",
+      "link": "https://www.cidoc-crm.org/"
+    },
+    {
+      "title": "OGC topo-feature",
+      "link": "https://github.com/opengeospatial/topo-feature"
+    }
   ],
-  "tags": ["cidoc-crm", "heritage", "object", "feature", "topology"],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "object",
+    "feature",
+    "topology"
+  ],
   "group": "Core"
 }

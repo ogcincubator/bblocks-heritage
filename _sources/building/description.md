@@ -38,3 +38,11 @@ queries. Detailed BIM geometry lives in the IFC model, linked via `ifcGlobalId`.
 
 - **REQ-002** — Galleria Grande and Sant'Uberto chapel at Reggia di Venaria
 - **MT-01** — Villa Portelli main villa building with HBIM / Gaussian splat context
+
+## HDTO alignment
+
+Required `properties.hdtoType` (fixed `const` `hdto:HC3_Tangible_Heritage_Entity`), inherited from
+[`heritage-object`](../heritage-object)'s `$defs/properties` via `heritage-object-feature` — see
+that block's description for the full rationale. Maps via this block's own `context.jsonld`
+directly to `rdf:type`, asserted on a plain JSON-LD parse with no post-processing step. The
+companion validation shape is inherited from `heritage-object`'s `shapes.shacl`.

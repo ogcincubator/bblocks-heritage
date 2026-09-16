@@ -1,10 +1,11 @@
 {
   "@context": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
     "sosa": "http://www.w3.org/ns/sosa/",
     "geojson": "https://purl.org/geojson/vocab#",
     "type": "@type",
-    "MonitoringPoint": "crm:E22_Man-Made_Object",
+    "MonitoringPoint": "crmdig:D8_Digital_Device",
     "identifier": "crm:P1_is_identified_by",
     "sensorType": {
       "@id": "crm:P2_has_type",

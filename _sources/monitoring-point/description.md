@@ -7,13 +7,44 @@ Sensor entity representing a device that can generate observations pertaining to
 property — and adds a CIDOC-CRM **E22 Man-Made Object** identity layer.
 
 The `type` field is set to `"MonitoringPoint"`, which the JSON-LD context maps to
-`crm:E22_Man-Made_Object`, enabling SHACL targeting by class.
+`crmdig:D8_Digital_Device`, enabling SHACL targeting by class.
+
+### HDTO correction (2026-09-16)
+
+Previously this block mapped `type: "MonitoringPoint"` to `crm:E22_Man-Made_Object`, noted at
+the time as a workaround since SOSA Sensor has no native `type` property. **This was corrected**
+per HDTO's own OGC SensorThings API -> HDTO/CRM crosswalk table (D7.1 Table 1, p.28), which gives
+an explicit target for each STA entity:
+
+| STA entity | HDTO/CRM target |
+|---|---|
+| Thing | HC1 / crm:E70 Thing |
+| Location | crm:E53 Place |
+| ObservedProperty | crmsci:S9 / S15 |
+| **Sensor** | **crmdig:D8 Digital Device** |
+| Datastream | crm:E73 Information Object |
+| Observation | crmsci:S4 |
+| FeatureOfInterest | crm:E55 Type / S15 / E70 |
+
+`MonitoringPoint` corresponds to STA's Sensor entity, so it now targets `crmdig:D8_Digital_Device`
+instead of `crm:E22_Man-Made_Object` — a breaking change to the SHACL `sh:targetClass` (all
+existing examples were re-validated against the new target; both still pass). The `crmdig:`
+namespace used is `http://www.cidoc-crm.org/extensions/crmdig/` (CRMdig v5.0, per HDTO's own live
+ontology page), matching the register-wide namespace decision recorded in `PLAN.md`'s "HDTO
+alignment" section.
+
+**Caveat inherited from the source material and preserved here deliberately:** `D8 Digital
+Device` is *not* itself formally declared anywhere in D7.1 §5.5's own CRMdig class list (only D1,
+D2, D9, D11 are) — it is cited only informally in this crosswalk table. This mapping is therefore
+sourced from the upstream CRMdig v5.0 specification directly, not from an HDTO-internal class
+declaration; treat it as directional guidance from HDTO rather than a class with its own
+HDTO-confirmed scope note.
 
 Properties added by this block:
 
 | Property | CRM mapping | Notes |
 |---|---|---|
-| `type` (required) | `crm:E22_Man-Made_Object` | Fixed const; enables `sh:targetClass` |
+| `type` (required) | `crmdig:D8_Digital_Device` | Fixed const; enables `sh:targetClass` |
 | `identifier` (required) | `crm:P1_is_identified_by` | Local pilot inventory code |
 | `sensorType` (required) | `crm:P2_has_type` (@id) | Getty AAT sensor/equipment category URI |
 | `locatedIn` (required) | `crm:P53_has_former_or_current_location` (@id) | URI of containing `architectural-space`, `heritage-object`, or `place` |

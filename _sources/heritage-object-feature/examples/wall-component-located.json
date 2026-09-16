@@ -3,7 +3,10 @@
   "type": "Feature",
   "geometry": {
     "type": "Point",
-    "coordinates": [7.6187, 45.1337]
+    "coordinates": [
+      7.6187,
+      45.1337
+    ]
   },
   "properties": {
     "choType": "HeritageObject",
@@ -14,6 +17,7 @@
       "http://vocab.getty.edu/aat/300010439",
       "http://vocab.getty.edu/aat/300014130"
     ],
-    "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+    "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

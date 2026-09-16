@@ -9,3 +9,10 @@ fabrication output must record the PROV derivation chain back to the source
 [`three-d-model`](../three-d-model) it was generated from, so the replica stays traceable to its
 digital original. This is enforced both in the JSON Schema (presence) and in SHACL (the value
 must actually uplift to at least one IRI).
+
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is pinned to a fixed `const` of
+`hdto:HC5_Digital_Representation` — this block models the digital fabrication file itself, not
+the physical artifact it produces. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and
+required.

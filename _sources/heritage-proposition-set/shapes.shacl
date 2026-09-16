@@ -1,0 +1,24 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+
+<#HeritagePropositionSetShape>
+    a sh:NodeShape ;
+    sh:targetClass hdto:HC16_Heritage_Proposition_Set ;
+    sh:property [
+        sh:path crm:P148_has_component ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "content must be present and uplift to IRIs" ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath hdto:HP30_added_content ] ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "composedBy must uplift to an IRI" ;
+    ] ;
+    sh:property [
+        sh:path hdto:HP32_replaced ;
+        sh:nodeKind sh:IRI ;
+        sh:message "replaces must uplift to an IRI" ;
+    ] .

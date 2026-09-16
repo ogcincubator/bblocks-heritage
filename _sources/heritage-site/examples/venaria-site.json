@@ -5,11 +5,26 @@
     "type": "Polygon",
     "coordinates": [
       [
-        [7.617, 45.130],
-        [7.642, 45.130],
-        [7.642, 45.145],
-        [7.617, 45.145],
-        [7.617, 45.130]
+        [
+          7.617,
+          45.13
+        ],
+        [
+          7.642,
+          45.13
+        ],
+        [
+          7.642,
+          45.145
+        ],
+        [
+          7.617,
+          45.145
+        ],
+        [
+          7.617,
+          45.13
+        ]
       ]
     ]
   },
@@ -20,6 +35,7 @@
     "designation": "UNESCO World Heritage List no. 823",
     "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
     "rights": "https://creativecommons.org/licenses/by/4.0/",
-    "sameAs": "http://vocab.getty.edu/tgn/7011057"
+    "sameAs": "http://vocab.getty.edu/tgn/7011057",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

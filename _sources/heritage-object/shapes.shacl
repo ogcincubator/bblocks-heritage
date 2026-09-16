@@ -1,5 +1,6 @@
-@prefix sh:  <http://www.w3.org/ns/shacl#> .
-@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
 # These constraints check the RDF graph produced after JSON-LD uplift. They are not redundant
 # with the JSON Schema: "format: uri" in the schema only checks string syntax before uplift, it
@@ -21,4 +22,17 @@
         sh:path crm:P53_has_former_or_current_location ;
         sh:nodeKind sh:IRI ;
         sh:message "currentLocation must uplift to an IRI" ;
+    ] .
+
+# HDTO co-typing validation. hdtoType (required in schema.yaml) maps via context.jsonld directly
+# to rdf:type, so every instance is asserted hdto:HC3_Tangible_Heritage_Entity on a plain JSON-LD
+# parse — no post-processing uplift step needed. This shape checks the baseline CIDOC-CRM
+# identification HDTO expects of a Tangible Heritage Entity.
+<#HC3TangibleHeritageEntityShape>
+    a sh:NodeShape ;
+    sh:targetClass hdto:HC3_Tangible_Heritage_Entity ;
+    sh:property [
+        sh:path crm:P1_is_identified_by ;
+        sh:minCount 1 ;
+        sh:message "hdto:HC3_Tangible_Heritage_Entity instances must carry a CIDOC-CRM identifier (crm:P1_is_identified_by)" ;
     ] .

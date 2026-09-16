@@ -1,6 +1,6 @@
 {
   "@context": {
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
     "dct": "http://purl.org/dc/terms/",
     "choType": "@type",
     "SurveyDataset": "crmdig:D1_Digital_Object",

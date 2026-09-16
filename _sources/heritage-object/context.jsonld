@@ -2,9 +2,15 @@
   "@context": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "prov": "http://www.w3.org/ns/prov#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "id": "@id",
     "type": "@type",
     "HeritageObject": "crm:E22_Man-Made_Object",
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "identifier": "crm:P1_is_identified_by",
     "title": "crm:P102_has_title",
     "description": "crm:P3_has_note",

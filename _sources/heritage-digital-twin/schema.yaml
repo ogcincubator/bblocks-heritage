@@ -1,0 +1,70 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Heritage Digital Twin
+description: |
+  HDTO's HC2 Heritage Digital Twin: the aggregate of formal proposition sets documenting one
+  heritage entity (an `hdto:HC1_Heritage_Entity` — in this register, any HC3-co-typed
+  `heritage-object`/`heritage-site`/`building`/`heritage-object-feature` instance). D7.1's own
+  worked example (the Deryneia icon) shows HC2 is a lightweight node identified by its
+  propositional content and creating actor, not a rich record in its own right — the actual
+  content lives in one or more `heritage-proposition-set` (HC16) instances it points to.
+
+  This is deliberately **not** modelled as a profile of `aggregation` (EDM/ORE Aggregation):
+  D7.1 gives no crosswalk between EDM/ORE and any HC class — `aggregation` remains the separate
+  Europeana/ECCCH-portal display-record construct it already was.
+x-jsonld-context: context.jsonld
+type: object
+required:
+  - id
+  - type
+  - ofHeritageEntity
+  - containsPropositionSet
+properties:
+  id:
+    type: string
+    format: uri
+    description: Persistent URI identifying this Heritage Digital Twin.
+  type:
+    const: HeritageDigitalTwin
+    description: Fixed type token (maps to hdto:HC2_Heritage_Digital_Twin).
+  ofHeritageEntity:
+    type: string
+    format: uri
+    description: >-
+      URI of the heritage entity this is the digital twin of (HP1 has digital twin, referenced
+      here in its inverse "is digital twin of" direction — HP1i).
+  label:
+    type: string
+    description: >-
+      Short human-readable label identifying this digital twin (e.g. "The HDT of the Great
+      Gallery ceiling painting"), per D7.1's own worked example convention.
+  creator:
+    type: string
+    format: uri
+    description: >-
+      URI of the actor (person or organisation) that created/maintains this digital twin.
+  containsPropositionSet:
+    type: array
+    minItems: 1
+    items:
+      type: string
+      format: uri
+    description: >-
+      URIs of `heritage-proposition-set` instances currently valid as content of this digital
+      twin (HP33 contains).
+  containedPropositionSet:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: >-
+      URIs of `heritage-proposition-set` instances formerly, but no longer, valid content (HP34
+      contained) — preserves referential integrity for prior scholarly references. This is how
+      HC2 versioning works: superseding content moves from `containsPropositionSet` to here
+      rather than being deleted.
+  composedBy:
+    type: string
+    format: uri
+    description: >-
+      URI of the `event` instance (co-typed hdto:HC11_Digital_Twin_Maintenance — see
+      ogc.heritage.event's HDTO alignment note) that composed/most recently updated this digital
+      twin (HP19 has composed, inverse direction — HP19i).

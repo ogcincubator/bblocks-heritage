@@ -52,3 +52,11 @@ on the link properties.
   palace garden and park, linked to the Reggia di Venaria heritage site and typed via Getty AAT.
 - **General:** Internal circulation routes at any heritage site; visitor trails connecting
   separate buildings or garden zones; service access roads for conservation vehicles.
+
+## HDTO alignment
+
+Not co-typed with `hdto:HC3_Tangible_Heritage_Entity` in this pass -- left as a **pending,
+data-dependent question**, not a decision. A route is more naturally a spatial/descriptive
+construct than an independently valued heritage entity, but this plausibly depends on what real
+pilot data shows once it arrives -- not something to settle from the schema alone. Revisit only if
+a concrete partner requirement (or real pilot data) says otherwise.

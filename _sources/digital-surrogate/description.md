@@ -67,3 +67,9 @@ SHACL shapes target nodes via `sh:targetSubjectsOf prov:wasDerivedFrom` rather t
 |---|---|---|
 | Reggia di Venaria (CRRS) | CRRS-013 | Digitised archival plans, engravings, photographs from ASTo and Archivio Fotografico |
 | Villa Portelli, Malta (HM) | HM-05 | Digitised historical photographs from Heritage Malta collections |
+
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is pinned to a fixed `const` of
+`hdto:HC5_Digital_Representation`. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and
+required.

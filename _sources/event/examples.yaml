@@ -26,3 +26,13 @@ examples:
     snippets:
       - language: json
         ref: examples/malta-ceremony.json
+
+  - title: HDTO digital twin maintenance activity (HC11)
+    content: >-
+      A digital-twin-maintenance session over the Great Gallery painting, with `eventType` set to
+      the HDTO `hdto:HC11_Digital_Twin_Maintenance` class URI — see the "HDTO alignment" section
+      of this block's description for why this is how HC11/HC13 co-typing is triggered. Referenced
+      from `heritage-digital-twin`'s own example via HP19 has composed.
+    snippets:
+      - language: json
+        ref: examples/hdt-maintenance.json

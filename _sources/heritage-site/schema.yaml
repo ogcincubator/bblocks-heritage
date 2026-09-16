@@ -40,5 +40,14 @@ allOf:
             description: >-
               Access and use rights statement, preferably a Creative Commons or rights
               statement URI (dct:rights).
+          hdtoType:
+            type: string
+            const: hdto:HC3_Tangible_Heritage_Entity
+            description: >-
+              Fixed HDTO co-type (ECCCH Heritage Digital Twin Ontology, D7.1). Maps via context
+              directly to rdf:type. Required so every instance is HDTO-typed on a plain JSON-LD
+              parse — this block has no other CIDOC-CRM class triple to derive it from (it
+              profiles `place`, whose JSON-FG envelope fixes `type` to the literal `"Feature"`).
         required:
           - siteType
+          - hdtoType

@@ -1,10 +1,10 @@
 {
   "name": "Event",
-  "abstract": "An event in the history of a heritage object — production, restoration, modification, acquisition — modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.",
+  "abstract": "An event in the history of a heritage object \u2014 production, restoration, modification, acquisition \u2014 modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.3",
   "rdfType": [
     "http://www.cidoc-crm.org/cidoc-crm/E5_Event"
   ],
@@ -18,7 +18,13 @@
       "link": "https://www.w3.org/TR/prov-o/"
     }
   ],
-  "tags": ["cidoc-crm", "heritage", "event", "prov"],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "event",
+    "prov"
+  ],
   "group": "Core",
-  "isProfileOf": "bblocks://ogc.ogc-utils.prov-activity"
+  "isProfileOf": "bblocks://ogc.ogc-utils.prov-activity",
+  "dateOfLastChange": "2026-09-16"
 }

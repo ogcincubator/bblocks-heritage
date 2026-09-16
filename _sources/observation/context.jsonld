@@ -1,5 +1,11 @@
 {
   "@context": {
-    "type": "@type"
+    "crmsci": "http://www.cidoc-crm.org/extensions/crmsci/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "type": "@type",
+    "crmsciType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    }
   }
 }

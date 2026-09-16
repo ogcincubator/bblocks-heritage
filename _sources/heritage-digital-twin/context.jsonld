@@ -1,0 +1,33 @@
+{
+  "@context": {
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "id": "@id",
+    "type": "@type",
+    "HeritageDigitalTwin": "hdto:HC2_Heritage_Digital_Twin",
+    "ofHeritageEntity": {
+      "@reverse": "hdto:HP1_has_digital_twin",
+      "@type": "@id"
+    },
+    "label": "rdfs:label",
+    "creator": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "containsPropositionSet": {
+      "@id": "hdto:HP33_contains",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "containedPropositionSet": {
+      "@id": "hdto:HP34_contained",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "composedBy": {
+      "@reverse": "hdto:HP19_has_composed",
+      "@type": "@id"
+    }
+  }
+}

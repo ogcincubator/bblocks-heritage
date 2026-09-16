@@ -13,6 +13,7 @@ required:
   - severity
   - appliesTo
   - source
+  - crmsciType
 properties:
   id:
     type: string
@@ -21,6 +22,16 @@ properties:
   type:
     const: MonitoringThreshold
     description: Fixed type token identifying this record as a monitoring threshold (maps to sosa:ObservableProperty).
+  crmsciType:
+    type: string
+    const: crmsci:S15
+    description: >-
+      Fixed HDTO co-type. Maps via context directly to rdf:type, alongside
+      sosa:ObservableProperty — additive. D7.1's own OGC SensorThings API crosswalk table (Table
+      1, p.28) cites "crmsci:S9/S15" for STA ObservedProperty, but only S15 is an actually defined
+      CRMsci class in D7.1's own §5.3 declarations (S9 is not — see
+      eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md); S15 is used here as the
+      better-supported of the two pending confirmation.
   parameter:
     type: string
     format: uri

@@ -59,3 +59,13 @@ severity and spatial linkage.
   `monitoring-point` instances installed in the Galleria Grande.
 - Villa Portelli Malta: define temperature and light-level thresholds for gallery rooms, with
   seasonal `activePeriod` for winter/summer profiles.
+
+## HDTO alignment
+
+Every instance requires `crmsciType`, a fixed `const` of `crmsci:S15`, mapping via
+`context.jsonld` directly to `rdf:type` — asserted on a plain JSON-LD parse, no post-processing
+step needed. D7.1's own OGC SensorThings API crosswalk table (Table 1, p.28) cites
+`crmsci:S9`/`S15` for STA ObservedProperty (the same concept `sosa:ObservableProperty`, which this
+block profiles, already models); only S15 is confirmed as an actually-defined CRMsci class in
+D7.1's own §5.3 declarations, so S15 is used here rather than the unconfirmed S9 — see
+`eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md`.

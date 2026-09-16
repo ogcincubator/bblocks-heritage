@@ -4,7 +4,7 @@
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.3",
   "rdfType": [
     "http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object"
   ],
@@ -18,7 +18,13 @@
       "link": "https://www.w3.org/TR/prov-o/"
     }
   ],
-  "tags": ["cidoc-crm", "heritage", "digital-representation", "prov"],
+  "tags": [
+    "cidoc-crm",
+    "heritage",
+    "digital-representation",
+    "prov"
+  ],
   "group": "Core",
-  "isProfileOf": "bblocks://ogc.ogc-utils.prov-entity"
+  "isProfileOf": "bblocks://ogc.ogc-utils.prov-entity",
+  "dateOfLastChange": "2026-09-16"
 }

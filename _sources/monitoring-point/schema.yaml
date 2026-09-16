@@ -13,8 +13,9 @@ allOf:
       type:
         const: MonitoringPoint
         description: >-
-          Fixed type token. Maps to crm:E22_Man-Made_Object in the JSON-LD context, enabling
-          SHACL shapes to target monitoring points by class.
+          Fixed type token. Maps to crmdig:D8_Digital_Device in the JSON-LD context (corrected
+          2026-09-16 from an earlier crm:E22_Man-Made_Object workaround — see description.md),
+          enabling SHACL shapes to target monitoring points by class.
       identifier:
         type: string
         description: >-

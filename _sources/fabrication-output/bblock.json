@@ -4,7 +4,8 @@
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.2",
+  "dateOfLastChange": "2026-09-16",
   "sources": [
     {
       "title": "3MF",

@@ -58,3 +58,11 @@ metadata but no `type: const` in schema, so instances do not emit that RDF tripl
 
 **HM-07** (Villa Portelli, Malta): audio and video testimonies from local residents and
 historians recording lived memories of the villa, its garden, and surrounding community.
+
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is narrowed to a fixed `const` of
+`hdto:HC7_Digital_Audiovisual_Object` (⊑ `hdto:HC5_Digital_Representation`), asserted via context
+on a plain JSON-LD parse. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required.
+See [`digital-representation`](../digital-representation)'s description for the shared HC5-family
+rationale.

@@ -1,0 +1,31 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+
+# These constraints check the RDF graph produced after JSON-LD uplift. "type": "@type" gives
+# every instance an explicit hdto:HC2_Heritage_Digital_Twin class triple, so sh:targetClass is
+# unambiguous here (unlike the JSON-FG/PROV-O-profiling blocks elsewhere in this register).
+<#HeritageDigitalTwinShape>
+    a sh:NodeShape ;
+    sh:targetClass hdto:HC2_Heritage_Digital_Twin ;
+    sh:property [
+        sh:path [ sh:inversePath hdto:HP1_has_digital_twin ] ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "ofHeritageEntity must uplift to an IRI (was it a relative or malformed URI?)" ;
+    ] ;
+    sh:property [
+        sh:path hdto:HP33_contains ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "containsPropositionSet must be present and uplift to IRIs" ;
+    ] ;
+    sh:property [
+        sh:path hdto:HP34_contained ;
+        sh:nodeKind sh:IRI ;
+        sh:message "containedPropositionSet entries must uplift to IRIs" ;
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath hdto:HP19_has_composed ] ;
+        sh:nodeKind sh:IRI ;
+        sh:message "composedBy must uplift to an IRI" ;
+    ] .

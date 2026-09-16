@@ -59,3 +59,11 @@ connects the surface to its host heritage object or space.
   products and condition-assessment records.
 - Villa Portelli Malta: Polychrome stone floor surface in the Grand Salon, with material
   (limestone) and technique (in-situ cast mosaic) documented with Getty AAT terms.
+
+## HDTO alignment
+
+Not co-typed with `hdto:HC3_Tangible_Heritage_Entity` in this pass -- left as a **pending,
+data-dependent question**, not a decision. Whether a single surface (a fresco, a decorated floor)
+counts as its own independently-valued heritage entity, or is always just a component of its host
+`heritage-object`/`building`, plausibly depends on what real Venaria/Malta pilot data shows once it
+arrives -- not something to settle from the schema alone. Raise with CRRS/HM before assigning.

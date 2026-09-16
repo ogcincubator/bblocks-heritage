@@ -4,7 +4,7 @@
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.3",
   "sources": [
     {
       "title": "glTF 2.0",
@@ -15,7 +15,13 @@
       "link": "https://www.ogc.org/standard/3dtiles/"
     }
   ],
-  "tags": ["heritage", "digital-representation", "3d-model", "gltf"],
+  "tags": [
+    "heritage",
+    "digital-representation",
+    "3d-model",
+    "gltf"
+  ],
   "group": "Digital representation profiles",
-  "isProfileOf": "bblocks://ogc.heritage.digital-representation"
+  "isProfileOf": "bblocks://ogc.heritage.digital-representation",
+  "dateOfLastChange": "2026-09-16"
 }

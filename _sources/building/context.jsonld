@@ -2,6 +2,12 @@
   "@context": {
     "dct": "http://purl.org/dc/terms/",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "parentSite": {
       "@id": "crm:P46i_forms_part_of",
       "@type": "@id"

@@ -1,6 +1,12 @@
 {
   "@context": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "identifier": "crm:P1_is_identified_by",
     "eventType": {
       "@id": "crm:P2_has_type",

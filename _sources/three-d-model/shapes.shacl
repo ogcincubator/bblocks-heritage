@@ -1,0 +1,17 @@
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix crm:  <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+
+# HDTO co-typing validation. hdtoType (required, narrowed to HC8 in schema.yaml) maps via the
+# inherited digital-representation context directly to rdf:type, no post-processing step needed.
+# three-d-model had no own SHACL shapes before this session — its constraints beyond
+# digital-representation's inherited shapes are otherwise schema-level only (mediaType enum).
+<#HC83DModelShape>
+    a sh:NodeShape ;
+    sh:targetClass hdto:HC8_3D_Model ;
+    sh:property [
+        sh:path crm:P129_is_about ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:message "hdto:HC8_3D_Model instances must carry crm:P129_is_about" ;
+    ] .

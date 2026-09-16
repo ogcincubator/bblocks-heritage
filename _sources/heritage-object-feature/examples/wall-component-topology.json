@@ -12,6 +12,7 @@
     "choType": "HeritageObject",
     "identifier": "RV-ARCH-NV-003",
     "title": "North gallery vault, bay 3",
-    "objectType": "http://vocab.getty.edu/aat/300002862"
+    "objectType": "http://vocab.getty.edu/aat/300002862",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

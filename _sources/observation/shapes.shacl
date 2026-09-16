@@ -1,5 +1,6 @@
-@prefix sh:   <http://www.w3.org/ns/shacl#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 
 # Unlike `place`/`actor`/`event`, this block's rdf:type genuinely is sosa:Observation (inherited
 # from the profiled ogc.sosa.properties.observation, which sets it via context), so targeting by
@@ -12,4 +13,15 @@
         sh:minCount 1 ;
         sh:nodeKind sh:IRI ;
         sh:message "hasFeatureOfInterest is required and must uplift to an IRI referencing the heritage-object or place measured, not an inline feature." ;
+    ] .
+
+# HDTO co-typing validation. crmsciType (required in schema.yaml) maps via context.jsonld directly
+# to rdf:type, asserted on a plain JSON-LD parse, no post-processing step needed.
+<#S4Shape>
+    a sh:NodeShape ;
+    sh:targetClass crmsci:S4 ;
+    sh:property [
+        sh:path sosa:hasFeatureOfInterest ;
+        sh:minCount 1 ;
+        sh:message "crmsci:S4 instances must carry sosa:hasFeatureOfInterest" ;
     ] .

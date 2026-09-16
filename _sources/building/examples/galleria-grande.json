@@ -5,11 +5,26 @@
     "type": "Polygon",
     "coordinates": [
       [
-        [7.627, 45.134],
-        [7.630, 45.134],
-        [7.630, 45.136],
-        [7.627, 45.136],
-        [7.627, 45.134]
+        [
+          7.627,
+          45.134
+        ],
+        [
+          7.63,
+          45.134
+        ],
+        [
+          7.63,
+          45.136
+        ],
+        [
+          7.627,
+          45.136
+        ],
+        [
+          7.627,
+          45.134
+        ]
       ]
     ]
   },
@@ -22,6 +37,7 @@
     "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
     "constructionPeriod": "1699/1733",
     "currentStatus": "in use",
-    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude"
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

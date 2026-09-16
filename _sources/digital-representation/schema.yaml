@@ -9,8 +9,6 @@ x-jsonld-context: context.jsonld
 $defs:
   properties:
     type: object
-    required:
-      - isAbout
     properties:
       identifier:
         type: string
@@ -34,6 +32,32 @@ $defs:
         type: string
         format: uri
         description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).
+      crmdigType:
+        type: string
+        const: crmdig:D9_Data_Object
+        description: >-
+          Fixed co-type, shared by the whole digital-representation family. Maps via context
+          directly to rdf:type. D7.1's own OGC SensorThings crosswalk table (Table 1, p.28) names
+          crmdig:D9_Data_Object, not crm:E73_Information_Object, as HDTO's actual HC5 anchor —
+          asserted here alongside (not instead of) whatever CRM/PROV-O typing this instance
+          already carries. Required on every instance of this block and its profiles.
+      hdtoType:
+        type: string
+        format: uri
+        enum:
+          - hdto:HC5_Digital_Representation
+          - hdto:HC7_Digital_Audiovisual_Object
+          - hdto:HC8_3D_Model
+        default: hdto:HC5_Digital_Representation
+        description: >-
+          HDTO co-type (D7.1). Maps via context directly to rdf:type. Required on every instance;
+          value must be HC5 (the family default — used when this block is not further profiled)
+          or one of HC5's own HDTO subclasses HC7/HC8, which `oral-history`/`three-d-model`
+          narrow to via their own fixed `const`.
+    required:
+      - isAbout
+      - crmdigType
+      - hdtoType
 allOf:
   - "$ref": bblocks://ogc.ogc-utils.prov-entity
   - "$ref": "#/$defs/properties"

@@ -13,5 +13,6 @@
     "https://heritalise-eccch.eu/resource/event/tapestry-relocation-2021",
     "https://heritalise-eccch.eu/resource/event/tapestry-treatment-2019"
   ],
-  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh"
+  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }

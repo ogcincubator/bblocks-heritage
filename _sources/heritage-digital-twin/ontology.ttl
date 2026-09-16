@@ -1,0 +1,12 @@
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix hdto:   <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix crmpem: <http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/> .
+
+# D7.1 declares HC2 Heritage Digital Twin sqsubseteq HC14 Volatile Digital Object equiv crmpem:PE20
+# (the PARTHENOS "Volatile Digital Object" class). The `crmpem:` namespace URI is PROVISIONAL —
+# not stated by D7.1 itself, the live HDTO ontology page, or the underlying PARTHENOS Entities
+# v3.1 model-description document; this is the best candidate found (the FORTH-ISL "CRMpe"
+# extension namespace, following the same http://www.ics.forth.gr/isl/... convention this
+# register already uses for crmdig). Tracked as an open question:
+# https://github.com/ogcincubator/bblocks-heritage/issues/1 — do not treat this URI as confirmed.
+hdto:HC2_Heritage_Digital_Twin owl:equivalentClass crmpem:PE20 .

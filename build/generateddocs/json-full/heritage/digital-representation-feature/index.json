@@ -7,9 +7,11 @@
   "status": "under-development",
   "dateTimeAddition": "2026-07-17T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
-  "dateOfLastChange": "2026-07-17",
-  "isProfileOf": "ogc.heritage.digital-representation",
+  "version": "0.2",
+  "dateOfLastChange": "2026-09-16",
+  "isProfileOf": [
+    "ogc.heritage.digital-representation"
+  ],
   "sources": [
     {
       "title": "CIDOC-CRM E73 Information Object",
@@ -34,6 +36,12 @@
   ],
   "group": "Core",
   "shaclShapes": {
+    "ogc.heritage.digital-representation": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
     "ogc.geo.features.feature": [
       "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
     ],
@@ -47,16 +55,13 @@
     ],
     "ogc.geo.features.featureCollection": [
       "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
-    ],
-    "ogc.heritage.digital-representation": [
-      "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
     ]
   },
   "dependsOn": [
+    "ogc.heritage.digital-representation",
     "ogc.ogc-utils.prov-entity",
     "ogc.geo.json-fg.feature-lenient",
-    "ogc.geo.topo.features.topo-feature",
-    "ogc.heritage.digital-representation"
+    "ogc.geo.topo.features.topo-feature"
   ],
   "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld",
   "schema": {
@@ -78,20 +83,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation-feature/examples/photograph-located.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_1_1.json",
-          "sizeBytes": 594,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [7.6273, 45.1344]\n  },\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"identifier\": \"RV-GG-014-PHOTO-01\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n  }\n}\n"
+          "sizeBytes": 706,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.6273,\n      45.1344\n    ]\n  },\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"identifier\": \"RV-GG-014-PHOTO-01\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\",\n    \"crmdigType\": \"crmdig:D9_Data_Object\",\n    \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_1_1.jsonld",
-          "sizeBytes": 747,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.6273,\n      45.1344\n    ]\n  },\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"identifier\": \"RV-GG-014-PHOTO-01\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n  }\n}"
+          "sizeBytes": 841,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      7.6273,\n      45.1344\n    ]\n  },\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"identifier\": \"RV-GG-014-PHOTO-01\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\",\n    \"crmdigType\": \"crmdig:D9_Data_Object\",\n    \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_1_1.ttl",
-          "sizeBytes": 881,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> a crm:E73_Information_Object,\n        geojson:Feature ;\n    dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.6273e+00 4.51344e+01 ) ] .\n\n"
+          "sizeBytes": 1076,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> a hdto:HC5_Digital_Representation,\n        crm:E73_Information_Object,\n        crmdig:D9_Data_Object,\n        geojson:Feature ;\n    dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> ;\n    geojson:geometry [ a geojson:Point ;\n            geojson:coordinates ( 7.6273e+00 4.51344e+01 ) ] .\n\n"
         }
       ]
     },
@@ -103,20 +108,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation-feature/examples/photograph-topology.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_2_1.json",
-          "sizeBytes": 461,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\"\n  }\n}\n"
+          "sizeBytes": 555,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"crmdigType\": \"crmdig:D9_Data_Object\",\n    \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n  }\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_2_1.jsonld",
-          "sizeBytes": 596,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\"\n  }\n}"
+          "sizeBytes": 690,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02\",\n  \"type\": \"Feature\",\n  \"geometry\": null,\n  \"topology\": {\n    \"type\": \"Polygon\",\n    \"references\": [\n      \"https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7\"\n    ]\n  },\n  \"properties\": {\n    \"choType\": \"DigitalRepresentation\",\n    \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n    \"mediaType\": \"image/jpeg\",\n    \"crmdigType\": \"crmdig:D9_Data_Object\",\n    \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n  }\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation-feature/example_2_1.ttl",
-          "sizeBytes": 678,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix topo: <https://purl.org/geojson/topo#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02> a crm:E73_Information_Object,\n        geojson:Feature ;\n    dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    geojson:topology [ a geojson:Polygon ;\n            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) ] .\n\n"
+          "sizeBytes": 873,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix geojson: <https://purl.org/geojson/vocab#> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .\n@prefix topo: <https://purl.org/geojson/topo#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02> a hdto:HC5_Digital_Representation,\n        crm:E73_Information_Object,\n        crmdig:D9_Data_Object,\n        geojson:Feature ;\n    dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    geojson:topology [ a geojson:Polygon ;\n            topo:relatedFeatures ( <https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> ) ] .\n\n"
         }
       ]
     }

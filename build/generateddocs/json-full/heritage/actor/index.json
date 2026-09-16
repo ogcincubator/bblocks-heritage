@@ -28,10 +28,15 @@
     "prov"
   ],
   "group": "Core",
-  "isProfileOf": "ogc.ogc-utils.prov-agent",
+  "isProfileOf": [
+    "ogc.ogc-utils.prov-agent"
+  ],
   "shaclShapes": {
     "ogc.heritage.actor": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ]
   },
   "dependsOn": [

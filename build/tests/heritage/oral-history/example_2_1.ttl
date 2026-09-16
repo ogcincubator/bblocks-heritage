@@ -1,8 +1,12 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix schema: <https://schema.org/> .
 
-<https://data.heritagemalta.org/oral-history/villap-oh-2023-007> a crm:E73_Information_Object ;
+<https://data.heritagemalta.org/oral-history/villap-oh-2023-007> a hdto:HC7_Digital_Audiovisual_Object,
+        crm:E73_Information_Object,
+        crmdig:D9_Data_Object ;
     dct:accessRights "pending consent review" ;
     dct:format "audio/mp4" ;
     dct:rights "All rights reserved — Heritage Malta" ;

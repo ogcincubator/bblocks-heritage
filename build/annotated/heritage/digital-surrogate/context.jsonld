@@ -355,8 +355,16 @@
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "digitisationEvent": {
-      "@id": "crmdig:L11i_was_output_of",
+      "@id": "http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of",
       "@type": "@json"
     },
     "rights": "dct:rights",
@@ -365,7 +373,7 @@
       "@type": "@id"
     },
     "completeness": "crm:P3_has_note",
-    "DigitalSurrogate": "crmdig:D1_Digital_Object",
+    "DigitalSurrogate": "http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object",
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -374,7 +382,8 @@
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

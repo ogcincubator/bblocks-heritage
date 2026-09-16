@@ -3,6 +3,10 @@
     "MonitoringThreshold": "sosa:ObservableProperty",
     "id": "@id",
     "type": "@type",
+    "crmsciType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "parameter": {
       "@id": "sosa:observes",
       "@type": "@id"
@@ -28,10 +32,12 @@
       "@type": "xsd:date"
     },
     "sosa": "http://www.w3.org/ns/sosa/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "qudt": "http://qudt.org/schema/qudt/",
     "dct": "http://purl.org/dc/terms/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "crmsci": "http://www.cidoc-crm.org/extensions/crmsci/",
     "@version": 1.1
   }
 }

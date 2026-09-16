@@ -1,7 +1,7 @@
 
 # Monitoring Point (Schema)
 
-`ogc.heritage.monitoring-point` *v0.1*
+`ogc.heritage.monitoring-point` *v0.2*
 
 A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.
 
@@ -18,13 +18,44 @@ Sensor entity representing a device that can generate observations pertaining to
 property — and adds a CIDOC-CRM **E22 Man-Made Object** identity layer.
 
 The `type` field is set to `"MonitoringPoint"`, which the JSON-LD context maps to
-`crm:E22_Man-Made_Object`, enabling SHACL targeting by class.
+`crmdig:D8_Digital_Device`, enabling SHACL targeting by class.
+
+### HDTO correction (2026-09-16)
+
+Previously this block mapped `type: "MonitoringPoint"` to `crm:E22_Man-Made_Object`, noted at
+the time as a workaround since SOSA Sensor has no native `type` property. **This was corrected**
+per HDTO's own OGC SensorThings API -> HDTO/CRM crosswalk table (D7.1 Table 1, p.28), which gives
+an explicit target for each STA entity:
+
+| STA entity | HDTO/CRM target |
+|---|---|
+| Thing | HC1 / crm:E70 Thing |
+| Location | crm:E53 Place |
+| ObservedProperty | crmsci:S9 / S15 |
+| **Sensor** | **crmdig:D8 Digital Device** |
+| Datastream | crm:E73 Information Object |
+| Observation | crmsci:S4 |
+| FeatureOfInterest | crm:E55 Type / S15 / E70 |
+
+`MonitoringPoint` corresponds to STA's Sensor entity, so it now targets `crmdig:D8_Digital_Device`
+instead of `crm:E22_Man-Made_Object` — a breaking change to the SHACL `sh:targetClass` (all
+existing examples were re-validated against the new target; both still pass). The `crmdig:`
+namespace used is `http://www.cidoc-crm.org/extensions/crmdig/` (CRMdig v5.0, per HDTO's own live
+ontology page), matching the register-wide namespace decision recorded in `PLAN.md`'s "HDTO
+alignment" section.
+
+**Caveat inherited from the source material and preserved here deliberately:** `D8 Digital
+Device` is *not* itself formally declared anywhere in D7.1 §5.5's own CRMdig class list (only D1,
+D2, D9, D11 are) — it is cited only informally in this crosswalk table. This mapping is therefore
+sourced from the upstream CRMdig v5.0 specification directly, not from an HDTO-internal class
+declaration; treat it as directional guidance from HDTO rather than a class with its own
+HDTO-confirmed scope note.
 
 Properties added by this block:
 
 | Property | CRM mapping | Notes |
 |---|---|---|
-| `type` (required) | `crm:E22_Man-Made_Object` | Fixed const; enables `sh:targetClass` |
+| `type` (required) | `crmdig:D8_Digital_Device` | Fixed const; enables `sh:targetClass` |
 | `identifier` (required) | `crm:P1_is_identified_by` | Local pilot inventory code |
 | `sensorType` (required) | `crm:P2_has_type` (@id) | Getty AAT sensor/equipment category URI |
 | `locatedIn` (required) | `crm:P53_has_former_or_current_location` (@id) | URI of containing `architectural-space`, `heritage-object`, or `place` |
@@ -101,10 +132,11 @@ A capacitive RH sensor mounted in bay 7 of the Galleria Grande, linked to the ar
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/monitoring-point/venaria-gg-b07-rh01> a crmdig:D8_Digital_Device ;
     crm:P1_is_identified_by "RV-MP-GG-B07-RH01" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300379649> ;
     crm:P44_has_condition "active" ;
@@ -165,10 +197,11 @@ A resistance temperature detector in the Grand Salon of Villa Portelli, linked t
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/monitoring-point/villa-portelli-salon-t01> a crmdig:D8_Digital_Device ;
     crm:P1_is_identified_by "MT-MP-VP-SALON-T01" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300379652> ;
     crm:P44_has_condition "active" ;
@@ -200,8 +233,10 @@ allOf:
   properties:
     type:
       const: MonitoringPoint
-      description: Fixed type token. Maps to crm:E22_Man-Made_Object in the JSON-LD
-        context, enabling SHACL shapes to target monitoring points by class.
+      description: "Fixed type token. Maps to crmdig:D8_Digital_Device in the JSON-LD
+        context (corrected 2026-09-16 from an earlier crm:E22_Man-Made_Object workaround
+        \u2014 see description.md), enabling SHACL shapes to target monitoring points
+        by class."
       x-jsonld-id: '@type'
     identifier:
       type: string
@@ -262,8 +297,9 @@ allOf:
   - locatedIn
   - position
 x-jsonld-extra-terms:
-  MonitoringPoint: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object
+  MonitoringPoint: http://www.cidoc-crm.org/extensions/crmdig/D8_Digital_Device
 x-jsonld-prefixes:
+  crmdig: http://www.cidoc-crm.org/extensions/crmdig/
   crm: http://www.cidoc-crm.org/cidoc-crm/
   geojson: https://purl.org/geojson/vocab#
   sosa: http://www.w3.org/ns/sosa/
@@ -364,8 +400,16 @@ Links to the schema:
       "@id": "sosa:System",
       "@type": "@id"
     },
+    "actsOn": {
+      "@id": "sosa:actsOn",
+      "@type": "@id"
+    },
     "actsOnProperty": {
       "@id": "sosa:actsOnProperty",
+      "@type": "@id"
+    },
+    "deployedAsset": {
+      "@id": "sosa:deployedAsset",
       "@type": "@id"
     },
     "deployedOnPlatform": {
@@ -380,6 +424,7 @@ Links to the schema:
       "@id": "sosa:detects",
       "@type": "@id"
     },
+    "endTime": "sosa:endTime",
     "features": {
       "@id": "sosa:hasMember",
       "@type": "@id"
@@ -388,16 +433,16 @@ Links to the schema:
       "@id": "sosa:forProperty",
       "@type": "@id"
     },
-    "hasDeployment": {
-      "@id": "sosa:hasDeployment",
-      "@type": "@id"
-    },
     "hasFeatureOfInterest": {
       "@id": "sosa:hasFeatureOfInterest",
       "@type": "@id"
     },
     "hasInput": {
       "@id": "sosa:hasInput",
+      "@type": "@id"
+    },
+    "hasInputValue": {
+      "@id": "sosa:hasInputValue",
       "@type": "@id"
     },
     "hasMember": {
@@ -445,11 +490,6 @@ Links to the schema:
       "@id": "sosa:hasUltimateFeatureOfInterest",
       "@type": "@id"
     },
-    "hosts": {
-      "@id": "sosa:hosts",
-      "@type": "@id",
-      "@container": "@set"
-    },
     "implementedBy": {
       "@id": "sosa:implementedBy",
       "@type": "@id"
@@ -470,12 +510,12 @@ Links to the schema:
       "@id": "sosa:isFeatureOfInterestOf",
       "@type": "@id"
     },
-    "isHostedBy": {
-      "@id": "sosa:isHostedBy",
-      "@type": "@id"
-    },
     "isObservedBy": {
       "@id": "sosa:isObservedBy",
+      "@type": "@id"
+    },
+    "isOriginalSampleOf": {
+      "@id": "sosa:isOriginalSampleOf",
       "@type": "@id"
     },
     "isPropertyOf": {
@@ -502,6 +542,14 @@ Links to the schema:
       "@id": "sosa:isSampleOf",
       "@type": "@id"
     },
+    "isSampleOfUltimateFOI": {
+      "@id": "sosa:isSampleOfUltimateFOI",
+      "@type": "@id"
+    },
+    "isSubSystemOf": {
+      "@id": "sosa:isSubSystemOf",
+      "@type": "@id"
+    },
     "madeActuation": {
       "@id": "sosa:madeActuation",
       "@type": "@id"
@@ -516,6 +564,14 @@ Links to the schema:
     },
     "madeBySensor": {
       "@id": "sosa:madeBySensor",
+      "@type": "@id"
+    },
+    "madeBySystem": {
+      "@id": "sosa:madeBySystem",
+      "@type": "@id"
+    },
+    "madeExecution": {
+      "@id": "sosa:madeExecution",
       "@type": "@id"
     },
     "madeObservation": {
@@ -539,6 +595,7 @@ Links to the schema:
       "@type": "@id"
     },
     "resultTime": "sosa:resultTime",
+    "startTime": "sosa:startTime",
     "usedProcedure": {
       "@id": "sosa:usedProcedure",
       "@type": "@id"
@@ -667,6 +724,19 @@ Links to the schema:
       "@id": "ssn-system:qualityOfObservation",
       "@type": "@id"
     },
+    "hosts": {
+      "@id": "sosa:hosts",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "isHostedBy": {
+      "@id": "sosa:isHostedBy",
+      "@type": "@id"
+    },
+    "hasDeployment": {
+      "@id": "sosa:hasDeployment",
+      "@type": "@id"
+    },
     "type": "@type",
     "identifier": "crm:P1_is_identified_by",
     "sensorType": {
@@ -683,10 +753,11 @@ Links to the schema:
       "@id": "geojson:geometry",
       "@type": "@json"
     },
-    "MonitoringPoint": "crm:E22_Man-Made_Object",
+    "MonitoringPoint": "crmdig:D8_Digital_Device",
     "sosa": "http://www.w3.org/ns/sosa/",
     "ssn-system": "ssn:systems/",
     "ssn": "http://www.w3.org/ns/ssn/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "geojson": "https://purl.org/geojson/vocab#",
     "@version": 1.1
@@ -700,7 +771,7 @@ You can find the full JSON-LD context here:
 ## Sources
 
 * [W3C/OGC SOSA Sensor](https://www.w3.org/TR/vocab-ssn/#SOSASensor)
-* [CIDOC-CRM E22 Man-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E22)
+* [CRMdig D8 Digital Device (v5.0)](https://www.cidoc-crm.org/extensions/crmdig/)
 * [HERITALISE D8.2 REQ-009](https://heritalise-eccch.eu/)
 
 # For developers

@@ -1,0 +1,9 @@
+path	@id	schema
+/id	@id	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml
+/ofHeritageEntity	hdto:HP1_has_digital_twin	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml
+/label	http://www.w3.org/2000/01/rdf-schema#label	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml
+/creator	http://www.w3.org/ns/prov#wasAttributedTo	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml
+/containsPropositionSet	http://isl.ics.forth.gr/ontology/echoes/HP33_contains	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml
+/containedPropositionSet	http://isl.ics.forth.gr/ontology/echoes/HP34_contained	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml
+/composedBy	hdto:HP19_has_composed	/github/workspace/build/annotated/heritage/heritage-digital-twin/schema.yaml

@@ -12,6 +12,10 @@ allOf:
   required:
   - mediaType
   properties:
+    hdtoType:
+      const: hdto:HC8_3D_Model
+      description: "Narrows the inherited hdtoType (from digital-representation) to
+        HC8 \u2014 this block's own specific HDTO class (HC8 \u2291 HC5 per D7.1)."
     mediaType:
       type: string
       enum:

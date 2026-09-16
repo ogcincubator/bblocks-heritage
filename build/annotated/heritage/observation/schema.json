@@ -10,14 +10,26 @@
       "type": "object",
       "required": [
         "id",
-        "hasFeatureOfInterest"
+        "hasFeatureOfInterest",
+        "crmsciType"
       ],
       "properties": {
         "type": {
           "const": "Observation",
           "x-jsonld-id": "@type"
+        },
+        "crmsciType": {
+          "type": "string",
+          "const": "crmsci:S4",
+          "description": "Fixed HDTO co-type. Maps via context directly to rdf:type, alongside sosa:Observation \u2014 additive, per D7.1's own OGC SensorThings API crosswalk table (Table 1, p.28: STA Observation, the same concept sosa:Observation already models, targets crmsci:S4).",
+          "x-jsonld-id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "x-jsonld-type": "@id"
         }
       }
     }
-  ]
+  ],
+  "x-jsonld-prefixes": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "crmsci": "http://www.cidoc-crm.org/extensions/crmsci/"
+  }
 }

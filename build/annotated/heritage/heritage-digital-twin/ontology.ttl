@@ -1,0 +1,6 @@
+@prefix crmpem: <http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+hdto:HC2_Heritage_Digital_Twin owl:equivalentClass crmpem:PE20 .
+

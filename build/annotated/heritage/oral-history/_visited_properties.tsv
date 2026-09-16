@@ -118,6 +118,8 @@ path	@id	schema
 /mediaType	http://purl.org/dc/terms/format	/github/workspace/build/annotated/heritage/oral-history/schema.yaml
 /persistentIdentifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml
 /url	http://www.w3.org/ns/dcat#accessURL	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml
+/crmdigType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml
+/hdtoType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml
 /type	@type	/github/workspace/build/annotated/heritage/oral-history/schema.yaml
 /title	http://purl.org/dc/terms/title	/github/workspace/build/annotated/heritage/oral-history/schema.yaml
 /interviewee	https://schema.org/interviewee	/github/workspace/build/annotated/heritage/oral-history/schema.yaml

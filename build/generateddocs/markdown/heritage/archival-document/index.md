@@ -1,7 +1,7 @@
 
 # Archival Document (Schema)
 
-`ogc.heritage.archival-document` *v0.1*
+`ogc.heritage.archival-document` *v0.3*
 
 A digital-representation profile constrained to archival document formats (PDF/A, LIDO/XML), with a mandatory persistent identifier for long-term archival reference.
 
@@ -19,6 +19,14 @@ Unlike the other digital-representation profiles, `persistentIdentifier` is **ma
 archival records are expected to be citable and durably resolvable, which is the whole point of
 migrating a legacy paper or filesystem archive into this model (UC-V-3).
 
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is pinned to a fixed `const` of
+`hdto:HC5_Digital_Representation` — a digitised archival document has no more specific HC5-family
+class in D7.1. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required. Both are
+asserted via context on a plain JSON-LD parse. See
+[`digital-representation`](../digital-representation)'s description for the full HC5 rationale.
+
 ## Examples
 
 ### A LIDO/XML catalogue record with a Handle PID
@@ -30,7 +38,9 @@ A LIDO/XML export of the fishing creel's catalogue record, migrated from a legac
   "identifier": "WHM-1923.45-LIDO",
   "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
   "mediaType": "text/xml",
-  "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45"
+  "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -43,16 +53,22 @@ A LIDO/XML export of the fishing creel's catalogue record, migrated from a legac
   "identifier": "WHM-1923.45-LIDO",
   "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
   "mediaType": "text/xml",
-  "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45"
+  "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> dct:format "text/xml" ;
+<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    dct:format "text/xml" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> ;
     crm:P1_is_identified_by "WHM-1923.45-LIDO",
         "https://hdl.handle.net/10.1234/whm-1923.45" .
@@ -74,7 +90,9 @@ A ground floor plan of Villa Portelli, held as an AutoCAD DWG file (`application
   "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg",
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -91,18 +109,24 @@ A ground floor plan of Villa Portelli, held as an AutoCAD DWG file (`application
   "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg",
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> dct:format "application/dwg" ;
+<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    dct:format "application/dwg" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/site/villa-portelli> ;
     crm:P1_is_identified_by "MT-CAD-GFP-001",
         "https://hdl.handle.net/10.9999/mt-cad-gfp-001" ;
@@ -127,6 +151,11 @@ allOf:
   - mediaType
   - persistentIdentifier
   properties:
+    hdtoType:
+      const: hdto:HC5_Digital_Representation
+      description: "Pins the inherited hdtoType (from digital-representation, otherwise
+        an enum of HC5/HC7/HC8) to plain HC5 \u2014 a digitised archival document
+        has no more specific HC5-family class in D7.1."
     mediaType:
       type: string
       enum:
@@ -505,6 +534,14 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -513,6 +550,8 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

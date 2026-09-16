@@ -20,6 +20,10 @@
           "description": "Fixed type token identifying this record as a derived survey product (maps to crmdig:D9_Data_Object).",
           "x-jsonld-id": "@type"
         },
+        "hdtoType": {
+          "const": "hdto:HC5_Digital_Representation",
+          "description": "Pins the inherited hdtoType (from digital-representation, otherwise an enum of HC5/HC7/HC8) to plain HC5 \u2014 a derived survey product has no more specific HC5-family class in D7.1."
+        },
         "title": {
           "type": "string",
           "description": "Human-readable title of the derived product (dct:title).",
@@ -75,7 +79,7 @@
               "description": "Outcome of the quality assurance check, e.g. \"passed\", \"passed with remarks\", \"failed \u2014 reprocessing required\"."
             }
           },
-          "x-jsonld-id": "http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of",
+          "x-jsonld-id": "http://www.cidoc-crm.org/extensions/crmdig/L11i_was_output_of",
           "x-jsonld-type": "@json"
         },
         "limitations": {
@@ -91,10 +95,10 @@
     }
   ],
   "x-jsonld-extra-terms": {
-    "DerivedSurveyProduct": "http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object"
+    "DerivedSurveyProduct": "http://www.cidoc-crm.org/extensions/crmdig/D9_Data_Object"
   },
   "x-jsonld-prefixes": {
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
     "dct": "http://purl.org/dc/terms/",
     "prov": "http://www.w3.org/ns/prov#"
   }

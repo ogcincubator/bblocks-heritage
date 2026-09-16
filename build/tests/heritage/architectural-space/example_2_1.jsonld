@@ -39,6 +39,7 @@
     "floorLevel": "ground floor",
     "accessibilityStatus": "open to public",
     "monitoringRelevance": true,
-    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf"
+    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

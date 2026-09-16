@@ -1,7 +1,7 @@
 
 # Heritage Object (Schema)
 
-`ogc.heritage.heritage-object` *v0.1*
+`ogc.heritage.heritage-object` *v0.3*
 
 A physical cultural heritage item — an artwork, building element, garden feature or museum object — modelled as a CIDOC-CRM E22 Man-Made Object.
 
@@ -25,6 +25,22 @@ reference:
   entities rather than embedded here, so the same object can accumulate history over time without
   growing an unbounded record.
 
+## HDTO alignment
+
+Every instance of this block is required to carry `hdtoType`, a fixed `const` of
+`hdto:HC3_Tangible_Heritage_Entity` (ECCCH's Heritage Digital Twin Ontology, D7.1 v1.0/v1.1). It
+maps via `context.jsonld` directly to `rdf:type`, alongside `crm:E22_Man-Made_Object` — additive,
+per D7.1 Figure 20's own worked example, which shows the same node typed as both classes at once.
+This is asserted on a plain JSON-LD parse with no extra tooling: HC3 is a logical consequence of
+the CIDOC-CRM type this block already declares (HC3 ⊑ crm:E18 Physical Thing, and E22 ⊑ E18), and
+the value never varies, but it's still declared as a required schema property — not inferred via a
+post-processing step — so that any consumer doing a basic uplift (not just one that runs this
+register's `semantic-uplift.yaml` steps) reliably gets the HDTO co-type. `building` and
+`heritage-object-feature` inherit `hdtoType` from this block's own `$defs/properties`, so they
+don't redeclare it. `architectural-space` is deliberately **not** co-typed — whether a room/space
+is independently "the" heritage entity or just a component of its containing building is a
+partner (CRRS/Venaria) judgment call, not decidable from OGC's side alone.
+
 ## Examples
 
 ### A catalogued painting with type, material and location
@@ -40,7 +56,8 @@ A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materia
   "material": [
     "http://vocab.getty.edu/aat/300014078"
   ],
-  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
+  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 
 ```
@@ -57,15 +74,18 @@ A ceiling painting from the Reggia di Venaria's Great Gallery, typed and materia
   "material": [
     "http://vocab.getty.edu/aat/300014078"
   ],
-  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
+  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object ;
     crm:P102_has_title "Allegorical ceiling painting, Great Gallery" ;
     crm:P1_is_identified_by "RV-GG-014" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300033618> ;
@@ -84,7 +104,8 @@ Only `identifier` and `title` are required — everything else can be added incr
   "id": "https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45",
   "type": "HeritageObject",
   "identifier": "WHM-1923.45",
-  "title": "Fishing creel"
+  "title": "Fishing creel",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 
 ```
@@ -96,15 +117,18 @@ Only `identifier` and `title` are required — everything else can be added incr
   "id": "https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45",
   "type": "HeritageObject",
   "identifier": "WHM-1923.45",
-  "title": "Fishing creel"
+  "title": "Fishing creel",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object ;
     crm:P102_has_title "Fishing creel" ;
     crm:P1_is_identified_by "WHM-1923.45" .
 
@@ -127,7 +151,8 @@ A load-bearing vault section within the Reggia di Venaria north gallery, typed a
     "http://vocab.getty.edu/aat/300014130"
   ],
   "parentSpace": "https://heritalise-eccch.eu/resource/space/north-gallery",
-  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 
 ```
@@ -146,15 +171,18 @@ A load-bearing vault section within the Reggia di Venaria north gallery, typed a
     "http://vocab.getty.edu/aat/300014130"
   ],
   "parentSpace": "https://heritalise-eccch.eu/resource/space/north-gallery",
-  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+  "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/object/north-vault-bay-3> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/north-vault-bay-3> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object ;
     crm:P102_has_title "North gallery vault, bay 3" ;
     crm:P1_is_identified_by "RV-ARCH-NV-003" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300002862> ;
@@ -186,7 +214,8 @@ A historical tapestry from the Reggia di Venaria — a movable item catalogued w
     "https://heritalise-eccch.eu/resource/event/tapestry-relocation-2021",
     "https://heritalise-eccch.eu/resource/event/tapestry-treatment-2019"
   ],
-  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh"
+  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 
 ```
@@ -209,16 +238,19 @@ A historical tapestry from the Reggia di Venaria — a movable item catalogued w
     "https://heritalise-eccch.eu/resource/event/tapestry-relocation-2021",
     "https://heritalise-eccch.eu/resource/event/tapestry-treatment-2019"
   ],
-  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh"
+  "conservationThresholdLink": "https://heritalise-eccch.eu/resource/threshold/textile-climate-rh",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object ;
     crm:P102_has_title "Royal Hunt tapestry no. 4" ;
     crm:P1_is_identified_by "RV-MOV-TAP-004" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300205002> ;
@@ -246,7 +278,8 @@ The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Get
     "http://vocab.getty.edu/aat/300011443"
   ],
   "currentLocation": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
-  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
+  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 
 ```
@@ -264,15 +297,18 @@ The Fountain of Diana in the Reggia di Venaria gardens, typed as a fountain (Get
     "http://vocab.getty.edu/aat/300011443"
   ],
   "currentLocation": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
-  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
+  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/object/diana-fountain> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/diana-fountain> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object ;
     crm:P102_has_title "Fountain of Diana, central garden axis" ;
     crm:P1_is_identified_by <https://w3id.org/heritalise/obj/RV-GARD-FNT-001>,
         "RV-GARD-FNT-001" ;
@@ -341,9 +377,21 @@ $defs:
           object.
         x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
         x-jsonld-type: '@id'
+      hdtoType:
+        type: string
+        const: hdto:HC3_Tangible_Heritage_Entity
+        description: "Fixed HDTO co-type (ECCCH Heritage Digital Twin Ontology, D7.1).
+          Maps via context directly to rdf:type, alongside crm:E22_Man-Made_Object
+          \u2014 additive, not a replacement (D7.1 Figure 20's own worked example
+          shows the same node typed as both classes at once). Required so every valid
+          instance is HDTO-typed on a plain JSON-LD parse, with no extra post-processing
+          step needed."
+        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+        x-jsonld-type: '@id'
     required:
     - identifier
     - title
+    - hdtoType
 type: object
 allOf:
 - type: object
@@ -371,7 +419,9 @@ x-jsonld-extra-terms:
     x-jsonld-container: '@set'
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   prov: http://www.w3.org/ns/prov#
+  hdto: http://isl.ics.forth.gr/ontology/echoes/
 
 ```
 
@@ -408,6 +458,10 @@ Links to the schema:
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
     },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "HeritageObject": "crm:E22_Man-Made_Object",
     "parentSpace": {
       "@id": "crm:P46i_forms_part_of",
@@ -419,7 +473,9 @@ Links to the schema:
       "@container": "@set"
     },
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "prov": "http://www.w3.org/ns/prov#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

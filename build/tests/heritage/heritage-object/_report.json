@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.heritage-object - Heritage Object",
   "bblockName": "Heritage Object",
   "bblockId": "ogc.heritage.heritage-object",
-  "generated": "2026-07-17T14:25:08.509833+00:00",
+  "generated": "2026-09-16T15:07:27.673523+00:00",
   "result": true,
   "items": [
     {
@@ -40,7 +40,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 6,
+              "size": 7,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -76,10 +76,15 @@
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/object/great-gallery-painting-014>"
                   ]
+                },
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/object/great-gallery-painting-014>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014>\n"
             }
           ]
         }
@@ -120,7 +125,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 3,
+              "size": 4,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -156,10 +161,15 @@
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>"
                   ]
+                },
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/object/fishing-creel-whm-1923-45>\n"
             }
           ]
         }
@@ -200,7 +210,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_3_1.ttl",
-              "size": 8,
+              "size": 9,
               "isError": false,
               "message": "Output Turtle example_3_1.ttl created"
             }
@@ -236,10 +246,15 @@
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/object/north-vault-bay-3>"
                   ]
+                },
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/object/north-vault-bay-3>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/north-vault-bay-3>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/north-vault-bay-3>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/object/north-vault-bay-3>\n"
             }
           ]
         }
@@ -280,7 +295,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_4_1.ttl",
-              "size": 9,
+              "size": 10,
               "isError": false,
               "message": "Output Turtle example_4_1.ttl created"
             }
@@ -316,10 +331,15 @@
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04>"
                   ]
+                },
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04>\n"
             }
           ]
         }
@@ -360,7 +380,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_5_1.ttl",
-              "size": 7,
+              "size": 8,
               "isError": false,
               "message": "Output Turtle example_5_1.ttl created"
             }
@@ -396,10 +416,15 @@
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/object/diana-fountain>"
                   ]
+                },
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/object/diana-fountain>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/diana-fountain>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/object/diana-fountain>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/object/diana-fountain>\n"
             }
           ]
         }

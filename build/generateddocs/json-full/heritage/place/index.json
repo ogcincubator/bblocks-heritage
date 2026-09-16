@@ -28,7 +28,9 @@
     "json-fg"
   ],
   "group": "Core",
-  "isProfileOf": "ogc.geo.json-fg.feature-lenient",
+  "isProfileOf": [
+    "ogc.geo.json-fg.feature-lenient"
+  ],
   "shaclShapes": {
     "ogc.heritage.place": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/place/shapes.shacl"

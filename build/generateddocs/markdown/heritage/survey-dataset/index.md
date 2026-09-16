@@ -1,7 +1,7 @@
 
 # Survey Dataset (Schema)
 
-`ogc.heritage.survey-dataset` *v0.1*
+`ogc.heritage.survey-dataset` *v0.3*
 
 A geometric survey dataset (point cloud, photogrammetric model or similar) acquired from a heritage asset, modelled as a CRMdig D1 Digital Object with a CRMdig D7 acquisition event and a spatial coverage geometry. Profiles ogc.heritage.digital-representation, adding survey acquisition paradata (method, equipment, CRS, density, accuracy) and a mandatory coverage polygon.
 
@@ -25,8 +25,15 @@ under `properties`, its `isAbout` link to the surveyed heritage asset.
 
 | Class | Namespace | Role |
 |-------|-----------|------|
-| `crmdig:D1_Digital_Object` | `http://www.ics.forth.gr/isl/CRMdig/` | The survey dataset itself |
-| `crmdig:D7_Digital_Machine_Event` | `http://www.ics.forth.gr/isl/CRMdig/` | The acquisition event (embedded as `acquisitionEvent`) |
+| `crmdig:D1_Digital_Object` | `http://www.cidoc-crm.org/extensions/crmdig/` | The survey dataset itself |
+| `crmdig:D7_Digital_Machine_Event` | `http://www.cidoc-crm.org/extensions/crmdig/` | The acquisition event (embedded as `acquisitionEvent`) |
+
+**Namespace corrected 2026-09-16**: previously `http://www.ics.forth.gr/isl/CRMdig/`. Retrofitted
+to HDTO's own stated CRMdig namespace (v5.0) per the resolved decision recorded in `PLAN.md`'s
+"HDTO alignment" section — HDTO is this project's actual target ontology, so its namespace choice
+wins over the register's earlier one. This is a URI-only change; no class names, properties, or
+JSON structure changed, so existing consumer code that only reads the JSON is unaffected — only
+RDF/SPARQL consumers that hardcoded the old namespace need to update.
 
 `properties.choType: "SurveyDataset"` maps to `crmdig:D1_Digital_Object` via the JSON-LD context —
 a second alias to `@type`, alongside the fixed GeoJSON `type: "Feature"`. The `acquisitionEvent`
@@ -82,6 +89,13 @@ value to avoid deep blank-node expansion.
 - **Malta MT-01 / MT-03** — UAV photogrammetric models and 3D scans of Villa Portelli and its
   gardens.
 
+## HDTO alignment
+
+`hdtoType` (required, inherited via `digital-representation-feature`) is pinned to a fixed
+`const` of `hdto:HC5_Digital_Representation` — safe and always-correct even for sensor-derived
+instances that could narrow further to HC6 (⊑ HC5) once real pilot data distinguishes them.
+`crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required.
+
 ## Examples
 
 ### Venaria — TLS point cloud of Galleria Grande ceiling
@@ -95,17 +109,32 @@ A terrestrial laser scan point cloud of the Galleria Grande ceiling, with acquis
     "type": "Polygon",
     "coordinates": [
       [
-        [7.6025, 45.1290],
-        [7.6035, 45.1290],
-        [7.6035, 45.1295],
-        [7.6025, 45.1295],
-        [7.6025, 45.1290]
+        [
+          7.6025,
+          45.129
+        ],
+        [
+          7.6035,
+          45.129
+        ],
+        [
+          7.6035,
+          45.1295
+        ],
+        [
+          7.6025,
+          45.1295
+        ],
+        [
+          7.6025,
+          45.129
+        ]
       ]
     ]
   },
   "properties": {
     "choType": "SurveyDataset",
-    "title": "TLS Point Cloud — Galleria Grande Ceiling (2024)",
+    "title": "TLS Point Cloud \u2014 Galleria Grande Ceiling (2024)",
     "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
     "mediaType": "application/vnd.las",
     "acquisitionEvent": {
@@ -114,13 +143,15 @@ A terrestrial laser scan point cloud of the Galleria Grande ceiling, with acquis
       "operator": "https://orcid.org/0000-0000-0000-0001",
       "equipment": "Leica RTC360",
       "crs": "https://www.opengis.net/def/crs/EPSG/0/32632",
-      "density": "~3500 pts/m²",
-      "accuracy": "±3 mm",
+      "density": "~3500 pts/m\u00b2",
+      "accuracy": "\u00b13 mm",
       "processingHistory": "Registration: Leica Cyclone REGISTER 360 v1.8; automatic noise filter applied; colourised from concurrent RGB imagery."
     },
     "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz",
     "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
-    "reviewStatus": "reviewed"
+    "reviewStatus": "reviewed",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 
@@ -176,7 +207,9 @@ A terrestrial laser scan point cloud of the Galleria Grande ceiling, with acquis
     },
     "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz",
     "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
-    "reviewStatus": "reviewed"
+    "reviewStatus": "reviewed",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 ```
@@ -184,14 +217,17 @@ A terrestrial laser scan point cloud of the Galleria Grande ceiling, with acquis
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> a crmdig:D1_Digital_Object,
+<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> a hdto:HC5_Digital_Representation,
+        crmdig:D1_Digital_Object,
+        crmdig:D9_Data_Object,
         geojson:Feature ;
     dct:description "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition." ;
     dct:format "application/vnd.las" ;
@@ -217,17 +253,32 @@ A UAV photogrammetric model of the Villa Portelli exterior, with acquisition met
     "type": "Polygon",
     "coordinates": [
       [
-        [14.4320, 35.9020],
-        [14.4335, 35.9020],
-        [14.4335, 35.9030],
-        [14.4320, 35.9030],
-        [14.4320, 35.9020]
+        [
+          14.432,
+          35.902
+        ],
+        [
+          14.4335,
+          35.902
+        ],
+        [
+          14.4335,
+          35.903
+        ],
+        [
+          14.432,
+          35.903
+        ],
+        [
+          14.432,
+          35.902
+        ]
       ]
     ]
   },
   "properties": {
     "choType": "SurveyDataset",
-    "title": "UAV Photogrammetric Model — Villa Portelli Exterior (2025)",
+    "title": "UAV Photogrammetric Model \u2014 Villa Portelli Exterior (2025)",
     "isAbout": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
     "mediaType": "model/obj",
     "acquisitionEvent": {
@@ -236,12 +287,14 @@ A UAV photogrammetric model of the Villa Portelli exterior, with acquisition met
       "equipment": "DJI Matrice 300 RTK with Zenmuse P1",
       "crs": "https://www.opengis.net/def/crs/EPSG/0/32633",
       "density": "3 cm/pixel ground sampling distance",
-      "accuracy": "±5 cm",
-      "processingHistory": "Processed in Agisoft Metashape 2.1 at medium quality: dense point cloud → mesh → texture. 42 GCPs used."
+      "accuracy": "\u00b15 cm",
+      "processingHistory": "Processed in Agisoft Metashape 2.1 at medium quality: dense point cloud \u2192 mesh \u2192 texture. 42 GCPs used."
     },
     "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip",
     "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-survey-2025",
-    "reviewStatus": "approved"
+    "reviewStatus": "approved",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 
@@ -296,7 +349,9 @@ A UAV photogrammetric model of the Villa Portelli exterior, with acquisition met
     },
     "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip",
     "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-survey-2025",
-    "reviewStatus": "approved"
+    "reviewStatus": "approved",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 ```
@@ -304,14 +359,17 @@ A UAV photogrammetric model of the Villa Portelli exterior, with acquisition met
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025> a crmdig:D1_Digital_Object,
+<https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025> a hdto:HC5_Digital_Representation,
+        crmdig:D1_Digital_Object,
+        crmdig:D9_Data_Object,
         geojson:Feature ;
     dct:format "model/obj" ;
     dct:title "UAV Photogrammetric Model — Villa Portelli Exterior (2025)" ;
@@ -342,17 +400,19 @@ A TLS scan whose coverage coincides exactly with the surveyed bay's own footprin
   },
   "properties": {
     "choType": "SurveyDataset",
-    "title": "TLS Point Cloud — Galleria Grande Bay 7 Vault (2024)",
+    "title": "TLS Point Cloud \u2014 Galleria Grande Bay 7 Vault (2024)",
     "isAbout": "https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7",
     "mediaType": "application/vnd.las",
     "acquisitionEvent": {
       "acquisitionMethod": "TLS",
       "acquisitionDate": "2024-03-16",
       "equipment": "Leica RTC360",
-      "accuracy": "±3 mm"
+      "accuracy": "\u00b13 mm"
     },
     "limitations": "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.geo.topo.features.topo-feature) instead of re-encoding the same polygon as `geometry`.",
-    "reviewStatus": "reviewed"
+    "reviewStatus": "reviewed",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 
@@ -383,7 +443,9 @@ A TLS scan whose coverage coincides exactly with the surveyed bay's own footprin
       "accuracy": "\u00b13 mm"
     },
     "limitations": "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.geo.topo.features.topo-feature) instead of re-encoding the same polygon as `geometry`.",
-    "reviewStatus": "reviewed"
+    "reviewStatus": "reviewed",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 ```
@@ -391,13 +453,16 @@ A TLS scan whose coverage coincides exactly with the surveyed bay's own footprin
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix topo: <https://purl.org/geojson/topo#> .
 
-<https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024> a crmdig:D1_Digital_Object,
+<https://heritalise-eccch.eu/resource/survey/gg-bay7-vault-tls-2024> a hdto:HC5_Digital_Representation,
+        crmdig:D1_Digital_Object,
+        crmdig:D9_Data_Object,
         geojson:Feature ;
     dct:description "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.geo.topo.features.topo-feature) instead of re-encoding the same polygon as `geometry`." ;
     dct:format "application/vnd.las" ;
@@ -460,6 +525,15 @@ allOf:
           description: 'CRMdig class discriminator for this record (maps to crmdig:D1_Digital_Object
             via a second alias to @type, alongside the fixed GeoJSON `type: "Feature"`).'
           x-jsonld-id: '@type'
+        hdtoType:
+          const: hdto:HC5_Digital_Representation
+          description: "Pins the inherited hdtoType (from digital-representation,
+            otherwise an enum of HC5/HC7/HC8) to HC5. D7.1's HC5-8 table lists \"HC6
+            Sensor Data\" as a possible anchor for sensor-derived survey datasets
+            specifically, but this block covers both sensor- and non-sensor-derived
+            acquisitions \u2014 HC5 (\u2292 HC6) is used as the safe, always-correct
+            co-type until real pilot data shows which instances are actually sensor-derived
+            and worth narrowing to HC6."
         title:
           type: string
           description: Human-readable title of the dataset (dct:title).
@@ -504,7 +578,7 @@ allOf:
               type: string
               description: Software and processing steps applied before delivery (registration,
                 noise filtering, etc.).
-          x-jsonld-id: http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of
+          x-jsonld-id: http://www.cidoc-crm.org/extensions/crmdig/L11i_was_output_of
           x-jsonld-type: '@json'
         limitations:
           type: string
@@ -515,9 +589,9 @@ allOf:
           type: string
           description: Workflow status of this record (e.g. draft, reviewed, approved).
 x-jsonld-extra-terms:
-  SurveyDataset: http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object
+  SurveyDataset: http://www.cidoc-crm.org/extensions/crmdig/D1_Digital_Object
 x-jsonld-prefixes:
-  crmdig: http://www.ics.forth.gr/isl/CRMdig/
+  crmdig: http://www.cidoc-crm.org/extensions/crmdig/
   dct: http://purl.org/dc/terms/
 
 ```
@@ -1050,7 +1124,16 @@ Links to the schema:
     "owlTime": "http://www.w3.org/2006/time#",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "@version": 1.1
   }
 }
@@ -1061,7 +1144,7 @@ You can find the full JSON-LD context here:
 
 ## Sources
 
-* [CRMdig D1 Digital Object / D7 Digital Machine Event](https://www.ics.forth.gr/isl/CRMdig/)
+* [CRMdig D1 Digital Object / D7 Digital Machine Event (v5.0)](https://www.cidoc-crm.org/extensions/crmdig/)
 * [DCAT Data Catalog Vocabulary v3](https://www.w3.org/TR/vocab-dcat-3/)
 * [HERITALISE D8.2 REQ-007 (Survey Dataset)](https://heritalise-eccch.eu/)
 

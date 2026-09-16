@@ -5,9 +5,6 @@
   "$defs": {
     "properties": {
       "type": "object",
-      "required": [
-        "isAbout"
-      ],
       "properties": {
         "identifier": {
           "type": "string",
@@ -38,8 +35,33 @@
           "description": "URL where this digital asset can be accessed or downloaded (dcat:accessURL).",
           "x-jsonld-id": "http://www.w3.org/ns/dcat#accessURL",
           "x-jsonld-type": "@id"
+        },
+        "crmdigType": {
+          "type": "string",
+          "const": "crmdig:D9_Data_Object",
+          "description": "Fixed co-type, shared by the whole digital-representation family. Maps via context directly to rdf:type. D7.1's own OGC SensorThings crosswalk table (Table 1, p.28) names crmdig:D9_Data_Object, not crm:E73_Information_Object, as HDTO's actual HC5 anchor \u2014 asserted here alongside (not instead of) whatever CRM/PROV-O typing this instance already carries. Required on every instance of this block and its profiles.",
+          "x-jsonld-id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "x-jsonld-type": "@id"
+        },
+        "hdtoType": {
+          "type": "string",
+          "format": "uri",
+          "enum": [
+            "hdto:HC5_Digital_Representation",
+            "hdto:HC7_Digital_Audiovisual_Object",
+            "hdto:HC8_3D_Model"
+          ],
+          "default": "hdto:HC5_Digital_Representation",
+          "description": "HDTO co-type (D7.1). Maps via context directly to rdf:type. Required on every instance; value must be HC5 (the family default \u2014 used when this block is not further profiled) or one of HC5's own HDTO subclasses HC7/HC8, which `oral-history`/`three-d-model` narrow to via their own fixed `const`.",
+          "x-jsonld-id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "x-jsonld-type": "@id"
         }
-      }
+      },
+      "required": [
+        "isAbout",
+        "crmdigType",
+        "hdtoType"
+      ]
     }
   },
   "allOf": [
@@ -51,8 +73,11 @@
     }
   ],
   "x-jsonld-prefixes": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dct": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#"
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/"
   }
 }

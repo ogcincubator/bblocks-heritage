@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.heritage-site - Heritage Site",
   "bblockName": "Heritage Site",
   "bblockId": "ogc.heritage.heritage-site",
-  "generated": "2026-07-17T14:25:13.222365+00:00",
+  "generated": "2026-09-16T15:07:33.669588+00:00",
   "result": true,
   "items": [
     {
@@ -40,7 +40,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 43,
+              "size": 44,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -76,10 +76,15 @@
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/site/reggia-di-venaria>"
                   ]
+                },
+                "<file:///github/workspace/_sources/heritage-site/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/site/reggia-di-venaria>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n"
+              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n"
             },
             {
               "op": "shacl-report",
@@ -113,6 +118,9 @@
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/site/reggia-di-venaria>"
@@ -123,13 +131,10 @@
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/site/reggia-di-venaria>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n"
             }
           ]
         }
@@ -170,7 +175,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 42,
+              "size": 43,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -206,10 +211,15 @@
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/site/villa-portelli-garden>"
                   ]
+                },
+                "<file:///github/workspace/_sources/heritage-site/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/site/villa-portelli-garden>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n"
+              "message": "Focus nodes for _sources/heritage-site/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HeritageSiteShape>: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n - Shape <file:///github/workspace/_sources/heritage-site/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n"
             },
             {
               "op": "shacl-report",
@@ -243,6 +253,9 @@
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
+                "geojson:LinkShape": {
+                  "nodes": []
+                },
                 "geojson:FeatureShape": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/site/villa-portelli-garden>"
@@ -253,13 +266,10 @@
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
-                },
-                "geojson:LinkShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/site/villa-portelli-garden>\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n"
             }
           ]
         }

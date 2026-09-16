@@ -1,9 +1,13 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> dct:format "application/dwg" ;
+<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    dct:format "application/dwg" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/site/villa-portelli> ;
     crm:P1_is_identified_by "MT-CAD-GFP-001",
         "https://hdl.handle.net/10.9999/mt-cad-gfp-001" ;

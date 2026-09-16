@@ -1,0 +1,175 @@
+{
+  "title": "Validation report for ogc.heritage.heritage-proposition-set - Heritage Proposition Set",
+  "bblockName": "Heritage Proposition Set",
+  "bblockId": "ogc.heritage.heritage-proposition-set",
+  "generated": "2026-09-16T15:07:27.695346+00:00",
+  "result": true,
+  "items": [
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/heritage-proposition-set/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/great-gallery-painting-1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 5,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/heritage-proposition-set/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/heritage-proposition-set/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/heritage-proposition-set/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/heritage-proposition-set/shapes.shacl#HeritagePropositionSetShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/heritage-proposition-set/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-proposition-set/shapes.shacl#HeritagePropositionSetShape>: <https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1>\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/heritage/heritage-proposition-set/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using examples/villa-portelli-main-2-current.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 5,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        },
+        {
+          "name": "SHACL",
+          "title": "SHACL",
+          "entries": [
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/heritage-proposition-set/shapes.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/heritage-proposition-set/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
+            },
+            {
+              "shaclFile": "_sources/heritage-proposition-set/shapes.shacl",
+              "focusNodes": {
+                "<file:///github/workspace/_sources/heritage-proposition-set/shapes.shacl#HeritagePropositionSetShape>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2>"
+                  ]
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/heritage-proposition-set/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-proposition-set/shapes.shacl#HeritagePropositionSetShape>: <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2>\n"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "globalErrors": {},
+  "counts": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0
+  }
+}

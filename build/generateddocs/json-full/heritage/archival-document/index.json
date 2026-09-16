@@ -7,7 +7,7 @@
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.3",
   "sources": [
     {
       "title": "PDF/A (ISO 19005)",
@@ -25,16 +25,21 @@
     "lido"
   ],
   "group": "Digital representation profiles",
-  "isProfileOf": "ogc.heritage.digital-representation",
+  "isProfileOf": [
+    "ogc.heritage.digital-representation"
+  ],
+  "dateOfLastChange": "2026-09-16",
   "shaclShapes": {
     "ogc.heritage.digital-representation": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ]
   },
   "dependsOn": [
     "ogc.heritage.digital-representation"
   ],
-  "dateOfLastChange": "2026-06-25",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/schema.json"
@@ -45,7 +50,7 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/archival-document/",
-  "description": "## Archival Document\n\nAn `ArchivalDocument` is a [`digital-representation`](../digital-representation) constrained to\narchival document formats \u2014 PDF/A or LIDO/XML \u2014 covering D8.2 profile C (long-term archival and\nmetadata-exchange records).\n\nUnlike the other digital-representation profiles, `persistentIdentifier` is **mandatory** here:\narchival records are expected to be citable and durably resolvable, which is the whole point of\nmigrating a legacy paper or filesystem archive into this model (UC-V-3).\n",
+  "description": "## Archival Document\n\nAn `ArchivalDocument` is a [`digital-representation`](../digital-representation) constrained to\narchival document formats \u2014 PDF/A or LIDO/XML \u2014 covering D8.2 profile C (long-term archival and\nmetadata-exchange records).\n\nUnlike the other digital-representation profiles, `persistentIdentifier` is **mandatory** here:\narchival records are expected to be citable and durably resolvable, which is the whole point of\nmigrating a legacy paper or filesystem archive into this model (UC-V-3).\n\n## HDTO alignment\n\n`hdtoType` (required, inherited from `digital-representation`) is pinned to a fixed `const` of\n`hdto:HC5_Digital_Representation` \u2014 a digitised archival document has no more specific HC5-family\nclass in D7.1. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required. Both are\nasserted via context on a plain JSON-LD parse. See\n[`digital-representation`](../digital-representation)'s description for the full HC5 rationale.\n",
   "examples": [
     {
       "title": "A LIDO/XML catalogue record with a Handle PID",
@@ -55,20 +60,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/examples/lido.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.json",
-          "sizeBytes": 294,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}\n"
+          "sizeBytes": 384,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\",\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.jsonld",
-          "sizeBytes": 416,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\"\n}"
+          "sizeBytes": 506,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record\",\n  \"identifier\": \"WHM-1923.45-LIDO\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"mediaType\": \"text/xml\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.1234/whm-1923.45\",\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_1_1.ttl",
-          "sizeBytes": 382,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n\n<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> dct:format \"text/xml\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> ;\n    crm:P1_is_identified_by \"WHM-1923.45-LIDO\",\n        \"https://hdl.handle.net/10.1234/whm-1923.45\" .\n\n"
+          "sizeBytes": 576,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n\n<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> a hdto:HC5_Digital_Representation,\n        crmdig:D9_Data_Object ;\n    dct:format \"text/xml\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> ;\n    crm:P1_is_identified_by \"WHM-1923.45-LIDO\",\n        \"https://hdl.handle.net/10.1234/whm-1923.45\" .\n\n"
         }
       ]
     },
@@ -80,25 +85,25 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/archival-document/examples/malta-cad-plan.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_2_1.json",
-          "sizeBytes": 500,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation\"\n  ]\n}\n"
+          "sizeBytes": 590,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation\"\n  ],\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_2_1.jsonld",
-          "sizeBytes": 622,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation\"\n  ]\n}"
+          "sizeBytes": 712,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/archival-document/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan\",\n  \"identifier\": \"MT-CAD-GFP-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/site/villa-portelli\",\n  \"mediaType\": \"application/dwg\",\n  \"persistentIdentifier\": \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation\"\n  ],\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/archival-document/example_2_1.ttl",
-          "sizeBytes": 684,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> dct:format \"application/dwg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/site/villa-portelli> ;\n    crm:P1_is_identified_by \"MT-CAD-GFP-001\",\n        \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\" ;\n    dcat:accessURL <https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg> ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation> .\n\n"
+          "sizeBytes": 878,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/villa-portelli-ground-floor-plan> a hdto:HC5_Digital_Representation,\n        crmdig:D9_Data_Object ;\n    dct:format \"application/dwg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/site/villa-portelli> ;\n    crm:P1_is_identified_by \"MT-CAD-GFP-001\",\n        \"https://hdl.handle.net/10.9999/mt-cad-gfp-001\" ;\n    dcat:accessURL <https://heritalise-eccch.eu/resource/files/villa-portelli-ground-floor.dwg> ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-conservation> .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Archival Document\ndescription: \"A `digital-representation` constrained to archival document formats\n  \\u2014 PDF/A or LIDO/XML \\u2014 with\\na mandatory persistent identifier, for long-term\n  archival reference (D8.2 profile C).\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  - persistentIdentifier\n  properties:\n    mediaType:\n      type: string\n      enum:\n      - application/pdf\n      - text/xml\n      - application/dwg\n      - image/vnd.dxf\n      description: '`application/pdf` for a PDF/A document (ISO 19005), `text/xml`\n        for a LIDO/XML record, `application/dwg` for an AutoCAD DWG architectural\n        drawing, or `image/vnd.dxf` for a DXF drawing exchange file.'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Archival Document\ndescription: \"A `digital-representation` constrained to archival document formats\n  \\u2014 PDF/A or LIDO/XML \\u2014 with\\na mandatory persistent identifier, for long-term\n  archival reference (D8.2 profile C).\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  - persistentIdentifier\n  properties:\n    hdtoType:\n      const: hdto:HC5_Digital_Representation\n      description: \"Pins the inherited hdtoType (from digital-representation, otherwise\n        an enum of HC5/HC7/HC8) to plain HC5 \\u2014 a digitised archival document\n        has no more specific HC5-family class in D7.1.\"\n    mediaType:\n      type: string\n      enum:\n      - application/pdf\n      - text/xml\n      - application/dwg\n      - image/vnd.dxf\n      description: '`application/pdf` for a PDF/A document (ISO 19005), `text/xml`\n        for a LIDO/XML record, `application/dwg` for an AutoCAD DWG architectural\n        drawing, or `image/vnd.dxf` for a DXF drawing exchange file.'\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/archival-document"
 }

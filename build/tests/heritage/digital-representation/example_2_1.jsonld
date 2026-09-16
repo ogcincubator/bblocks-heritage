@@ -1,5 +1,7 @@
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01",
-  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel"
+  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }

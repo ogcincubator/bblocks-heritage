@@ -1,0 +1,7 @@
+path	@id	schema
+/id	@id	/github/workspace/build/annotated/heritage/heritage-proposition-set/schema.yaml
+/type	@type	/github/workspace/build/annotated/heritage/heritage-proposition-set/schema.yaml
+/label	http://www.w3.org/2000/01/rdf-schema#label	/github/workspace/build/annotated/heritage/heritage-proposition-set/schema.yaml
+/content	http://www.cidoc-crm.org/cidoc-crm/P148_has_component	/github/workspace/build/annotated/heritage/heritage-proposition-set/schema.yaml
+/composedBy	hdto:HP30_added_content	/github/workspace/build/annotated/heritage/heritage-proposition-set/schema.yaml
+/replaces	http://isl.ics.forth.gr/ontology/echoes/HP32_replaced	/github/workspace/build/annotated/heritage/heritage-proposition-set/schema.yaml

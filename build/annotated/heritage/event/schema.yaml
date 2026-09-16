@@ -20,9 +20,54 @@ allOf:
     eventType:
       type: string
       format: uri
-      description: The type of event, typically a Getty AAT concept URI, e.g. production
-        or restoration (CIDOC-CRM P2_has_type).
+      description: "The type of event, typically a Getty AAT concept URI, e.g. production
+        or restoration (CIDOC-CRM P2_has_type). Set to an HDTO class URI (hdto:HC11_Digital_Twin_Maintenance
+        / hdto:HC13_Project) to identify this event as a digital-twin-maintenance
+        or project activity \u2014 see `hdtoType` below, required in that case."
       x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type
       x-jsonld-type: '@id'
+    hdtoType:
+      type: string
+      enum:
+      - hdto:HC11_Digital_Twin_Maintenance
+      - hdto:HC13_Project
+      description: "HDTO co-type (D7.1). Maps via context directly to rdf:type. Not
+        applicable to most events (an ordinary production/restoration/acquisition
+        has no HC11/HC13 counterpart) \u2014 required only when eventType is itself
+        set to the matching HDTO class URI (see the `if`/`then` blocks below), since
+        nothing about an Event's CRM/PROV-O type alone distinguishes a digital-twin-maintenance
+        or project activity from any other event."
+      x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+      x-jsonld-type: '@id'
+- if:
+    properties:
+      eventType:
+        const: http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance
+    required:
+    - eventType
+  then:
+    required:
+    - hdtoType
+    properties:
+      hdtoType:
+        const: hdto:HC11_Digital_Twin_Maintenance
+        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+        x-jsonld-type: '@id'
+- if:
+    properties:
+      eventType:
+        const: http://isl.ics.forth.gr/ontology/echoes/HC13_Project
+    required:
+    - eventType
+  then:
+    required:
+    - hdtoType
+    properties:
+      hdtoType:
+        const: hdto:HC13_Project
+        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+        x-jsonld-type: '@id'
 x-jsonld-prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crm: http://www.cidoc-crm.org/cidoc-crm/
+  hdto: http://isl.ics.forth.gr/ontology/echoes/

@@ -159,3 +159,4 @@ path	@id	schema
 /properties/designation	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/heritage-site/schema.yaml
 /properties/responsibleOrganisation	http://www.cidoc-crm.org/cidoc-crm/P50_has_current_keeper	/github/workspace/build/annotated/heritage/heritage-site/schema.yaml
 /properties/rights	http://purl.org/dc/terms/rights	/github/workspace/build/annotated/heritage/heritage-site/schema.yaml
+/properties/hdtoType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	/github/workspace/build/annotated/heritage/heritage-site/schema.yaml

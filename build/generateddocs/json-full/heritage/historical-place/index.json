@@ -8,7 +8,7 @@
   "dateTimeAddition": "2026-07-16T00:00:00Z",
   "itemClass": "schema",
   "version": "0.1",
-  "dateOfLastChange": "2026-07-17",
+  "dateOfLastChange": "2026-09-16",
   "sources": [
     {
       "title": "CIDOC-CRM E53 Place",
@@ -31,7 +31,9 @@
     "spatial"
   ],
   "group": "Place profiles",
-  "isProfileOf": "ogc.heritage.place",
+  "isProfileOf": [
+    "ogc.heritage.place"
+  ],
   "shaclShapes": {
     "ogc.heritage.historical-place": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/historical-place/shapes.shacl"

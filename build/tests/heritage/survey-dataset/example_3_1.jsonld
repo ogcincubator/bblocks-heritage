@@ -21,6 +21,8 @@
       "accuracy": "\u00b13 mm"
     },
     "limitations": "Scan coverage coincides exactly with the surveyed bay's own footprint; expressed here by reference (ogc.geo.topo.features.topo-feature) instead of re-encoding the same polygon as `geometry`.",
-    "reviewStatus": "reviewed"
+    "reviewStatus": "reviewed",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }

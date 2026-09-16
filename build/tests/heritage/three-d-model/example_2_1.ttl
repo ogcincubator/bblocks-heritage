@@ -1,9 +1,13 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> dct:format "model/gltf+json" ;
+<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> a hdto:HC8_3D_Model,
+        crmdig:D9_Data_Object ;
+    dct:format "model/gltf+json" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/south-balustrade> ;
     crm:P1_is_identified_by "MT-3D-BAL-001" ;
     dcat:accessURL <https://heritalise-eccch.eu/resource/files/south-balustrade.gltf> ;

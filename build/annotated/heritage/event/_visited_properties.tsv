@@ -115,3 +115,5 @@ path	@id	schema
 /qualifiedAssociation/_oneOf/1/hadPlan	http://www.w3.org/ns/prov#hadPlan	https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml
 /identifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/event/schema.yaml
 /eventType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/event/schema.yaml
+/hdtoType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	/github/workspace/build/annotated/heritage/event/schema.yaml
+/_then/hdtoType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	/github/workspace/build/annotated/heritage/event/schema.yaml

@@ -1,7 +1,7 @@
 
 # Heritage Site (Schema)
 
-`ogc.heritage.heritage-site` *v0.1*
+`ogc.heritage.heritage-site` *v0.3*
 
 A designated heritage site or pilot area, typed as CIDOC-CRM E27 Site. Extends 'place' with site-level designation, responsible organisation and rights fields.
 
@@ -44,6 +44,15 @@ top-level boundary; the place hierarchy handles subdivision.
 - **MT-03** — Villa Portelli garden as a named national monument (Heritage Malta)
 - **REQ-018** — Venaria garden as a site-level entity (sub-zone linkage via `place`)
 
+## HDTO alignment
+
+Every instance requires `properties.hdtoType`, a fixed `const` of
+`hdto:HC3_Tangible_Heritage_Entity`, mapped via `context.jsonld` directly to `rdf:type` — asserted
+on a plain JSON-LD parse, no post-processing step needed. Unlike `heritage-object`, this block has
+no other CIDOC-CRM class triple to derive HC3 from (it profiles `place`, whose JSON-FG envelope
+fixes `type` to the literal `"Feature"`), so `hdtoType` is declared directly rather than derived
+from an existing class.
+
 ## Examples
 
 ### Reggia di Venaria Reale pilot site (REQ-001)
@@ -57,11 +66,26 @@ The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage desig
     "type": "Polygon",
     "coordinates": [
       [
-        [7.617, 45.130],
-        [7.642, 45.130],
-        [7.642, 45.145],
-        [7.617, 45.145],
-        [7.617, 45.130]
+        [
+          7.617,
+          45.13
+        ],
+        [
+          7.642,
+          45.13
+        ],
+        [
+          7.642,
+          45.145
+        ],
+        [
+          7.617,
+          45.145
+        ],
+        [
+          7.617,
+          45.13
+        ]
       ]
     ]
   },
@@ -72,7 +96,8 @@ The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage desig
     "designation": "UNESCO World Heritage List no. 823",
     "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
     "rights": "https://creativecommons.org/licenses/by/4.0/",
-    "sameAs": "http://vocab.getty.edu/tgn/7011057"
+    "sameAs": "http://vocab.getty.edu/tgn/7011057",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -118,7 +143,8 @@ The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage desig
     "designation": "UNESCO World Heritage List no. 823",
     "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
     "rights": "https://creativecommons.org/licenses/by/4.0/",
-    "sameAs": "http://vocab.getty.edu/tgn/7011057"
+    "sameAs": "http://vocab.getty.edu/tgn/7011057",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -128,11 +154,13 @@ The Reggia di Venaria pilot area as a heritage site: UNESCO World Heritage desig
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/site/reggia-di-venaria> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/site/reggia-di-venaria> a hdto:HC3_Tangible_Heritage_Entity,
+        geojson:Feature ;
     dct:rights "https://creativecommons.org/licenses/by/4.0/" ;
     crm:P1_is_identified_by "RV-SITE-001",
         "UNESCO World Heritage List no. 823" ;
@@ -158,11 +186,26 @@ The Villa Portelli garden (Malta pilot) as a heritage site: national monument de
     "type": "Polygon",
     "coordinates": [
       [
-        [14.512, 35.895],
-        [14.516, 35.895],
-        [14.516, 35.898],
-        [14.512, 35.898],
-        [14.512, 35.895]
+        [
+          14.512,
+          35.895
+        ],
+        [
+          14.516,
+          35.895
+        ],
+        [
+          14.516,
+          35.898
+        ],
+        [
+          14.512,
+          35.898
+        ],
+        [
+          14.512,
+          35.895
+        ]
       ]
     ]
   },
@@ -172,7 +215,8 @@ The Villa Portelli garden (Malta pilot) as a heritage site: national monument de
     "siteType": "http://vocab.getty.edu/aat/300008012",
     "designation": "Grade 1 Scheduled Monument (Malta)",
     "responsibleOrganisation": "Heritage Malta",
-    "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+    "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -217,7 +261,8 @@ The Villa Portelli garden (Malta pilot) as a heritage site: national monument de
     "siteType": "http://vocab.getty.edu/aat/300008012",
     "designation": "Grade 1 Scheduled Monument (Malta)",
     "responsibleOrganisation": "Heritage Malta",
-    "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+    "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -227,10 +272,12 @@ The Villa Portelli garden (Malta pilot) as a heritage site: national monument de
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/site/villa-portelli-garden> a geojson:Feature ;
+<https://heritalise-eccch.eu/resource/site/villa-portelli-garden> a hdto:HC3_Tangible_Heritage_Entity,
+        geojson:Feature ;
     dct:rights "https://creativecommons.org/licenses/by-nc/4.0/" ;
     crm:P1_is_identified_by "Grade 1 Scheduled Monument (Malta)",
         "MT-SITE-GARDEN-01" ;
@@ -298,11 +345,24 @@ allOf:
           description: Access and use rights statement, preferably a Creative Commons
             or rights statement URI (dct:rights).
           x-jsonld-id: http://purl.org/dc/terms/rights
+        hdtoType:
+          type: string
+          const: hdto:HC3_Tangible_Heritage_Entity
+          description: "Fixed HDTO co-type (ECCCH Heritage Digital Twin Ontology,
+            D7.1). Maps via context directly to rdf:type. Required so every instance
+            is HDTO-typed on a plain JSON-LD parse \u2014 this block has no other
+            CIDOC-CRM class triple to derive it from (it profiles `place`, whose JSON-FG
+            envelope fixes `type` to the literal `\"Feature\"`)."
+          x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+          x-jsonld-type: '@id'
       required:
       - siteType
+      - hdtoType
 x-jsonld-prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
+  hdto: http://isl.ics.forth.gr/ontology/echoes/
 
 ```
 
@@ -409,6 +469,10 @@ Links to the schema:
     "designation": "crm:P1_is_identified_by",
     "responsibleOrganisation": "crm:P50_has_current_keeper",
     "rights": "dct:rights",
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "geojson": "https://purl.org/geojson/vocab#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "oa": "http://www.w3.org/ns/oa#",
@@ -417,6 +481,8 @@ Links to the schema:
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "identifier": "crm:P1_is_identified_by",
     "name": "crm:P87_is_identified_by",
     "placeType": {

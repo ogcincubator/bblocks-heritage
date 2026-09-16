@@ -517,7 +517,16 @@
     "owlTime": "http://www.w3.org/2006/time#",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "@version": 1.1
   }
 }

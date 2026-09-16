@@ -1,0 +1,12 @@
+{
+  "id": "https://heritalise-eccch.eu/resource/hdt/villa-portelli-main",
+  "type": "HeritageDigitalTwin",
+  "ofHeritageEntity": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
+  "label": "The HDT of Villa Portelli's main building",
+  "containsPropositionSet": [
+    "https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2"
+  ],
+  "containedPropositionSet": [
+    "https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1"
+  ]
+}

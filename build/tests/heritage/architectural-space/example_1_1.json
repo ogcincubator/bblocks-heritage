@@ -51,6 +51,7 @@
     "floorLevel": "piano nobile",
     "bayCode": "B07",
     "accessibilityStatus": "open to public",
-    "monitoringRelevance": true
+    "monitoringRelevance": true,
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

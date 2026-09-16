@@ -1,11 +1,27 @@
 
 # Heritage Object Feature (Schema)
 
-`ogc.heritage.heritage-object-feature` *v0.1*
+`ogc.heritage.heritage-object-feature` *v0.3*
 
 Feature-envelope wrapper for Heritage Object: a spatially located CIDOC-CRM E22 Man-Made Object encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.
 
 [*Status*](http://www.opengis.net/def/status): Under development
+
+## Description
+
+## Heritage Object Feature
+
+Feature-envelope wrapper for [`heritage-object`](../heritage-object) — see `schema.yaml` for the
+GeoJSON/JSON-FG and topology-reference encoding options this block adds.
+
+## HDTO alignment
+
+Required `properties.hdtoType` (fixed `const` `hdto:HC3_Tangible_Heritage_Entity`), inherited from
+[`heritage-object`](../heritage-object)'s `$defs/properties` — see that block's description for
+the full rationale. Maps via this block's own `context.jsonld` directly to `rdf:type`, so it's
+asserted on a plain JSON-LD parse with no post-processing step. The companion validation shape is
+inherited from `heritage-object`'s `shapes.shacl` (both blocks emit the same
+`crm:E22_Man-Made_Object` class via `choType`), so this block does not duplicate it.
 
 ## Examples
 
@@ -18,7 +34,10 @@ A heritage object with an embedded GeoJSON point marking its location. `properti
   "type": "Feature",
   "geometry": {
     "type": "Point",
-    "coordinates": [7.6187, 45.1337]
+    "coordinates": [
+      7.6187,
+      45.1337
+    ]
   },
   "properties": {
     "choType": "HeritageObject",
@@ -29,7 +48,8 @@ A heritage object with an embedded GeoJSON point marking its location. `properti
       "http://vocab.getty.edu/aat/300010439",
       "http://vocab.getty.edu/aat/300014130"
     ],
-    "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+    "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -57,7 +77,8 @@ A heritage object with an embedded GeoJSON point marking its location. `properti
       "http://vocab.getty.edu/aat/300010439",
       "http://vocab.getty.edu/aat/300014130"
     ],
-    "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown."
+    "description": "Decorated barrel vault section in the north gallery, third bay from the entrance. Load-bearing masonry with fresco decoration, exhibiting moisture ingress at the crown.",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -66,10 +87,12 @@ A heritage object with an embedded GeoJSON point marking its location. `properti
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/object/north-vault-bay-3> a crm:E22_Man-Made_Object,
+<https://heritalise-eccch.eu/resource/object/north-vault-bay-3> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object,
         geojson:Feature ;
     crm:P102_has_title "North gallery vault, bay 3" ;
     crm:P1_is_identified_by "RV-ARCH-NV-003" ;
@@ -102,7 +125,8 @@ The same object located by reference instead of embedded coordinates: `geometry`
     "choType": "HeritageObject",
     "identifier": "RV-ARCH-NV-003",
     "title": "North gallery vault, bay 3",
-    "objectType": "http://vocab.getty.edu/aat/300002862"
+    "objectType": "http://vocab.getty.edu/aat/300002862",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -125,7 +149,8 @@ The same object located by reference instead of embedded coordinates: `geometry`
     "choType": "HeritageObject",
     "identifier": "RV-ARCH-NV-003",
     "title": "North gallery vault, bay 3",
-    "objectType": "http://vocab.getty.edu/aat/300002862"
+    "objectType": "http://vocab.getty.edu/aat/300002862",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -134,10 +159,12 @@ The same object located by reference instead of embedded coordinates: `geometry`
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix topo: <https://purl.org/geojson/topo#> .
 
-<https://heritalise-eccch.eu/resource/object/north-vault-bay-3-topo> a crm:E22_Man-Made_Object,
+<https://heritalise-eccch.eu/resource/object/north-vault-bay-3-topo> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object,
         geojson:Feature ;
     crm:P102_has_title "North gallery vault, bay 3" ;
     crm:P1_is_identified_by "RV-ARCH-NV-003" ;
@@ -194,6 +221,9 @@ allOf:
             x-jsonld-id: '@type'
 x-jsonld-extra-terms:
   HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object
+  hdtoType:
+    x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+    x-jsonld-type: '@id'
   identifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
   title: http://www.cidoc-crm.org/cidoc-crm/P102_has_title
   description: http://www.cidoc-crm.org/cidoc-crm/P3_has_note
@@ -212,6 +242,8 @@ x-jsonld-extra-terms:
     x-jsonld-type: '@id'
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  hdto: http://isl.ics.forth.gr/ontology/echoes/
 
 ```
 
@@ -382,6 +414,10 @@ Links to the schema:
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
     },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "choType": "@type",
     "HeritageObject": "crm:E22_Man-Made_Object",
     "Arc": "geojson:Arc",
@@ -428,6 +464,8 @@ Links to the schema:
     "owlTime": "http://www.w3.org/2006/time#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
     "prov": "http://www.w3.org/ns/prov#",

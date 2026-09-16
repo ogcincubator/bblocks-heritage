@@ -354,6 +354,14 @@
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -362,6 +370,8 @@
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

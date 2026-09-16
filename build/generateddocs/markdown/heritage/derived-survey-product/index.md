@@ -1,7 +1,7 @@
 
 # Derived Survey Product (Schema)
 
-`ogc.heritage.derived-survey-product` *v0.1*
+`ogc.heritage.derived-survey-product` *v0.3*
 
 A processed output derived from a geometric survey dataset — section drawing, triangulated mesh, deviation map or registration report — modelled as a CRMdig D9 Data Object. Profiles ogc.heritage.digital-representation, adding a mandatory PROV derivation link to the parent survey dataset and a structured CRMdig D10 Software Execution sub-object recording the processing parameters.
 
@@ -25,6 +25,11 @@ Modelled as a **CRMdig D9 Data Object** (a derived digital object). Profiles
 
 The spatial extent of the derived product is inherited from the parent survey dataset; no
 separate coverage geometry is required.
+
+**Namespace corrected 2026-09-16**: `crmdig:` now resolves to
+`http://www.cidoc-crm.org/extensions/crmdig/` (CRMdig v5.0, HDTO's own stated namespace), not the
+earlier `http://www.ics.forth.gr/isl/CRMdig/`. See `PLAN.md`'s "HDTO alignment" section for the
+resolved decision. URI-only change — no class names, properties, or JSON structure changed.
 
 ## CRM anchor
 
@@ -71,8 +76,13 @@ are not individually mapped to RDF predicates — they are captured as processin
   products do not have. The semantic relationship to the source dataset is captured via
   `prov:wasDerivedFrom`. CRMdig D9 IS-A D1 Digital Object, consistent with profiling the
   D1-anchored `digital-representation` block.
-- **SHACL targeting:** `sh:targetClass crmdig:D9_Data_Object` is safe because no other block in
-  this register maps any type token to that class.
+- **SHACL targeting:** uses `sh:targetSubjectsOf crmdig:L11i_was_output_of` (not
+  `sh:targetClass crmdig:D9_Data_Object`), since `digital-representation` and its profiles now all
+  assert D9 too as part of the HDTO co-typing work — see `digital-representation`'s description
+  for the collision and the fix.
+- **HDTO alignment:** `hdtoType` (required, inherited from `digital-representation`) is pinned to
+  a fixed `const` of `hdto:HC5_Digital_Representation` — a derived survey product has no more
+  specific HC5-family class in D7.1.
 - **processingEvent as @json:** Consistent with the `acquisitionEvent` pattern in `survey-dataset`.
   Inner fields are not SHACL-validated; the shape only checks that the sub-object is present.
 
@@ -92,7 +102,7 @@ A triangulated mesh generated from the Galleria Grande ceiling TLS point cloud, 
 {
   "type": "DerivedSurveyProduct",
   "id": "https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024",
-  "title": "Triangulated Mesh — Galleria Grande Ceiling (derived from TLS 2024)",
+  "title": "Triangulated Mesh \u2014 Galleria Grande Ceiling (derived from TLS 2024)",
   "isAbout": "https://heritalise-eccch.eu/resource/building/galleria-grande",
   "parentDataset": "https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024",
   "mediaType": "model/obj",
@@ -104,11 +114,13 @@ A triangulated mesh generated from the Galleria Grande ceiling TLS point cloud, 
     "softwareVersion": "2024.0.1",
     "operator": "https://orcid.org/0000-0000-0000-0001",
     "parameters": "Poisson reconstruction; octree depth 10; smoothing kernel radius 5 mm",
-    "accuracy": "mean deviation from source cloud ±1.8 mm",
+    "accuracy": "mean deviation from source cloud \u00b11.8 mm",
     "qaResult": "passed"
   },
   "limitations": "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud.",
-  "reviewStatus": "reviewed"
+  "reviewStatus": "reviewed",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -135,20 +147,24 @@ A triangulated mesh generated from the Galleria Grande ceiling TLS point cloud, 
     "qaResult": "passed"
   },
   "limitations": "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud.",
-  "reviewStatus": "reviewed"
+  "reviewStatus": "reviewed",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024> a crmdig:D9_Data_Object ;
+<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
     dct:description "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud." ;
     dct:format "model/obj" ;
     dct:title "Triangulated Mesh — Galleria Grande Ceiling (derived from TLS 2024)" ;
@@ -168,7 +184,7 @@ A facade deviation map derived from the Villa Portelli UAV photogrammetric surve
 {
   "type": "DerivedSurveyProduct",
   "id": "https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025",
-  "title": "Facade Deviation Map — Villa Portelli exterior (derived from UAV survey 2025)",
+  "title": "Facade Deviation Map \u2014 Villa Portelli exterior (derived from UAV survey 2025)",
   "isAbout": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
   "parentDataset": "https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025",
   "mediaType": "image/tiff",
@@ -180,12 +196,14 @@ A facade deviation map derived from the Villa Portelli UAV photogrammetric surve
     "software": "CloudCompare",
     "softwareVersion": "2.13.1",
     "operator": "https://orcid.org/0000-0000-0000-0002",
-    "parameters": "Reference surface: design BIM mesh (IFC); max search radius 0.5 m; colour ramp ±100 mm",
-    "accuracy": "RMS deviation 38 mm; 92 % of facade within ±50 mm of design intent",
-    "qaResult": "passed with remarks — two pilasters exceed ±80 mm threshold"
+    "parameters": "Reference surface: design BIM mesh (IFC); max search radius 0.5 m; colour ramp \u00b1100 mm",
+    "accuracy": "RMS deviation 38 mm; 92 % of facade within \u00b150 mm of design intent",
+    "qaResult": "passed with remarks \u2014 two pilasters exceed \u00b180 mm threshold"
   },
   "limitations": "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion.",
-  "reviewStatus": "approved"
+  "reviewStatus": "approved",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -213,20 +231,24 @@ A facade deviation map derived from the Villa Portelli UAV photogrammetric surve
     "qaResult": "passed with remarks \u2014 two pilasters exceed \u00b180 mm threshold"
   },
   "limitations": "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion.",
-  "reviewStatus": "approved"
+  "reviewStatus": "approved",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025> a crmdig:D9_Data_Object ;
+<https://heritalise-eccch.eu/resource/product/villa-portelli-deviation-map-2025> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
     dct:description "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion." ;
     dct:format "image/tiff" ;
     dct:title "Facade Deviation Map — Villa Portelli exterior (derived from UAV survey 2025)" ;
@@ -263,6 +285,11 @@ allOf:
       description: Fixed type token identifying this record as a derived survey product
         (maps to crmdig:D9_Data_Object).
       x-jsonld-id: '@type'
+    hdtoType:
+      const: hdto:HC5_Digital_Representation
+      description: "Pins the inherited hdtoType (from digital-representation, otherwise
+        an enum of HC5/HC7/HC8) to plain HC5 \u2014 a derived survey product has no
+        more specific HC5-family class in D7.1."
     title:
       type: string
       description: Human-readable title of the derived product (dct:title).
@@ -313,7 +340,7 @@ allOf:
           type: string
           description: "Outcome of the quality assurance check, e.g. \"passed\", \"passed
             with remarks\", \"failed \u2014 reprocessing required\"."
-      x-jsonld-id: http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of
+      x-jsonld-id: http://www.cidoc-crm.org/extensions/crmdig/L11i_was_output_of
       x-jsonld-type: '@json'
     limitations:
       type: string
@@ -323,9 +350,9 @@ allOf:
       type: string
       description: Workflow status of this record (e.g. draft, reviewed, approved).
 x-jsonld-extra-terms:
-  DerivedSurveyProduct: http://www.ics.forth.gr/isl/CRMdig/D9_Data_Object
+  DerivedSurveyProduct: http://www.cidoc-crm.org/extensions/crmdig/D9_Data_Object
 x-jsonld-prefixes:
-  crmdig: http://www.ics.forth.gr/isl/CRMdig/
+  crmdig: http://www.cidoc-crm.org/extensions/crmdig/
   dct: http://purl.org/dc/terms/
   prov: http://www.w3.org/ns/prov#
 
@@ -697,6 +724,14 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "title": "dct:title",
     "parentDataset": {
       "@id": "prov:wasDerivedFrom",
@@ -716,7 +751,8 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }
@@ -727,7 +763,7 @@ You can find the full JSON-LD context here:
 
 ## Sources
 
-* [CRMdig D9 Data Object / D10 Software Execution](https://www.ics.forth.gr/isl/CRMdig/)
+* [CRMdig D9 Data Object / D10 Software Execution (v5.0)](https://www.cidoc-crm.org/extensions/crmdig/)
 * [PROV-O: The PROV Ontology](https://www.w3.org/TR/prov-o/)
 * [HERITALISE D8.2 CRRS-008 (Derived Survey / QA Product)](https://heritalise-eccch.eu/)
 

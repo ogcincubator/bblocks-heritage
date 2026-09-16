@@ -1,7 +1,11 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> dct:format "text/xml" ;
+<https://heritalise-eccch.eu/resource/digital/fishing-creel-lido-record> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    dct:format "text/xml" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> ;
     crm:P1_is_identified_by "WHM-1923.45-LIDO",
         "https://hdl.handle.net/10.1234/whm-1923.45" .

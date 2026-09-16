@@ -571,6 +571,10 @@
       "@id": "crm:P2_has_type",
       "@type": "@id"
     },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -578,6 +582,7 @@
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

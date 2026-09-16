@@ -46,6 +46,8 @@
     },
     "url": "https://heritalise-eccch.eu/resource/files/gc-ceiling-tls-2024.laz",
     "limitations": "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition.",
-    "reviewStatus": "reviewed"
+    "reviewStatus": "reviewed",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }

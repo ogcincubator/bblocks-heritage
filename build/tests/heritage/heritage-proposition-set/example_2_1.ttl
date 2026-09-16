@@ -1,0 +1,11 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://heritalise-eccch.eu/resource/event/hdt-maintenance-villa-portelli-main-2026> hdto:HP30_added_content <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2> .
+
+<https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2> a hdto:HC16_Heritage_Proposition_Set ;
+    rdfs:label "UAV survey and deviation-map re-documentation batch, Villa Portelli main building, 2026" ;
+    hdto:HP32_replaced <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1> ;
+    crm:P148_has_component <https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025> .
+

@@ -1,0 +1,109 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.heritage-proposition-set",
+  "name": "Heritage Proposition Set",
+  "abstract": "The ECCCH Heritage Digital Twin Ontology's HC16 Heritage Proposition Set: a named-graph content unit \u2014 what an HC2 Heritage Digital Twin actually contains, referencing the rest of this register's HDTO-typed content.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-09-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-09-16",
+  "rdfType": [
+    "http://isl.ics.forth.gr/ontology/echoes/HC16_Heritage_Proposition_Set"
+  ],
+  "sources": [
+    {
+      "title": "ECHOES D7.1 \"The Digital Commons\" v1.0 (HDTO)",
+      "link": "https://zenodo.org/records/20445938"
+    },
+    {
+      "title": "HDTO live ontology page",
+      "link": "https://isl.ics.forth.gr/ontology/echoes/html/HDT_v1.1.html"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "hdto",
+    "digital-twin",
+    "echoes",
+    "eccch"
+  ],
+  "group": "HDTO digital twin infrastructure",
+  "seeAlso": [
+    "bblocks://ogc.heritage.heritage-digital-twin",
+    "bblocks://ogc.heritage.event"
+  ],
+  "shaclShapes": {
+    "ogc.heritage.heritage-proposition-set": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-proposition-set/shapes.shacl"
+    ]
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-proposition-set/context.jsonld",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-proposition-set/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-proposition-set/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-proposition-set/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-proposition-set/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-proposition-set/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-proposition-set/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/heritage-proposition-set/",
+  "description": "## Heritage Proposition Set\n\n`HeritagePropositionSet` is HDTO's **HC16 Heritage Proposition Set** (\u2291 `crminf:I4 Proposition\nSet` + `HC15 Persistent Digital Object`) \u2014 the named-graph content unit a\n[`heritage-digital-twin`](../heritage-digital-twin) (HC2) actually *contains*, via HP33 (current\ncontent) / HP34 (superseded content, for versioning).\n\n### Deliberately flat: what's modelled here vs. D7.1's full worked example\n\nD7.1's own worked example (the Deryneia icon, \u00a73 Figures 16-17) shows a real HC16 instance is\n**not a flat metadata bag** \u2014 it decomposes into a provenance-linked process chain per\ndigitization/study method: a `D2 Digitization Process` \u2192 `D14 Software`/`D6 Digital Device` \u2192\n`D9 Data Object` (or `HC7 Digital Audiovisual Object`) output, sometimes continuing into an\n`HC17 Observation with Inference` node for interpretive conclusions.\n\nModelling that full chain is **out of scope for this pass** \u2014 it would need its own set of\nCRMdig-anchored properties (L1/L23/L12/L20/L10 and others, several of which are still flagged\nunconfirmed in `eccch-integration/hdto/09-worked-example-deryneia.md` \u00a77) and is exactly the kind\nof speculative authoring this register's own conventions avoid without a concrete pilot\nrequirement behind it (the same reasoning already applied to deferring HC9/HC10/HC12/HC17-HC20).\nThis schema instead gives HC16 a flat `content` property (`crm:P148_has_component`) referencing\nthe register entities the set's assertions are about or derived from \u2014 enough to make HC2/HC16\nusable end-to-end now. **Extension point:** when a concrete pilot requirement needs the deeper\nprocess chain, model it as a `$ref`/`allOf` composition adding a `process` property (or similar)\nalongside `content`, rather than redesigning this block \u2014 `heritage-proposition-set`'s own worked\nexample in `09-worked-example-deryneia.md` \u00a75 is the reference to build that against.\n\n### Property reference\n\n| Property | HDTO property | Notes |\n|---|---|---|\n| `content` | \u2014 (modelled as crm:P148_has_component, a flat simplification \u2014 see above) | Required, \u22651. What this proposition set's assertions are about/derived from. |\n| `composedBy` | HP30i content was added by (inverse of HP30 added content) | Required. The `event` (co-typed HC11) that produced this set. |\n| `replaces` | HP32 replaced | The prior `heritage-proposition-set` this one supersedes, within the same digital twin's version chain. |\n\n### `crmpem:` lineage (inherited from HC15, not asserted directly here)\n\nHC16's own parent, HC15 Persistent Digital Object, is declared by D7.1 as \u2261 `crmpem:PE19`. This\nblock doesn't assert that equivalence directly (HC16 itself has no `crmpem:` equivalence in\nD7.1 \u2014 only HC15/HC14 do), but see\n[`heritage-digital-twin`](../heritage-digital-twin)'s own `ontology.ttl` and description for the\n`crmpem:` namespace's provisional status and\n[ogcincubator/bblocks-heritage#1](https://github.com/ogcincubator/bblocks-heritage/issues/1).\n",
+  "examples": [
+    {
+      "title": "Photographic and 3D documentation batch (Venaria)",
+      "content": "A proposition set aggregating a photograph and a 3D model of the Great Gallery ceiling painting, composed by the same HC11-co-typed `event` referenced from that entity's `heritage-digital-twin` example.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-proposition-set/examples/great-gallery-painting-1.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_1_1.json",
+          "sizeBytes": 517,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1\",\n  \"type\": \"HeritagePropositionSet\",\n  \"label\": \"Photographic and 3D documentation batch, Great Gallery ceiling painting, 2026\",\n  \"content\": [\n    \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n    \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\"\n  ],\n  \"composedBy\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_1_1.jsonld",
+          "sizeBytes": 646,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-proposition-set/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1\",\n  \"type\": \"HeritagePropositionSet\",\n  \"label\": \"Photographic and 3D documentation batch, Great Gallery ceiling painting, 2026\",\n  \"content\": [\n    \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n    \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\"\n  ],\n  \"composedBy\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_1_1.ttl",
+          "sizeBytes": 774,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026> hdto:HP30_added_content <https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1> .\n\n<https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1> a hdto:HC16_Heritage_Proposition_Set ;\n    rdfs:label \"Photographic and 3D documentation batch, Great Gallery ceiling painting, 2026\" ;\n    crm:P148_has_component <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01>,\n        <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A re-documentation batch superseding an earlier one (Malta)",
+      "content": "The current proposition set for Villa Portelli's main building, referencing a UAV survey dataset and declaring `replaces` against the proposition set it supersedes \u2014 demonstrates HP32 alongside `heritage-digital-twin`'s own HP33/HP34 versioning example.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-proposition-set/examples/villa-portelli-main-2-current.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_2_1.json",
+          "sizeBytes": 492,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2\",\n  \"type\": \"HeritagePropositionSet\",\n  \"label\": \"UAV survey and deviation-map re-documentation batch, Villa Portelli main building, 2026\",\n  \"content\": [\n    \"https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025\"\n  ],\n  \"composedBy\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-villa-portelli-main-2026\",\n  \"replaces\": \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_2_1.jsonld",
+          "sizeBytes": 621,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-proposition-set/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2\",\n  \"type\": \"HeritagePropositionSet\",\n  \"label\": \"UAV survey and deviation-map re-documentation batch, Villa Portelli main building, 2026\",\n  \"content\": [\n    \"https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025\"\n  ],\n  \"composedBy\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-villa-portelli-main-2026\",\n  \"replaces\": \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-proposition-set/example_2_1.ttl",
+          "sizeBytes": 748,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<https://heritalise-eccch.eu/resource/event/hdt-maintenance-villa-portelli-main-2026> hdto:HP30_added_content <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2> .\n\n<https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2> a hdto:HC16_Heritage_Proposition_Set ;\n    rdfs:label \"UAV survey and deviation-map re-documentation batch, Villa Portelli main building, 2026\" ;\n    hdto:HP32_replaced <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1> ;\n    crm:P148_has_component <https://heritalise-eccch.eu/resource/survey/villa-portelli-uav-2025> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Proposition Set\ndescription: \"HDTO's HC16 Heritage Proposition Set (\\u2291 crminf:I4 Proposition Set\n  + HC15 Persistent Digital\\nObject): the named-graph content unit a `heritage-digital-twin`\n  (HC2) actually \\\"contains\\\" via\\nHP33/HP34. Per D7.1's own worked example (Figures\n  16-17), a real HC16 instance is a\\nprovenance-linked graph (digitization/study process\n  \\u2192 software/device \\u2192 data output), not a\\nflat metadata bag \\u2014 modelling\n  that full CRMdig process chain is deliberately deferred (see\\n`description.md`);\n  this schema covers the flat \\\"what does this set assert, and about what\\\" shape\\nneeded\n  to make HC2 usable now, with `content` as the extension point for deeper chains\n  later.\\n\"\ntype: object\nrequired:\n- id\n- type\n- content\n- composedBy\nproperties:\n  id:\n    type: string\n    format: uri\n    description: Persistent URI identifying this proposition set (named graph).\n    x-jsonld-id: '@id'\n  type:\n    const: HeritagePropositionSet\n    description: Fixed type token (maps to hdto:HC16_Heritage_Proposition_Set).\n    x-jsonld-id: '@type'\n  label:\n    type: string\n    description: Short human-readable label for this proposition set, e.g. naming\n      the digitization/study batch it captures.\n    x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label\n  content:\n    type: array\n    minItems: 1\n    items:\n      type: string\n      format: uri\n    description: \"URIs of the register entities this proposition set's assertions\n      are about or derived from (e.g. `digital-representation`/`three-d-model`/`survey-dataset`/`observation`\n      instances it aggregates as evidence for the documented `heritage-object`). Modelled\n      as a flat reference list (crm:P148_has_component) \\u2014 the deeper process/software/device\n      provenance chain D7.1's worked example shows (D2 Digitization Process, D14 Software,\n      D6 Digital Device, D9 Data Object) is not modelled here; see `description.md`.\"\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P148_has_component\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  composedBy:\n    type: string\n    format: uri\n    description: \"URI of the `event` instance (co-typed hdto:HC11_Digital_Twin_Maintenance)\n      that added this proposition set (HP30 added content, inverse direction \\u2014\n      HP30i). Required: every proposition set exists because some maintenance activity\n      produced it.\"\n    x-jsonld-reverse: hdto:HP30_added_content\n    x-jsonld-type: '@id'\n  replaces:\n    type: string\n    format: uri\n    description: URI of the `heritage-proposition-set` this one supersedes within\n      the same digital twin's version chain (HP32 replaced).\n    x-jsonld-id: http://isl.ics.forth.gr/ontology/echoes/HP32_replaced\n    x-jsonld-type: '@id'\nx-jsonld-extra-terms:\n  HeritagePropositionSet: http://isl.ics.forth.gr/ontology/echoes/HC16_Heritage_Proposition_Set\nx-jsonld-prefixes:\n  hdto: http://isl.ics.forth.gr/ontology/echoes/\n  rdfs: http://www.w3.org/2000/01/rdf-schema#\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/heritage-proposition-set"
+}

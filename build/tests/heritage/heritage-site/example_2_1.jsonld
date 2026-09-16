@@ -35,6 +35,7 @@
     "siteType": "http://vocab.getty.edu/aat/300008012",
     "designation": "Grade 1 Scheduled Monument (Malta)",
     "responsibleOrganisation": "Heritage Malta",
-    "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+    "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

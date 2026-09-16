@@ -11,6 +11,13 @@ allOf:
   - mediaType
   - wasDerivedFrom
   properties:
+    hdtoType:
+      const: hdto:HC5_Digital_Representation
+      description: "Pins the inherited hdtoType (from digital-representation, otherwise
+        an enum of HC5/HC7/HC8) to HC5: this block models the digital fabrication
+        file (STL/3MF) itself, not the physical 3D-printed artifact it produces \u2014
+        the latter, if ever recorded, would be a separate heritage-object-family (HC3)
+        record, out of scope for this block."
     mediaType:
       type: string
       enum:

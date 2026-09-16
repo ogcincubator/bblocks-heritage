@@ -12,6 +12,8 @@
   "properties": {
     "choType": "DigitalRepresentation",
     "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
-    "mediaType": "image/jpeg"
+    "mediaType": "image/jpeg",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }

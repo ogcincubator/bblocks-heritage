@@ -468,6 +468,14 @@
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "choType": "@type",
     "DigitalRepresentation": "crm:E73_Information_Object",
     "Arc": "geojson:Arc",
@@ -510,6 +518,8 @@
     "owlTime": "http://www.w3.org/2006/time#",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

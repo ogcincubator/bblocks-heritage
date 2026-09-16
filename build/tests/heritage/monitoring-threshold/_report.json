@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.monitoring-threshold - Monitoring Threshold",
   "bblockName": "Monitoring Threshold",
   "bblockId": "ogc.heritage.monitoring-threshold",
-  "generated": "2026-07-17T14:25:08.541162+00:00",
+  "generated": "2026-09-16T15:07:27.743618+00:00",
   "result": true,
   "items": [
     {
@@ -40,7 +40,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 10,
+              "size": 11,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -76,10 +76,15 @@
                   "nodes": [
                     "<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>"
                   ]
+                },
+                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>": {
+                  "nodes": [
+                    "<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>\n"
+              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>\n"
             }
           ]
         }
@@ -120,7 +125,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 9,
+              "size": 10,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -156,10 +161,15 @@
                   "nodes": [
                     "<https://heritalise.eu/malta/threshold/temp-grand-salon-min>"
                   ]
+                },
+                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>": {
+                  "nodes": [
+                    "<https://heritalise.eu/malta/threshold/temp-grand-salon-min>"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/malta/threshold/temp-grand-salon-min>\n"
+              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/malta/threshold/temp-grand-salon-min>\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>: <https://heritalise.eu/malta/threshold/temp-grand-salon-min>\n"
             }
           ]
         }

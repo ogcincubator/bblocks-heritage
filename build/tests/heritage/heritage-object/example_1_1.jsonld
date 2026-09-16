@@ -8,5 +8,6 @@
   "material": [
     "http://vocab.getty.edu/aat/300014078"
   ],
-  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery"
+  "currentLocation": "https://heritalise-eccch.eu/resource/place/great-gallery",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }

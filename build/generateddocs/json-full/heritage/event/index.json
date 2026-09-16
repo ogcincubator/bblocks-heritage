@@ -7,7 +7,7 @@
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.3",
   "rdfType": [
     "http://www.cidoc-crm.org/cidoc-crm/E5_Event"
   ],
@@ -28,17 +28,22 @@
     "prov"
   ],
   "group": "Core",
-  "isProfileOf": "ogc.ogc-utils.prov-activity",
+  "isProfileOf": [
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "dateOfLastChange": "2026-09-16",
   "shaclShapes": {
     "ogc.heritage.event": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/event/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ]
   },
   "dependsOn": [
     "ogc.ogc-utils.prov-activity"
   ],
   "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
-  "dateOfLastChange": "2026-06-25",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/schema.json"
@@ -49,7 +54,7 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/event/",
-  "description": "## Event\n\nAn `Event` is an occurrence in the history of a heritage object \u2014 its production, a restoration\nor modification campaign, an acquisition \u2014 modelled as a CIDOC-CRM `E5_Event` (which generalises\nthe more specific `E12_Production` and `E11_Modification`).\n\nLike [`actor`](../actor), this block profiles a PROV-O class rather than reinventing event\nstructure: an `Event` *is* a PROV-O `Activity`. `startedAtTime`/`endedAtTime` carry the\ntime-span, `wasAssociatedWith` the actor(s) who carried it out, `used`/`generated` the objects\nconsumed or produced, and `atLocation` where it took place. This block adds only `identifier`\n(a local reference, e.g. to a conservation log) and `eventType` (a Getty AAT concept identifying\nthe kind of event \u2014 production, restoration, acquisition...).\n\nAs with `place` and `actor`, the uplifted `rdf:type` comes from PROV-O (`prov:Activity`) rather\nthan `crm:E5_Event` \u2014 the SHACL shape here targets by predicate rather than by class.\n\nA `heritage-object`'s production or restoration history is expressed as a set of `Event`s that\nreference it via `used` (object worked on) or `generated` (object produced), rather than as an\nembedded list on the object itself \u2014 so the object record stays stable as new events accumulate.\n",
+  "description": "## Event\n\nAn `Event` is an occurrence in the history of a heritage object \u2014 its production, a restoration\nor modification campaign, an acquisition \u2014 modelled as a CIDOC-CRM `E5_Event` (which generalises\nthe more specific `E12_Production` and `E11_Modification`).\n\nLike [`actor`](../actor), this block profiles a PROV-O class rather than reinventing event\nstructure: an `Event` *is* a PROV-O `Activity`. `startedAtTime`/`endedAtTime` carry the\ntime-span, `wasAssociatedWith` the actor(s) who carried it out, `used`/`generated` the objects\nconsumed or produced, and `atLocation` where it took place. This block adds only `identifier`\n(a local reference, e.g. to a conservation log) and `eventType` (a Getty AAT concept identifying\nthe kind of event \u2014 production, restoration, acquisition...).\n\nAs with `place` and `actor`, the uplifted `rdf:type` comes from PROV-O (`prov:Activity`) rather\nthan `crm:E5_Event` \u2014 the SHACL shape here targets by predicate rather than by class.\n\nA `heritage-object`'s production or restoration history is expressed as a set of `Event`s that\nreference it via `used` (object worked on) or `generated` (object produced), rather than as an\nembedded list on the object itself \u2014 so the object record stays stable as new events accumulate.\n\n## HDTO alignment: reused for HC11 Digital Twin Maintenance / HC13 Project\n\nRather than authoring two more new blocks, this block is reused for HDTO's **HC11 Digital Twin\nMaintenance** and **HC13 Project** classes (both reduce to `crm:E5_Event` in the CRM hierarchy \u2014\nHC11 via `crm:E65_Creation` \u2291 `E7_Activity` \u2291 `E5_Event`, HC13 via `crm:E7_Activity` \u2291 `E5_Event`;\nsee `eccch-integration/hdto/03-digital-twin-infrastructure.md`). Unlike the HC3/HC5-8 co-typing\nelsewhere in this register, this is **not** derivable from any class an `Event` already asserts \u2014\nnothing distinguishes \"this is a digital-twin-maintenance activity\" from an ordinary\nproduction/restoration event by CRM type alone, so `hdtoType` isn't unconditionally required like\nit is on `heritage-object`/`digital-representation`. Instead: set `eventType` to the HDTO class URI\nitself (`http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance` or\n`.../HC13_Project`) to opt an instance in, and the schema's own `if`/`then` blocks then *require*\n`hdtoType` to be set to the matching value \u2014 both map via context directly to their respective\npredicates (`eventType` \u2192 `crm:P2_has_type`, `hdtoType` \u2192 `rdf:type`) on a plain JSON-LD parse, no\npost-processing step needed. See\n[`heritage-digital-twin`](../heritage-digital-twin)/[`heritage-proposition-set`](../heritage-proposition-set)\nfor how these co-typed `event` instances get referenced (HP19 has composed, HP30 added content).\n",
   "examples": [
     {
       "title": "A documented restoration intervention",
@@ -125,9 +130,34 @@
           "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/event/villa-portelli-founding-1820> crm:P1_is_identified_by \"MT-EVT-1820-FOUND\" ;\n    crm:P2_has_type <http://vocab.getty.edu/aat/300069748> ;\n    prov:atLocation <https://heritalise-eccch.eu/resource/site/villa-portelli> ;\n    prov:startedAtTime \"1820-01-01T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:wasAssociatedWith <https://heritalise-eccch.eu/resource/actor/house-of-portelli> .\n\n"
         }
       ]
+    },
+    {
+      "title": "HDTO digital twin maintenance activity (HC11)",
+      "content": "A digital-twin-maintenance session over the Great Gallery painting, with `eventType` set to the HDTO `hdto:HC11_Digital_Twin_Maintenance` class URI \u2014 see the \"HDTO alignment\" section of this block's description for why this is how HC11/HC13 co-typing is triggered. Referenced from `heritage-digital-twin`'s own example via HP19 has composed.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/event/examples/hdt-maintenance.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_4_1.json",
+          "sizeBytes": 554,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026\",\n  \"identifier\": \"HDT-MAINT-2026-01\",\n  \"eventType\": \"http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance\",\n  \"startedAtTime\": \"2026-09-01T00:00:00Z\",\n  \"endedAtTime\": \"2026-09-16T00:00:00Z\",\n  \"used\": [\n    \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"hdtoType\": \"hdto:HC11_Digital_Twin_Maintenance\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_4_1.jsonld",
+          "sizeBytes": 664,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026\",\n  \"identifier\": \"HDT-MAINT-2026-01\",\n  \"eventType\": \"http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance\",\n  \"startedAtTime\": \"2026-09-01T00:00:00Z\",\n  \"endedAtTime\": \"2026-09-16T00:00:00Z\",\n  \"used\": [\n    \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\"\n  ],\n  \"wasAssociatedWith\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"hdtoType\": \"hdto:HC11_Digital_Twin_Maintenance\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/event/example_4_1.ttl",
+          "sizeBytes": 759,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026> a hdto:HC11_Digital_Twin_Maintenance ;\n    crm:P1_is_identified_by \"HDT-MAINT-2026-01\" ;\n    crm:P2_has_type hdto:HC11_Digital_Twin_Maintenance ;\n    prov:endedAtTime \"2026-09-16T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:startedAtTime \"2026-09-01T00:00:00+00:00\"^^xsd:dateTime ;\n    prov:used <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    prov:wasAssociatedWith <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
+        }
+      ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Event\ndescription: \"An event in the history of a heritage object \\u2014 production, restoration,\n  modification,\\nacquisition \\u2014 modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's\n  Activity: `startedAtTime`/\\n`endedAtTime` carry the time-span (P4_has_time-span),\n  `wasAssociatedWith` the actors who\\ncarried it out (P14_carried_out_by), `used`/`generated`\n  the objects involved (P16_used_specific_object\\n/ P108_has_produced / P31_has_modified)\n  and `atLocation` where it took place (P7_took_place_at).\\nThis block adds a local\n  identifier and a CIDOC-CRM event type.\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  required:\n  - id\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this event (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    eventType:\n      type: string\n      format: uri\n      description: The type of event, typically a Getty AAT concept URI, e.g. production\n        or restoration (CIDOC-CRM P2_has_type).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Event\ndescription: \"An event in the history of a heritage object \\u2014 production, restoration,\n  modification,\\nacquisition \\u2014 modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's\n  Activity: `startedAtTime`/\\n`endedAtTime` carry the time-span (P4_has_time-span),\n  `wasAssociatedWith` the actors who\\ncarried it out (P14_carried_out_by), `used`/`generated`\n  the objects involved (P16_used_specific_object\\n/ P108_has_produced / P31_has_modified)\n  and `atLocation` where it took place (P7_took_place_at).\\nThis block adds a local\n  identifier and a CIDOC-CRM event type.\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml\n- type: object\n  required:\n  - id\n  properties:\n    identifier:\n      type: string\n      description: A local identifier for this event (CIDOC-CRM P1_is_identified_by).\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    eventType:\n      type: string\n      format: uri\n      description: \"The type of event, typically a Getty AAT concept URI, e.g. production\n        or restoration (CIDOC-CRM P2_has_type). Set to an HDTO class URI (hdto:HC11_Digital_Twin_Maintenance\n        / hdto:HC13_Project) to identify this event as a digital-twin-maintenance\n        or project activity \\u2014 see `hdtoType` below, required in that case.\"\n      x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n      x-jsonld-type: '@id'\n    hdtoType:\n      type: string\n      enum:\n      - hdto:HC11_Digital_Twin_Maintenance\n      - hdto:HC13_Project\n      description: \"HDTO co-type (D7.1). Maps via context directly to rdf:type. Not\n        applicable to most events (an ordinary production/restoration/acquisition\n        has no HC11/HC13 counterpart) \\u2014 required only when eventType is itself\n        set to the matching HDTO class URI (see the `if`/`then` blocks below), since\n        nothing about an Event's CRM/PROV-O type alone distinguishes a digital-twin-maintenance\n        or project activity from any other event.\"\n      x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n      x-jsonld-type: '@id'\n- if:\n    properties:\n      eventType:\n        const: http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance\n    required:\n    - eventType\n  then:\n    required:\n    - hdtoType\n    properties:\n      hdtoType:\n        const: hdto:HC11_Digital_Twin_Maintenance\n        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n        x-jsonld-type: '@id'\n- if:\n    properties:\n      eventType:\n        const: http://isl.ics.forth.gr/ontology/echoes/HC13_Project\n    required:\n    - eventType\n  then:\n    required:\n    - hdtoType\n    properties:\n      hdtoType:\n        const: hdto:HC13_Project\n        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n        x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  hdto: http://isl.ics.forth.gr/ontology/echoes/\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/event"
 }

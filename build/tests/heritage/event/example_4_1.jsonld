@@ -1,0 +1,15 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026",
+  "identifier": "HDT-MAINT-2026-01",
+  "eventType": "http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance",
+  "startedAtTime": "2026-09-01T00:00:00Z",
+  "endedAtTime": "2026-09-16T00:00:00Z",
+  "used": [
+    "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
+  ],
+  "wasAssociatedWith": [
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
+  ],
+  "hdtoType": "hdto:HC11_Digital_Twin_Maintenance"
+}

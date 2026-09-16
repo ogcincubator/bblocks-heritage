@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.surface - Surface
-Generated 2026-07-17T14:25:26.993762+00:00
+Generated 2026-09-16T15:07:52.602966+00:00
 === Files ===
 Using examples/venaria-vault-fresco.json from examples
 JSON-LD context is present - uplifting
@@ -19,46 +19,46 @@ Validation result for _sources/surface/shapes.shacl:
 Focus nodes for _sources/surface/shapes.shacl:
  - Shape <file:///github/workspace/_sources/surface/shapes.shacl#SurfaceShape>: <https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco>
 
+Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: <https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco>
+ - Shape geojson:GeometryShape: *none*
+
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
- - Shape _:naabaf1ec37414d9bb2d6a63143dba581b3: <https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco>/geojson:geometry
- - Shape _:naabaf1ec37414d9bb2d6a63143dba581b1: *none*
+ - Shape _:n4dc67c647e7748d3a1c6201cce80b05eb1: *none*
+ - Shape _:n4dc67c647e7748d3a1c6201cce80b05eb3: <https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco>/geojson:geometry
 
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
- - Shape toporules:testTopoEdgesReferencePoints: *none*
- - Shape toporules:testTopoDirectedReferencesExist: *none*
  - Shape toporules:testTopoLinesReferencePoints: *none*
  - Shape toporules:testTopoReferencesExist: *none*
-
-Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
-  Validation Report
-  Conforms: True
-  
-Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
- - Shape geojson:FeatureShape: <https://heritalise.eu/venaria/surface/GG-vault-bay7-fresco>
- - Shape geojson:GeometryShape: *none*
- - Shape geojson:LinkShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape toporules:testTopoDirectedReferencesExist: *none*
+ - Shape toporules:testTopoEdgesReferencePoints: *none*
 
 Validation result for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:LinkShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:FeatureShape: *none*
  - Shape geojson:GeometryShape: *none*
- - Shape geojson:LinkShape: *none*
  - Shape geojson:FeatureCollectionShape: *none*
- - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
 
 === End SHACL ===
 

@@ -3,5 +3,7 @@
   "identifier": "WHM-1923.45-LIDO",
   "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
   "mediaType": "text/xml",
-  "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45"
+  "persistentIdentifier": "https://hdl.handle.net/10.1234/whm-1923.45",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }

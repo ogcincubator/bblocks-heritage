@@ -1,7 +1,7 @@
 
 # Monitoring Threshold (Schema)
 
-`ogc.heritage.monitoring-threshold` *v0.1*
+`ogc.heritage.monitoring-threshold` *v0.2*
 
 A conservation threshold rule bounding an environmental parameter at a heritage monitoring point or zone, modelled as a SOSA ObservableProperty with QUDT unit and severity annotations (CRRS-011).
 
@@ -71,6 +71,16 @@ severity and spatial linkage.
 - Villa Portelli Malta: define temperature and light-level thresholds for gallery rooms, with
   seasonal `activePeriod` for winter/summer profiles.
 
+## HDTO alignment
+
+Every instance requires `crmsciType`, a fixed `const` of `crmsci:S15`, mapping via
+`context.jsonld` directly to `rdf:type` — asserted on a plain JSON-LD parse, no post-processing
+step needed. D7.1's own OGC SensorThings API crosswalk table (Table 1, p.28) cites
+`crmsci:S9`/`S15` for STA ObservedProperty (the same concept `sosa:ObservableProperty`, which this
+block profiles, already models); only S15 is confirmed as an actually-defined CRMsci class in
+D7.1's own §5.3 declarations, so S15 is used here rather than the unconfirmed S9 — see
+`eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md`.
+
 ## Examples
 
 ### Relative-humidity range threshold, Galleria Grande Bay 7 — Venaria (CRRS-011)
@@ -91,9 +101,10 @@ A bilateral RH threshold (45–65 %) for the sensor at bay 7 of the Galleria Gra
     "start": "2024-01-01",
     "end": "2024-12-31"
   },
-  "source": "EN 15757:2010 — Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials.",
-  "rationale": "The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 ± 10 % RH band. The 45–65 % range reflects site-specific acclimatisation history.",
-  "reviewDate": "2025-06-30"
+  "source": "EN 15757:2010 \u2014 Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials.",
+  "rationale": "The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 \u00b1 10 % RH band. The 45\u201365 % range reflects site-specific acclimatisation history.",
+  "reviewDate": "2025-06-30",
+  "crmsciType": "crmsci:S15"
 }
 
 ```
@@ -117,20 +128,23 @@ A bilateral RH threshold (45–65 %) for the sensor at bay 7 of the Galleria Gra
   },
   "source": "EN 15757:2010 \u2014 Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials.",
   "rationale": "The Galleria Grande contains organic materials (painted canvas, gilded wood) sensitive to moisture fluctuations. EN 15757 recommends a 50 \u00b1 10 % RH band. The 45\u201365 % range reflects site-specific acclimatisation history.",
-  "reviewDate": "2025-06-30"
+  "reviewDate": "2025-06-30",
+  "crmsciType": "crmsci:S15"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7> a sosa:ObservableProperty ;
+<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7> a crmsci:S15,
+        sosa:ObservableProperty ;
     dct:modified "2025-06-30"^^xsd:date ;
     dct:source "EN 15757:2010 — Conservation of cultural property. Specifications for temperature and relative humidity to limit climate-induced mechanical damage in organic hygroscopic materials." ;
     qudt:unit <https://qudt.org/vocab/unit/PERCENT> ;
@@ -159,8 +173,9 @@ A minimum-temperature threshold (10 °C) for the Grand Salon at Villa Portelli. 
   "severity": "alarm",
   "appliesTo": "https://heritalise.eu/malta/sensor/S-VP-GS-01",
   "source": "https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf",
-  "rationale": "Temperatures below 10 °C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention.",
-  "reviewDate": "2025-09-01"
+  "rationale": "Temperatures below 10 \u00b0C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention.",
+  "reviewDate": "2025-09-01",
+  "crmsciType": "crmsci:S15"
 }
 
 ```
@@ -179,19 +194,22 @@ A minimum-temperature threshold (10 °C) for the Grand Salon at Villa Portelli. 
   "appliesTo": "https://heritalise.eu/malta/sensor/S-VP-GS-01",
   "source": "https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf",
   "rationale": "Temperatures below 10 \u00b0C risk condensation on cold wall surfaces in the Grand Salon, which could damage the painted plaster. An alarm threshold triggers immediate HVAC intervention.",
-  "reviewDate": "2025-09-01"
+  "reviewDate": "2025-09-01",
+  "crmsciType": "crmsci:S15"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise.eu/malta/threshold/temp-grand-salon-min> a sosa:ObservableProperty ;
+<https://heritalise.eu/malta/threshold/temp-grand-salon-min> a crmsci:S15,
+        sosa:ObservableProperty ;
     dct:modified "2025-09-01"^^xsd:date ;
     dct:source "https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf" ;
     qudt:unit <https://qudt.org/vocab/unit/DEG_C> ;
@@ -221,6 +239,7 @@ required:
 - severity
 - appliesTo
 - source
+- crmsciType
 properties:
   id:
     type: string
@@ -232,6 +251,17 @@ properties:
     description: Fixed type token identifying this record as a monitoring threshold
       (maps to sosa:ObservableProperty).
     x-jsonld-id: '@type'
+  crmsciType:
+    type: string
+    const: crmsci:S15
+    description: "Fixed HDTO co-type. Maps via context directly to rdf:type, alongside
+      sosa:ObservableProperty \u2014 additive. D7.1's own OGC SensorThings API crosswalk
+      table (Table 1, p.28) cites \"crmsci:S9/S15\" for STA ObservedProperty, but
+      only S15 is an actually defined CRMsci class in D7.1's own \xA75.3 declarations
+      (S9 is not \u2014 see eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md);
+      S15 is used here as the better-supported of the two pending confirmation."
+    x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+    x-jsonld-type: '@id'
   parameter:
     type: string
     format: uri
@@ -323,10 +353,12 @@ x-jsonld-extra-terms:
   MonitoringThreshold: http://www.w3.org/ns/sosa/ObservableProperty
 x-jsonld-prefixes:
   sosa: http://www.w3.org/ns/sosa/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crm: http://www.cidoc-crm.org/cidoc-crm/
   qudt: http://qudt.org/schema/qudt/
   dct: http://purl.org/dc/terms/
   xsd: http://www.w3.org/2001/XMLSchema#
+  crmsci: http://www.cidoc-crm.org/extensions/crmsci/
 
 ```
 
@@ -344,6 +376,10 @@ Links to the schema:
     "MonitoringThreshold": "sosa:ObservableProperty",
     "id": "@id",
     "type": "@type",
+    "crmsciType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "parameter": {
       "@id": "sosa:observes",
       "@type": "@id"
@@ -369,10 +405,12 @@ Links to the schema:
       "@type": "xsd:date"
     },
     "sosa": "http://www.w3.org/ns/sosa/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "qudt": "http://qudt.org/schema/qudt/",
     "dct": "http://purl.org/dc/terms/",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "crmsci": "http://www.cidoc-crm.org/extensions/crmsci/",
     "@version": 1.1
   }
 }

@@ -1,7 +1,7 @@
 
 # Architectural Space (Schema)
 
-`ogc.heritage.architectural-space` *v0.1*
+`ogc.heritage.architectural-space` *v0.2*
 
 An interior room, bay, hall, zone or level within a building, modelled as CIDOC-CRM E22 Man-Made Object. Profile of heritage-object adding containment hierarchy, historical name crosswalk, floor/bay identifiers and optional IFC space reference.
 
@@ -54,6 +54,25 @@ they are deployed in.
 - **REQ-003** — Galleria Grande bays as monitoring and historical location anchors (Venaria)
 - **MT-02** — Interior rooms of Villa Portelli with dynamic attributes and oral history links
 
+## HDTO alignment
+
+`properties.hdtoType` (fixed `const` `hdto:HC3_Tangible_Heritage_Entity`) is inherited, and
+therefore required, from [`heritage-object`](../heritage-object) via
+[`heritage-object-feature`](../heritage-object-feature) — JSON Schema `allOf` composition means a
+profile cannot selectively opt out of a requirement its parent block declares. This is a
+**structural default, not a deliberate OGC classification decision**: whether an
+`architectural-space` instance (a room, bay, or zone) is independently "the" heritage entity, or
+just a component of its containing `building`, is still the partner (CRRS/Venaria) judgment call
+noted above and in the integration plan — it isn't resolved by this default applying, and should
+be revisited once that input arrives, potentially by overriding `hdtoType` per-instance or
+narrowing this block's own parent profile if the answer turns out to be "no."
+
+**Pending question, data-dependent:** this isn't just a one-time partner opinion to collect -- the
+right answer plausibly depends on what real Venaria/Malta pilot data actually looks like once it
+arrives (e.g. whether rooms are consistently catalogued/valued as standalone records in CRRS's own
+systems, or only ever referenced through their containing building). Treat this as open until real
+pilot data lands, not just until a partner gives a one-off answer in the abstract.
+
 ## Examples
 
 ### Galleria Grande bay with historical name crosswalk (REQ-003)
@@ -67,18 +86,33 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
     "type": "Polygon",
     "coordinates": [
       [
-        [7.6272, 45.1343],
-        [7.6275, 45.1343],
-        [7.6275, 45.1345],
-        [7.6272, 45.1345],
-        [7.6272, 45.1343]
+        [
+          7.6272,
+          45.1343
+        ],
+        [
+          7.6275,
+          45.1343
+        ],
+        [
+          7.6275,
+          45.1345
+        ],
+        [
+          7.6272,
+          45.1345
+        ],
+        [
+          7.6272,
+          45.1343
+        ]
       ]
     ]
   },
   "properties": {
     "choType": "HeritageObject",
     "identifier": "RV-SPC-GG-B07",
-    "title": "Galleria Grande — Bay 7",
+    "title": "Galleria Grande \u2014 Bay 7",
     "description": "The seventh bay of the Galleria Grande, featuring a painted vault and lateral niches. Key monitoring hotspot for humidity and microclimate.",
     "objectType": "http://vocab.getty.edu/aat/300004829",
     "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
@@ -98,7 +132,8 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
     "floorLevel": "piano nobile",
     "bayCode": "B07",
     "accessibilityStatus": "open to public",
-    "monitoringRelevance": true
+    "monitoringRelevance": true,
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -160,7 +195,8 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
     "floorLevel": "piano nobile",
     "bayCode": "B07",
     "accessibilityStatus": "open to public",
-    "monitoringRelevance": true
+    "monitoringRelevance": true,
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -169,10 +205,12 @@ A bay within the Galleria Grande, linked to its parent building, with Guarini in
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> a crm:E22_Man-Made_Object,
+<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-7> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object,
         geojson:Feature ;
     crm:P102_has_title "Galleria Grande — Bay 7" ;
     crm:P1_is_identified_by "[{\"datePeriod\":\"1714/1798\",\"name\":\"Sala VII\",\"source\":\"Guarini inventory 1714\"},{\"datePeriod\":\"1800/1870\",\"name\":\"Baia Settima\",\"source\":\"Archivio di Stato di Torino, sec. XIX\"}]"^^rdf:JSON,
@@ -202,25 +240,41 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
     "type": "Polygon",
     "coordinates": [
       [
-        [14.5132, 35.8962],
-        [14.5138, 35.8962],
-        [14.5138, 35.8966],
-        [14.5132, 35.8966],
-        [14.5132, 35.8962]
+        [
+          14.5132,
+          35.8962
+        ],
+        [
+          14.5138,
+          35.8962
+        ],
+        [
+          14.5138,
+          35.8966
+        ],
+        [
+          14.5132,
+          35.8966
+        ],
+        [
+          14.5132,
+          35.8962
+        ]
       ]
     ]
   },
   "properties": {
     "choType": "HeritageObject",
     "identifier": "MT-SPC-VP-SALON",
-    "title": "Villa Portelli — Grand Salon",
+    "title": "Villa Portelli \u2014 Grand Salon",
     "description": "The principal reception room of Villa Portelli, used for cultural events and visitor interpretation. Linked oral histories are associated with this space.",
     "objectType": "http://vocab.getty.edu/aat/300004733",
     "parentBuilding": "https://heritalise-eccch.eu/resource/building/villa-portelli-main",
     "floorLevel": "ground floor",
     "accessibilityStatus": "open to public",
     "monitoringRelevance": true,
-    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf"
+    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -269,7 +323,8 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
     "floorLevel": "ground floor",
     "accessibilityStatus": "open to public",
     "monitoringRelevance": true,
-    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf"
+    "ifcSpaceRef": "3DkP9qRsTwUv2xYzAcBdEf",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -278,10 +333,12 @@ The Grand Salon of Villa Portelli as an architectural space linked to its parent
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/space/villa-portelli-salon> a crm:E22_Man-Made_Object,
+<https://heritalise-eccch.eu/resource/space/villa-portelli-salon> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object,
         geojson:Feature ;
     crm:P102_has_title "Villa Portelli — Grand Salon" ;
     crm:P1_is_identified_by "3DkP9qRsTwUv2xYzAcBdEf",
@@ -315,14 +372,15 @@ Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-
   "properties": {
     "choType": "HeritageObject",
     "identifier": "RV-SPC-GG-B08",
-    "title": "Galleria Grande — Bay 8",
+    "title": "Galleria Grande \u2014 Bay 8",
     "description": "The eighth bay of the Galleria Grande, structurally symmetric with bay 7. Its floor-plan footprint coincides exactly with bay 7's, so it is expressed by reference instead of re-embedding the same coordinates.",
     "objectType": "http://vocab.getty.edu/aat/300004829",
     "parentBuilding": "https://heritalise-eccch.eu/resource/building/galleria-grande",
     "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
     "floorLevel": "piano nobile",
     "bayCode": "B08",
-    "accessibilityStatus": "open to public"
+    "accessibilityStatus": "open to public",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -351,7 +409,8 @@ Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-
     "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
     "floorLevel": "piano nobile",
     "bayCode": "B08",
-    "accessibilityStatus": "open to public"
+    "accessibilityStatus": "open to public",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -360,10 +419,12 @@ Bay 8 of the Galleria Grande is structurally symmetric with bay 7 (see galleria-
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix topo: <https://purl.org/geojson/topo#> .
 
-<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8> a crm:E22_Man-Made_Object,
+<https://heritalise-eccch.eu/resource/space/galleria-grande-bay-8> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object,
         geojson:Feature ;
     crm:P102_has_title "Galleria Grande — Bay 8" ;
     crm:P1_is_identified_by "B08",
@@ -625,6 +686,10 @@ Links to the schema:
       "@id": "geojson:topology"
     },
     "HeritageObject": "crm:E22_Man-Made_Object",
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "identifier": "crm:P1_is_identified_by",
     "title": "crm:P102_has_title",
     "description": "crm:P3_has_note",
@@ -705,6 +770,8 @@ Links to the schema:
     "owlTime": "http://www.w3.org/2006/time#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
     "prov": "http://www.w3.org/ns/prov#",

@@ -1,10 +1,12 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise.eu/malta/threshold/temp-grand-salon-min> a sosa:ObservableProperty ;
+<https://heritalise.eu/malta/threshold/temp-grand-salon-min> a crmsci:S15,
+        sosa:ObservableProperty ;
     dct:modified "2025-09-01"^^xsd:date ;
     dct:source "https://www.iccrom.org/sites/default/files/2017-12/guidelines_preventive_conservation.pdf" ;
     qudt:unit <https://qudt.org/vocab/unit/DEG_C> ;

@@ -5,5 +5,7 @@
   "mediaType": "model/stl",
   "wasDerivedFrom": [
     "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }

@@ -1,4 +1,8 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .
+<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .
 

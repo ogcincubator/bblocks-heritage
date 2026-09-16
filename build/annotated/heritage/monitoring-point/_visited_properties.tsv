@@ -1,6 +1,12 @@
 path	@id	schema
-/_anyOf/1/id	@id	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/sensor/schema.yaml
-/_anyOf/1/name		https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/sensor/schema.yaml
+/hosts	http://www.w3.org/ns/sosa/hosts	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/asset/schema.yaml
+/isHostedBy	http://www.w3.org/ns/sosa/isHostedBy	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/asset/schema.yaml
+/hasDeployment	http://www.w3.org/ns/sosa/hasDeployment	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/asset/schema.yaml
+/hasSubSystem	http://www.w3.org/ns/sosa/hasSubSystem	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/system/schema.yaml
+/isSubSystemOf	http://www.w3.org/ns/sosa/isSubSystemOf	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/system/schema.yaml
+/implements	http://www.w3.org/ns/sosa/implements	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/system/schema.yaml
+/madeBySystem	http://www.w3.org/ns/sosa/madeBySystem	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/system/schema.yaml
+/madeExecution	http://www.w3.org/ns/sosa/madeExecution	https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/system/schema.yaml
 /type	@type	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
 /identifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml
 /sensorType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/monitoring-point/schema.yaml

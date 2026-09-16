@@ -3,11 +3,12 @@
 {
   "itemIdentifier": "ogc.heritage.observation",
   "name": "Observation",
-  "abstract": "A scientific observation or measurement of a heritage object or place \u2014 environmental monitoring, condition assessment, conservation science \u2014 profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an OGC SensorThings API `Sensor`.",
+  "abstract": "A scientific observation or measurement of a heritage object or place \u2014 environmental monitoring, condition assessment, conservation science \u2014 profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an ogc.heritage.monitoring-point (SOSA/SSN Sensor) record. Required HDTO co-type: crmsci:S4.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.2",
+  "dateOfLastChange": "2026-09-16",
   "rdfType": [
     "http://www.w3.org/ns/sosa/Observation"
   ],
@@ -29,24 +30,27 @@
     "sosa",
     "crmsci",
     "heritage",
-    "observation",
-    "sta"
+    "observation"
   ],
   "group": "Core",
-  "isProfileOf": "ogc.sosa.properties.observation",
+  "isProfileOf": [
+    "ogc.sosa.properties.observation"
+  ],
   "shaclShapes": {
     "ogc.heritage.observation": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/shapes.shacl"
     ],
     "ogc.sosa.properties.observation": [
       "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl"
+    ],
+    "ogc.sosa.properties.execution": [
+      "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl"
     ]
   },
   "dependsOn": [
     "ogc.sosa.properties.observation"
   ],
   "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld",
-  "dateOfLastChange": "2026-06-25",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/schema.json"
@@ -55,9 +59,9 @@
   "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/context.jsonld",
   "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/resolvedProperties.json",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/",
-  "validationPassed": true,
+  "validationPassed": false,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/observation/",
-  "description": "## Observation\n\nAn `Observation` is a scientific measurement or environmental reading taken of a heritage\nobject or place \u2014 microclimate monitoring, condition assessment, conservation science \u2014 using\nthe W3C SOSA/SSN vocabulary as its primary standard.\n\nThis block profiles\n[`ogc.sosa.properties.observation`](https://opengeospatial.github.io/ogcapi-sosa/bblock/ogc.sosa.properties.observation),\ninheriting `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n`hasResult`/`hasSimpleResult`, `resultTime`, and `phenomenonTime`. The only additions are:\n\n- `type` is fixed to `\"Observation\"` (mapped to `sosa:Observation` in the context) so that\n  uplifted RDF is properly typed \u2014 the profiled block's own schema does not set this.\n- `hasFeatureOfInterest` is tightened from optional to **required**: every reading in this\n  register is expected to link back to the `heritage-object` or `place` it was taken of or at.\n\nThis narrowing reflects the CIDOC-CRM/CRMsci *scientific observation context*: the observation\nis meaningful only in relation to the heritage resource being studied or monitored.\n\n### Integration with SensorThings API\n\nD8.2 profile A mandates OGC SensorThings API (STA) as the operational monitoring API. The\n`madeBySensor` property should reference an `ogc.api.sta.Sensor` resource; the\n`hasFeatureOfInterest` should reference the `ogc.api.sta.FeatureOfInterest` or, for the\nheritage domain link, a [`place`](../place) or [`heritage-object`](../heritage-object) URI.\nActual sensor readings (values, timestamps, units) live in STA `Observation` resources; this\nblock is the CRM-anchored representation linking them back to the heritage graph.\n\nFor observations that need an independent geometry (a sensor not co-located with any existing\n`place`), wrap the properties from this block inside `ogc.sosa.features.observation` instead.\n\n### Use cases\n\n- **Profile A** \u2014 environmental monitoring (temperature, humidity, light) at Venaria and Malta\n- **REQ-010** \u2014 sensor reading linked to a `monitoring-point` via `hasFeatureOfInterest`\n",
+  "description": "## Observation\n\nAn `Observation` is a scientific measurement or environmental reading taken of a heritage\nobject or place \u2014 microclimate monitoring, condition assessment, conservation science \u2014 using\nthe W3C SOSA/SSN vocabulary as its primary standard.\n\nThis block profiles\n[`ogc.sosa.properties.observation`](https://opengeospatial.github.io/ogcapi-sosa/bblock/ogc.sosa.properties.observation),\ninheriting `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n`hasResult`/`hasSimpleResult`, `resultTime`, and `phenomenonTime`. The only additions are:\n\n- `type` is fixed to `\"Observation\"` (mapped to `sosa:Observation` in the context) so that\n  uplifted RDF is properly typed \u2014 the profiled block's own schema does not set this.\n- `hasFeatureOfInterest` is tightened from optional to **required**: every reading in this\n  register is expected to link back to the `heritage-object` or `place` it was taken of or at.\n\nThis narrowing reflects the CIDOC-CRM/CRMsci *scientific observation context*: the observation\nis meaningful only in relation to the heritage resource being studied or monitored.\n\n### Sensor linkage\n\nThis register profiles the W3C SOSA/SSN vocabulary directly rather than the OGC SensorThings API\n(STA is an API protocol built on SOSA/SSN, not a separate model \u2014 no confirmed partner requirement\nfor STA API endpoints specifically). `madeBySensor` should reference an\n[`ogc.heritage.monitoring-point`](../monitoring-point) record (a SOSA/SSN `Sensor`);\n`hasFeatureOfInterest` should reference the [`place`](../place) or\n[`heritage-object`](../heritage-object) the reading was taken of/at.\n\nFor observations that need an independent geometry (a sensor not co-located with any existing\n`place`), wrap the properties from this block inside `ogc.sosa.features.observation` instead.\n\n### Use cases\n\n- **Profile A** \u2014 environmental monitoring (temperature, humidity, light) at Venaria and Malta\n- **REQ-010** \u2014 sensor reading linked to a `monitoring-point` via `hasFeatureOfInterest`\n\n## HDTO alignment\n\nEvery instance requires `crmsciType`, a fixed `const` of `crmsci:S4`, mapping via `context.jsonld`\ndirectly to `rdf:type` \u2014 asserted on a plain JSON-LD parse, no post-processing step needed. Per\nD7.1's own OGC SensorThings API crosswalk table (Table 1, p.28), an STA `Observation` (the same\nconcept SOSA's `sosa:Observation`, which this block profiles, already models) targets\n`crmsci:S4`. D7.1 cites S4 only as a superclass reference (its own full scope note is a gap in the\nsource \u2014 see `eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md`), but it is at least a\nclass D7.1's own declarations actually use, unlike `crmsci:S9` (see `monitoring-threshold`'s own\nHDTO alignment note for why that one uses `crmsci:S15` instead).\n",
   "examples": [
     {
       "title": "A relative humidity reading linked back to its CIDOC-CRM context",
@@ -67,20 +71,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/humidity-reading.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.json",
-          "sizeBytes": 426,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}\n"
+          "sizeBytes": 471,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\",\n  \"crmsciType\": \"crmsci:S4\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.jsonld",
-          "sizeBytes": 542,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\"\n}"
+          "sizeBytes": 587,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01\",\n  \"hasSimpleResult\": 54.2,\n  \"resultTime\": \"2024-03-04T12:00:00Z\",\n  \"crmsciType\": \"crmsci:S4\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_1_1.ttl",
-          "sizeBytes": 537,
-          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z> a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult 5.42e+01 ;\n    sosa:madeBySensor <https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-03-04T12:00:00Z\" .\n\n"
+          "sizeBytes": 636,
+          "code": "@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z> a crmsci:S4,\n        sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult 5.42e+01 ;\n    sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-03-04T12:00:00Z\" .\n\n"
         }
       ]
     },
@@ -92,20 +96,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.json",
-          "sizeBytes": 292,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}\n"
+          "sizeBytes": 321,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\",\n  \"crmsciType\": \"crmsci:S4\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.jsonld",
-          "sizeBytes": 408,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\"\n}"
+          "sizeBytes": 437,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\",\n  \"crmsciType\": \"crmsci:S4\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.ttl",
-          "sizeBytes": 329,
-          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n\n<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult <file:///github/workspace/> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .\n\n"
+          "sizeBytes": 411,
+          "code": "@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n\n<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult <file:///github/workspace/> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .\n\n"
         }
       ]
     },
@@ -117,25 +121,25 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/monitoring-point-reading.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.json",
-          "sizeBytes": 456,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}\n"
+          "sizeBytes": 485,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\",\n  \"crmsciType\": \"crmsci:S4\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.jsonld",
-          "sizeBytes": 572,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\"\n}"
+          "sizeBytes": 601,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z\",\n  \"type\": \"Observation\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300055680\",\n  \"madeBySensor\": \"https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01\",\n  \"hasSimpleResult\": 61.4,\n  \"resultTime\": \"2024-09-15T08:30:00Z\",\n  \"crmsciType\": \"crmsci:S4\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_3_1.ttl",
-          "sizeBytes": 567,
-          "code": "@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z> a sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;\n    sosa:hasSimpleResult 6.14e+01 ;\n    sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-09-15T08:30:00Z\" .\n\n"
+          "sizeBytes": 650,
+          "code": "@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z> a crmsci:S4,\n        sosa:Observation ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;\n    sosa:hasSimpleResult 6.14e+01 ;\n    sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;\n    sosa:resultTime \"2024-09-15T08:30:00Z\" .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Observation\ndescription: 'A scientific observation or measurement, profiling the SOSA/SSN Observation\n  rather than\n\n  redefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n\n  `hasResult`/`hasSimpleResult` and `resultTime`/`phenomenonTime` all come from\n\n  `ogc.sosa.properties.observation`. This block only narrows `hasFeatureOfInterest`\n  from\n\n  optional to required, since every reading in this register is expected to reference\n  the\n\n  `heritage-object` or `place` it was taken of/at by URI (the CIDOC-CRM/CRMsci \"scientific\n\n  observation context\"), and sets `type` so the uplifted graph is actually typed\n\n  `sosa:Observation` (the profiled block''s own examples never set it). For observations\n  that\n\n  need their own geometry independent of an existing `place`, compose the properties\n  from this\n\n  block inside `ogc.sosa.features.observation` instead.\n\n  '\nallOf:\n- $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml\n- type: object\n  required:\n  - id\n  - hasFeatureOfInterest\n  properties:\n    type:\n      const: Observation\n      x-jsonld-id: '@type'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Observation\ndescription: 'A scientific observation or measurement, profiling the SOSA/SSN Observation\n  rather than\n\n  redefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n\n  `hasResult`/`hasSimpleResult` and `resultTime`/`phenomenonTime` all come from\n\n  `ogc.sosa.properties.observation`. This block only narrows `hasFeatureOfInterest`\n  from\n\n  optional to required, since every reading in this register is expected to reference\n  the\n\n  `heritage-object` or `place` it was taken of/at by URI (the CIDOC-CRM/CRMsci \"scientific\n\n  observation context\"), and sets `type` so the uplifted graph is actually typed\n\n  `sosa:Observation` (the profiled block''s own examples never set it). For observations\n  that\n\n  need their own geometry independent of an existing `place`, compose the properties\n  from this\n\n  block inside `ogc.sosa.features.observation` instead.\n\n  '\nallOf:\n- $ref: https://opengeospatial.github.io/ogcapi-sosa/build/annotated/sosa/properties/observation/schema.yaml\n- type: object\n  required:\n  - id\n  - hasFeatureOfInterest\n  - crmsciType\n  properties:\n    type:\n      const: Observation\n      x-jsonld-id: '@type'\n    crmsciType:\n      type: string\n      const: crmsci:S4\n      description: \"Fixed HDTO co-type. Maps via context directly to rdf:type, alongside\n        sosa:Observation \\u2014 additive, per D7.1's own OGC SensorThings API crosswalk\n        table (Table 1, p.28: STA Observation, the same concept sosa:Observation already\n        models, targets crmsci:S4).\"\n      x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n      x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n  crmsci: http://www.cidoc-crm.org/extensions/crmsci/\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/observation"
 }

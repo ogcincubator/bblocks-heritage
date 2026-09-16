@@ -1,7 +1,7 @@
 
 # Digital Surrogate (Schema)
 
-`ogc.heritage.digital-surrogate` *v0.1*
+`ogc.heritage.digital-surrogate` *v0.2*
 
 A digital file produced by digitising a physical source carrier (e.g. a photograph, drawing or bound volume), modelled as a CRMdig D1 Digital Object with a mandatory PROV derivation chain linking to the source-carrier and a D7 digitisation event sub-object. Profiles ogc.heritage.digital-representation.
 
@@ -79,6 +79,12 @@ SHACL shapes target nodes via `sh:targetSubjectsOf prov:wasDerivedFrom` rather t
 | Reggia di Venaria (CRRS) | CRRS-013 | Digitised archival plans, engravings, photographs from ASTo and Archivio Fotografico |
 | Villa Portelli, Malta (HM) | HM-05 | Digitised historical photographs from Heritage Malta collections |
 
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is pinned to a fixed `const` of
+`hdto:HC5_Digital_Representation`. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and
+required.
+
 ## Examples
 
 ### Digitised architectural plan from Venaria Reale (CRRS-013)
@@ -105,7 +111,9 @@ A high-resolution scan of a 17th-century architectural plan from the State Archi
   "rights": "https://creativecommons.org/licenses/by/4.0/",
   "persistentIdentifier": "https://hdl.handle.net/21.T11998/rv-plan-2024-0042",
   "iiifManifest": "https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest",
-  "completeness": "complete — full sheet digitised; minor foxing on lower-right corner noted in processing history"
+  "completeness": "complete \u2014 full sheet digitised; minor foxing on lower-right corner noted in processing history",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -133,26 +141,32 @@ A high-resolution scan of a 17th-century architectural plan from the State Archi
   "rights": "https://creativecommons.org/licenses/by/4.0/",
   "persistentIdentifier": "https://hdl.handle.net/21.T11998/rv-plan-2024-0042",
   "iiifManifest": "https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest",
-  "completeness": "complete \u2014 full sheet digitised; minor foxing on lower-right corner noted in processing history"
+  "completeness": "complete \u2014 full sheet digitised; minor foxing on lower-right corner noted in processing history",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix ns1: <http://www.ics.forth.gr/isl/CRMdig/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024> a crmdig:D1_Digital_Object ;
+<https://data.regiadivenaria.it/digital-surrogate/ASTo-VR-mazzo12-n3-scan-2024> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object,
+        ns1:D1_Digital_Object ;
     dct:format "image/tiff" ;
     dct:rights "https://creativecommons.org/licenses/by/4.0/" ;
     crm:P129_is_about <https://data.regiadivenaria.it/heritage-object/galleria-grande> ;
     crm:P1_is_identified_by "https://hdl.handle.net/21.T11998/rv-plan-2024-0042" ;
     crm:P3_has_note "complete — full sheet digitised; minor foxing on lower-right corner noted in processing history" ;
     crm:P70i_is_documented_in <https://data.regiadivenaria.it/iiif/3/ASTo-VR-mazzo12-n3-scan-2024/manifest> ;
-    crmdig:L11i_was_output_of "{\"colourMode\":\"RGB\",\"date\":\"2024-03-15\",\"equipment\":\"Zeutschel OS 14000 A1 overhead scanner\",\"method\":\"flatbed scan\",\"operator\":\"Archivio di Stato di Torino, Laboratorio Digitalizzazione\",\"processingHistory\":\"Flatbed scan of rolled plan; ICC colour calibration; converted from TIFF master to JPEG access copy.\",\"quality\":\"master\",\"resolution\":\"400dpi\",\"software\":\"Zeutschel OmniScan 12\"}"^^rdf:JSON ;
+    ns1:L11i_was_output_of "{\"colourMode\":\"RGB\",\"date\":\"2024-03-15\",\"equipment\":\"Zeutschel OS 14000 A1 overhead scanner\",\"method\":\"flatbed scan\",\"operator\":\"Archivio di Stato di Torino, Laboratorio Digitalizzazione\",\"processingHistory\":\"Flatbed scan of rolled plan; ICC colour calibration; converted from TIFF master to JPEG access copy.\",\"quality\":\"master\",\"resolution\":\"400dpi\",\"software\":\"Zeutschel OmniScan 12\"}"^^rdf:JSON ;
     prov:wasDerivedFrom <https://data.regiadivenaria.it/source-carrier/ASTo-VR-mazzo12-n3> .
 
 
@@ -180,7 +194,9 @@ A digital photograph produced from a 1953 photographic negative depicting Villa 
     "processingHistory": "35mm negative photographed on copy stand; colour correction and contrast adjustment applied."
   },
   "mediaType": "image/jpeg",
-  "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+  "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -205,23 +221,29 @@ A digital photograph produced from a 1953 photographic negative depicting Villa 
     "processingHistory": "35mm negative photographed on copy stand; colour correction and contrast adjustment applied."
   },
   "mediaType": "image/jpeg",
-  "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+  "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix ns1: <http://www.ics.forth.gr/isl/CRMdig/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig> a crmdig:D1_Digital_Object ;
+<https://data.heritagemalta.org/digital-surrogate/villap-photo-neg-1953-001-dig> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object,
+        ns1:D1_Digital_Object ;
     dct:format "image/jpeg" ;
     dct:rights "https://creativecommons.org/licenses/by-nc/4.0/" ;
     crm:P129_is_about <https://data.heritagemalta.org/place/villa-portelli> ;
-    crmdig:L11i_was_output_of "{\"colourMode\":\"RGB\",\"date\":\"2023-11-08\",\"equipment\":\"Phase One iXG 50MP with copy stand\",\"method\":\"digital photography from negative\",\"operator\":\"Heritage Malta Conservation Department\",\"processingHistory\":\"35mm negative photographed on copy stand; colour correction and contrast adjustment applied.\",\"quality\":\"access copy\",\"resolution\":\"50MP\",\"software\":\"Capture One 23\"}"^^rdf:JSON ;
+    ns1:L11i_was_output_of "{\"colourMode\":\"RGB\",\"date\":\"2023-11-08\",\"equipment\":\"Phase One iXG 50MP with copy stand\",\"method\":\"digital photography from negative\",\"operator\":\"Heritage Malta Conservation Department\",\"processingHistory\":\"35mm negative photographed on copy stand; colour correction and contrast adjustment applied.\",\"quality\":\"access copy\",\"resolution\":\"50MP\",\"software\":\"Capture One 23\"}"^^rdf:JSON ;
     prov:wasDerivedFrom <https://data.heritagemalta.org/source-carrier/photo-neg-1953-001> .
 
 
@@ -250,6 +272,11 @@ allOf:
       description: Fixed type token (maps to crmdig:D1_Digital_Object via JSON-LD
         context).
       x-jsonld-id: '@type'
+    hdtoType:
+      const: hdto:HC5_Digital_Representation
+      description: "Pins the inherited hdtoType (from digital-representation, otherwise
+        an enum of HC5/HC7/HC8) to plain HC5 \u2014 a digitised surrogate has no more
+        specific HC5-family class in D7.1."
     wasDerivedFrom:
       type: string
       format: uri
@@ -701,8 +728,16 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "digitisationEvent": {
-      "@id": "crmdig:L11i_was_output_of",
+      "@id": "http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of",
       "@type": "@json"
     },
     "rights": "dct:rights",
@@ -711,7 +746,7 @@ Links to the schema:
       "@type": "@id"
     },
     "completeness": "crm:P3_has_note",
-    "DigitalSurrogate": "crmdig:D1_Digital_Object",
+    "DigitalSurrogate": "http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object",
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -720,7 +755,8 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

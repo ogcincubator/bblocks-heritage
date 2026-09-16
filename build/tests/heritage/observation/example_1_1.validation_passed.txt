@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.observation - Observation
-Generated 2026-07-17T14:25:09.322840+00:00
+Generated 2026-09-16T15:07:32.078330+00:00
 === Files ===
 Using examples/humidity-reading.json from examples
 JSON-LD context is present - uplifting
@@ -18,21 +18,28 @@ Validation result for _sources/observation/shapes.shacl:
   
 Focus nodes for _sources/observation/shapes.shacl:
  - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
 
 Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
- - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
- - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*
- - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
- - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
  - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
- - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
- - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
- - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>/sosa:hasSimpleResult
+ - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*
  - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*
+
+Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:
+ - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>/sosa:hasSimpleResult
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
+ - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
+ - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>
 
 === End SHACL ===
 

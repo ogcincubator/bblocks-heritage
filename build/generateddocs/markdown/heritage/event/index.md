@@ -1,7 +1,7 @@
 
 # Event (Schema)
 
-`ogc.heritage.event` *v0.1*
+`ogc.heritage.event` *v0.3*
 
 An event in the history of a heritage object — production, restoration, modification, acquisition — modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.
 
@@ -28,6 +28,24 @@ than `crm:E5_Event` — the SHACL shape here targets by predicate rather than by
 A `heritage-object`'s production or restoration history is expressed as a set of `Event`s that
 reference it via `used` (object worked on) or `generated` (object produced), rather than as an
 embedded list on the object itself — so the object record stays stable as new events accumulate.
+
+## HDTO alignment: reused for HC11 Digital Twin Maintenance / HC13 Project
+
+Rather than authoring two more new blocks, this block is reused for HDTO's **HC11 Digital Twin
+Maintenance** and **HC13 Project** classes (both reduce to `crm:E5_Event` in the CRM hierarchy —
+HC11 via `crm:E65_Creation` ⊑ `E7_Activity` ⊑ `E5_Event`, HC13 via `crm:E7_Activity` ⊑ `E5_Event`;
+see `eccch-integration/hdto/03-digital-twin-infrastructure.md`). Unlike the HC3/HC5-8 co-typing
+elsewhere in this register, this is **not** derivable from any class an `Event` already asserts —
+nothing distinguishes "this is a digital-twin-maintenance activity" from an ordinary
+production/restoration event by CRM type alone, so `hdtoType` isn't unconditionally required like
+it is on `heritage-object`/`digital-representation`. Instead: set `eventType` to the HDTO class URI
+itself (`http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance` or
+`.../HC13_Project`) to opt an instance in, and the schema's own `if`/`then` blocks then *require*
+`hdtoType` to be set to the matching value — both map via context directly to their respective
+predicates (`eventType` → `crm:P2_has_type`, `hdtoType` → `rdf:type`) on a plain JSON-LD parse, no
+post-processing step needed. See
+[`heritage-digital-twin`](../heritage-digital-twin)/[`heritage-proposition-set`](../heritage-proposition-set)
+for how these co-typed `event` instances get referenced (HP19 has composed, HP30 added content).
 
 ## Examples
 
@@ -168,6 +186,65 @@ The 1820 foundation of the Villa Portelli estate, typed as a ceremony/foundation
 
 ```
 
+
+### HDTO digital twin maintenance activity (HC11)
+A digital-twin-maintenance session over the Great Gallery painting, with `eventType` set to the HDTO `hdto:HC11_Digital_Twin_Maintenance` class URI — see the "HDTO alignment" section of this block's description for why this is how HC11/HC13 co-typing is triggered. Referenced from `heritage-digital-twin`'s own example via HP19 has composed.
+#### json
+```json
+{
+  "id": "https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026",
+  "identifier": "HDT-MAINT-2026-01",
+  "eventType": "http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance",
+  "startedAtTime": "2026-09-01T00:00:00Z",
+  "endedAtTime": "2026-09-16T00:00:00Z",
+  "used": [
+    "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
+  ],
+  "wasAssociatedWith": [
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
+  ],
+  "hdtoType": "hdto:HC11_Digital_Twin_Maintenance"
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/event/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026",
+  "identifier": "HDT-MAINT-2026-01",
+  "eventType": "http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance",
+  "startedAtTime": "2026-09-01T00:00:00Z",
+  "endedAtTime": "2026-09-16T00:00:00Z",
+  "used": [
+    "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014"
+  ],
+  "wasAssociatedWith": [
+    "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
+  ],
+  "hdtoType": "hdto:HC11_Digital_Twin_Maintenance"
+}
+```
+
+#### ttl
+```ttl
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026> a hdto:HC11_Digital_Twin_Maintenance ;
+    crm:P1_is_identified_by "HDT-MAINT-2026-01" ;
+    crm:P2_has_type hdto:HC11_Digital_Twin_Maintenance ;
+    prov:endedAtTime "2026-09-16T00:00:00+00:00"^^xsd:dateTime ;
+    prov:startedAtTime "2026-09-01T00:00:00+00:00"^^xsd:dateTime ;
+    prov:used <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
+    prov:wasAssociatedWith <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -193,12 +270,57 @@ allOf:
     eventType:
       type: string
       format: uri
-      description: The type of event, typically a Getty AAT concept URI, e.g. production
-        or restoration (CIDOC-CRM P2_has_type).
+      description: "The type of event, typically a Getty AAT concept URI, e.g. production
+        or restoration (CIDOC-CRM P2_has_type). Set to an HDTO class URI (hdto:HC11_Digital_Twin_Maintenance
+        / hdto:HC13_Project) to identify this event as a digital-twin-maintenance
+        or project activity \u2014 see `hdtoType` below, required in that case."
       x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type
       x-jsonld-type: '@id'
+    hdtoType:
+      type: string
+      enum:
+      - hdto:HC11_Digital_Twin_Maintenance
+      - hdto:HC13_Project
+      description: "HDTO co-type (D7.1). Maps via context directly to rdf:type. Not
+        applicable to most events (an ordinary production/restoration/acquisition
+        has no HC11/HC13 counterpart) \u2014 required only when eventType is itself
+        set to the matching HDTO class URI (see the `if`/`then` blocks below), since
+        nothing about an Event's CRM/PROV-O type alone distinguishes a digital-twin-maintenance
+        or project activity from any other event."
+      x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+      x-jsonld-type: '@id'
+- if:
+    properties:
+      eventType:
+        const: http://isl.ics.forth.gr/ontology/echoes/HC11_Digital_Twin_Maintenance
+    required:
+    - eventType
+  then:
+    required:
+    - hdtoType
+    properties:
+      hdtoType:
+        const: hdto:HC11_Digital_Twin_Maintenance
+        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+        x-jsonld-type: '@id'
+- if:
+    properties:
+      eventType:
+        const: http://isl.ics.forth.gr/ontology/echoes/HC13_Project
+    required:
+    - eventType
+  then:
+    required:
+    - hdtoType
+    properties:
+      hdtoType:
+        const: hdto:HC13_Project
+        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+        x-jsonld-type: '@id'
 x-jsonld-prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crm: http://www.cidoc-crm.org/cidoc-crm/
+  hdto: http://isl.ics.forth.gr/ontology/echoes/
 
 ```
 
@@ -784,6 +906,10 @@ Links to the schema:
       "@id": "crm:P2_has_type",
       "@type": "@id"
     },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -791,6 +917,7 @@ Links to the schema:
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

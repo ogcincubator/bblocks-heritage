@@ -1,7 +1,7 @@
 
 # Digital Representation (Schema)
 
-`ogc.heritage.digital-representation` *v0.1*
+`ogc.heritage.digital-representation` *v0.3*
 
 A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity.
 
@@ -29,6 +29,36 @@ format-specific profiles constrain it for a particular kind of asset:
 - [`fabrication-output`](../fabrication-output) — STL/3MF outputs with a mandatory PROV
   derivation chain back to their source 3D model (profile F)
 
+## HDTO alignment
+
+Every instance requires two co-types, both mapping via `context.jsonld` directly to `rdf:type` —
+asserted on a plain JSON-LD parse, no post-processing step needed:
+
+- `crmdigType`, a fixed `const` of `crmdig:D9_Data_Object`. HDTO's own OGC SensorThings crosswalk
+  table (D7.1 Table 1, p.28) names `crmdig:D9_Data_Object`, not `crm:E73_Information_Object` (this
+  block's `bblock.json` `rdfType` metadata), as HC5's actual CRM anchor — this block's instances
+  carried no CIDOC-CRM class triple at all before this (the real uplifted type was only
+  `prov:Entity`, inherited from the PROV-O Entity profile), so D9 is now asserted directly rather
+  than left as documentation-only metadata.
+- `hdtoType`, required with an `enum` of `hdto:HC5_Digital_Representation` /
+  `hdto:HC7_Digital_Audiovisual_Object` / `hdto:HC8_3D_Model` (HC7/HC8 ⊑ HC5 per D7.1).
+  `oral-history` and `three-d-model` narrow this to their own specific HC7/HC8 `const` via their
+  own schema; a plain `digital-representation` or `archival-document` instance defaults to HC5.
+
+**Cross-block D9 collision, resolved:** `derived-survey-product` also profiles this block and
+previously targeted `crmdig:D9_Data_Object` exclusively via `sh:targetClass` in its own
+`shapes.shacl`, on the assumption that no sibling block asserted D9. Now that every
+digital-representation-family instance does, `derived-survey-product`'s shape was switched to
+`sh:targetSubjectsOf crmdig:L11i_was_output_of` (a predicate unique to that block) so its
+processing-specific constraints don't false-positive on a plain photo or 3D model that also
+happens to carry the shared D9 co-type — see its own `shapes.shacl` and the register's established
+convention for this exact situation (`feedback_bblocks_authoring` memory).
+
+`archival-document` is co-typed HC5 too (see its own description); `fabrication-output` is
+deliberately left unassigned — it produces a *physical* 3D-printed artifact from digital input, so
+it may belong in the HC3 tangible family instead of HC5, and that's a decision for whoever owns
+that pilot requirement, not OGC alone.
+
 ## Examples
 
 ### A documentation photograph with provenance and a persistent identifier
@@ -43,7 +73,9 @@ A photograph of the Great Gallery ceiling painting, attributed to the photograph
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ],
-  "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01"
+  "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -59,17 +91,23 @@ A photograph of the Great Gallery ceiling painting, attributed to the photograph
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
   ],
-  "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01"
+  "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> dct:format "image/jpeg" ;
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    dct:format "image/jpeg" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     crm:P1_is_identified_by "RV-GG-014-PHOTO-01",
         "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01" ;
@@ -85,7 +123,9 @@ Only `id` and `isAbout` are required — media type, attribution and persistent 
 ```json
 {
   "id": "https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01",
-  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel"
+  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -95,15 +135,21 @@ Only `id` and `isAbout` are required — media type, attribution and persistent 
 {
   "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
   "id": "https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01",
-  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel"
+  "isAbout": "https://heritalise-eccch.eu/resource/object/fishing-creel",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 
-<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .
+<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .
 
 
 ```
@@ -127,8 +173,6 @@ description: 'A digital asset (image, 3D model, document...) representing or doc
 $defs:
   properties:
     type: object
-    required:
-    - isAbout
     properties:
       identifier:
         type: string
@@ -158,13 +202,46 @@ $defs:
         description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).
         x-jsonld-id: http://www.w3.org/ns/dcat#accessURL
         x-jsonld-type: '@id'
+      crmdigType:
+        type: string
+        const: crmdig:D9_Data_Object
+        description: "Fixed co-type, shared by the whole digital-representation family.
+          Maps via context directly to rdf:type. D7.1's own OGC SensorThings crosswalk
+          table (Table 1, p.28) names crmdig:D9_Data_Object, not crm:E73_Information_Object,
+          as HDTO's actual HC5 anchor \u2014 asserted here alongside (not instead
+          of) whatever CRM/PROV-O typing this instance already carries. Required on
+          every instance of this block and its profiles."
+        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+        x-jsonld-type: '@id'
+      hdtoType:
+        type: string
+        format: uri
+        enum:
+        - hdto:HC5_Digital_Representation
+        - hdto:HC7_Digital_Audiovisual_Object
+        - hdto:HC8_3D_Model
+        default: hdto:HC5_Digital_Representation
+        description: "HDTO co-type (D7.1). Maps via context directly to rdf:type.
+          Required on every instance; value must be HC5 (the family default \u2014
+          used when this block is not further profiled) or one of HC5's own HDTO subclasses
+          HC7/HC8, which `oral-history`/`three-d-model` narrow to via their own fixed
+          `const`."
+        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+        x-jsonld-type: '@id'
+    required:
+    - isAbout
+    - crmdigType
+    - hdtoType
 allOf:
 - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
 - $ref: '#/$defs/properties'
 x-jsonld-prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
+  crmdig: http://www.cidoc-crm.org/extensions/crmdig/
+  hdto: http://isl.ics.forth.gr/ontology/echoes/
 
 ```
 
@@ -533,6 +610,14 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -541,6 +626,8 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

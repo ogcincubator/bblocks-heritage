@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Heritage Proposition Set",
+  "description": "HDTO's HC16 Heritage Proposition Set (\u2291 crminf:I4 Proposition Set + HC15 Persistent Digital\nObject): the named-graph content unit a `heritage-digital-twin` (HC2) actually \"contains\" via\nHP33/HP34. Per D7.1's own worked example (Figures 16-17), a real HC16 instance is a\nprovenance-linked graph (digitization/study process \u2192 software/device \u2192 data output), not a\nflat metadata bag \u2014 modelling that full CRMdig process chain is deliberately deferred (see\n`description.md`); this schema covers the flat \"what does this set assert, and about what\" shape\nneeded to make HC2 usable now, with `content` as the extension point for deeper chains later.\n",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "content",
+    "composedBy"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uri",
+      "description": "Persistent URI identifying this proposition set (named graph).",
+      "x-jsonld-id": "@id"
+    },
+    "type": {
+      "const": "HeritagePropositionSet",
+      "description": "Fixed type token (maps to hdto:HC16_Heritage_Proposition_Set).",
+      "x-jsonld-id": "@type"
+    },
+    "label": {
+      "type": "string",
+      "description": "Short human-readable label for this proposition set, e.g. naming the digitization/study batch it captures.",
+      "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
+    },
+    "content": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "URIs of the register entities this proposition set's assertions are about or derived from (e.g. `digital-representation`/`three-d-model`/`survey-dataset`/`observation` instances it aggregates as evidence for the documented `heritage-object`). Modelled as a flat reference list (crm:P148_has_component) \u2014 the deeper process/software/device provenance chain D7.1's worked example shows (D2 Digitization Process, D14 Software, D6 Digital Device, D9 Data Object) is not modelled here; see `description.md`.",
+      "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P148_has_component",
+      "x-jsonld-type": "@id",
+      "x-jsonld-container": "@set"
+    },
+    "composedBy": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of the `event` instance (co-typed hdto:HC11_Digital_Twin_Maintenance) that added this proposition set (HP30 added content, inverse direction \u2014 HP30i). Required: every proposition set exists because some maintenance activity produced it.",
+      "x-jsonld-reverse": "hdto:HP30_added_content",
+      "x-jsonld-type": "@id"
+    },
+    "replaces": {
+      "type": "string",
+      "format": "uri",
+      "description": "URI of the `heritage-proposition-set` this one supersedes within the same digital twin's version chain (HP32 replaced).",
+      "x-jsonld-id": "http://isl.ics.forth.gr/ontology/echoes/HP32_replaced",
+      "x-jsonld-type": "@id"
+    }
+  },
+  "x-jsonld-extra-terms": {
+    "HeritagePropositionSet": "http://isl.ics.forth.gr/ontology/echoes/HC16_Heritage_Proposition_Set"
+  },
+  "x-jsonld-prefixes": {
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/"
+  }
+}

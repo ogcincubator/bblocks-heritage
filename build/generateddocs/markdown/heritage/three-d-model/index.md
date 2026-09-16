@@ -1,7 +1,7 @@
 
 # 3D Model (Schema)
 
-`ogc.heritage.three-d-model` *v0.1*
+`ogc.heritage.three-d-model` *v0.3*
 
 A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects.
 
@@ -18,6 +18,15 @@ real-time 3D model formats — glTF, OBJ, or an OGC 3D Tiles tileset — coverin
 It inherits everything from `digital-representation` (`isAbout`, PROV provenance chain,
 persistent identifier) and only adds a constrained `mediaType`.
 
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is narrowed to a fixed `const` of
+`hdto:HC8_3D_Model` (⊑ `hdto:HC5_Digital_Representation`), asserted via context on a plain JSON-LD
+parse. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required. See
+[`digital-representation`](../digital-representation)'s description for the shared HC5-family
+rationale. This block also gained its first `shapes.shacl` in this session (it previously had
+none) — see the companion `HC83DModelShape` validation there.
+
 ## Examples
 
 ### A glTF-binary 3D model of a painting's frame
@@ -31,7 +40,9 @@ A photogrammetry-derived glTF model documenting the Great Gallery ceiling painti
   "mediaType": "model/gltf-binary",
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC8_3D_Model"
 }
 
 ```
@@ -46,17 +57,23 @@ A photogrammetry-derived glTF model documenting the Great Gallery ceiling painti
   "mediaType": "model/gltf-binary",
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC8_3D_Model"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> dct:format "model/gltf-binary" ;
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> a hdto:HC8_3D_Model,
+        crmdig:D9_Data_Object ;
+    dct:format "model/gltf-binary" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     crm:P1_is_identified_by "RV-GG-014-3D-01" ;
     prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .
@@ -77,7 +94,9 @@ A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as g
   "url": "https://heritalise-eccch.eu/resource/files/south-balustrade.gltf",
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC8_3D_Model"
 }
 
 ```
@@ -93,18 +112,24 @@ A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as g
   "url": "https://heritalise-eccch.eu/resource/files/south-balustrade.gltf",
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC8_3D_Model"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> dct:format "model/gltf+json" ;
+<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> a hdto:HC8_3D_Model,
+        crmdig:D9_Data_Object ;
+    dct:format "model/gltf+json" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/south-balustrade> ;
     crm:P1_is_identified_by "MT-3D-BAL-001" ;
     dcat:accessURL <https://heritalise-eccch.eu/resource/files/south-balustrade.gltf> ;
@@ -130,6 +155,10 @@ allOf:
   required:
   - mediaType
   properties:
+    hdtoType:
+      const: hdto:HC8_3D_Model
+      description: "Narrows the inherited hdtoType (from digital-representation) to
+        HC8 \u2014 this block's own specific HDTO class (HC8 \u2291 HC5 per D7.1)."
     mediaType:
       type: string
       enum:
@@ -508,6 +537,14 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -516,6 +553,8 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

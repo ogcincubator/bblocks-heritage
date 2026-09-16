@@ -1,0 +1,10 @@
+{
+  "id": "https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1",
+  "type": "HeritagePropositionSet",
+  "label": "Photographic and 3D documentation batch, Great Gallery ceiling painting, 2026",
+  "content": [
+    "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01",
+    "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01"
+  ],
+  "composedBy": "https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026"
+}

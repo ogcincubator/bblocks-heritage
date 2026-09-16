@@ -7,7 +7,7 @@
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.3",
   "rdfType": [
     "http://www.cidoc-crm.org/cidoc-crm/E73_Information_Object"
   ],
@@ -28,17 +28,22 @@
     "prov"
   ],
   "group": "Core",
-  "isProfileOf": "ogc.ogc-utils.prov-entity",
+  "isProfileOf": [
+    "ogc.ogc-utils.prov-entity"
+  ],
+  "dateOfLastChange": "2026-09-16",
   "shaclShapes": {
     "ogc.heritage.digital-representation": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ]
   },
   "dependsOn": [
     "ogc.ogc-utils.prov-entity"
   ],
   "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld",
-  "dateOfLastChange": "2026-06-25",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.json"
@@ -49,7 +54,7 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/digital-representation/",
-  "description": "## Digital Representation\n\nA `DigitalRepresentation` is a digital asset \u2014 an image, a 3D model, a scanned document \u2014 that\nrepresents or documents a heritage object, modelled as a CIDOC-CRM `E73_Information_Object`.\n\nLike `actor` and `event`, this block profiles a PROV-O class: a `DigitalRepresentation` *is* a\nPROV-O `Entity`, so its provenance chain (`wasAttributedTo`, `wasGeneratedBy`, `wasDerivedFrom`)\ncomes for free from `ogc.ogc-utils.prov-entity`. This block adds `isAbout` (a required link back\nto the [`heritage-object`](../heritage-object) it represents), `mediaType` and an optional\n`persistentIdentifier`.\n\n`DigitalRepresentation` is deliberately generic \u2014 it covers any digital asset type. The three\nformat-specific profiles constrain it for a particular kind of asset:\n\n- [`three-d-model`](../three-d-model) \u2014 glTF / 3D Tiles / OBJ 3D models (profile B)\n- [`archival-document`](../archival-document) \u2014 PDF/A and LIDO/XML documents with a mandatory\n  persistent identifier (profile C)\n- [`fabrication-output`](../fabrication-output) \u2014 STL/3MF outputs with a mandatory PROV\n  derivation chain back to their source 3D model (profile F)\n",
+  "description": "## Digital Representation\n\nA `DigitalRepresentation` is a digital asset \u2014 an image, a 3D model, a scanned document \u2014 that\nrepresents or documents a heritage object, modelled as a CIDOC-CRM `E73_Information_Object`.\n\nLike `actor` and `event`, this block profiles a PROV-O class: a `DigitalRepresentation` *is* a\nPROV-O `Entity`, so its provenance chain (`wasAttributedTo`, `wasGeneratedBy`, `wasDerivedFrom`)\ncomes for free from `ogc.ogc-utils.prov-entity`. This block adds `isAbout` (a required link back\nto the [`heritage-object`](../heritage-object) it represents), `mediaType` and an optional\n`persistentIdentifier`.\n\n`DigitalRepresentation` is deliberately generic \u2014 it covers any digital asset type. The three\nformat-specific profiles constrain it for a particular kind of asset:\n\n- [`three-d-model`](../three-d-model) \u2014 glTF / 3D Tiles / OBJ 3D models (profile B)\n- [`archival-document`](../archival-document) \u2014 PDF/A and LIDO/XML documents with a mandatory\n  persistent identifier (profile C)\n- [`fabrication-output`](../fabrication-output) \u2014 STL/3MF outputs with a mandatory PROV\n  derivation chain back to their source 3D model (profile F)\n\n## HDTO alignment\n\nEvery instance requires two co-types, both mapping via `context.jsonld` directly to `rdf:type` \u2014\nasserted on a plain JSON-LD parse, no post-processing step needed:\n\n- `crmdigType`, a fixed `const` of `crmdig:D9_Data_Object`. HDTO's own OGC SensorThings crosswalk\n  table (D7.1 Table 1, p.28) names `crmdig:D9_Data_Object`, not `crm:E73_Information_Object` (this\n  block's `bblock.json` `rdfType` metadata), as HC5's actual CRM anchor \u2014 this block's instances\n  carried no CIDOC-CRM class triple at all before this (the real uplifted type was only\n  `prov:Entity`, inherited from the PROV-O Entity profile), so D9 is now asserted directly rather\n  than left as documentation-only metadata.\n- `hdtoType`, required with an `enum` of `hdto:HC5_Digital_Representation` /\n  `hdto:HC7_Digital_Audiovisual_Object` / `hdto:HC8_3D_Model` (HC7/HC8 \u2291 HC5 per D7.1).\n  `oral-history` and `three-d-model` narrow this to their own specific HC7/HC8 `const` via their\n  own schema; a plain `digital-representation` or `archival-document` instance defaults to HC5.\n\n**Cross-block D9 collision, resolved:** `derived-survey-product` also profiles this block and\npreviously targeted `crmdig:D9_Data_Object` exclusively via `sh:targetClass` in its own\n`shapes.shacl`, on the assumption that no sibling block asserted D9. Now that every\ndigital-representation-family instance does, `derived-survey-product`'s shape was switched to\n`sh:targetSubjectsOf crmdig:L11i_was_output_of` (a predicate unique to that block) so its\nprocessing-specific constraints don't false-positive on a plain photo or 3D model that also\nhappens to carry the shared D9 co-type \u2014 see its own `shapes.shacl` and the register's established\nconvention for this exact situation (`feedback_bblocks_authoring` memory).\n\n`archival-document` is co-typed HC5 too (see its own description); `fabrication-output` is\ndeliberately left unassigned \u2014 it produces a *physical* 3D-printed artifact from digital input, so\nit may belong in the HC3 tangible family instead of HC5, and that's a decision for whoever owns\nthat pilot requirement, not OGC alone.\n",
   "examples": [
     {
       "title": "A documentation photograph with provenance and a persistent identifier",
@@ -59,20 +64,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/photograph.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.json",
-          "sizeBytes": 424,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}\n"
+          "sizeBytes": 514,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\",\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.jsonld",
-          "sizeBytes": 551,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\"\n}"
+          "sizeBytes": 641,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01\",\n  \"identifier\": \"RV-GG-014-PHOTO-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"image/jpeg\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"persistentIdentifier\": \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\",\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_1_1.ttl",
-          "sizeBytes": 552,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
+          "sizeBytes": 746,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> a hdto:HC5_Digital_Representation,\n        crmdig:D9_Data_Object ;\n    dct:format \"image/jpeg\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-PHOTO-01\",\n        \"https://doi.org/10.1234/heritalise.rv-gg-014-photo-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
         }
       ]
     },
@@ -84,25 +89,25 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.json",
-          "sizeBytes": 156,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\"\n}\n"
+          "sizeBytes": 246,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.jsonld",
-          "sizeBytes": 283,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\"\n}"
+          "sizeBytes": 373,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/fishing-creel\",\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC5_Digital_Representation\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/digital-representation/example_2_1.ttl",
-          "sizeBytes": 205,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n\n<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .\n\n"
+          "sizeBytes": 399,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n\n<https://heritalise-eccch.eu/resource/digital/fishing-creel-photo-01> a hdto:HC5_Digital_Representation,\n        crmdig:D9_Data_Object ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/fishing-creel> .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Digital Representation\ndescription: 'A digital asset (image, 3D model, document...) representing or documenting\n  a heritage object,\n\n  modelled as a CIDOC-CRM E73 Information Object. Profiles PROV-O''s Entity: `wasAttributedTo`,\n\n  `wasGeneratedBy` and `wasDerivedFrom` carry its provenance chain. This block adds\n  `isAbout`\n\n  (the heritage object it represents), a media type and an optional persistent identifier.\n\n  '\n$defs:\n  properties:\n    type: object\n    required:\n    - isAbout\n    properties:\n      identifier:\n        type: string\n        description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).\n        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n      isAbout:\n        type: string\n        format: uri\n        description: URI of the heritage object (or other CRM entity) this digital\n          asset represents or documents (CIDOC-CRM P129_is_about).\n        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about\n        x-jsonld-type: '@id'\n      mediaType:\n        type: string\n        description: The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`\n          (dct:format).\n        x-jsonld-id: http://purl.org/dc/terms/format\n      persistentIdentifier:\n        type: string\n        format: uri\n        description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this\n          asset.\n        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n      url:\n        type: string\n        format: uri\n        description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).\n        x-jsonld-id: http://www.w3.org/ns/dcat#accessURL\n        x-jsonld-type: '@id'\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml\n- $ref: '#/$defs/properties'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n  dcat: http://www.w3.org/ns/dcat#\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Digital Representation\ndescription: 'A digital asset (image, 3D model, document...) representing or documenting\n  a heritage object,\n\n  modelled as a CIDOC-CRM E73 Information Object. Profiles PROV-O''s Entity: `wasAttributedTo`,\n\n  `wasGeneratedBy` and `wasDerivedFrom` carry its provenance chain. This block adds\n  `isAbout`\n\n  (the heritage object it represents), a media type and an optional persistent identifier.\n\n  '\n$defs:\n  properties:\n    type: object\n    properties:\n      identifier:\n        type: string\n        description: A local identifier for this digital asset (CIDOC-CRM P1_is_identified_by).\n        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n      isAbout:\n        type: string\n        format: uri\n        description: URI of the heritage object (or other CRM entity) this digital\n          asset represents or documents (CIDOC-CRM P129_is_about).\n        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P129_is_about\n        x-jsonld-type: '@id'\n      mediaType:\n        type: string\n        description: The IANA media type of the asset, e.g. `image/jpeg` or `model/gltf-binary`\n          (dct:format).\n        x-jsonld-id: http://purl.org/dc/terms/format\n      persistentIdentifier:\n        type: string\n        format: uri\n        description: A persistent identifier (e.g. ARK, DOI, Handle) minted for this\n          asset.\n        x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n      url:\n        type: string\n        format: uri\n        description: URL where this digital asset can be accessed or downloaded (dcat:accessURL).\n        x-jsonld-id: http://www.w3.org/ns/dcat#accessURL\n        x-jsonld-type: '@id'\n      crmdigType:\n        type: string\n        const: crmdig:D9_Data_Object\n        description: \"Fixed co-type, shared by the whole digital-representation family.\n          Maps via context directly to rdf:type. D7.1's own OGC SensorThings crosswalk\n          table (Table 1, p.28) names crmdig:D9_Data_Object, not crm:E73_Information_Object,\n          as HDTO's actual HC5 anchor \\u2014 asserted here alongside (not instead\n          of) whatever CRM/PROV-O typing this instance already carries. Required on\n          every instance of this block and its profiles.\"\n        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n        x-jsonld-type: '@id'\n      hdtoType:\n        type: string\n        format: uri\n        enum:\n        - hdto:HC5_Digital_Representation\n        - hdto:HC7_Digital_Audiovisual_Object\n        - hdto:HC8_3D_Model\n        default: hdto:HC5_Digital_Representation\n        description: \"HDTO co-type (D7.1). Maps via context directly to rdf:type.\n          Required on every instance; value must be HC5 (the family default \\u2014\n          used when this block is not further profiled) or one of HC5's own HDTO subclasses\n          HC7/HC8, which `oral-history`/`three-d-model` narrow to via their own fixed\n          `const`.\"\n        x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n        x-jsonld-type: '@id'\n    required:\n    - isAbout\n    - crmdigType\n    - hdtoType\nallOf:\n- $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml\n- $ref: '#/$defs/properties'\nx-jsonld-prefixes:\n  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  dct: http://purl.org/dc/terms/\n  dcat: http://www.w3.org/ns/dcat#\n  crmdig: http://www.cidoc-crm.org/extensions/crmdig/\n  hdto: http://isl.ics.forth.gr/ontology/echoes/\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/digital-representation"
 }

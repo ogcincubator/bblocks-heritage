@@ -1,7 +1,7 @@
 
 # Fabrication Output (Schema)
 
-`ogc.heritage.fabrication-output` *v0.1*
+`ogc.heritage.fabrication-output` *v0.2*
 
 A digital-representation profile constrained to physical-fabrication formats (STL, 3MF), with a mandatory PROV derivation chain back to its source 3D model.
 
@@ -21,6 +21,13 @@ fabrication output must record the PROV derivation chain back to the source
 digital original. This is enforced both in the JSON Schema (presence) and in SHACL (the value
 must actually uplift to at least one IRI).
 
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is pinned to a fixed `const` of
+`hdto:HC5_Digital_Representation` — this block models the digital fabrication file itself, not
+the physical artifact it produces. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and
+required.
+
 ## Examples
 
 ### An STL fabrication output derived from a 3D model
@@ -34,7 +41,9 @@ An STL file for 3D printing a tactile replica of the Great Gallery ceiling paint
   "mediaType": "model/stl",
   "wasDerivedFrom": [
     "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 
 ```
@@ -49,17 +58,23 @@ An STL file for 3D printing a tactile replica of the Great Gallery ceiling paint
   "mediaType": "model/stl",
   "wasDerivedFrom": [
     "https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01> dct:format "model/stl" ;
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-replica-01> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
+    dct:format "model/stl" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
     crm:P1_is_identified_by "RV-GG-014-STL-01" ;
     prov:wasDerivedFrom <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> .
@@ -83,6 +98,13 @@ allOf:
   - mediaType
   - wasDerivedFrom
   properties:
+    hdtoType:
+      const: hdto:HC5_Digital_Representation
+      description: "Pins the inherited hdtoType (from digital-representation, otherwise
+        an enum of HC5/HC7/HC8) to HC5: this block models the digital fabrication
+        file (STL/3MF) itself, not the physical 3D-printed artifact it produces \u2014
+        the latter, if ever recorded, would be a separate heritage-object-family (HC3)
+        record, out of scope for this block."
     mediaType:
       type: string
       enum:
@@ -457,6 +479,14 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -465,6 +495,8 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

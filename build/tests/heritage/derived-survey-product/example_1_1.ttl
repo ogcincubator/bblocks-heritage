@@ -1,11 +1,13 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024> a crmdig:D9_Data_Object ;
+<https://heritalise-eccch.eu/resource/product/gc-ceiling-mesh-2024> a hdto:HC5_Digital_Representation,
+        crmdig:D9_Data_Object ;
     dct:description "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud." ;
     dct:format "model/obj" ;
     dct:title "Triangulated Mesh — Galleria Grande Ceiling (derived from TLS 2024)" ;

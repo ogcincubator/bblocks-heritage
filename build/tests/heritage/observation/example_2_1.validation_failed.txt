@@ -1,0 +1,71 @@
+Validation report for ogc.heritage.observation - Observation
+Generated 2026-09-16T15:07:32.136764+00:00
+=== Files ===
+Using examples/minimal.json from examples
+JSON-LD context is present - uplifting
+Output JSON-LD example_2_1.jsonld created
+Output Turtle example_2_1.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+
+=== SHACL ===
+Validation result for _sources/observation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for _sources/observation/shapes.shacl:
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: *none*
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
+
+Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
+  Validation Report
+  Conforms: True
+  
+Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
+ - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
+ - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*
+
+
+** Validation error **
+Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:
+  Validation Report
+  Conforms: False
+  Results (1):
+  Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/sosa/#testRequiredTime>
+  	Focus Node: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
+  	Value Node: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
+  	Source Constraint: [ sh:message Literal("sosa:resultTime or sosa:phenomenonTime is required, and no more than 1 of each is allowed") ; sh:select Literal("
+              PREFIX sh: <http://www.w3.org/ns/shacl#>
+              PREFIX sosa: <http://www.w3.org/ns/sosa/>
+              PREFIX geojson: <https://purl.org/geojson/vocab#>
+              SELECT $this (CONCAT(COALESCE(COUNT(?resultTime), 0), ' x sosa:resultTime, ', COALESCE(COUNT(?phenomenonTime), 0), ' x sosa:phenomenonTime') AS ?value) WHERE {
+                  OPTIONAL { $this sosa:phenomenonTime ?phenomenonTime }
+                  OPTIONAL { $this sosa:resultTime ?resultTime}
+                  OPTIONAL { $this sosa:startTime ?startTime }
+                  OPTIONAL { $this sosa:endTime ?endTime }
+                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:phenomenonTime ?phenomenonTime }
+                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:resultTime ?resultTime }
+                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:startTime ?startTime }
+                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:endTime ?endTime }
+              }
+              GROUP BY $this
+              HAVING (count(?resultTime) > 1 || count(?phenomenonTime) > 1 || count(?resultTime) + count(?phenomenonTime) + count(?startTime) + count(?endTime) < 1)
+          ") ]
+  	Message: sosa:resultTime or sosa:phenomenonTime is required, and no more than 1 of each is allowed
+  
+Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:
+ - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <file:///github/workspace/>
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testResult>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
+ - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: *none*
+
+=== End SHACL ===
+

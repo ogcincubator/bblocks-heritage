@@ -1,7 +1,9 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04> a crm:E22_Man-Made_Object ;
+<https://heritalise-eccch.eu/resource/object/venaria-tapestry-hunt-04> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object ;
     crm:P102_has_title "Royal Hunt tapestry no. 4" ;
     crm:P1_is_identified_by "RV-MOV-TAP-004" ;
     crm:P2_has_type <http://vocab.getty.edu/aat/300205002> ;

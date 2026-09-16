@@ -33,17 +33,27 @@
               "type": "string",
               "description": "Access and use rights statement, preferably a Creative Commons or rights statement URI (dct:rights).",
               "x-jsonld-id": "http://purl.org/dc/terms/rights"
+            },
+            "hdtoType": {
+              "type": "string",
+              "const": "hdto:HC3_Tangible_Heritage_Entity",
+              "description": "Fixed HDTO co-type (ECCCH Heritage Digital Twin Ontology, D7.1). Maps via context directly to rdf:type. Required so every instance is HDTO-typed on a plain JSON-LD parse \u2014 this block has no other CIDOC-CRM class triple to derive it from (it profiles `place`, whose JSON-FG envelope fixes `type` to the literal `\"Feature\"`).",
+              "x-jsonld-id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+              "x-jsonld-type": "@id"
             }
           },
           "required": [
-            "siteType"
+            "siteType",
+            "hdtoType"
           ]
         }
       }
     }
   ],
   "x-jsonld-prefixes": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/"
   }
 }

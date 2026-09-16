@@ -185,4 +185,5 @@ path	@id	schema
 /properties/material	http://www.cidoc-crm.org/cidoc-crm/P45_consists_of	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 /properties/currentLocation	http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 /properties/persistentIdentifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
+/properties/hdtoType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml
 /properties/choType	@type	/github/workspace/build/annotated/heritage/heritage-object-feature/schema.yaml

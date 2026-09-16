@@ -1,7 +1,7 @@
 
 # Oral History (Schema)
 
-`ogc.heritage.oral-history` *v0.1*
+`ogc.heritage.oral-history` *v0.3*
 
 An audio or video oral history recording or community narrative, modelled as a CIDOC-CRM E73 Information Object with a mandatory IIIF Presentation API manifest, interviewee reference, language, and consent status. Profiles ogc.heritage.digital-representation and adds schema.org AudioObject/VideoObject alignment for web visibility.
 
@@ -70,6 +70,14 @@ metadata but no `type: const` in schema, so instances do not emit that RDF tripl
 **HM-07** (Villa Portelli, Malta): audio and video testimonies from local residents and
 historians recording lived memories of the villa, its garden, and surrounding community.
 
+## HDTO alignment
+
+`hdtoType` (required, inherited from `digital-representation`) is narrowed to a fixed `const` of
+`hdto:HC7_Digital_Audiovisual_Object` (⊑ `hdto:HC5_Digital_Representation`), asserted via context
+on a plain JSON-LD parse. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required.
+See [`digital-representation`](../digital-representation)'s description for the shared HC5-family
+rationale.
+
 ## Examples
 
 ### Oral history testimony about Villa Portelli, Malta (HM-07)
@@ -79,11 +87,11 @@ A video interview with a local resident recounting wartime memories of Villa Por
 {
   "id": "https://data.heritagemalta.org/oral-history/villap-oh-2023-004",
   "type": "OralHistory",
-  "title": "Wartime memories of Villa Portelli — Interview with Maria Camilleri",
+  "title": "Wartime memories of Villa Portelli \u2014 Interview with Maria Camilleri",
   "isAbout": "https://data.heritagemalta.org/place/villa-portelli",
   "interviewee": "https://data.heritagemalta.org/actor/maria-camilleri",
   "language": "mt",
-  "consentStatus": "consented — public access",
+  "consentStatus": "consented \u2014 public access",
   "iiifManifest": "https://data.heritagemalta.org/iiif/3/villap-oh-2023-004/manifest",
   "mediaType": "video/mp4",
   "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
@@ -93,9 +101,16 @@ A video interview with a local resident recounting wartime memories of Villa Por
     "https://data.heritagemalta.org/actor/heritage-malta-oral-history-unit",
     "https://data.heritagemalta.org/actor/john-farrugia"
   ],
-  "theme": ["wartime occupation", "domestic life", "World War II", "Villa Portelli gardens"],
-  "historicalPeriod": "1940–1945",
-  "persistentIdentifier": "https://hdl.handle.net/21.T11998/hm-oh-2023-004"
+  "theme": [
+    "wartime occupation",
+    "domestic life",
+    "World War II",
+    "Villa Portelli gardens"
+  ],
+  "historicalPeriod": "1940\u20131945",
+  "persistentIdentifier": "https://hdl.handle.net/21.T11998/hm-oh-2023-004",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC7_Digital_Audiovisual_Object"
 }
 
 ```
@@ -127,17 +142,23 @@ A video interview with a local resident recounting wartime memories of Villa Por
     "Villa Portelli gardens"
   ],
   "historicalPeriod": "1940\u20131945",
-  "persistentIdentifier": "https://hdl.handle.net/21.T11998/hm-oh-2023-004"
+  "persistentIdentifier": "https://hdl.handle.net/21.T11998/hm-oh-2023-004",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC7_Digital_Audiovisual_Object"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix schema: <https://schema.org/> .
 
-<https://data.heritagemalta.org/oral-history/villap-oh-2023-004> a crm:E73_Information_Object ;
+<https://data.heritagemalta.org/oral-history/villap-oh-2023-004> a hdto:HC7_Digital_Audiovisual_Object,
+        crm:E73_Information_Object,
+        crmdig:D9_Data_Object ;
     dct:accessRights "consented — public access" ;
     dct:contributor <https://data.heritagemalta.org/actor/heritage-malta-oral-history-unit>,
         <https://data.heritagemalta.org/actor/john-farrugia> ;
@@ -168,16 +189,22 @@ A shorter audio recording of a garden keeper's account of traditional horticultu
 {
   "id": "https://data.heritagemalta.org/oral-history/villap-oh-2023-007",
   "type": "OralHistory",
-  "title": "Traditional horticultural practices at Villa Portelli — Garden keeper account",
+  "title": "Traditional horticultural practices at Villa Portelli \u2014 Garden keeper account",
   "isAbout": "https://data.heritagemalta.org/heritage-site/villa-portelli-garden",
   "interviewee": "https://data.heritagemalta.org/actor/joseph-debono",
   "language": "mt",
   "consentStatus": "pending consent review",
   "iiifManifest": "https://data.heritagemalta.org/iiif/3/villap-oh-2023-007/manifest",
   "mediaType": "audio/mp4",
-  "rights": "All rights reserved — Heritage Malta",
+  "rights": "All rights reserved \u2014 Heritage Malta",
   "duration": "PT24M10S",
-  "theme": ["garden history", "horticulture", "Villa Portelli"]
+  "theme": [
+    "garden history",
+    "horticulture",
+    "Villa Portelli"
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC7_Digital_Audiovisual_Object"
 }
 
 ```
@@ -201,17 +228,23 @@ A shorter audio recording of a garden keeper's account of traditional horticultu
     "garden history",
     "horticulture",
     "Villa Portelli"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC7_Digital_Audiovisual_Object"
 }
 ```
 
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix schema: <https://schema.org/> .
 
-<https://data.heritagemalta.org/oral-history/villap-oh-2023-007> a crm:E73_Information_Object ;
+<https://data.heritagemalta.org/oral-history/villap-oh-2023-007> a hdto:HC7_Digital_Audiovisual_Object,
+        crm:E73_Information_Object,
+        crmdig:D9_Data_Object ;
     dct:accessRights "pending consent review" ;
     dct:format "audio/mp4" ;
     dct:rights "All rights reserved — Heritage Malta" ;
@@ -253,6 +286,10 @@ allOf:
       const: OralHistory
       description: Fixed type token (maps to crm:E73_Information_Object).
       x-jsonld-id: '@type'
+    hdtoType:
+      const: hdto:HC7_Digital_Audiovisual_Object
+      description: "Narrows the inherited hdtoType (from digital-representation) to
+        HC7 \u2014 this block's own specific HDTO class (HC7 \u2291 HC5 per D7.1)."
     title:
       type: string
       description: Human-readable title of the recording (dct:title).
@@ -707,6 +744,14 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "title": "dct:title",
     "interviewee": {
       "@id": "schema:interviewee",
@@ -739,6 +784,8 @@ Links to the schema:
     "oa": "http://www.w3.org/ns/oa#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dcat": "http://www.w3.org/ns/dcat#",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "schema": "https://schema.org/",
     "@version": 1.1
   }

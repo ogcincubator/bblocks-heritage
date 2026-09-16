@@ -44,6 +44,8 @@
     },
     "url": "https://heritalise-eccch.eu/resource/files/villa-portelli-uav-2025.zip",
     "persistentIdentifier": "https://doi.org/10.00000/villa-portelli-survey-2025",
-    "reviewStatus": "approved"
+    "reviewStatus": "approved",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }

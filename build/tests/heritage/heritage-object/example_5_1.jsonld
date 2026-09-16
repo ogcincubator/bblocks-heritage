@@ -9,5 +9,6 @@
     "http://vocab.getty.edu/aat/300011443"
   ],
   "currentLocation": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
-  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001"
+  "persistentIdentifier": "https://w3id.org/heritalise/obj/RV-GARD-FNT-001",
+  "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
 }

@@ -37,6 +37,7 @@
     "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
     "constructionPeriod": "1699/1733",
     "currentStatus": "in use",
-    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude"
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

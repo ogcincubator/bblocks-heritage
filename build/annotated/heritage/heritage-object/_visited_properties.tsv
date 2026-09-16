@@ -8,3 +8,4 @@ path	@id	schema
 /material	http://www.cidoc-crm.org/cidoc-crm/P45_consists_of	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
 /currentLocation	http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
 /persistentIdentifier	http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml
+/hdtoType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	/github/workspace/build/annotated/heritage/heritage-object/schema.yaml

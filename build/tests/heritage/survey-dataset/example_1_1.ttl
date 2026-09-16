@@ -1,12 +1,15 @@
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix crmdig: <http://www.ics.forth.gr/isl/CRMdig/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> a crmdig:D1_Digital_Object,
+<https://heritalise-eccch.eu/resource/survey/gc-ceiling-tls-2024> a hdto:HC5_Digital_Representation,
+        crmdig:D1_Digital_Object,
+        crmdig:D9_Data_Object,
         geojson:Feature ;
     dct:description "Interior scan only; exterior facade not included. NW corner partially occluded by scaffolding during acquisition." ;
     dct:format "application/vnd.las" ;

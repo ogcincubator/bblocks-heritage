@@ -20,6 +20,10 @@ allOf:
       const: OralHistory
       description: Fixed type token (maps to crm:E73_Information_Object).
       x-jsonld-id: '@type'
+    hdtoType:
+      const: hdto:HC7_Digital_Audiovisual_Object
+      description: "Narrows the inherited hdtoType (from digital-representation) to
+        HC7 \u2014 this block's own specific HDTO class (HC7 \u2291 HC5 per D7.1)."
     title:
       type: string
       description: Human-readable title of the recording (dct:title).

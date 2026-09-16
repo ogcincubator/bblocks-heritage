@@ -1,6 +1,7 @@
 path	@id	schema
 /id	@id	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
 /type	@type	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
+/crmsciType	http://www.w3.org/1999/02/22-rdf-syntax-ns#type	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
 /parameter	http://www.w3.org/ns/sosa/observes	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
 /thresholdType	http://www.cidoc-crm.org/cidoc-crm/P2_has_type	/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml
 /minValue		/github/workspace/build/annotated/heritage/monitoring-threshold/schema.yaml

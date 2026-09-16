@@ -7,7 +7,7 @@
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
   "itemClass": "schema",
-  "version": "0.1",
+  "version": "0.3",
   "sources": [
     {
       "title": "glTF 2.0",
@@ -25,16 +25,24 @@
     "gltf"
   ],
   "group": "Digital representation profiles",
-  "isProfileOf": "ogc.heritage.digital-representation",
+  "isProfileOf": [
+    "ogc.heritage.digital-representation"
+  ],
+  "dateOfLastChange": "2026-09-16",
   "shaclShapes": {
+    "ogc.heritage.three-d-model": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/shapes.shacl"
+    ],
     "ogc.heritage.digital-representation": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
     ]
   },
   "dependsOn": [
     "ogc.heritage.digital-representation"
   ],
-  "dateOfLastChange": "2026-06-25",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.yaml",
     "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/schema.json"
@@ -45,7 +53,7 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/three-d-model/",
-  "description": "## 3D Model\n\nA `ThreeDModel` is a [`digital-representation`](../digital-representation) constrained to\nreal-time 3D model formats \u2014 glTF, OBJ, or an OGC 3D Tiles tileset \u2014 covering D8.2 profile B\n(3D documentation and web rendering of heritage objects, gardens and building elements).\n\nIt inherits everything from `digital-representation` (`isAbout`, PROV provenance chain,\npersistent identifier) and only adds a constrained `mediaType`.\n",
+  "description": "## 3D Model\n\nA `ThreeDModel` is a [`digital-representation`](../digital-representation) constrained to\nreal-time 3D model formats \u2014 glTF, OBJ, or an OGC 3D Tiles tileset \u2014 covering D8.2 profile B\n(3D documentation and web rendering of heritage objects, gardens and building elements).\n\nIt inherits everything from `digital-representation` (`isAbout`, PROV provenance chain,\npersistent identifier) and only adds a constrained `mediaType`.\n\n## HDTO alignment\n\n`hdtoType` (required, inherited from `digital-representation`) is narrowed to a fixed `const` of\n`hdto:HC8_3D_Model` (\u2291 `hdto:HC5_Digital_Representation`), asserted via context on a plain JSON-LD\nparse. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required. See\n[`digital-representation`](../digital-representation)'s description for the shared HC5-family\nrationale. This block also gained its first `shapes.shacl` in this session (it previously had\nnone) \u2014 see the companion `HC83DModelShape` validation there.\n",
   "examples": [
     {
       "title": "A glTF-binary 3D model of a painting's frame",
@@ -55,20 +63,20 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/examples/gltf.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.json",
-          "sizeBytes": 345,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ]\n}\n"
+          "sizeBytes": 421,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC8_3D_Model\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.jsonld",
-          "sizeBytes": 463,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ]\n}"
+          "sizeBytes": 539,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01\",\n  \"identifier\": \"RV-GG-014-3D-01\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"mediaType\": \"model/gltf-binary\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\"\n  ],\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC8_3D_Model\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_1_1.ttl",
-          "sizeBytes": 491,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> dct:format \"model/gltf-binary\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-3D-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
+          "sizeBytes": 671,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01> a hdto:HC8_3D_Model,\n        crmdig:D9_Data_Object ;\n    dct:format \"model/gltf-binary\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;\n    crm:P1_is_identified_by \"RV-GG-014-3D-01\" ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
         }
       ]
     },
@@ -80,25 +88,25 @@
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/examples/malta-artefact-model.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_2_1.json",
-          "sizeBytes": 416,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf\",\n  \"identifier\": \"MT-3D-BAL-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/south-balustrade\",\n  \"mediaType\": \"model/gltf+json\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/south-balustrade.gltf\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation\"\n  ]\n}\n"
+          "sizeBytes": 492,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf\",\n  \"identifier\": \"MT-3D-BAL-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/south-balustrade\",\n  \"mediaType\": \"model/gltf+json\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/south-balustrade.gltf\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation\"\n  ],\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC8_3D_Model\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_2_1.jsonld",
-          "sizeBytes": 534,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf\",\n  \"identifier\": \"MT-3D-BAL-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/south-balustrade\",\n  \"mediaType\": \"model/gltf+json\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/south-balustrade.gltf\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation\"\n  ]\n}"
+          "sizeBytes": 610,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/three-d-model/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf\",\n  \"identifier\": \"MT-3D-BAL-001\",\n  \"isAbout\": \"https://heritalise-eccch.eu/resource/object/south-balustrade\",\n  \"mediaType\": \"model/gltf+json\",\n  \"url\": \"https://heritalise-eccch.eu/resource/files/south-balustrade.gltf\",\n  \"wasAttributedTo\": [\n    \"https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation\"\n  ],\n  \"crmdigType\": \"crmdig:D9_Data_Object\",\n  \"hdtoType\": \"hdto:HC8_3D_Model\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/three-d-model/example_2_1.ttl",
-          "sizeBytes": 618,
-          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> dct:format \"model/gltf+json\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/south-balustrade> ;\n    crm:P1_is_identified_by \"MT-3D-BAL-001\" ;\n    dcat:accessURL <https://heritalise-eccch.eu/resource/files/south-balustrade.gltf> ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation> .\n\n"
+          "sizeBytes": 798,
+          "code": "@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .\n@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .\n@prefix dcat: <http://www.w3.org/ns/dcat#> .\n@prefix dct: <http://purl.org/dc/terms/> .\n@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<https://heritalise-eccch.eu/resource/digital/villa-portelli-balustrade-gltf> a hdto:HC8_3D_Model,\n        crmdig:D9_Data_Object ;\n    dct:format \"model/gltf+json\" ;\n    crm:P129_is_about <https://heritalise-eccch.eu/resource/object/south-balustrade> ;\n    crm:P1_is_identified_by \"MT-3D-BAL-001\" ;\n    dcat:accessURL <https://heritalise-eccch.eu/resource/files/south-balustrade.gltf> ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/heritage-malta-digitisation> .\n\n"
         }
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: 3D Model\ndescription: 'A `digital-representation` constrained to real-time 3D model formats:\n  glTF (binary or JSON),\n\n  Wavefront OBJ, or an OGC 3D Tiles tileset (D8.2 profile B).\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  properties:\n    mediaType:\n      type: string\n      enum:\n      - model/gltf-binary\n      - model/gltf+json\n      - model/obj\n      - application/json\n      description: '`model/gltf-binary` (.glb) or `model/gltf+json` (.gltf) for glTF\n        2.0, `model/obj` for Wavefront OBJ, or `application/json` for an OGC 3D Tiles\n        tileset.'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: 3D Model\ndescription: 'A `digital-representation` constrained to real-time 3D model formats:\n  glTF (binary or JSON),\n\n  Wavefront OBJ, or an OGC 3D Tiles tileset (D8.2 profile B).\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  properties:\n    hdtoType:\n      const: hdto:HC8_3D_Model\n      description: \"Narrows the inherited hdtoType (from digital-representation) to\n        HC8 \\u2014 this block's own specific HDTO class (HC8 \\u2291 HC5 per D7.1).\"\n    mediaType:\n      type: string\n      enum:\n      - model/gltf-binary\n      - model/gltf+json\n      - model/obj\n      - application/json\n      description: '`model/gltf-binary` (.glb) or `model/gltf+json` (.gltf) for glTF\n        2.0, `model/obj` for Wavefront OBJ, or `application/json` for an OGC 3D Tiles\n        tileset.'\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/three-d-model"
 }

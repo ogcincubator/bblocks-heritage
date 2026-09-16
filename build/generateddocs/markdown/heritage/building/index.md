@@ -1,7 +1,7 @@
 
 # Building (Schema)
 
-`ogc.heritage.building` *v0.1*
+`ogc.heritage.building` *v0.3*
 
 A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.
 
@@ -50,6 +50,14 @@ queries. Detailed BIM geometry lives in the IFC model, linked via `ifcGlobalId`.
 - **REQ-002** — Galleria Grande and Sant'Uberto chapel at Reggia di Venaria
 - **MT-01** — Villa Portelli main villa building with HBIM / Gaussian splat context
 
+## HDTO alignment
+
+Required `properties.hdtoType` (fixed `const` `hdto:HC3_Tangible_Heritage_Entity`), inherited from
+[`heritage-object`](../heritage-object)'s `$defs/properties` via `heritage-object-feature` — see
+that block's description for the full rationale. Maps via this block's own `context.jsonld`
+directly to `rdf:type`, asserted on a plain JSON-LD parse with no post-processing step. The
+companion validation shape is inherited from `heritage-object`'s `shapes.shacl`.
+
 ## Examples
 
 ### Galleria Grande, Reggia di Venaria (REQ-002)
@@ -63,11 +71,26 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
     "type": "Polygon",
     "coordinates": [
       [
-        [7.627, 45.134],
-        [7.630, 45.134],
-        [7.630, 45.136],
-        [7.627, 45.136],
-        [7.627, 45.134]
+        [
+          7.627,
+          45.134
+        ],
+        [
+          7.63,
+          45.134
+        ],
+        [
+          7.63,
+          45.136
+        ],
+        [
+          7.627,
+          45.136
+        ],
+        [
+          7.627,
+          45.134
+        ]
       ]
     ]
   },
@@ -80,7 +103,8 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
     "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
     "constructionPeriod": "1699/1733",
     "currentStatus": "in use",
-    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude"
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -128,7 +152,8 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
     "parentSite": "https://heritalise-eccch.eu/resource/site/reggia-di-venaria",
     "constructionPeriod": "1699/1733",
     "currentStatus": "in use",
-    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude"
+    "responsibleOrganisation": "Consorzio delle Residenze Reali Sabaude",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -138,10 +163,12 @@ The Galleria Grande as a building: linked to the Venaria heritage site, construc
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/building/galleria-grande> a crm:E22_Man-Made_Object,
+<https://heritalise-eccch.eu/resource/building/galleria-grande> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object,
         geojson:Feature ;
     dct:created "1699/1733" ;
     crm:P102_has_title "Galleria Grande, Reggia di Venaria Reale" ;
@@ -169,25 +196,41 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
     "type": "Polygon",
     "coordinates": [
       [
-        [14.513, 35.896],
-        [14.515, 35.896],
-        [14.515, 35.897],
-        [14.513, 35.897],
-        [14.513, 35.896]
+        [
+          14.513,
+          35.896
+        ],
+        [
+          14.515,
+          35.896
+        ],
+        [
+          14.515,
+          35.897
+        ],
+        [
+          14.513,
+          35.897
+        ],
+        [
+          14.513,
+          35.896
+        ]
       ]
     ]
   },
   "properties": {
     "choType": "HeritageObject",
     "identifier": "MT-BLD-VP-01",
-    "title": "Villa Portelli — Main Villa Building",
+    "title": "Villa Portelli \u2014 Main Villa Building",
     "description": "The principal residential building of Villa Portelli, a historic Baroque-era villa in Malta.",
     "objectType": "http://vocab.getty.edu/aat/300005433",
     "parentSite": "https://heritalise-eccch.eu/resource/site/villa-portelli-garden",
     "constructionPeriod": "18th century",
     "currentStatus": "under restoration",
     "responsibleOrganisation": "Heritage Malta",
-    "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA"
+    "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 
@@ -236,7 +279,8 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
     "constructionPeriod": "18th century",
     "currentStatus": "under restoration",
     "responsibleOrganisation": "Heritage Malta",
-    "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA"
+    "ifcGlobalId": "2WrR4Z9bT8RvKsJMlNpQxA",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }
 ```
@@ -246,10 +290,12 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/building/villa-portelli-main> a crm:E22_Man-Made_Object,
+<https://heritalise-eccch.eu/resource/building/villa-portelli-main> a hdto:HC3_Tangible_Heritage_Entity,
+        crm:E22_Man-Made_Object,
         geojson:Feature ;
     dct:created "18th century" ;
     crm:P102_has_title "Villa Portelli — Main Villa Building" ;
@@ -324,9 +370,15 @@ allOf:
           description: IFC Global ID (GUID) of the corresponding IfcBuilding element
             in an HBIM model, when available (crm:P1_is_identified_by).
           x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by
+x-jsonld-extra-terms:
+  hdtoType:
+    x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+    x-jsonld-type: '@id'
 x-jsonld-prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
+  hdto: http://isl.ics.forth.gr/ontology/echoes/
 
 ```
 
@@ -478,6 +530,10 @@ Links to the schema:
       "@id": "geojson:topology"
     },
     "HeritageObject": "crm:E22_Man-Made_Object",
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "identifier": "crm:P1_is_identified_by",
     "title": "crm:P102_has_title",
     "description": "crm:P3_has_note",
@@ -550,6 +606,8 @@ Links to the schema:
     "owlTime": "http://www.w3.org/2006/time#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
     "prov": "http://www.w3.org/ns/prov#",

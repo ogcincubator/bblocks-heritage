@@ -4,7 +4,8 @@
   "type": "Observation",
   "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01",
   "hasSimpleResult": 54.2,
-  "resultTime": "2024-03-04T12:00:00Z"
+  "resultTime": "2024-03-04T12:00:00Z",
+  "crmsciType": "crmsci:S4"
 }

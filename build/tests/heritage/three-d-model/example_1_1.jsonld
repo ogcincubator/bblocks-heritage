@@ -6,5 +6,7 @@
   "mediaType": "model/gltf-binary",
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
-  ]
+  ],
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC8_3D_Model"
 }

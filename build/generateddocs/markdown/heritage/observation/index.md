@@ -1,9 +1,9 @@
 
 # Observation (Schema)
 
-`ogc.heritage.observation` *v0.1*
+`ogc.heritage.observation` *v0.2*
 
-A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an OGC SensorThings API `Sensor`.
+A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an ogc.heritage.monitoring-point (SOSA/SSN Sensor) record. Required HDTO co-type: crmsci:S4.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -28,14 +28,14 @@ inheriting `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,
 This narrowing reflects the CIDOC-CRM/CRMsci *scientific observation context*: the observation
 is meaningful only in relation to the heritage resource being studied or monitored.
 
-### Integration with SensorThings API
+### Sensor linkage
 
-D8.2 profile A mandates OGC SensorThings API (STA) as the operational monitoring API. The
-`madeBySensor` property should reference an `ogc.api.sta.Sensor` resource; the
-`hasFeatureOfInterest` should reference the `ogc.api.sta.FeatureOfInterest` or, for the
-heritage domain link, a [`place`](../place) or [`heritage-object`](../heritage-object) URI.
-Actual sensor readings (values, timestamps, units) live in STA `Observation` resources; this
-block is the CRM-anchored representation linking them back to the heritage graph.
+This register profiles the W3C SOSA/SSN vocabulary directly rather than the OGC SensorThings API
+(STA is an API protocol built on SOSA/SSN, not a separate model — no confirmed partner requirement
+for STA API endpoints specifically). `madeBySensor` should reference an
+[`ogc.heritage.monitoring-point`](../monitoring-point) record (a SOSA/SSN `Sensor`);
+`hasFeatureOfInterest` should reference the [`place`](../place) or
+[`heritage-object`](../heritage-object) the reading was taken of/at.
 
 For observations that need an independent geometry (a sensor not co-located with any existing
 `place`), wrap the properties from this block inside `ogc.sosa.features.observation` instead.
@@ -44,6 +44,17 @@ For observations that need an independent geometry (a sensor not co-located with
 
 - **Profile A** — environmental monitoring (temperature, humidity, light) at Venaria and Malta
 - **REQ-010** — sensor reading linked to a `monitoring-point` via `hasFeatureOfInterest`
+
+## HDTO alignment
+
+Every instance requires `crmsciType`, a fixed `const` of `crmsci:S4`, mapping via `context.jsonld`
+directly to `rdf:type` — asserted on a plain JSON-LD parse, no post-processing step needed. Per
+D7.1's own OGC SensorThings API crosswalk table (Table 1, p.28), an STA `Observation` (the same
+concept SOSA's `sosa:Observation`, which this block profiles, already models) targets
+`crmsci:S4`. D7.1 cites S4 only as a superclass reference (its own full scope note is a gap in the
+source — see `eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md`), but it is at least a
+class D7.1's own declarations actually use, unlike `crmsci:S9` (see `monitoring-threshold`'s own
+HDTO alignment note for why that one uses `crmsci:S15` instead).
 
 ## Examples
 
@@ -56,9 +67,10 @@ A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `S
   "type": "Observation",
   "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01",
   "hasSimpleResult": 54.2,
-  "resultTime": "2024-03-04T12:00:00Z"
+  "resultTime": "2024-03-04T12:00:00Z",
+  "crmsciType": "crmsci:S4"
 }
 
 ```
@@ -71,21 +83,24 @@ A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `S
   "type": "Observation",
   "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
-  "madeBySensor": "https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)",
+  "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01",
   "hasSimpleResult": 54.2,
-  "resultTime": "2024-03-04T12:00:00Z"
+  "resultTime": "2024-03-04T12:00:00Z",
+  "crmsciType": "crmsci:S4"
 }
 ```
 
 #### ttl
 ```ttl
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z> a sosa:Observation ;
+<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z> a crmsci:S4,
+        sosa:Observation ;
     sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult 5.42e+01 ;
-    sosa:madeBySensor <https://heritalise-eccch.eu/resource/sta/v1.1/Sensors(12)> ;
+    sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
     sosa:resultTime "2024-03-04T12:00:00Z" .
 
@@ -101,7 +116,8 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
   "id": "https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001",
   "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300379098",
-  "hasSimpleResult": "RH within tolerance, see paper log"
+  "hasSimpleResult": "RH within tolerance, see paper log",
+  "crmsciType": "crmsci:S4"
 }
 
 ```
@@ -113,15 +129,18 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
   "id": "https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001",
   "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300379098",
-  "hasSimpleResult": "RH within tolerance, see paper log"
+  "hasSimpleResult": "RH within tolerance, see paper log",
+  "crmsciType": "crmsci:S4"
 }
 ```
 
 #### ttl
 ```ttl
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 
-<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
+<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;
+    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult <file:///github/workspace/> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
 
@@ -140,7 +159,8 @@ A relative humidity reading taken by a monitoring point in the Reggia di Venaria
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
   "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "hasSimpleResult": 61.4,
-  "resultTime": "2024-09-15T08:30:00Z"
+  "resultTime": "2024-09-15T08:30:00Z",
+  "crmsciType": "crmsci:S4"
 }
 
 ```
@@ -155,16 +175,19 @@ A relative humidity reading taken by a monitoring point in the Reggia di Venaria
   "observedProperty": "http://vocab.getty.edu/aat/300055680",
   "madeBySensor": "https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01",
   "hasSimpleResult": 61.4,
-  "resultTime": "2024-09-15T08:30:00Z"
+  "resultTime": "2024-09-15T08:30:00Z",
+  "crmsciType": "crmsci:S4"
 }
 ```
 
 #### ttl
 ```ttl
+@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z> a sosa:Observation ;
+<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z> a crmsci:S4,
+        sosa:Observation ;
     sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;
     sosa:hasSimpleResult 6.14e+01 ;
     sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;
@@ -211,10 +234,23 @@ allOf:
   required:
   - id
   - hasFeatureOfInterest
+  - crmsciType
   properties:
     type:
       const: Observation
       x-jsonld-id: '@type'
+    crmsciType:
+      type: string
+      const: crmsci:S4
+      description: "Fixed HDTO co-type. Maps via context directly to rdf:type, alongside
+        sosa:Observation \u2014 additive, per D7.1's own OGC SensorThings API crosswalk
+        table (Table 1, p.28: STA Observation, the same concept sosa:Observation already
+        models, targets crmsci:S4)."
+      x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+      x-jsonld-type: '@id'
+x-jsonld-prefixes:
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  crmsci: http://www.cidoc-crm.org/extensions/crmsci/
 
 ```
 
@@ -312,8 +348,16 @@ Links to the schema:
       "@id": "sosa:System",
       "@type": "@id"
     },
+    "actsOn": {
+      "@id": "sosa:actsOn",
+      "@type": "@id"
+    },
     "actsOnProperty": {
       "@id": "sosa:actsOnProperty",
+      "@type": "@id"
+    },
+    "deployedAsset": {
+      "@id": "sosa:deployedAsset",
       "@type": "@id"
     },
     "deployedOnPlatform": {
@@ -360,10 +404,6 @@ Links to the schema:
       "@id": "sosa:hasProperty",
       "@type": "@id"
     },
-    "hasResult": {
-      "@id": "sosa:hasResult",
-      "@type": "@id"
-    },
     "hasResultQuality": {
       "@id": "sosa:hasResultQuality",
       "@type": "@id"
@@ -376,18 +416,10 @@ Links to the schema:
       "@id": "sosa:hasSampledFeature",
       "@type": "@id"
     },
-    "hasSimpleResult": {
-      "@id": "sosa:hasSimpleResult",
-      "@type": "@id"
-    },
     "hasSubSystem": {
       "@id": "sosa:hasSubSystem",
       "@type": "@id",
       "@container": "@set"
-    },
-    "hasUltimateFeatureOfInterest": {
-      "@id": "sosa:hasUltimateFeatureOfInterest",
-      "@type": "@id"
     },
     "hosts": {
       "@id": "sosa:hosts",
@@ -422,6 +454,10 @@ Links to the schema:
       "@id": "sosa:isObservedBy",
       "@type": "@id"
     },
+    "isOriginalSampleOf": {
+      "@id": "sosa:isOriginalSampleOf",
+      "@type": "@id"
+    },
     "isPropertyOf": {
       "@id": "sosa:isPropertyOf",
       "@type": "@id"
@@ -446,6 +482,14 @@ Links to the schema:
       "@id": "sosa:isSampleOf",
       "@type": "@id"
     },
+    "isSampleOfUltimateFOI": {
+      "@id": "sosa:isSampleOfUltimateFOI",
+      "@type": "@id"
+    },
+    "isSubSystemOf": {
+      "@id": "sosa:isSubSystemOf",
+      "@type": "@id"
+    },
     "madeActuation": {
       "@id": "sosa:madeActuation",
       "@type": "@id"
@@ -458,12 +502,28 @@ Links to the schema:
       "@id": "sosa:madeBySampler",
       "@type": "@id"
     },
+    "madeBySensor": {
+      "@id": "sosa:madeBySensor",
+      "@type": "@id"
+    },
+    "madeBySystem": {
+      "@id": "sosa:madeBySystem",
+      "@type": "@id"
+    },
+    "madeExecution": {
+      "@id": "sosa:madeExecution",
+      "@type": "@id"
+    },
     "madeObservation": {
       "@id": "sosa:madeObservation",
       "@type": "@id"
     },
     "madeSampling": {
       "@id": "sosa:madeSampling",
+      "@type": "@id"
+    },
+    "observedProperty": {
+      "@id": "sosa:observedProperty",
       "@type": "@id"
     },
     "observes": {
@@ -603,22 +663,38 @@ Links to the schema:
       "@id": "sosa:hasFeatureOfInterest",
       "@type": "@id"
     },
-    "observedProperty": {
-      "@id": "sosa:observedProperty",
+    "hasUltimateFeatureOfInterest": {
+      "@id": "sosa:hasUltimateFeatureOfInterest",
       "@type": "@id"
     },
     "usedProcedure": {
       "@id": "sosa:usedProcedure",
       "@type": "@id"
     },
-    "madeBySensor": {
-      "@id": "sosa:madeBySensor",
+    "startTime": "sosa:startTime",
+    "endTime": "sosa:endTime",
+    "hasResult": {
+      "@id": "sosa:hasResult",
+      "@type": "@id"
+    },
+    "hasSimpleResult": {
+      "@id": "sosa:hasSimpleResult",
+      "@type": "@id"
+    },
+    "hasInputValue": {
+      "@id": "sosa:hasInputValue",
       "@type": "@id"
     },
     "type": "@type",
+    "crmsciType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "sosa": "http://www.w3.org/ns/sosa/",
     "ssn-system": "ssn:systems/",
     "ssn": "http://www.w3.org/ns/ssn/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "crmsci": "http://www.cidoc-crm.org/extensions/crmsci/",
     "@version": 1.1
   }
 }

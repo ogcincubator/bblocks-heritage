@@ -17,5 +17,7 @@
     "qaResult": "passed"
   },
   "limitations": "Fresco surface micro-detail below 2 mm not captured; scaffolding shadow in NW corner present in source cloud.",
-  "reviewStatus": "reviewed"
+  "reviewStatus": "reviewed",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }

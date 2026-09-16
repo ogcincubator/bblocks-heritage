@@ -16,5 +16,7 @@
     "processingHistory": "35mm negative photographed on copy stand; colour correction and contrast adjustment applied."
   },
   "mediaType": "image/jpeg",
-  "rights": "https://creativecommons.org/licenses/by-nc/4.0/"
+  "rights": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }

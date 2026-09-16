@@ -12,6 +12,7 @@ required:
 - severity
 - appliesTo
 - source
+- crmsciType
 properties:
   id:
     type: string
@@ -23,6 +24,17 @@ properties:
     description: Fixed type token identifying this record as a monitoring threshold
       (maps to sosa:ObservableProperty).
     x-jsonld-id: '@type'
+  crmsciType:
+    type: string
+    const: crmsci:S15
+    description: "Fixed HDTO co-type. Maps via context directly to rdf:type, alongside
+      sosa:ObservableProperty \u2014 additive. D7.1's own OGC SensorThings API crosswalk
+      table (Table 1, p.28) cites \"crmsci:S9/S15\" for STA ObservedProperty, but
+      only S15 is an actually defined CRMsci class in D7.1's own \xA75.3 declarations
+      (S9 is not \u2014 see eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md);
+      S15 is used here as the better-supported of the two pending confirmation."
+    x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type
+    x-jsonld-type: '@id'
   parameter:
     type: string
     format: uri
@@ -114,7 +126,9 @@ x-jsonld-extra-terms:
   MonitoringThreshold: http://www.w3.org/ns/sosa/ObservableProperty
 x-jsonld-prefixes:
   sosa: http://www.w3.org/ns/sosa/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crm: http://www.cidoc-crm.org/cidoc-crm/
   qudt: http://qudt.org/schema/qudt/
   dct: http://purl.org/dc/terms/
   xsd: http://www.w3.org/2001/XMLSchema#
+  crmsci: http://www.cidoc-crm.org/extensions/crmsci/

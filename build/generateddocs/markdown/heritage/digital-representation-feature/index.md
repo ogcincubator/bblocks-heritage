@@ -1,7 +1,7 @@
 
 # Digital Representation Feature (Schema)
 
-`ogc.heritage.digital-representation-feature` *v0.1*
+`ogc.heritage.digital-representation-feature` *v0.2*
 
 Feature-envelope wrapper for Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.
 
@@ -18,7 +18,10 @@ A digital photograph with an embedded GeoJSON point marking where it was capture
   "type": "Feature",
   "geometry": {
     "type": "Point",
-    "coordinates": [7.6273, 45.1344]
+    "coordinates": [
+      7.6273,
+      45.1344
+    ]
   },
   "wasAttributedTo": [
     "https://heritalise-eccch.eu/resource/actor/giulia-bianchi"
@@ -28,7 +31,9 @@ A digital photograph with an embedded GeoJSON point marking where it was capture
     "identifier": "RV-GG-014-PHOTO-01",
     "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
     "mediaType": "image/jpeg",
-    "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01"
+    "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 
@@ -55,7 +60,9 @@ A digital photograph with an embedded GeoJSON point marking where it was capture
     "identifier": "RV-GG-014-PHOTO-01",
     "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
     "mediaType": "image/jpeg",
-    "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01"
+    "persistentIdentifier": "https://doi.org/10.1234/heritalise.rv-gg-014-photo-01",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 ```
@@ -63,13 +70,17 @@ A digital photograph with an embedded GeoJSON point marking where it was capture
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> a crm:E73_Information_Object,
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> a hdto:HC5_Digital_Representation,
+        crm:E73_Information_Object,
+        crmdig:D9_Data_Object,
         geojson:Feature ;
     dct:format "image/jpeg" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
@@ -100,7 +111,9 @@ The same kind of photograph located by reference instead of embedded coordinates
   "properties": {
     "choType": "DigitalRepresentation",
     "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
-    "mediaType": "image/jpeg"
+    "mediaType": "image/jpeg",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 
@@ -122,7 +135,9 @@ The same kind of photograph located by reference instead of embedded coordinates
   "properties": {
     "choType": "DigitalRepresentation",
     "isAbout": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
-    "mediaType": "image/jpeg"
+    "mediaType": "image/jpeg",
+    "crmdigType": "crmdig:D9_Data_Object",
+    "hdtoType": "hdto:HC5_Digital_Representation"
   }
 }
 ```
@@ -130,12 +145,16 @@ The same kind of photograph located by reference instead of embedded coordinates
 #### ttl
 ```ttl
 @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix crmdig: <http://www.cidoc-crm.org/extensions/crmdig/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix geojson: <https://purl.org/geojson/vocab#> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix topo: <https://purl.org/geojson/topo#> .
 
-<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02> a crm:E73_Information_Object,
+<https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-02> a hdto:HC5_Digital_Representation,
+        crm:E73_Information_Object,
+        crmdig:D9_Data_Object,
         geojson:Feature ;
     dct:format "image/jpeg" ;
     crm:P129_is_about <https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> ;
@@ -694,6 +713,14 @@ Links to the schema:
       "@id": "dcat:accessURL",
       "@type": "@id"
     },
+    "crmdigType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "choType": "@type",
     "DigitalRepresentation": "crm:E73_Information_Object",
     "Arc": "geojson:Arc",
@@ -736,6 +763,8 @@ Links to the schema:
     "owlTime": "http://www.w3.org/2006/time#",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "@version": 1.1
   }
 }

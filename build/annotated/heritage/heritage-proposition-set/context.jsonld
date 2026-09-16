@@ -1,0 +1,25 @@
+{
+  "@context": {
+    "HeritagePropositionSet": "hdto:HC16_Heritage_Proposition_Set",
+    "id": "@id",
+    "type": "@type",
+    "label": "rdfs:label",
+    "content": {
+      "@id": "crm:P148_has_component",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "composedBy": {
+      "@reverse": "hdto:HP30_added_content",
+      "@type": "@id"
+    },
+    "replaces": {
+      "@id": "hdto:HP32_replaced",
+      "@type": "@id"
+    },
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "@version": 1.1
+  }
+}

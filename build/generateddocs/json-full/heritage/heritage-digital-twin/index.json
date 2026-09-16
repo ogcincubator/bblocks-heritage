@@ -1,0 +1,111 @@
+
+
+{
+  "itemIdentifier": "ogc.heritage.heritage-digital-twin",
+  "name": "Heritage Digital Twin",
+  "abstract": "The ECCCH Heritage Digital Twin Ontology's HC2 Heritage Digital Twin: the aggregate of formal proposition sets documenting one heritage entity, identified by its propositional content and creating actor rather than by instance identity.",
+  "status": "under-development",
+  "dateTimeAddition": "2026-09-16T00:00:00Z",
+  "itemClass": "schema",
+  "version": "0.1",
+  "dateOfLastChange": "2026-09-16",
+  "rdfType": [
+    "http://isl.ics.forth.gr/ontology/echoes/HC2_Heritage_Digital_Twin"
+  ],
+  "sources": [
+    {
+      "title": "ECHOES D7.1 \"The Digital Commons\" v1.0 (HDTO)",
+      "link": "https://zenodo.org/records/20445938"
+    },
+    {
+      "title": "HDTO live ontology page",
+      "link": "https://isl.ics.forth.gr/ontology/echoes/html/HDT_v1.1.html"
+    }
+  ],
+  "tags": [
+    "heritage",
+    "hdto",
+    "digital-twin",
+    "echoes",
+    "eccch"
+  ],
+  "group": "HDTO digital twin infrastructure",
+  "seeAlso": [
+    "bblocks://ogc.heritage.heritage-proposition-set",
+    "bblocks://ogc.heritage.event",
+    "bblocks://ogc.heritage.heritage-object"
+  ],
+  "shaclShapes": {
+    "ogc.heritage.heritage-digital-twin": [
+      "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-digital-twin/shapes.shacl"
+    ]
+  },
+  "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/context.jsonld",
+  "ontology": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/ontology.ttl",
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-digital-twin/schema.yaml",
+  "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-digital-twin/context.jsonld",
+  "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/resolvedProperties.json",
+  "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-digital-twin/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/heritage-digital-twin/",
+  "description": "## Heritage Digital Twin\n\n`HeritageDigitalTwin` is HDTO's **HC2 Heritage Digital Twin** (ECCCH's Heritage Digital Twin\nOntology, D7.1 v1.0 \u00a74.1) \u2014 the part of HDTO with no prior analogue anywhere in\n`bblocks-heritage`. Per D7.1's own worked example (the Deryneia icon, \u00a73), an HC2 node is\nlightweight: identified by its propositional content and creating actor, not by a rich internal\nstructure of its own. Updating a digital twin doesn't erase its previous state \u2014 see\n`containedPropositionSet` below.\n\nThe actual content lives in one or more [`heritage-proposition-set`](../heritage-proposition-set)\n(HC16) instances this block points to via `containsPropositionSet`/`containedPropositionSet`.\n\n### Not `aggregation`\n\nThis block is deliberately **not** a profile of, or a replacement for, `aggregation` (EDM/ORE\nAggregation): D7.1 gives no crosswalk between EDM/ORE and any HC class anywhere in the document\n(checked explicitly). `aggregation` remains the separate Europeana/ECCCH-portal display-record\nconstruct it already was; `heritage-digital-twin` is the KB-facing HDTO construct. If a\nrelationship between the two turns out to be useful later, that's an additive property to add\nonce both exist, not a prerequisite.\n\n### How it's built (HC11/HC13)\n\nAn HC2 instance is composed/maintained by an **HC11 Digital Twin Maintenance** activity\n(`composedBy`, HP19 has composed, inverse direction), typically running under an **HC13 Project**.\nRather than two more new blocks, HC11 and HC13 are modelled by co-typing the existing\n[`event`](../event) block \u2014 see its own \"HDTO alignment\" section for how.\n\n### Property reference\n\n| Property | HDTO property | Notes |\n|---|---|---|\n| `ofHeritageEntity` | HP1i is digital twin of (inverse of HP1 has digital twin) | Required. Points back to the HC1/HC3 entity \u2014 in practice, any HC3-co-typed `heritage-object`/`heritage-site`/`building`/`heritage-object-feature` instance in this register. |\n| `label` | \u2014 | Human-readable label, per D7.1's own worked-example convention (rdfs:label). |\n| `creator` | \u2014 | The actor who created/maintains this digital twin (prov:wasAttributedTo). |\n| `containsPropositionSet` | HP33 contains | Required, \u22651. Currently valid content. |\n| `containedPropositionSet` | HP34 contained | Superseded content \u2014 the versioning mechanism: an update moves a `heritage-proposition-set` URI here instead of deleting it. |\n| `composedBy` | HP19i was composed by (inverse of HP19 has composed) | The `event` (co-typed HC11) that produced/last updated this twin. |\n\n### `crmpem:` namespace \u2014 provisional\n\nD7.1 declares HC2 \u2291 HC14 Volatile Digital Object \u2261 `crmpem:PE20`, but never states a resolvable\nnamespace URI for `crmpem:` \u2014 not in D7.1 itself, not on the live HDTO ontology page, and not in\nthe underlying PARTHENOS Entities v3.1 model-description document (the source D7.1 cites).\n`ontology.ttl` asserts `hdto:HC2_Heritage_Digital_Twin owl:equivalentClass crmpem:PE20` using\n`http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/` as a **provisional** namespace URI (the\nFORTH-ISL \"CRMpe\" extension, following the same URI convention this register already uses for\n`crmdig:`). This is flagged, not resolved \u2014 see\n[ogcincubator/bblocks-heritage#1](https://github.com/ogcincubator/bblocks-heritage/issues/1) for\nthe open question. Do not treat this URI as confirmed.\n\n### Scope note\n\nThis block does not attempt to model HC14/HC15 (Volatile/Persistent Digital Object) as their own\nschema \u2014 per `eccch-integration/hdto/03-digital-twin-infrastructure.md`, these are infrastructure\nclasses, not content-bearing blocks in their own right. HP28 (has snapshot)/HP29 (has digital\nobject part), which relate HC14/HC15/crmdig:D1, are likewise out of scope here \u2014 revisit only if\na concrete pilot requirement needs versioned digital-object snapshotting modelled explicitly.\n",
+  "examples": [
+    {
+      "title": "A Venaria painting's digital twin, freshly composed",
+      "content": "The HDT of the Great Gallery ceiling painting (`heritage-object` HC3 instance), with a single current proposition set and the HC11-co-typed `event` that composed it.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-digital-twin/examples/great-gallery-painting.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-digital-twin/example_1_1.json",
+          "sizeBytes": 591,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/hdt/great-gallery-painting-014\",\n  \"type\": \"HeritageDigitalTwin\",\n  \"ofHeritageEntity\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"label\": \"The HDT of the Great Gallery ceiling painting, Reggia di Venaria Reale\",\n  \"creator\": \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\",\n  \"containsPropositionSet\": [\n    \"https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1\"\n  ],\n  \"composedBy\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026\"\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-digital-twin/example_1_1.jsonld",
+          "sizeBytes": 717,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/hdt/great-gallery-painting-014\",\n  \"type\": \"HeritageDigitalTwin\",\n  \"ofHeritageEntity\": \"https://heritalise-eccch.eu/resource/object/great-gallery-painting-014\",\n  \"label\": \"The HDT of the Great Gallery ceiling painting, Reggia di Venaria Reale\",\n  \"creator\": \"https://heritalise-eccch.eu/resource/actor/giulia-bianchi\",\n  \"containsPropositionSet\": [\n    \"https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1\"\n  ],\n  \"composedBy\": \"https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026\"\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-digital-twin/example_1_1.ttl",
+          "sizeBytes": 902,
+          "code": "@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026> hdto:HP19_has_composed <https://heritalise-eccch.eu/resource/hdt/great-gallery-painting-014> .\n\n<https://heritalise-eccch.eu/resource/object/great-gallery-painting-014> hdto:HP1_has_digital_twin <https://heritalise-eccch.eu/resource/hdt/great-gallery-painting-014> .\n\n<https://heritalise-eccch.eu/resource/hdt/great-gallery-painting-014> a hdto:HC2_Heritage_Digital_Twin ;\n    rdfs:label \"The HDT of the Great Gallery ceiling painting, Reggia di Venaria Reale\" ;\n    hdto:HP33_contains <https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1> ;\n    prov:wasAttributedTo <https://heritalise-eccch.eu/resource/actor/giulia-bianchi> .\n\n"
+        }
+      ]
+    },
+    {
+      "title": "A Malta building's digital twin with version history",
+      "content": "The HDT of Villa Portelli's main building, showing HC2 versioning: the current content (`containsPropositionSet`) plus one superseded proposition set preserved in `containedPropositionSet` for referential integrity, per HP33/HP34.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/heritage-digital-twin/examples/villa-portelli-with-history.json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-digital-twin/example_2_1.json",
+          "sizeBytes": 464,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/hdt/villa-portelli-main\",\n  \"type\": \"HeritageDigitalTwin\",\n  \"ofHeritageEntity\": \"https://heritalise-eccch.eu/resource/building/villa-portelli-main\",\n  \"label\": \"The HDT of Villa Portelli's main building\",\n  \"containsPropositionSet\": [\n    \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2\"\n  ],\n  \"containedPropositionSet\": [\n    \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1\"\n  ]\n}\n"
+        },
+        {
+          "language": "jsonld",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-digital-twin/example_2_1.jsonld",
+          "sizeBytes": 590,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/hdt/villa-portelli-main\",\n  \"type\": \"HeritageDigitalTwin\",\n  \"ofHeritageEntity\": \"https://heritalise-eccch.eu/resource/building/villa-portelli-main\",\n  \"label\": \"The HDT of Villa Portelli's main building\",\n  \"containsPropositionSet\": [\n    \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2\"\n  ],\n  \"containedPropositionSet\": [\n    \"https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1\"\n  ]\n}"
+        },
+        {
+          "language": "ttl",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/heritage-digital-twin/example_2_1.ttl",
+          "sizeBytes": 617,
+          "code": "@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\n<https://heritalise-eccch.eu/resource/building/villa-portelli-main> hdto:HP1_has_digital_twin <https://heritalise-eccch.eu/resource/hdt/villa-portelli-main> .\n\n<https://heritalise-eccch.eu/resource/hdt/villa-portelli-main> a hdto:HC2_Heritage_Digital_Twin ;\n    rdfs:label \"The HDT of Villa Portelli's main building\" ;\n    hdto:HP33_contains <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2> ;\n    hdto:HP34_contained <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1> .\n\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Digital Twin\ndescription: \"HDTO's HC2 Heritage Digital Twin: the aggregate of formal proposition\n  sets documenting one\\nheritage entity (an `hdto:HC1_Heritage_Entity` \\u2014 in this\n  register, any HC3-co-typed\\n`heritage-object`/`heritage-site`/`building`/`heritage-object-feature`\n  instance). D7.1's own\\nworked example (the Deryneia icon) shows HC2 is a lightweight\n  node identified by its\\npropositional content and creating actor, not a rich record\n  in its own right \\u2014 the actual\\ncontent lives in one or more `heritage-proposition-set`\n  (HC16) instances it points to.\\n\\nThis is deliberately **not** modelled as a profile\n  of `aggregation` (EDM/ORE Aggregation):\\nD7.1 gives no crosswalk between EDM/ORE\n  and any HC class \\u2014 `aggregation` remains the separate\\nEuropeana/ECCCH-portal\n  display-record construct it already was.\\n\"\ntype: object\nrequired:\n- id\n- type\n- ofHeritageEntity\n- containsPropositionSet\nproperties:\n  id:\n    type: string\n    format: uri\n    description: Persistent URI identifying this Heritage Digital Twin.\n    x-jsonld-id: '@id'\n  type:\n    const: HeritageDigitalTwin\n    description: Fixed type token (maps to hdto:HC2_Heritage_Digital_Twin).\n    x-jsonld-id: '@type'\n  ofHeritageEntity:\n    type: string\n    format: uri\n    description: \"URI of the heritage entity this is the digital twin of (HP1 has\n      digital twin, referenced here in its inverse \\\"is digital twin of\\\" direction\n      \\u2014 HP1i).\"\n    x-jsonld-reverse: hdto:HP1_has_digital_twin\n    x-jsonld-type: '@id'\n  label:\n    type: string\n    description: Short human-readable label identifying this digital twin (e.g. \"The\n      HDT of the Great Gallery ceiling painting\"), per D7.1's own worked example convention.\n    x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label\n  creator:\n    type: string\n    format: uri\n    description: URI of the actor (person or organisation) that created/maintains\n      this digital twin.\n    x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo\n    x-jsonld-type: '@id'\n  containsPropositionSet:\n    type: array\n    minItems: 1\n    items:\n      type: string\n      format: uri\n    description: URIs of `heritage-proposition-set` instances currently valid as content\n      of this digital twin (HP33 contains).\n    x-jsonld-id: http://isl.ics.forth.gr/ontology/echoes/HP33_contains\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  containedPropositionSet:\n    type: array\n    items:\n      type: string\n      format: uri\n    description: \"URIs of `heritage-proposition-set` instances formerly, but no longer,\n      valid content (HP34 contained) \\u2014 preserves referential integrity for prior\n      scholarly references. This is how HC2 versioning works: superseding content\n      moves from `containsPropositionSet` to here rather than being deleted.\"\n    x-jsonld-id: http://isl.ics.forth.gr/ontology/echoes/HP34_contained\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  composedBy:\n    type: string\n    format: uri\n    description: \"URI of the `event` instance (co-typed hdto:HC11_Digital_Twin_Maintenance\n      \\u2014 see ogc.heritage.event's HDTO alignment note) that composed/most recently\n      updated this digital twin (HP19 has composed, inverse direction \\u2014 HP19i).\"\n    x-jsonld-reverse: hdto:HP19_has_composed\n    x-jsonld-type: '@id'\nx-jsonld-extra-terms:\n  HeritageDigitalTwin: http://isl.ics.forth.gr/ontology/echoes/HC2_Heritage_Digital_Twin\nx-jsonld-prefixes:\n  hdto: http://isl.ics.forth.gr/ontology/echoes/\n  rdfs: http://www.w3.org/2000/01/rdf-schema#\n  prov: http://www.w3.org/ns/prov#\n",
+  "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
+  "gitPath": "_sources/heritage-digital-twin"
+}

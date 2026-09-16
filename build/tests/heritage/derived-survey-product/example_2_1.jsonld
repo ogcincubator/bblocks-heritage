@@ -19,5 +19,7 @@
     "qaResult": "passed with remarks \u2014 two pilasters exceed \u00b180 mm threshold"
   },
   "limitations": "Roof surface excluded (access restrictions). Balcony undersides have partial occlusion.",
-  "reviewStatus": "approved"
+  "reviewStatus": "approved",
+  "crmdigType": "crmdig:D9_Data_Object",
+  "hdtoType": "hdto:HC5_Digital_Representation"
 }

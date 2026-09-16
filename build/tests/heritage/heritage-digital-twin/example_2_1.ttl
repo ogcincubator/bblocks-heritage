@@ -1,0 +1,10 @@
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://heritalise-eccch.eu/resource/building/villa-portelli-main> hdto:HP1_has_digital_twin <https://heritalise-eccch.eu/resource/hdt/villa-portelli-main> .
+
+<https://heritalise-eccch.eu/resource/hdt/villa-portelli-main> a hdto:HC2_Heritage_Digital_Twin ;
+    rdfs:label "The HDT of Villa Portelli's main building" ;
+    hdto:HP33_contains <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-2> ;
+    hdto:HP34_contained <https://heritalise-eccch.eu/resource/hps/villa-portelli-main-1> .
+

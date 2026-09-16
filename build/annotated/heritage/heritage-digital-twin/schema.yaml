@@ -1,0 +1,85 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Heritage Digital Twin
+description: "HDTO's HC2 Heritage Digital Twin: the aggregate of formal proposition
+  sets documenting one\nheritage entity (an `hdto:HC1_Heritage_Entity` \u2014 in this
+  register, any HC3-co-typed\n`heritage-object`/`heritage-site`/`building`/`heritage-object-feature`
+  instance). D7.1's own\nworked example (the Deryneia icon) shows HC2 is a lightweight
+  node identified by its\npropositional content and creating actor, not a rich record
+  in its own right \u2014 the actual\ncontent lives in one or more `heritage-proposition-set`
+  (HC16) instances it points to.\n\nThis is deliberately **not** modelled as a profile
+  of `aggregation` (EDM/ORE Aggregation):\nD7.1 gives no crosswalk between EDM/ORE
+  and any HC class \u2014 `aggregation` remains the separate\nEuropeana/ECCCH-portal
+  display-record construct it already was.\n"
+type: object
+required:
+- id
+- type
+- ofHeritageEntity
+- containsPropositionSet
+properties:
+  id:
+    type: string
+    format: uri
+    description: Persistent URI identifying this Heritage Digital Twin.
+    x-jsonld-id: '@id'
+  type:
+    const: HeritageDigitalTwin
+    description: Fixed type token (maps to hdto:HC2_Heritage_Digital_Twin).
+    x-jsonld-id: '@type'
+  ofHeritageEntity:
+    type: string
+    format: uri
+    description: "URI of the heritage entity this is the digital twin of (HP1 has
+      digital twin, referenced here in its inverse \"is digital twin of\" direction
+      \u2014 HP1i)."
+    x-jsonld-reverse: hdto:HP1_has_digital_twin
+    x-jsonld-type: '@id'
+  label:
+    type: string
+    description: Short human-readable label identifying this digital twin (e.g. "The
+      HDT of the Great Gallery ceiling painting"), per D7.1's own worked example convention.
+    x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
+  creator:
+    type: string
+    format: uri
+    description: URI of the actor (person or organisation) that created/maintains
+      this digital twin.
+    x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
+    x-jsonld-type: '@id'
+  containsPropositionSet:
+    type: array
+    minItems: 1
+    items:
+      type: string
+      format: uri
+    description: URIs of `heritage-proposition-set` instances currently valid as content
+      of this digital twin (HP33 contains).
+    x-jsonld-id: http://isl.ics.forth.gr/ontology/echoes/HP33_contains
+    x-jsonld-type: '@id'
+    x-jsonld-container: '@set'
+  containedPropositionSet:
+    type: array
+    items:
+      type: string
+      format: uri
+    description: "URIs of `heritage-proposition-set` instances formerly, but no longer,
+      valid content (HP34 contained) \u2014 preserves referential integrity for prior
+      scholarly references. This is how HC2 versioning works: superseding content
+      moves from `containsPropositionSet` to here rather than being deleted."
+    x-jsonld-id: http://isl.ics.forth.gr/ontology/echoes/HP34_contained
+    x-jsonld-type: '@id'
+    x-jsonld-container: '@set'
+  composedBy:
+    type: string
+    format: uri
+    description: "URI of the `event` instance (co-typed hdto:HC11_Digital_Twin_Maintenance
+      \u2014 see ogc.heritage.event's HDTO alignment note) that composed/most recently
+      updated this digital twin (HP19 has composed, inverse direction \u2014 HP19i)."
+    x-jsonld-reverse: hdto:HP19_has_composed
+    x-jsonld-type: '@id'
+x-jsonld-extra-terms:
+  HeritageDigitalTwin: http://isl.ics.forth.gr/ontology/echoes/HC2_Heritage_Digital_Twin
+x-jsonld-prefixes:
+  hdto: http://isl.ics.forth.gr/ontology/echoes/
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  prov: http://www.w3.org/ns/prov#

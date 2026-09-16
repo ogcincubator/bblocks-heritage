@@ -52,11 +52,19 @@
           "description": "A persistent identifier (e.g. ARK, DOI, Handle) minted for this object.",
           "x-jsonld-id": "http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by",
           "x-jsonld-type": "@id"
+        },
+        "hdtoType": {
+          "type": "string",
+          "const": "hdto:HC3_Tangible_Heritage_Entity",
+          "description": "Fixed HDTO co-type (ECCCH Heritage Digital Twin Ontology, D7.1). Maps via context directly to rdf:type, alongside crm:E22_Man-Made_Object \u2014 additive, not a replacement (D7.1 Figure 20's own worked example shows the same node typed as both classes at once). Required so every valid instance is HDTO-typed on a plain JSON-LD parse, with no extra post-processing step needed.",
+          "x-jsonld-id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "x-jsonld-type": "@id"
         }
       },
       "required": [
         "identifier",
-        "title"
+        "title",
+        "hdtoType"
       ]
     }
   },
@@ -99,6 +107,8 @@
   },
   "x-jsonld-prefixes": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
-    "prov": "http://www.w3.org/ns/prov#"
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/"
   }
 }

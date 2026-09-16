@@ -18,11 +18,23 @@ and D8.2), but is intended as a general-purpose register usable beyond that proj
 
 An EDM/ORE aggregation wrapping a heritage object together with its digital representations and the provider/rights metadata required to publish it to Europeana / ECCCH, modelled as edm:Aggregation (ore:Aggregation).
 
+### `ogc.heritage.heritage-digital-twin` — Heritage Digital Twin
+
+**Type:** schema
+
+The ECCCH Heritage Digital Twin Ontology's HC2 Heritage Digital Twin: the aggregate of formal proposition sets documenting one heritage entity, identified by its propositional content and creating actor rather than by instance identity.
+
 ### `ogc.heritage.heritage-object` — Heritage Object
 
 **Type:** schema
 
 A physical cultural heritage item — an artwork, building element, garden feature or museum object — modelled as a CIDOC-CRM E22 Man-Made Object.
+
+### `ogc.heritage.heritage-proposition-set` — Heritage Proposition Set
+
+**Type:** schema
+
+The ECCCH Heritage Digital Twin Ontology's HC16 Heritage Proposition Set: a named-graph content unit — what an HC2 Heritage Digital Twin actually contains, referencing the rest of this register's HDTO-typed content.
 
 ### `ogc.heritage.historical-statement` — Historical Statement
 
@@ -42,18 +54,6 @@ A conservation threshold rule bounding an environmental parameter at a heritage 
 
 A physical original document, photograph, drawing, negative or bound volume that carries heritage information, modelled as CIDOC-CRM E31 Document. Records the physical carrier from which digital surrogates are derived, with repository, archival code, and rights metadata.
 
-### `ogc.heritage.monitoring-point` — Monitoring Point
-
-**Type:** schema
-
-A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.
-
-### `ogc.heritage.observation` — Observation
-
-**Type:** schema
-
-A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an OGC SensorThings API `Sensor`.
-
 ### `ogc.heritage.place` — Place
 
 **Type:** schema
@@ -65,6 +65,18 @@ A spatial location relevant to cultural heritage — a site, building, room or l
 **Type:** schema
 
 An event in the history of a heritage object — production, restoration, modification, acquisition — modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.
+
+### `ogc.heritage.monitoring-point` — Monitoring Point
+
+**Type:** schema
+
+A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.
+
+### `ogc.heritage.observation` — Observation
+
+**Type:** schema
+
+A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an ogc.heritage.monitoring-point (SOSA/SSN Sensor) record. Required HDTO co-type: crmsci:S4.
 
 ### `ogc.heritage.heritage-site` — Heritage Site
 

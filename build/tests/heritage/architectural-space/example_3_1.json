@@ -18,6 +18,7 @@
     "partOf": "https://heritalise-eccch.eu/resource/space/galleria-grande",
     "floorLevel": "piano nobile",
     "bayCode": "B08",
-    "accessibilityStatus": "open to public"
+    "accessibilityStatus": "open to public",
+    "hdtoType": "hdto:HC3_Tangible_Heritage_Entity"
   }
 }

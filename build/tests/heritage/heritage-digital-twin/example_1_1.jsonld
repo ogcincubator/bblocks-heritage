@@ -1,0 +1,12 @@
+{
+  "@context": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-digital-twin/context.jsonld",
+  "id": "https://heritalise-eccch.eu/resource/hdt/great-gallery-painting-014",
+  "type": "HeritageDigitalTwin",
+  "ofHeritageEntity": "https://heritalise-eccch.eu/resource/object/great-gallery-painting-014",
+  "label": "The HDT of the Great Gallery ceiling painting, Reggia di Venaria Reale",
+  "creator": "https://heritalise-eccch.eu/resource/actor/giulia-bianchi",
+  "containsPropositionSet": [
+    "https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1"
+  ],
+  "composedBy": "https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026"
+}

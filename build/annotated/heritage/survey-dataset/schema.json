@@ -59,6 +59,10 @@
               "description": "CRMdig class discriminator for this record (maps to crmdig:D1_Digital_Object via a second alias to @type, alongside the fixed GeoJSON `type: \"Feature\"`).",
               "x-jsonld-id": "@type"
             },
+            "hdtoType": {
+              "const": "hdto:HC5_Digital_Representation",
+              "description": "Pins the inherited hdtoType (from digital-representation, otherwise an enum of HC5/HC7/HC8) to HC5. D7.1's HC5-8 table lists \"HC6 Sensor Data\" as a possible anchor for sensor-derived survey datasets specifically, but this block covers both sensor- and non-sensor-derived acquisitions \u2014 HC5 (\u2292 HC6) is used as the safe, always-correct co-type until real pilot data shows which instances are actually sensor-derived and worth narrowing to HC6."
+            },
             "title": {
               "type": "string",
               "description": "Human-readable title of the dataset (dct:title).",
@@ -108,7 +112,7 @@
                   "description": "Software and processing steps applied before delivery (registration, noise filtering, etc.)."
                 }
               },
-              "x-jsonld-id": "http://www.ics.forth.gr/isl/CRMdig/L11i_was_output_of",
+              "x-jsonld-id": "http://www.cidoc-crm.org/extensions/crmdig/L11i_was_output_of",
               "x-jsonld-type": "@json"
             },
             "limitations": {
@@ -126,10 +130,10 @@
     }
   ],
   "x-jsonld-extra-terms": {
-    "SurveyDataset": "http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"
+    "SurveyDataset": "http://www.cidoc-crm.org/extensions/crmdig/D1_Digital_Object"
   },
   "x-jsonld-prefixes": {
-    "crmdig": "http://www.ics.forth.gr/isl/CRMdig/",
+    "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",
     "dct": "http://purl.org/dc/terms/"
   }
 }

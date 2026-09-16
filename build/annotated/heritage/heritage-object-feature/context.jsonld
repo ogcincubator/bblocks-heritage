@@ -156,6 +156,10 @@
       "@id": "crm:P1_is_identified_by",
       "@type": "@id"
     },
+    "hdtoType": {
+      "@id": "rdf:type",
+      "@type": "@id"
+    },
     "choType": "@type",
     "HeritageObject": "crm:E22_Man-Made_Object",
     "Arc": "geojson:Arc",
@@ -202,6 +206,8 @@
     "owlTime": "http://www.w3.org/2006/time#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "topo": "https://purl.org/geojson/topo#",
     "prof": "http://www.w3.org/ns/dx/prof/",
     "prov": "http://www.w3.org/ns/prov#",

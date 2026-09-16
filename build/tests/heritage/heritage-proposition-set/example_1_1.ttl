@@ -1,0 +1,11 @@
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix hdto: <http://isl.ics.forth.gr/ontology/echoes/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://heritalise-eccch.eu/resource/event/hdt-maintenance-great-gallery-painting-014-2026> hdto:HP30_added_content <https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1> .
+
+<https://heritalise-eccch.eu/resource/hps/great-gallery-painting-014-1> a hdto:HC16_Heritage_Proposition_Set ;
+    rdfs:label "Photographic and 3D documentation batch, Great Gallery ceiling painting, 2026" ;
+    crm:P148_has_component <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-model-01>,
+        <https://heritalise-eccch.eu/resource/digital/great-gallery-painting-014-photo-01> .
+

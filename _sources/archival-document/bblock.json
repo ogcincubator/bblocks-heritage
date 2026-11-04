@@ -1,5 +1,5 @@
 {
-  "name": "Archival Document",
+  "name": "Heritage Archival Document",
   "abstract": "A digital-representation profile constrained to archival document formats (PDF/A, LIDO/XML), with a mandatory persistent identifier for long-term archival reference.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",

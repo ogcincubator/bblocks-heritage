@@ -1,4 +1,4 @@
-## Archival Document
+## Heritage Archival Document
 
 An `ArchivalDocument` is a [`digital-representation`](../digital-representation) constrained to
 archival document formats — PDF/A or LIDO/XML — covering D8.2 profile C (long-term archival and

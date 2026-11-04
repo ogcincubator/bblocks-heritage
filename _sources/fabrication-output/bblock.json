@@ -1,5 +1,5 @@
 {
-  "name": "Fabrication Output",
+  "name": "Heritage Fabrication Output",
   "abstract": "A digital-representation profile constrained to physical-fabrication formats (STL, 3MF), with a mandatory PROV derivation chain back to its source 3D model.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",

@@ -1,4 +1,4 @@
-## Fabrication Output
+## Heritage Fabrication Output
 
 A `FabricationOutput` is a [`digital-representation`](../digital-representation) constrained to
 physical-fabrication formats — STL or 3MF — covering D8.2 profile F (physical replicas and

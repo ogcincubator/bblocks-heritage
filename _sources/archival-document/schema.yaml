@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Archival Document
+title: Heritage Archival Document
 description: |
   A `digital-representation` constrained to archival document formats — PDF/A or LIDO/XML — with
   a mandatory persistent identifier, for long-term archival reference (D8.2 profile C).

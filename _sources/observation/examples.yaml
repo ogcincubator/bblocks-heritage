@@ -10,11 +10,13 @@ examples:
       - language: json
         ref: examples/humidity-reading.json
 
-  - title: A minimal record for an undated legacy reading
+  - title: A minimal record for a legacy reading
     content: >-
-      Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are required —
-      useful for migrating legacy monitoring logs that predate the SensorThings API
-      deployment.
+      Only `hasFeatureOfInterest`, one of `hasResult`/`hasSimpleResult` and one time property
+      (`resultTime`, `phenomenonTime`, `startTime` or `endTime`, required by the profiled SOSA
+      Observation) are needed — useful for migrating legacy monitoring logs that predate the
+      SensorThings API deployment. When a paper log gives only a date, use it as `resultTime`
+      (here at midnight UTC).
     snippets:
       - language: json
         ref: examples/minimal.json

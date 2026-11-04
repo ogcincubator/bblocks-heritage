@@ -1,5 +1,5 @@
 {
-  "name": "Observation",
+  "name": "Heritage Observation",
   "abstract": "A scientific observation or measurement of a heritage object or place — environmental monitoring, condition assessment, conservation science — profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an ogc.heritage.monitoring-point (SOSA/SSN Sensor) record. Required HDTO co-type: crmsci:S4.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",

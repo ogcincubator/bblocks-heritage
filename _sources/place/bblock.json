@@ -1,5 +1,5 @@
 {
-  "name": "Place",
+  "name": "Heritage Place",
   "abstract": "A spatial location relevant to cultural heritage — a site, building, room or landscape feature — modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",

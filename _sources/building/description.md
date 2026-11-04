@@ -1,4 +1,4 @@
-## Building
+## Heritage Building
 
 A `Building` is a principal building or architectural unit — a palace wing, chapel,
 outbuilding, or villa — modelled as CIDOC-CRM **E22 Man-Made Object**. It profiles

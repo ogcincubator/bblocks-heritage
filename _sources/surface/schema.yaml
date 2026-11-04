@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Surface
+title: Heritage Surface
 description: >-
   A material finish layer or physical surface feature recognised on an architectural
   component or heritage object (CIDOC-CRM E25 Man-Made Feature), encoded as a GeoJSON/

@@ -1,4 +1,4 @@
-## Actor
+## Heritage Actor
 
 An `Actor` is a person or organization associated with cultural heritage objects, events or
 activities — a creator, custodian, restorer, donor — modelled as a CIDOC-CRM `E39_Actor`.

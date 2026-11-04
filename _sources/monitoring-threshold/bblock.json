@@ -1,5 +1,5 @@
 {
-  "name": "Monitoring Threshold",
+  "name": "Heritage Monitoring Threshold",
   "abstract": "A conservation threshold rule bounding an environmental parameter at a heritage monitoring point or zone, modelled as a SOSA ObservableProperty with QUDT unit and severity annotations (CRRS-011).",
   "status": "under-development",
   "dateTimeAddition": "2026-07-16T00:00:00Z",

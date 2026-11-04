@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Building
+title: Heritage Building
 description: |
   A principal building or architectural unit (palace wing, chapel, outbuilding, villa)
   modelled as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object-feature

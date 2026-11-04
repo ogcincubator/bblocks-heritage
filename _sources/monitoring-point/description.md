@@ -1,4 +1,4 @@
-## Monitoring Point
+## Heritage Monitoring Point
 
 A `MonitoringPoint` is a physical sensor or monitoring device installed at a heritage resource
 for environmental and condition monitoring. It profiles

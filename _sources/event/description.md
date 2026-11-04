@@ -1,4 +1,4 @@
-## Event
+## Heritage Event
 
 An `Event` is an occurrence in the history of a heritage object — its production, a restoration
 or modification campaign, an acquisition — modelled as a CIDOC-CRM `E5_Event` (which generalises

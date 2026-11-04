@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Place
+title: Heritage Place
 description: |
   A spatial location relevant to cultural heritage (site, building, room, landscape feature),
   modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature: geometry stays at

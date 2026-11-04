@@ -1,5 +1,5 @@
 {
-  "name": "Actor",
+  "name": "Heritage Actor",
   "abstract": "A person or organization associated with cultural heritage objects, events or activities — creators, custodians, restorers — modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",

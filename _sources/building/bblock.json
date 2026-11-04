@@ -1,6 +1,6 @@
 {
-  "name": "Building",
-  "abstract": "A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.",
+  "name": "Heritage Building",
+  "abstract": "A principal heritage building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.",
   "status": "under-development",
   "dateTimeAddition": "2026-07-16T00:00:00Z",
   "itemClass": "schema",

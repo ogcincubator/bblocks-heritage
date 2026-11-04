@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Digital Representation
+title: Heritage Digital Representation
 description: |
   A digital asset (image, 3D model, document...) representing or documenting a heritage object,
   modelled as a CIDOC-CRM E73 Information Object. Profiles PROV-O's Entity: `wasAttributedTo`,

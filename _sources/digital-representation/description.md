@@ -1,4 +1,4 @@
-## Digital Representation
+## Heritage Digital Representation
 
 A `DigitalRepresentation` is a digital asset — an image, a 3D model, a scanned document — that
 represents or documents a heritage object, modelled as a CIDOC-CRM `E73_Information_Object`.

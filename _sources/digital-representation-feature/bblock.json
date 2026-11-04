@@ -1,6 +1,6 @@
 {
-  "name": "Digital Representation Feature",
-  "abstract": "Feature-envelope wrapper for Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
+  "name": "Heritage Digital Representation Feature",
+  "abstract": "Feature-envelope wrapper for Heritage Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
   "status": "under-development",
   "dateTimeAddition": "2026-07-17T00:00:00Z",
   "itemClass": "schema",

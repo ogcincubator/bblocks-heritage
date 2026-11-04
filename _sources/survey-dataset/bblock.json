@@ -1,5 +1,5 @@
 {
-  "name": "Survey Dataset",
+  "name": "Heritage Survey Dataset",
   "abstract": "A geometric survey dataset (point cloud, photogrammetric model or similar) acquired from a heritage asset, modelled as a CRMdig D1 Digital Object with a CRMdig D7 acquisition event and a spatial coverage geometry. Profiles ogc.heritage.digital-representation, adding survey acquisition paradata (method, equipment, CRS, density, accuracy) and a mandatory coverage polygon.",
   "status": "under-development",
   "dateTimeAddition": "2026-07-16T00:00:00Z",

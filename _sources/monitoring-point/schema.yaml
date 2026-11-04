@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Monitoring Point
+title: Heritage Monitoring Point
 description: |
   A physical sensor or monitoring device installed at a heritage resource. Profiles
   ogc.sosa.properties.sensor and adds a CIDOC-CRM E22 Man-Made Object identity layer

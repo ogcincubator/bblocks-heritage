@@ -1,4 +1,4 @@
-## Place
+## Heritage Place
 
 A `Place` is a spatial location relevant to cultural heritage — a site, building, room or
 landscape feature — modelled as a CIDOC-CRM `E53_Place`.

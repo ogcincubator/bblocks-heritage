@@ -1,4 +1,4 @@
-# Survey Dataset
+# Heritage Survey Dataset
 
 A geometric survey dataset — point cloud, photogrammetric model, structured-light scan or similar
 product — acquired from a heritage asset. Models the dataset as a **CRMdig D1 Digital Object**

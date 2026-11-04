@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Aggregation
+title: Heritage Aggregation
 description: |
   An EDM/ORE aggregation: the wrapper Europeana/ECCCH actually ingests, pairing a
   `heritage-object` with the `digital-representation`(s) that depict it and the

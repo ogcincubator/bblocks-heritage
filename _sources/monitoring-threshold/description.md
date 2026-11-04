@@ -1,4 +1,4 @@
-# Monitoring Threshold
+# Heritage Monitoring Threshold
 
 A **Monitoring Threshold** records a conservation threshold rule: a bounded acceptable value range
 for a specific environmental parameter at a heritage monitoring point or zone. Threshold records are

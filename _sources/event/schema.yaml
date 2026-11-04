@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Event
+title: Heritage Event
 description: |
   An event in the history of a heritage object — production, restoration, modification,
   acquisition — modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's Activity: `startedAtTime`/

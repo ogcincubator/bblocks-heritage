@@ -1,4 +1,4 @@
-# Route
+# Heritage Route
 
 A road, visitor path, internal track or circulation route within or between heritage zones,
 typed as **CIDOC-CRM E26 Physical Feature** — a subclass of E53 Place that represents a

@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Digital Representation Feature
+title: Heritage Digital Representation Feature
 description: >-
   Feature-envelope wrapper for ogc.heritage.digital-representation: a spatially located
   digital asset encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature

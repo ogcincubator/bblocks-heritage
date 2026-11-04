@@ -1,4 +1,4 @@
-# Surface
+# Heritage Surface
 
 A **Surface** records a material finish layer or physical surface feature recognised on an
 architectural component or heritage object — plaster, stucco, fresco, stone, gilding or any

@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: 3D Model
+title: Heritage 3D Model
 description: |
   A `digital-representation` constrained to real-time 3D model formats: glTF (binary or JSON),
   Wavefront OBJ, or an OGC 3D Tiles tileset (D8.2 profile B).

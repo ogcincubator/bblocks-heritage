@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Observation
+title: Heritage Observation
 description: |
   A scientific observation or measurement, profiling the SOSA/SSN Observation rather than
   redefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,

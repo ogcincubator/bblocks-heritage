@@ -1,5 +1,5 @@
 {
-  "name": "3D Model",
+  "name": "Heritage 3D Model",
   "abstract": "A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",

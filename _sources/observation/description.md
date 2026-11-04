@@ -1,4 +1,4 @@
-## Observation
+## Heritage Observation
 
 An `Observation` is a scientific measurement or environmental reading taken of a heritage
 object or place — microclimate monitoring, condition assessment, conservation science — using

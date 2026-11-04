@@ -1,5 +1,5 @@
 {
-  "name": "Monitoring Point",
+  "name": "Heritage Monitoring Point",
   "abstract": "A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.",
   "status": "under-development",
   "dateTimeAddition": "2026-07-16T00:00:00Z",

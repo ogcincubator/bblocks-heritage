@@ -1,5 +1,5 @@
 {
-  "name": "Event",
+  "name": "Heritage Event",
   "abstract": "An event in the history of a heritage object \u2014 production, restoration, modification, acquisition \u2014 modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",

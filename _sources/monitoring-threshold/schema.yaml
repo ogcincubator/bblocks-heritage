@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Monitoring Threshold
+title: Heritage Monitoring Threshold
 description: >-
   A conservation threshold rule defining the acceptable value range for an environmental
   parameter at a heritage monitoring point or zone (SOSA ObservableProperty + QUDT units).

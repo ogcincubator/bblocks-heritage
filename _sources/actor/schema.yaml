@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Actor
+title: Heritage Actor
 description: |
   A person or organization associated with cultural heritage objects, events or activities,
   modelled as a CIDOC-CRM E39 Actor. Profiles PROV-O's Agent (`agentType` discriminates

@@ -1,4 +1,4 @@
-## Aggregation
+## Heritage Aggregation
 
 An `Aggregation` is the EDM/ORE publishing wrapper that Europeana and ECCCH actually ingest:
 it pairs a [`heritage-object`](../heritage-object) (the *Cultural Heritage Object*) with the

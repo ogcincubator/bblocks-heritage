@@ -59,7 +59,7 @@
   "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/context.jsonld",
   "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/resolvedProperties.json",
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/observation/",
   "description": "## Heritage Observation\n\nAn `Observation` is a scientific measurement or environmental reading taken of a heritage\nobject or place \u2014 microclimate monitoring, condition assessment, conservation science \u2014 using\nthe W3C SOSA/SSN vocabulary as its primary standard.\n\nThis block profiles\n[`ogc.sosa.properties.observation`](https://opengeospatial.github.io/ogcapi-sosa/bblock/ogc.sosa.properties.observation),\ninheriting `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n`hasResult`/`hasSimpleResult`, `resultTime`, and `phenomenonTime`. The only additions are:\n\n- `type` is fixed to `\"Observation\"` (mapped to `sosa:Observation` in the context) so that\n  uplifted RDF is properly typed \u2014 the profiled block's own schema does not set this.\n- `hasFeatureOfInterest` is tightened from optional to **required**: every reading in this\n  register is expected to link back to the `heritage-object` or `place` it was taken of or at.\n\nThis narrowing reflects the CIDOC-CRM/CRMsci *scientific observation context*: the observation\nis meaningful only in relation to the heritage resource being studied or monitored.\n\n### Sensor linkage\n\nThis register profiles the W3C SOSA/SSN vocabulary directly rather than the OGC SensorThings API\n(STA is an API protocol built on SOSA/SSN, not a separate model \u2014 no confirmed partner requirement\nfor STA API endpoints specifically). `madeBySensor` should reference an\n[`ogc.heritage.monitoring-point`](../monitoring-point) record (a SOSA/SSN `Sensor`);\n`hasFeatureOfInterest` should reference the [`place`](../place) or\n[`heritage-object`](../heritage-object) the reading was taken of/at.\n\nFor observations that need an independent geometry (a sensor not co-located with any existing\n`place`), wrap the properties from this block inside `ogc.sosa.features.observation` instead.\n\n### Use cases\n\n- **Profile A** \u2014 environmental monitoring (temperature, humidity, light) at Venaria and Malta\n- **REQ-010** \u2014 sensor reading linked to a `monitoring-point` via `hasFeatureOfInterest`\n\n## HDTO alignment\n\nEvery instance requires `crmsciType`, a fixed `const` of `crmsci:S4`, mapping via `context.jsonld`\ndirectly to `rdf:type` \u2014 asserted on a plain JSON-LD parse, no post-processing step needed. Per\nD7.1's own OGC SensorThings API crosswalk table (Table 1, p.28), an STA `Observation` (the same\nconcept SOSA's `sosa:Observation`, which this block profiles, already models) targets\n`crmsci:S4`. D7.1 cites S4 only as a superclass reference (its own full scope note is a gap in the\nsource \u2014 see `eccch-integration/hdto/07-referenced-crmsci-crmdig-crminf.md`), but it is at least a\nclass D7.1's own declarations actually use, unlike `crmsci:S9` (see `monitoring-threshold`'s own\nHDTO alignment note for why that one uses `crmsci:S15` instead).\n",
   "examples": [
@@ -89,27 +89,27 @@
       ]
     },
     {
-      "title": "A minimal record for an undated legacy reading",
-      "content": "Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are required \u2014 useful for migrating legacy monitoring logs that predate the SensorThings API deployment.",
+      "title": "A minimal record for a legacy reading",
+      "content": "Only `hasFeatureOfInterest`, one of `hasResult`/`hasSimpleResult` and one time property (`resultTime`, `phenomenonTime`, `startTime` or `endTime`, required by the profiled SOSA Observation) are needed \u2014 useful for migrating legacy monitoring logs that predate the SensorThings API deployment. When a paper log gives only a date, use it as `resultTime` (here at midnight UTC).",
       "snippets": [
         {
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblocks-heritage/_sources/observation/examples/minimal.json",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.json",
-          "sizeBytes": 321,
-          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\",\n  \"crmsciType\": \"crmsci:S4\"\n}\n"
+          "sizeBytes": 361,
+          "code": "{\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\",\n  \"resultTime\": \"1998-07-14T00:00:00Z\",\n  \"crmsciType\": \"crmsci:S4\"\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.jsonld",
-          "sizeBytes": 437,
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\",\n  \"crmsciType\": \"crmsci:S4\"\n}"
+          "sizeBytes": 477,
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/observation/context.jsonld\",\n  \"id\": \"https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001\",\n  \"hasFeatureOfInterest\": \"https://heritalise-eccch.eu/resource/place/great-gallery\",\n  \"observedProperty\": \"http://vocab.getty.edu/aat/300379098\",\n  \"hasSimpleResult\": \"RH within tolerance, see paper log\",\n  \"resultTime\": \"1998-07-14T00:00:00Z\",\n  \"crmsciType\": \"crmsci:S4\"\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblocks-heritage/build/tests/heritage/observation/example_2_1.ttl",
-          "sizeBytes": 420,
-          "code": "@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n\n<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult \"RH within tolerance, see paper log\" ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .\n\n"
+          "sizeBytes": 535,
+          "code": "@prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;\n    sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;\n    sosa:hasSimpleResult \"RH within tolerance, see paper log\" ;\n    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> ;\n    sosa:resultTime \"1998-07-14T00:00:00+00:00\"^^xsd:dateTime .\n\n"
         }
       ]
     },

@@ -2,8 +2,8 @@
   "title": "Validation report for ogc.heritage.observation - Heritage Observation",
   "bblockName": "Heritage Observation",
   "bblockId": "ogc.heritage.observation",
-  "generated": "2026-11-04T11:23:39.880980+00:00",
-  "result": false,
+  "generated": "2026-11-04T11:33:38.479630+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -72,19 +72,19 @@
             {
               "shaclFile": "_sources/observation/shapes.shacl",
               "focusNodes": {
-                "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>": {
+                "<file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>"
                   ]
                 },
-                "<file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>": {
+                "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n"
+              "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n"
             },
             {
               "op": "shacl-report",
@@ -96,10 +96,10 @@
             {
               "shaclFile": "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>": {
+                "<https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>": {
+                "<https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>": {
@@ -109,7 +109,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n"
             },
             {
               "op": "shacl-report",
@@ -121,22 +121,9 @@
             {
               "shaclFile": "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/sosa/#testFeatureOfInterest>": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>"
-                  ]
-                },
-                "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/sosa/#testRequiredTime>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>"
-                  ]
-                },
-                "<https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>/sosa:hasSimpleResult"
                   ]
                 },
                 "<https://www.ogc.org/rules/sosa/#testResult>": {
@@ -144,12 +131,25 @@
                     "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>"
                   ]
                 },
+                "<https://www.ogc.org/rules/sosa/#testFeatureOfInterest>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>"
+                  ]
+                },
                 "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>": {
                   "nodes": []
+                },
+                "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>/sosa:hasSimpleResult"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>/sosa:hasSimpleResult\n - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/great-gallery-humidity-2024-03-04t12-00-00z>/sosa:hasSimpleResult\n"
             }
           ]
         }
@@ -165,7 +165,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "FILES",
@@ -190,7 +190,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 4,
+              "size": 5,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -202,11 +202,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "{'id': 'https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001', 'hasFeatureOfInterest': 'https://heritalise-eccch.eu/resource/place/great-gallery', 'observedProperty': 'http://vocab.getty.edu/aat/300379098', 'hasSimpleResult': 'RH within tolerance, see paper log', 'crmsciType': 'crmsci:S4'} is not valid under any of the given schemas",
-              "isError": true,
-              "message": "ValidationError: {'id': 'https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001', 'hasFeatureOfInterest': 'https://heritalise-eccch.eu/resource/place/great-gallery', 'observedProperty': 'http://vocab.getty.edu/aat/300379098', 'hasSimpleResult': 'RH within tolerance, see paper log', 'crmsciType': 'crmsci:S4'} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema['allOf'][0]['allOf'][1]['allOf'][1]:\n    {'anyOf': [{'required': ['resultTime']},\n               {'required': ['phenomenonTime']},\n               {'required': ['startTime']},\n               {'required': ['endTime']}]}\n\nOn instance:\n    {'crmsciType': 'crmsci:S4',\n     'hasFeatureOfInterest': 'https://heritalise-eccch.eu/resource/place/great-gallery',\n     'hasSimpleResult': 'RH within tolerance, see paper log',\n     'id': 'https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001',\n     'observedProperty': 'http://vocab.getty.edu/aat/300379098'}"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -224,17 +222,17 @@
             {
               "shaclFile": "_sources/observation/shapes.shacl",
               "focusNodes": {
-                "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>": {
-                  "nodes": []
-                },
                 "<file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>"
                   ]
+                },
+                "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: *none*\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n"
+              "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -246,10 +244,10 @@
             {
               "shaclFile": "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>": {
+                "<https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>": {
+                "<https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>": {
@@ -259,34 +257,21 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n"
             },
             {
               "op": "shacl-report",
               "shaclFile": "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> ;\n            sh:resultMessage \"One of sosa:resultTime, sosa:phenomenonTime, sosa:startTime or sosa:endTime is required, on the execution or a collection it is a member of\" ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraint [ sh:message \"One of sosa:resultTime, sosa:phenomenonTime, sosa:startTime or sosa:endTime is required, on the execution or a collection it is a member of\" ;\n                    sh:select \"\"\"\n            PREFIX sosa: <http://www.w3.org/ns/sosa/>\n            PREFIX geojson: <https://purl.org/geojson/vocab#>\n            SELECT $this WHERE {\n                FILTER NOT EXISTS {\n                    $this (^sosa:hasMember|^geojson:features|sosa:memberOf)* ?holder .\n                    ?holder sosa:resultTime|sosa:phenomenonTime|sosa:startTime|sosa:endTime ?time .\n                }\n            }\n        \"\"\" ] ;\n            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;\n            sh:sourceShape <https://www.ogc.org/rules/sosa/#testRequiredTime> ;\n            sh:value <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> ] .\n\n",
-              "isError": true,
-              "message": "Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n  Validation Report\n  Conforms: False\n  Results (1):\n  Constraint Violation in SPARQLConstraintComponent (http://www.w3.org/ns/shacl#SPARQLConstraintComponent):\n  \tSeverity: sh:Violation\n  \tSource Shape: <https://www.ogc.org/rules/sosa/#testRequiredTime>\n  \tFocus Node: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n  \tValue Node: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n  \tSource Constraint: [ sh:message Literal(\"One of sosa:resultTime, sosa:phenomenonTime, sosa:startTime or sosa:endTime is required, on the execution or a collection it is a member of\") ; sh:select Literal(\"\n              PREFIX sosa: <http://www.w3.org/ns/sosa/>\n              PREFIX geojson: <https://purl.org/geojson/vocab#>\n              SELECT $this WHERE {\n                  FILTER NOT EXISTS {\n                      $this (^sosa:hasMember|^geojson:features|sosa:memberOf)* ?holder .\n                      ?holder sosa:resultTime|sosa:phenomenonTime|sosa:startTime|sosa:endTime ?time .\n                  }\n              }\n          \") ]\n  \tMessage: One of sosa:resultTime, sosa:phenomenonTime, sosa:startTime or sosa:endTime is required, on the execution or a collection it is a member of\n  "
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n  Validation Report\n  Conforms: True\n  "
             },
             {
               "shaclFile": "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/sosa/#testFeatureOfInterest>": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>"
-                  ]
-                },
-                "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/sosa/#testRequiredTime>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>"
-                  ]
-                },
-                "<https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>/sosa:hasSimpleResult"
                   ]
                 },
                 "<https://www.ogc.org/rules/sosa/#testResult>": {
@@ -294,12 +279,25 @@
                     "<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>"
                   ]
                 },
+                "<https://www.ogc.org/rules/sosa/#testFeatureOfInterest>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>"
+                  ]
+                },
                 "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>": {
                   "nodes": []
+                },
+                "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>/sosa:hasSimpleResult"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>/sosa:hasSimpleResult\n - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>/sosa:hasSimpleResult\n"
             }
           ]
         }
@@ -372,19 +370,19 @@
             {
               "shaclFile": "_sources/observation/shapes.shacl",
               "focusNodes": {
-                "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>": {
+                "<file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>"
                   ]
                 },
-                "<file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>": {
+                "<file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n"
+              "message": "Focus nodes for _sources/observation/shapes.shacl:\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n"
             },
             {
               "op": "shacl-report",
@@ -396,10 +394,10 @@
             {
               "shaclFile": "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>": {
+                "<https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>": {
                   "nodes": []
                 },
-                "<https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>": {
+                "<https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>": {
                   "nodes": []
                 },
                 "<https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>": {
@@ -409,7 +407,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n"
             },
             {
               "op": "shacl-report",
@@ -421,22 +419,9 @@
             {
               "shaclFile": "https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl",
               "focusNodes": {
-                "<https://www.ogc.org/rules/sosa/#testFeatureOfInterest>": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>"
-                  ]
-                },
-                "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>": {
-                  "nodes": []
-                },
                 "<https://www.ogc.org/rules/sosa/#testRequiredTime>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>"
-                  ]
-                },
-                "<https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>/sosa:hasSimpleResult"
                   ]
                 },
                 "<https://www.ogc.org/rules/sosa/#testResult>": {
@@ -444,12 +429,25 @@
                     "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>"
                   ]
                 },
+                "<https://www.ogc.org/rules/sosa/#testFeatureOfInterest>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>"
+                  ]
+                },
                 "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>": {
                   "nodes": []
+                },
+                "<https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>": {
+                  "nodes": []
+                },
+                "<https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>/sosa:hasSimpleResult"
+                  ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>/sosa:hasSimpleResult\n - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:\n - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*\n - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>/sosa:hasSimpleResult\n"
             }
           ]
         }
@@ -459,7 +457,7 @@
   "globalErrors": {},
   "counts": {
     "total": 3,
-    "passed": 2,
-    "failed": 1
+    "passed": 3,
+    "failed": 0
   }
 }

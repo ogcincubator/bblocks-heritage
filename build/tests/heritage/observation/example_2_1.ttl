@@ -1,8 +1,10 @@
 @prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;
     sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult "RH within tolerance, see paper log" ;
-    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
+    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> ;
+    sosa:resultTime "1998-07-14T00:00:00+00:00"^^xsd:dateTime .
 

@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.observation - Heritage Observation
-Generated 2026-11-04T11:23:39.880870+00:00
+Generated 2026-11-04T11:33:38.479537+00:00
 === Files ===
 Using examples/monitoring-point-reading.json from examples
 JSON-LD context is present - uplifting
@@ -17,16 +17,16 @@ Validation result for _sources/observation/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/observation/shapes.shacl:
- - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
  - Shape <file:///github/workspace/_sources/observation/shapes.shacl#S4Shape>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
+ - Shape <file:///github/workspace/_sources/observation/shapes.shacl#ObservationHasFeatureOfInterestIsIRI>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
 
 Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/observation/shapes.shacl:
- - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*
  - Shape <https://www.ogc.org/rules/sosa/#testResultNotEmptyNode>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyConsistent>: *none*
  - Shape <https://www.ogc.org/rules/sosa/#testObservedPropertyPresent>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
 
 Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:
@@ -34,12 +34,12 @@ Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/prop
   Conforms: True
   
 Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:
- - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
- - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
  - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
- - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>/sosa:hasSimpleResult
  - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
+ - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>
  - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/north-gallery-mp-01-2024-09-15t08-30-00z>/sosa:hasSimpleResult
 
 === End SHACL ===
 

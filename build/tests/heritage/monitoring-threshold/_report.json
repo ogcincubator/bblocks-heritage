@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.monitoring-threshold - Heritage Monitoring Threshold",
   "bblockName": "Heritage Monitoring Threshold",
   "bblockId": "ogc.heritage.monitoring-threshold",
-  "generated": "2026-11-04T11:23:27.205474+00:00",
+  "generated": "2026-11-04T11:33:25.121498+00:00",
   "result": true,
   "items": [
     {
@@ -72,19 +72,19 @@
             {
               "shaclFile": "_sources/monitoring-threshold/shapes.shacl",
               "focusNodes": {
-                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>": {
+                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>": {
                   "nodes": [
                     "<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>"
                   ]
                 },
-                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>": {
+                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>": {
                   "nodes": [
                     "<https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>\n"
+              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>\n"
             }
           ]
         }
@@ -157,19 +157,19 @@
             {
               "shaclFile": "_sources/monitoring-threshold/shapes.shacl",
               "focusNodes": {
-                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>": {
+                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>": {
                   "nodes": [
                     "<https://heritalise.eu/malta/threshold/temp-grand-salon-min>"
                   ]
                 },
-                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>": {
+                "<file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>": {
                   "nodes": [
                     "<https://heritalise.eu/malta/threshold/temp-grand-salon-min>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/malta/threshold/temp-grand-salon-min>\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>: <https://heritalise.eu/malta/threshold/temp-grand-salon-min>\n"
+              "message": "Focus nodes for _sources/monitoring-threshold/shapes.shacl:\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>: <https://heritalise.eu/malta/threshold/temp-grand-salon-min>\n - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/malta/threshold/temp-grand-salon-min>\n"
             }
           ]
         }

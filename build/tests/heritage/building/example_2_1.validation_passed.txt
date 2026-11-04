@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.building - Heritage Building
-Generated 2026-11-04T11:24:01.641262+00:00
+Generated 2026-11-04T11:34:01.616384+00:00
 === Files ===
 Using examples/villa-portelli-main.json from examples
 JSON-LD context is present - uplifting
@@ -28,9 +28,9 @@ Validation result for https://opengeospatial.github.io/bblocks/registereditems/g
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
  - Shape geojson:LinkShape: *none*
- - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>
- - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape geojson:GeometryShape: *none*
+ - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>
  - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
 
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
@@ -38,18 +38,18 @@ Validation result for https://ogcincubator.github.io/topo-feature/_sources/featu
   Conforms: True
   
 Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
- - Shape _:ndb2c239b09e648cfb005c221f490d9ebb3: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>/geojson:geometry
- - Shape _:ndb2c239b09e648cfb005c221f490d9ebb1: *none*
+ - Shape _:n67d4d79271e746bc923147194054c19eb1: *none*
+ - Shape _:n67d4d79271e746bc923147194054c19eb3: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>/geojson:geometry
 
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
- - Shape toporules:testTopoReferencesExist: *none*
- - Shape toporules:testTopoLinesReferencePoints: *none*
- - Shape toporules:testTopoDirectedReferencesExist: *none*
  - Shape toporules:testTopoEdgesReferencePoints: *none*
+ - Shape toporules:testTopoReferencesExist: *none*
+ - Shape toporules:testTopoDirectedReferencesExist: *none*
+ - Shape toporules:testTopoLinesReferencePoints: *none*
 
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl:
   Validation Report
@@ -67,19 +67,19 @@ Validation result for https://opengeospatial.github.io/bblocks/registereditems/g
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:
  - Shape geojson:LinkShape: *none*
- - Shape geojson:FeatureShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape geojson:GeometryShape: *none*
  - Shape geojson:FeatureCollectionShape: *none*
+ - Shape geojson:FeatureShape: *none*
 
 Validation result for _sources/heritage-object/shapes.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for _sources/heritage-object/shapes.shacl:
- - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>
  - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>
+ - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>
 
 === End SHACL ===
 

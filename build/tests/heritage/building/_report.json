@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.heritage.building - Heritage Building",
   "bblockName": "Heritage Building",
   "bblockId": "ogc.heritage.building",
-  "generated": "2026-11-04T11:24:01.641387+00:00",
+  "generated": "2026-11-04T11:34:01.616510+00:00",
   "result": true,
   "items": [
     {
@@ -102,23 +102,23 @@
                 "geojson:LinkShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/building/galleria-grande>"
-                  ]
+                "geojson:GeometryShape": {
+                  "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/building/galleria-grande>"
+                  ]
                 },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -130,17 +130,17 @@
             {
               "shaclFile": "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl",
               "focusNodes": {
-                "_:ndb2c239b09e648cfb005c221f490d9ebb3": {
+                "_:n67d4d79271e746bc923147194054c19eb1": {
+                  "nodes": []
+                },
+                "_:n67d4d79271e746bc923147194054c19eb3": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/building/galleria-grande>/geojson:geometry"
                   ]
-                },
-                "_:ndb2c239b09e648cfb005c221f490d9ebb1": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:\n - Shape _:ndb2c239b09e648cfb005c221f490d9ebb3: <https://heritalise-eccch.eu/resource/building/galleria-grande>/geojson:geometry\n - Shape _:ndb2c239b09e648cfb005c221f490d9ebb1: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:\n - Shape _:n67d4d79271e746bc923147194054c19eb1: *none*\n - Shape _:n67d4d79271e746bc923147194054c19eb3: <https://heritalise-eccch.eu/resource/building/galleria-grande>/geojson:geometry\n"
             },
             {
               "op": "shacl-report",
@@ -152,21 +152,21 @@
             {
               "shaclFile": "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
               "focusNodes": {
-                "toporules:testTopoReferencesExist": {
+                "toporules:testTopoEdgesReferencePoints": {
                   "nodes": []
                 },
-                "toporules:testTopoLinesReferencePoints": {
+                "toporules:testTopoReferencesExist": {
                   "nodes": []
                 },
                 "toporules:testTopoDirectedReferencesExist": {
                   "nodes": []
                 },
-                "toporules:testTopoEdgesReferencePoints": {
+                "toporules:testTopoLinesReferencePoints": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:\n - Shape toporules:testTopoReferencesExist: *none*\n - Shape toporules:testTopoLinesReferencePoints: *none*\n - Shape toporules:testTopoDirectedReferencesExist: *none*\n - Shape toporules:testTopoEdgesReferencePoints: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:\n - Shape toporules:testTopoEdgesReferencePoints: *none*\n - Shape toporules:testTopoReferencesExist: *none*\n - Shape toporules:testTopoDirectedReferencesExist: *none*\n - Shape toporules:testTopoLinesReferencePoints: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -207,9 +207,6 @@
                 "geojson:LinkShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
@@ -221,10 +218,13 @@
                 },
                 "geojson:FeatureCollectionShape": {
                   "nodes": []
+                },
+                "geojson:FeatureShape": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureCollectionShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureCollectionShape: *none*\n - Shape geojson:FeatureShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -236,19 +236,19 @@
             {
               "shaclFile": "_sources/heritage-object/shapes.shacl",
               "focusNodes": {
-                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/building/galleria-grande>"
                   ]
                 },
-                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/building/galleria-grande>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/building/galleria-grande>\n"
             }
           ]
         }
@@ -351,23 +351,23 @@
                 "geojson:LinkShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
-                  "nodes": [
-                    "<https://heritalise-eccch.eu/resource/building/villa-portelli-main>"
-                  ]
+                "geojson:GeometryShape": {
+                  "nodes": []
                 },
                 "geojson:GeometryShape/sh:or/rdf:rest/rdf:first": {
                   "nodes": []
                 },
-                "geojson:GeometryShape": {
-                  "nodes": []
+                "geojson:FeatureShape": {
+                  "nodes": [
+                    "<https://heritalise-eccch.eu/resource/building/villa-portelli-main>"
+                  ]
                 },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:FeatureShape: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -379,17 +379,17 @@
             {
               "shaclFile": "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl",
               "focusNodes": {
-                "_:ndb2c239b09e648cfb005c221f490d9ebb3": {
+                "_:n67d4d79271e746bc923147194054c19eb1": {
+                  "nodes": []
+                },
+                "_:n67d4d79271e746bc923147194054c19eb3": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/building/villa-portelli-main>/geojson:geometry"
                   ]
-                },
-                "_:ndb2c239b09e648cfb005c221f490d9ebb1": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:\n - Shape _:ndb2c239b09e648cfb005c221f490d9ebb3: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>/geojson:geometry\n - Shape _:ndb2c239b09e648cfb005c221f490d9ebb1: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:\n - Shape _:n67d4d79271e746bc923147194054c19eb1: *none*\n - Shape _:n67d4d79271e746bc923147194054c19eb3: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>/geojson:geometry\n"
             },
             {
               "op": "shacl-report",
@@ -401,21 +401,21 @@
             {
               "shaclFile": "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
               "focusNodes": {
-                "toporules:testTopoReferencesExist": {
+                "toporules:testTopoEdgesReferencePoints": {
                   "nodes": []
                 },
-                "toporules:testTopoLinesReferencePoints": {
+                "toporules:testTopoReferencesExist": {
                   "nodes": []
                 },
                 "toporules:testTopoDirectedReferencesExist": {
                   "nodes": []
                 },
-                "toporules:testTopoEdgesReferencePoints": {
+                "toporules:testTopoLinesReferencePoints": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:\n - Shape toporules:testTopoReferencesExist: *none*\n - Shape toporules:testTopoLinesReferencePoints: *none*\n - Shape toporules:testTopoDirectedReferencesExist: *none*\n - Shape toporules:testTopoEdgesReferencePoints: *none*\n"
+              "message": "Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:\n - Shape toporules:testTopoEdgesReferencePoints: *none*\n - Shape toporules:testTopoReferencesExist: *none*\n - Shape toporules:testTopoDirectedReferencesExist: *none*\n - Shape toporules:testTopoLinesReferencePoints: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -456,9 +456,6 @@
                 "geojson:LinkShape": {
                   "nodes": []
                 },
-                "geojson:FeatureShape": {
-                  "nodes": []
-                },
                 "geojson:GeometryShape/sh:or/rdf:first": {
                   "nodes": []
                 },
@@ -470,10 +467,13 @@
                 },
                 "geojson:FeatureCollectionShape": {
                   "nodes": []
+                },
+                "geojson:FeatureShape": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:FeatureShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureCollectionShape: *none*\n"
+              "message": "Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:\n - Shape geojson:LinkShape: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:first: *none*\n - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*\n - Shape geojson:GeometryShape: *none*\n - Shape geojson:FeatureCollectionShape: *none*\n - Shape geojson:FeatureShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -485,19 +485,19 @@
             {
               "shaclFile": "_sources/heritage-object/shapes.shacl",
               "focusNodes": {
-                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/building/villa-portelli-main>"
                   ]
                 },
-                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>": {
+                "<file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>": {
                   "nodes": [
                     "<https://heritalise-eccch.eu/resource/building/villa-portelli-main>"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n"
+              "message": "Focus nodes for _sources/heritage-object/shapes.shacl:\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HeritageObjectLinksAreIRIs>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n - Shape <file:///github/workspace/_sources/heritage-object/shapes.shacl#HC3TangibleHeritageEntityShape>: <https://heritalise-eccch.eu/resource/building/villa-portelli-main>\n"
             }
           ]
         }

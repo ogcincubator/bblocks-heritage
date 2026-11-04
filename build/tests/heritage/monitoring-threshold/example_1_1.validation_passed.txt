@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.monitoring-threshold - Heritage Monitoring Threshold
-Generated 2026-11-04T11:23:27.202165+00:00
+Generated 2026-11-04T11:33:25.118461+00:00
 === Files ===
 Using examples/venaria-rh-threshold.json from examples
 JSON-LD context is present - uplifting
@@ -17,8 +17,8 @@ Validation result for _sources/monitoring-threshold/shapes.shacl:
   Conforms: True
   
 Focus nodes for _sources/monitoring-threshold/shapes.shacl:
- - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>
  - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#S15Shape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>
+ - Shape <file:///github/workspace/_sources/monitoring-threshold/shapes.shacl#MonitoringThresholdShape>: <https://heritalise.eu/venaria/threshold/rh-galleria-grande-bay7>
 
 === End SHACL ===
 

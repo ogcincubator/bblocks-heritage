@@ -78,7 +78,7 @@ A person or organization associated with cultural heritage objects, events or ac
 
 A spatial location relevant to cultural heritage — a site, building, room or landscape feature — modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature.
 
-### `ogc.heritage.archival-document` — Archival Document
+### `ogc.heritage.archival-document` — Heritage Archival Document
 
 **Type:** schema
 
@@ -96,7 +96,7 @@ A processed output derived from a geometric survey dataset — section drawing, 
 
 A digital file produced by digitising a physical source carrier (e.g. a photograph, drawing or bound volume), modelled as a CRMdig D1 Digital Object with a mandatory PROV derivation chain linking to the source-carrier and a D7 digitisation event sub-object. Profiles ogc.heritage.digital-representation.
 
-### `ogc.heritage.fabrication-output` — Fabrication Output
+### `ogc.heritage.fabrication-output` — Heritage Fabrication Output
 
 **Type:** schema
 

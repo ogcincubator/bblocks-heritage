@@ -1,5 +1,5 @@
 
-# Archival Document (Schema)
+# Heritage Archival Document (Schema)
 
 `ogc.heritage.archival-document` *v0.3*
 
@@ -9,7 +9,7 @@ A digital-representation profile constrained to archival document formats (PDF/A
 
 ## Description
 
-## Archival Document
+## Heritage Archival Document
 
 An `ArchivalDocument` is a [`digital-representation`](../digital-representation) constrained to
 archival document formats — PDF/A or LIDO/XML — covering D8.2 profile C (long-term archival and
@@ -140,7 +140,7 @@ A ground floor plan of Villa Portelli, held as an AutoCAD DWG file (`application
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Archival Document
+title: Heritage Archival Document
 description: "A `digital-representation` constrained to archival document formats
   \u2014 PDF/A or LIDO/XML \u2014 with\na mandatory persistent identifier, for long-term
   archival reference (D8.2 profile C).\n"

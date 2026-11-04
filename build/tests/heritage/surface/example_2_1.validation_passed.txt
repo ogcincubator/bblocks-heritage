@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.surface - Heritage Surface
-Generated 2026-11-04T11:23:53.614386+00:00
+Generated 2026-11-04T11:33:53.228573+00:00
 === Files ===
 Using examples/malta-grand-salon-floor.json from examples
 JSON-LD context is present - uplifting
@@ -28,28 +28,28 @@ Validation result for https://opengeospatial.github.io/bblocks/registereditems/g
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl:
  - Shape geojson:LinkShape: *none*
- - Shape geojson:FeatureShape: <https://heritalise.eu/malta/surface/VP-grand-salon-floor>
  - Shape geojson:GeometryShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
+ - Shape geojson:FeatureShape: <https://heritalise.eu/malta/surface/VP-grand-salon-floor>
 
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl:
- - Shape _:nad5dbbccd394470a943e16b62f3ef4d4b1: *none*
- - Shape _:nad5dbbccd394470a943e16b62f3ef4d4b3: <https://heritalise.eu/malta/surface/VP-grand-salon-floor>/geojson:geometry
+ - Shape _:ne222552de0b8476298ea7449b72f4fa9b3: <https://heritalise.eu/malta/surface/VP-grand-salon-floor>/geojson:geometry
+ - Shape _:ne222552de0b8476298ea7449b72f4fa9b1: *none*
 
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
   Validation Report
   Conforms: True
   
 Focus nodes for https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl:
- - Shape toporules:testTopoReferencesExist: *none*
- - Shape toporules:testTopoLinesReferencePoints: *none*
- - Shape toporules:testTopoDirectedReferencesExist: *none*
  - Shape toporules:testTopoEdgesReferencePoints: *none*
+ - Shape toporules:testTopoReferencesExist: *none*
+ - Shape toporules:testTopoDirectedReferencesExist: *none*
+ - Shape toporules:testTopoLinesReferencePoints: *none*
 
 Validation result for https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl:
   Validation Report
@@ -67,11 +67,11 @@ Validation result for https://opengeospatial.github.io/bblocks/registereditems/g
   
 Focus nodes for https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl:
  - Shape geojson:LinkShape: *none*
- - Shape geojson:FeatureShape: *none*
  - Shape geojson:GeometryShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:first: *none*
  - Shape geojson:FeatureCollectionShape: *none*
  - Shape geojson:GeometryShape/sh:or/rdf:rest/rdf:first: *none*
+ - Shape geojson:FeatureShape: *none*
 
 === End SHACL ===
 

@@ -108,8 +108,8 @@ A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `S
 ```
 
 
-### A minimal record for an undated legacy reading
-Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are required — useful for migrating legacy monitoring logs that predate the SensorThings API deployment.
+### A minimal record for a legacy reading
+Only `hasFeatureOfInterest`, one of `hasResult`/`hasSimpleResult` and one time property (`resultTime`, `phenomenonTime`, `startTime` or `endTime`, required by the profiled SOSA Observation) are needed — useful for migrating legacy monitoring logs that predate the SensorThings API deployment. When a paper log gives only a date, use it as `resultTime` (here at midnight UTC).
 #### json
 ```json
 {
@@ -117,6 +117,7 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
   "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300379098",
   "hasSimpleResult": "RH within tolerance, see paper log",
+  "resultTime": "1998-07-14T00:00:00Z",
   "crmsciType": "crmsci:S4"
 }
 
@@ -130,6 +131,7 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
   "hasFeatureOfInterest": "https://heritalise-eccch.eu/resource/place/great-gallery",
   "observedProperty": "http://vocab.getty.edu/aat/300379098",
   "hasSimpleResult": "RH within tolerance, see paper log",
+  "resultTime": "1998-07-14T00:00:00Z",
   "crmsciType": "crmsci:S4"
 }
 ```
@@ -138,11 +140,13 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
 ```ttl
 @prefix crmsci: <http://www.cidoc-crm.org/extensions/crmsci/> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;
     sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
     sosa:hasSimpleResult "RH within tolerance, see paper log" ;
-    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
+    sosa:observedProperty <http://vocab.getty.edu/aat/300379098> ;
+    sosa:resultTime "1998-07-14T00:00:00+00:00"^^xsd:dateTime .
 
 
 ```

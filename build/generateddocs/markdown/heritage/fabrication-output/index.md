@@ -1,5 +1,5 @@
 
-# Fabrication Output (Schema)
+# Heritage Fabrication Output (Schema)
 
 `ogc.heritage.fabrication-output` *v0.2*
 
@@ -9,7 +9,7 @@ A digital-representation profile constrained to physical-fabrication formats (ST
 
 ## Description
 
-## Fabrication Output
+## Heritage Fabrication Output
 
 A `FabricationOutput` is a [`digital-representation`](../digital-representation) constrained to
 physical-fabrication formats — STL or 3MF — covering D8.2 profile F (physical replicas and
@@ -86,7 +86,7 @@ An STL file for 3D printing a tactile replica of the Great Gallery ceiling paint
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Fabrication Output
+title: Heritage Fabrication Output
 description: "A `digital-representation` constrained to physical-fabrication formats
   \u2014 STL or 3MF \u2014 produced\nfrom a source 3D model, with a mandatory PROV
   derivation chain (`wasDerivedFrom`) back to that\nsource (D8.2 profile F: physical

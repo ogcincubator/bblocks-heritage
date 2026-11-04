@@ -262,6 +262,11 @@ x-jsonld-prefixes:
   hdto: http://isl.ics.forth.gr/ontology/echoes/
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   prov: http://www.w3.org/ns/prov#
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.heritage-digital-twin
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

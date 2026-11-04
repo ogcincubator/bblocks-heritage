@@ -1,5 +1,5 @@
 
-# Route (Schema)
+# Heritage Route (Schema)
 
 `ogc.heritage.route` *v0.1*
 
@@ -9,7 +9,7 @@ A road, visitor path, internal track or circulation route within or between heri
 
 ## Description
 
-# Route
+# Heritage Route
 
 A road, visitor path, internal track or circulation route within or between heritage zones,
 typed as **CIDOC-CRM E26 Physical Feature** — a subclass of E53 Place that represents a
@@ -250,7 +250,7 @@ A stone-paved garden trail at Villa Portelli (Malta pilot), classified as a heri
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Route
+title: Heritage Route
 description: 'A road, visitor path, internal track or circulation route within or
   between heritage zones,
 
@@ -311,6 +311,11 @@ allOf:
       - routeType
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.route
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

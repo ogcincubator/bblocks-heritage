@@ -1,5 +1,5 @@
 
-# Monitoring Threshold (Schema)
+# Heritage Monitoring Threshold (Schema)
 
 `ogc.heritage.monitoring-threshold` *v0.2*
 
@@ -9,7 +9,7 @@ A conservation threshold rule bounding an environmental parameter at a heritage 
 
 ## Description
 
-# Monitoring Threshold
+# Heritage Monitoring Threshold
 
 A **Monitoring Threshold** records a conservation threshold rule: a bounded acceptable value range
 for a specific environmental parameter at a heritage monitoring point or zone. Threshold records are
@@ -226,7 +226,7 @@ A minimum-temperature threshold (10 °C) for the Grand Salon at Villa Portelli. 
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Monitoring Threshold
+title: Heritage Monitoring Threshold
 description: A conservation threshold rule defining the acceptable value range for
   an environmental parameter at a heritage monitoring point or zone (SOSA ObservableProperty
   + QUDT units).
@@ -359,6 +359,11 @@ x-jsonld-prefixes:
   dct: http://purl.org/dc/terms/
   xsd: http://www.w3.org/2001/XMLSchema#
   crmsci: http://www.cidoc-crm.org/extensions/crmsci/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.monitoring-threshold
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

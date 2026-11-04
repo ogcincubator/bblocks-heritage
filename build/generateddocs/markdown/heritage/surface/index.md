@@ -1,5 +1,5 @@
 
-# Surface (Schema)
+# Heritage Surface (Schema)
 
 `ogc.heritage.surface` *v0.1*
 
@@ -9,7 +9,7 @@ A material finish layer or physical surface feature recognised on an architectur
 
 ## Description
 
-# Surface
+# Heritage Surface
 
 A **Surface** records a material finish layer or physical surface feature recognised on an
 architectural component or heritage object — plaster, stucco, fresco, stone, gilding or any
@@ -351,7 +351,7 @@ The fresco covering the vault of Galleria Grande bay 7 extends across the entire
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Surface
+title: Heritage Surface
 description: 'A material finish layer or physical surface feature recognised on an
   architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), encoded
   as a GeoJSON/ JSON-FG Feature: CIDOC-CRM attributes nest under `properties` (GeoJSON
@@ -471,6 +471,11 @@ x-jsonld-extra-terms:
   Surface: http://www.cidoc-crm.org/cidoc-crm/E25_Man-Made_Feature
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.surface
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-04'
 
 ```
 
@@ -578,12 +583,6 @@ Links to the schema:
           "@container": "@list"
         },
         "directed_references": {
-          "@context": {
-            "ref": {
-              "@type": "@id",
-              "@id": "topo:ref"
-            }
-          },
           "@id": "topo:directedReferences",
           "@container": "@list"
         },
@@ -651,13 +650,18 @@ Links to the schema:
     "arcLength": "geojson:arcLength",
     "startTangentVector": "geojson:startTangentVector",
     "endTangentVector": "geojson:endTangentVector",
-    "ref": "topo:ref",
+    "ref": {
+      "@id": "topo:ref",
+      "@type": "@id"
+    },
     "orientation": "topo:orientation",
     "Edge": "topo:Edge",
     "Face": "topo:Face",
     "Ring": "topo:Ring",
     "Shell": "topo:Shell",
     "Solid": "topo:Solid",
+    "AggregateSolid": "topo:AggregateSolid",
+    "AggregatePolygon": "topo:AggregatePolygon",
     "rings": {
       "@id": "topo:rings",
       "@container": "@list"

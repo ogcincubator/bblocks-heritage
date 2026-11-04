@@ -8,5 +8,5 @@
     sosa:hasSimpleResult 6.14e+01 ;
     sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
-    sosa:resultTime "2024-09-15T08:30:00Z" .
+    sosa:resultTime "2024-09-15T08:30:00+00:00"^^xsd:dateTime .
 

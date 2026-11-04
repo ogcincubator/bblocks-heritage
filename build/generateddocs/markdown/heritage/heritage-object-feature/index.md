@@ -244,6 +244,11 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   hdto: http://isl.ics.forth.gr/ontology/echoes/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.heritage-object-feature
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'
 
 ```
 
@@ -351,12 +356,6 @@ Links to the schema:
           "@container": "@list"
         },
         "directed_references": {
-          "@context": {
-            "ref": {
-              "@type": "@id",
-              "@id": "topo:ref"
-            }
-          },
           "@id": "topo:directedReferences",
           "@container": "@list"
         },
@@ -429,13 +428,18 @@ Links to the schema:
     "arcLength": "geojson:arcLength",
     "startTangentVector": "geojson:startTangentVector",
     "endTangentVector": "geojson:endTangentVector",
-    "ref": "topo:ref",
+    "ref": {
+      "@id": "topo:ref",
+      "@type": "@id"
+    },
     "orientation": "topo:orientation",
     "Edge": "topo:Edge",
     "Face": "topo:Face",
     "Ring": "topo:Ring",
     "Shell": "topo:Shell",
     "Solid": "topo:Solid",
+    "AggregateSolid": "topo:AggregateSolid",
+    "AggregatePolygon": "topo:AggregatePolygon",
     "rings": {
       "@id": "topo:rings",
       "@container": "@list"

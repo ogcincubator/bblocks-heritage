@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Survey Dataset
+title: Heritage Survey Dataset
 description: A geometric survey dataset (point cloud, photogrammetric model, etc.)
   acquired from a heritage asset. Profiles ogc.heritage.digital-representation-feature
   (CRMdig D1 / E73 Information Object over PROV-O Entity, wrapped as a GeoJSON/JSON-FG
@@ -113,3 +113,8 @@ x-jsonld-extra-terms:
 x-jsonld-prefixes:
   crmdig: http://www.cidoc-crm.org/extensions/crmdig/
   dct: http://purl.org/dc/terms/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.survey-dataset
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'

@@ -363,6 +363,11 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
   hdto: http://isl.ics.forth.gr/ontology/echoes/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.heritage-site
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

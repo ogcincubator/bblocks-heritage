@@ -1,5 +1,5 @@
-Validation report for ogc.heritage.observation - Observation
-Generated 2026-09-16T22:15:07.196783+00:00
+Validation report for ogc.heritage.observation - Heritage Observation
+Generated 2026-11-04T11:23:39.824793+00:00
 === Files ===
 Using examples/minimal.json from examples
 JSON-LD context is present - uplifting
@@ -8,7 +8,22 @@ Output Turtle example_2_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-Validation passed
+
+** Validation error **
+ValidationError: {'id': 'https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001', 'hasFeatureOfInterest': 'https://heritalise-eccch.eu/resource/place/great-gallery', 'observedProperty': 'http://vocab.getty.edu/aat/300379098', 'hasSimpleResult': 'RH within tolerance, see paper log', 'crmsciType': 'crmsci:S4'} is not valid under any of the given schemas
+
+Failed validating 'anyOf' in schema['allOf'][0]['allOf'][1]['allOf'][1]:
+    {'anyOf': [{'required': ['resultTime']},
+               {'required': ['phenomenonTime']},
+               {'required': ['startTime']},
+               {'required': ['endTime']}]}
+
+On instance:
+    {'crmsciType': 'crmsci:S4',
+     'hasFeatureOfInterest': 'https://heritalise-eccch.eu/resource/place/great-gallery',
+     'hasSimpleResult': 'RH within tolerance, see paper log',
+     'id': 'https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001',
+     'observedProperty': 'http://vocab.getty.edu/aat/300379098'}
 === End JSON Schema ===
 
 === SHACL ===
@@ -40,32 +55,25 @@ Validation result for https://opengeospatial.github.io/ogcapi-sosa/_sources/prop
   	Source Shape: <https://www.ogc.org/rules/sosa/#testRequiredTime>
   	Focus Node: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
   	Value Node: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
-  	Source Constraint: [ sh:message Literal("sosa:resultTime or sosa:phenomenonTime is required, and no more than 1 of each is allowed") ; sh:select Literal("
-              PREFIX sh: <http://www.w3.org/ns/shacl#>
+  	Source Constraint: [ sh:message Literal("One of sosa:resultTime, sosa:phenomenonTime, sosa:startTime or sosa:endTime is required, on the execution or a collection it is a member of") ; sh:select Literal("
               PREFIX sosa: <http://www.w3.org/ns/sosa/>
               PREFIX geojson: <https://purl.org/geojson/vocab#>
-              SELECT $this (CONCAT(COALESCE(COUNT(?resultTime), 0), ' x sosa:resultTime, ', COALESCE(COUNT(?phenomenonTime), 0), ' x sosa:phenomenonTime') AS ?value) WHERE {
-                  OPTIONAL { $this sosa:phenomenonTime ?phenomenonTime }
-                  OPTIONAL { $this sosa:resultTime ?resultTime}
-                  OPTIONAL { $this sosa:startTime ?startTime }
-                  OPTIONAL { $this sosa:endTime ?endTime }
-                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:phenomenonTime ?phenomenonTime }
-                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:resultTime ?resultTime }
-                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:startTime ?startTime }
-                  OPTIONAL { ?collection (sosa:hasMember|geojson:features)+ $this ; sosa:endTime ?endTime }
+              SELECT $this WHERE {
+                  FILTER NOT EXISTS {
+                      $this (^sosa:hasMember|^geojson:features|sosa:memberOf)* ?holder .
+                      ?holder sosa:resultTime|sosa:phenomenonTime|sosa:startTime|sosa:endTime ?time .
+                  }
               }
-              GROUP BY $this
-              HAVING (count(?resultTime) > 1 || count(?phenomenonTime) > 1 || count(?resultTime) + count(?phenomenonTime) + count(?startTime) + count(?endTime) < 1)
           ") ]
-  	Message: sosa:resultTime or sosa:phenomenonTime is required, and no more than 1 of each is allowed
+  	Message: One of sosa:resultTime, sosa:phenomenonTime, sosa:startTime or sosa:endTime is required, on the execution or a collection it is a member of
   
 Focus nodes for https://opengeospatial.github.io/ogcapi-sosa/_sources/properties/execution/shapes.shacl:
- - Shape <https://www.ogc.org/rules/sosa/#testResult>: *none*
- - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
- - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
- - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <file:///github/workspace/>
+ - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
  - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValuesInterval>: *none*
- - Shape <https://www.ogc.org/rules/sosa/#testFeatureOfInterest>: *none*
+ - Shape <https://www.ogc.org/rules/sosa/#testRequiredTime>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
+ - Shape <https://www.ogc.org/rules/sosa/#testSimpleResultLiteral>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>/sosa:hasSimpleResult
+ - Shape <https://www.ogc.org/rules/sosa/#testResult>: <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001>
+ - Shape <https://www.ogc.org/rules/sosa/#testCollectionPropertyValues>: *none*
 
 === End SHACL ===
 

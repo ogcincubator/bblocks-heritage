@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Event",
+  "title": "Heritage Event",
   "description": "An event in the history of a heritage object \u2014 production, restoration, modification,\nacquisition \u2014 modelled as a CIDOC-CRM E5 Event. Profiles PROV-O's Activity: `startedAtTime`/\n`endedAtTime` carry the time-span (P4_has_time-span), `wasAssociatedWith` the actors who\ncarried it out (P14_carried_out_by), `used`/`generated` the objects involved (P16_used_specific_object\n/ P108_has_produced / P31_has_modified) and `atLocation` where it took place (P7_took_place_at).\nThis block adds a local identifier and a CIDOC-CRM event type.\n",
   "allOf": [
     {
@@ -89,5 +89,11 @@
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "hdto": "http://isl.ics.forth.gr/ontology/echoes/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.event",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.3",
+    "dateOfLastChange": "2026-11-04"
   }
 }

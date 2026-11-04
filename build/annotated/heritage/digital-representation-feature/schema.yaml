@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Digital Representation Feature
+title: Heritage Digital Representation Feature
 description: "Feature-envelope wrapper for ogc.heritage.digital-representation: a
   spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature
   when its geometry is defined by reference/topology rather than embedded coordinates.
@@ -62,3 +62,8 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.digital-representation-feature
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'

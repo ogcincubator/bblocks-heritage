@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Observation
+title: Heritage Observation
 description: 'A scientific observation or measurement, profiling the SOSA/SSN Observation
   rather than
 
@@ -49,3 +49,8 @@ allOf:
 x-jsonld-prefixes:
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crmsci: http://www.cidoc-crm.org/extensions/crmsci/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.observation
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'

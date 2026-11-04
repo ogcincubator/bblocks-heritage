@@ -1,5 +1,5 @@
 
-# Place (Schema)
+# Heritage Place (Schema)
 
 `ogc.heritage.place` *v0.1*
 
@@ -9,7 +9,7 @@ A spatial location relevant to cultural heritage — a site, building, room or l
 
 ## Description
 
-## Place
+## Heritage Place
 
 A `Place` is a spatial location relevant to cultural heritage — a site, building, room or
 landscape feature — modelled as a CIDOC-CRM `E53_Place`.
@@ -341,7 +341,7 @@ The North Parterre at the Reggia di Venaria, typed as a parterre (Getty AAT) and
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Place
+title: Heritage Place
 description: 'A spatial location relevant to cultural heritage (site, building, room,
   landscape feature),
 
@@ -407,6 +407,11 @@ allOf:
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   owl: http://www.w3.org/2002/07/owl#
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.place
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-06-25'
 
 ```
 

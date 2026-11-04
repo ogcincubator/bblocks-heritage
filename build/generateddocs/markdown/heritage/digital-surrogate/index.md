@@ -359,6 +359,11 @@ x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   dct: http://purl.org/dc/terms/
   crm: http://www.cidoc-crm.org/cidoc-crm/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.digital-surrogate
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

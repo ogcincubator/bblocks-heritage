@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Place",
+  "title": "Heritage Place",
   "description": "A spatial location relevant to cultural heritage (site, building, room, landscape feature),\nmodelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature: geometry stays at\nthe top level (JSON-FG `geometry`/`place`/`time` members), while CIDOC-CRM attributes are\nnested under `properties`, per JSON-FG/GeoJSON convention.\n",
   "allOf": [
     {
@@ -66,5 +66,11 @@
   "x-jsonld-prefixes": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "owl": "http://www.w3.org/2002/07/owl#"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.place",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.1",
+    "dateOfLastChange": "2026-06-25"
   }
 }

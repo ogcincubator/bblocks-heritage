@@ -60,5 +60,11 @@
     "hdto": "http://isl.ics.forth.gr/ontology/echoes/",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "crm": "http://www.cidoc-crm.org/cidoc-crm/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.heritage-proposition-set",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.1",
+    "dateOfLastChange": "2026-11-04"
   }
 }

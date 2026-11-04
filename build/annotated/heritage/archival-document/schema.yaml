@@ -25,3 +25,8 @@ allOf:
       description: '`application/pdf` for a PDF/A document (ISO 19005), `text/xml`
         for a LIDO/XML record, `application/dwg` for an AutoCAD DWG architectural
         drawing, or `image/vnd.dxf` for a DXF drawing exchange file.'
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.archival-document
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'

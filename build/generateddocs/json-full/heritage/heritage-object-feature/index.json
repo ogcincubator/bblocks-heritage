@@ -8,7 +8,7 @@
   "dateTimeAddition": "2026-07-17T00:00:00Z",
   "itemClass": "schema",
   "version": "0.3",
-  "dateOfLastChange": "2026-09-16",
+  "dateOfLastChange": "2026-11-04",
   "isProfileOf": [
     "ogc.heritage.heritage-object"
   ],
@@ -31,16 +31,19 @@
   ],
   "group": "Core",
   "shaclShapes": {
+    "ogc.geo.features.feature": [
+      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+    ],
     "ogc.geo.topo.features.topo-feature": [
       "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
       "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
     ],
+    "ogc.geo.topo.ontology": [
+      "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
+    ],
     "ogc.geo.topo.features.topo-feature-collection": [
       "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
       "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
-    ],
-    "ogc.geo.features.feature": [
-      "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
     ],
     "ogc.geo.features.featureCollection": [
       "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
@@ -50,9 +53,9 @@
     ]
   },
   "dependsOn": [
+    "ogc.geo.json-fg.feature-lenient",
     "ogc.geo.topo.features.topo-feature",
-    "ogc.heritage.heritage-object",
-    "ogc.geo.json-fg.feature-lenient"
+    "ogc.heritage.heritage-object"
   ],
   "ldContext": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/context.jsonld",
   "schema": {
@@ -118,7 +121,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Object Feature\ndescription: \"Feature-envelope wrapper for ogc.heritage.heritage-object: a spatially\n  located heritage object encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature\n  when its geometry is defined by reference/topology rather than embedded coordinates.\n  heritage-object's CIDOC-CRM attributes nest under `properties` (GeoJSON convention);\n  `properties.choType` carries the CIDOC-CRM class (Cultural Heritage Object type)\n  as a second alias to `@type`, alongside the fixed `type: \\\"Feature\\\"` \\u2014 the\n  same secondary-typing pattern PROV-O's own prov-entity block uses for its `provType`\n  property, kept as a distinct name here since this block has no PROV-O involvement.\"\nallOf:\n- oneOf:\n  - allOf:\n    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml\n    - type: object\n      description: Object with its own embedded footprint geometry (or none at all).\n      not:\n        required:\n        - topology\n  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml\n- type: object\n  required:\n  - id\n  properties:\n    id:\n      type: string\n      format: uri\n      description: Persistent URI identifying this record (overrides the inherited\n        `id`, which also allows a bare number).\n    properties:\n      allOf:\n      - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml#/$defs/properties\n      - type: object\n        required:\n        - choType\n        properties:\n          choType:\n            const: HeritageObject\n            description: 'CIDOC-CRM class discriminator for this record (maps to crm:E22_Man-Made_Object\n              via a second alias to @type, alongside the fixed GeoJSON `type: \"Feature\"`).'\n            x-jsonld-id: '@type'\nx-jsonld-extra-terms:\n  HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object\n  hdtoType:\n    x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n    x-jsonld-type: '@id'\n  identifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  title: http://www.cidoc-crm.org/cidoc-crm/P102_has_title\n  description: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n  objectType:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n    x-jsonld-type: '@id'\n  material:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  currentLocation:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location\n    x-jsonld-type: '@id'\n  persistentIdentifier:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n  hdto: http://isl.ics.forth.gr/ontology/echoes/\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage Object Feature\ndescription: \"Feature-envelope wrapper for ogc.heritage.heritage-object: a spatially\n  located heritage object encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature\n  when its geometry is defined by reference/topology rather than embedded coordinates.\n  heritage-object's CIDOC-CRM attributes nest under `properties` (GeoJSON convention);\n  `properties.choType` carries the CIDOC-CRM class (Cultural Heritage Object type)\n  as a second alias to `@type`, alongside the fixed `type: \\\"Feature\\\"` \\u2014 the\n  same secondary-typing pattern PROV-O's own prov-entity block uses for its `provType`\n  property, kept as a distinct name here since this block has no PROV-O involvement.\"\nallOf:\n- oneOf:\n  - allOf:\n    - $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/geo/json-fg/feature-lenient/schema.yaml\n    - type: object\n      description: Object with its own embedded footprint geometry (or none at all).\n      not:\n        required:\n        - topology\n  - $ref: https://ogcincubator.github.io/topo-feature/build/annotated/geo/topo/features/topo-feature/schema.yaml\n- type: object\n  required:\n  - id\n  properties:\n    id:\n      type: string\n      format: uri\n      description: Persistent URI identifying this record (overrides the inherited\n        `id`, which also allows a bare number).\n    properties:\n      allOf:\n      - $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object/schema.yaml#/$defs/properties\n      - type: object\n        required:\n        - choType\n        properties:\n          choType:\n            const: HeritageObject\n            description: 'CIDOC-CRM class discriminator for this record (maps to crm:E22_Man-Made_Object\n              via a second alias to @type, alongside the fixed GeoJSON `type: \"Feature\"`).'\n            x-jsonld-id: '@type'\nx-jsonld-extra-terms:\n  HeritageObject: http://www.cidoc-crm.org/cidoc-crm/E22_Man-Made_Object\n  hdtoType:\n    x-jsonld-id: http://www.w3.org/1999/02/22-rdf-syntax-ns#type\n    x-jsonld-type: '@id'\n  identifier: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n  title: http://www.cidoc-crm.org/cidoc-crm/P102_has_title\n  description: http://www.cidoc-crm.org/cidoc-crm/P3_has_note\n  objectType:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P2_has_type\n    x-jsonld-type: '@id'\n  material:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P45_consists_of\n    x-jsonld-type: '@id'\n    x-jsonld-container: '@set'\n  currentLocation:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P53_has_former_or_current_location\n    x-jsonld-type: '@id'\n  persistentIdentifier:\n    x-jsonld-id: http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by\n    x-jsonld-type: '@id'\nx-jsonld-prefixes:\n  crm: http://www.cidoc-crm.org/cidoc-crm/\n  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n  hdto: http://isl.ics.forth.gr/ontology/echoes/\nx-bblocks-metadata:\n  itemIdentifier: ogc.heritage.heritage-object-feature\n  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json\n  version: '0.3'\n  dateOfLastChange: '2026-11-04'\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/heritage-object-feature"
 }

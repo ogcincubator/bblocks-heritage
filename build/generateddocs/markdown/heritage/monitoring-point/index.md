@@ -1,5 +1,5 @@
 
-# Monitoring Point (Schema)
+# Heritage Monitoring Point (Schema)
 
 `ogc.heritage.monitoring-point` *v0.2*
 
@@ -9,7 +9,7 @@ A physical sensor or monitoring device installed at a heritage resource, modelle
 
 ## Description
 
-## Monitoring Point
+## Heritage Monitoring Point
 
 A `MonitoringPoint` is a physical sensor or monitoring device installed at a heritage resource
 for environmental and condition monitoring. It profiles
@@ -216,7 +216,7 @@ A resistance temperature detector in the Grand Salon of Villa Portelli, linked t
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Monitoring Point
+title: Heritage Monitoring Point
 description: 'A physical sensor or monitoring device installed at a heritage resource.
   Profiles
 
@@ -303,6 +303,11 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   geojson: https://purl.org/geojson/vocab#
   sosa: http://www.w3.org/ns/sosa/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.monitoring-point
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'
 
 ```
 
@@ -424,7 +429,10 @@ Links to the schema:
       "@id": "sosa:detects",
       "@type": "@id"
     },
-    "endTime": "sosa:endTime",
+    "endTime": {
+      "@id": "sosa:endTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
     "features": {
       "@id": "sosa:hasMember",
       "@type": "@id"
@@ -477,10 +485,7 @@ Links to the schema:
       "@id": "sosa:hasSampledFeature",
       "@type": "@id"
     },
-    "hasSimpleResult": {
-      "@id": "sosa:hasSimpleResult",
-      "@type": "@id"
-    },
+    "hasSimpleResult": "sosa:hasSimpleResult",
     "hasSubSystem": {
       "@id": "sosa:hasSubSystem",
       "@type": "@id",
@@ -592,10 +597,49 @@ Links to the schema:
     },
     "phenomenonTime": {
       "@id": "sosa:phenomenonTime",
-      "@type": "@id"
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "@context": {
+        "Instant": "time:Instant",
+        "Interval": "time:Interval",
+        "ProperInterval": "time:ProperInterval",
+        "hasBeginning": "time:hasBeginning",
+        "hasEnd": "time:hasEnd",
+        "hasDuration": "time:hasDuration",
+        "hasXSDDuration": {
+          "@id": "time:hasXSDDuration",
+          "@type": "http://www.w3.org/2001/XMLSchema#duration"
+        },
+        "inTimePosition": "time:inTimePosition",
+        "inXSDDate": {
+          "@id": "time:inXSDDate",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "inXSDDateTime": {
+          "@id": "time:inXSDDateTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "inXSDDateTimeStamp": {
+          "@id": "time:inXSDDateTimeStamp",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+        },
+        "inXSDgYear": {
+          "@id": "time:inXSDgYear",
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear"
+        },
+        "inXSDgYearMonth": {
+          "@id": "time:inXSDgYearMonth",
+          "@type": "http://www.w3.org/2001/XMLSchema#gYearMonth"
+        }
+      }
     },
-    "resultTime": "sosa:resultTime",
-    "startTime": "sosa:startTime",
+    "resultTime": {
+      "@id": "sosa:resultTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "startTime": {
+      "@id": "sosa:startTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
     "usedProcedure": {
       "@id": "sosa:usedProcedure",
       "@type": "@id"
@@ -755,6 +799,7 @@ Links to the schema:
     },
     "MonitoringPoint": "crmdig:D8_Digital_Device",
     "sosa": "http://www.w3.org/ns/sosa/",
+    "time": "http://www.w3.org/2006/time#",
     "ssn-system": "ssn:systems/",
     "ssn": "http://www.w3.org/ns/ssn/",
     "crmdig": "http://www.cidoc-crm.org/extensions/crmdig/",

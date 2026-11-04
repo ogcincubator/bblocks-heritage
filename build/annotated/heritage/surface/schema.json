@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Surface",
+  "title": "Heritage Surface",
   "description": "A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), encoded as a GeoJSON/ JSON-FG Feature: CIDOC-CRM attributes nest under `properties` (GeoJSON convention), and a `choType` property carries the CIDOC-CRM class as a second alias to `@type`, alongside the fixed `type: \"Feature\"`. Geometry is either embedded directly (`geometry`) or defined by reference via topology (`topology`, see ogc.geo.topo.features.topo-feature), letting a surface share its host object's geometry without duplicating coordinates. May be linked to a condition-assessment record for pathology documentation.",
   "$defs": {
     "properties": {
@@ -140,5 +140,11 @@
   },
   "x-jsonld-prefixes": {
     "crm": "http://www.cidoc-crm.org/cidoc-crm/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.surface",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.1",
+    "dateOfLastChange": "2026-11-04"
   }
 }

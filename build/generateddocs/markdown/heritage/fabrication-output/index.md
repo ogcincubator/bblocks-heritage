@@ -111,6 +111,11 @@ allOf:
       - model/stl
       - model/3mf
       description: '`model/stl` for STL or `model/3mf` for 3D Manufacturing Format.'
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.fabrication-output
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

@@ -28,7 +28,7 @@
   "isProfileOf": [
     "ogc.heritage.digital-representation"
   ],
-  "dateOfLastChange": "2026-09-16",
+  "dateOfLastChange": "2026-11-04",
   "shaclShapes": {
     "ogc.heritage.digital-representation": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
@@ -103,7 +103,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Archival Document\ndescription: \"A `digital-representation` constrained to archival document formats\n  \\u2014 PDF/A or LIDO/XML \\u2014 with\\na mandatory persistent identifier, for long-term\n  archival reference (D8.2 profile C).\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  - persistentIdentifier\n  properties:\n    hdtoType:\n      const: hdto:HC5_Digital_Representation\n      description: \"Pins the inherited hdtoType (from digital-representation, otherwise\n        an enum of HC5/HC7/HC8) to plain HC5 \\u2014 a digitised archival document\n        has no more specific HC5-family class in D7.1.\"\n    mediaType:\n      type: string\n      enum:\n      - application/pdf\n      - text/xml\n      - application/dwg\n      - image/vnd.dxf\n      description: '`application/pdf` for a PDF/A document (ISO 19005), `text/xml`\n        for a LIDO/XML record, `application/dwg` for an AutoCAD DWG architectural\n        drawing, or `image/vnd.dxf` for a DXF drawing exchange file.'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Archival Document\ndescription: \"A `digital-representation` constrained to archival document formats\n  \\u2014 PDF/A or LIDO/XML \\u2014 with\\na mandatory persistent identifier, for long-term\n  archival reference (D8.2 profile C).\\n\"\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  - persistentIdentifier\n  properties:\n    hdtoType:\n      const: hdto:HC5_Digital_Representation\n      description: \"Pins the inherited hdtoType (from digital-representation, otherwise\n        an enum of HC5/HC7/HC8) to plain HC5 \\u2014 a digitised archival document\n        has no more specific HC5-family class in D7.1.\"\n    mediaType:\n      type: string\n      enum:\n      - application/pdf\n      - text/xml\n      - application/dwg\n      - image/vnd.dxf\n      description: '`application/pdf` for a PDF/A document (ISO 19005), `text/xml`\n        for a LIDO/XML record, `application/dwg` for an AutoCAD DWG architectural\n        drawing, or `image/vnd.dxf` for a DXF drawing exchange file.'\nx-bblocks-metadata:\n  itemIdentifier: ogc.heritage.archival-document\n  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json\n  version: '0.3'\n  dateOfLastChange: '2026-11-04'\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/archival-document"
 }

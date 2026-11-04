@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Monitoring Point",
+  "title": "Heritage Monitoring Point",
   "description": "A physical sensor or monitoring device installed at a heritage resource. Profiles\nogc.sosa.properties.sensor and adds a CIDOC-CRM E22 Man-Made Object identity layer\n(local inventory identifier, sensor category, heritage location link) and a mandatory\nGeoJSON point for the sensor's physical position.\n",
   "allOf": [
     {
@@ -89,5 +89,11 @@
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "geojson": "https://purl.org/geojson/vocab#",
     "sosa": "http://www.w3.org/ns/sosa/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.monitoring-point",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.2",
+    "dateOfLastChange": "2026-11-04"
   }
 }

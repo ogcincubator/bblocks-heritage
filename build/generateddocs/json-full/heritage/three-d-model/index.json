@@ -2,7 +2,7 @@
 
 {
   "itemIdentifier": "ogc.heritage.three-d-model",
-  "name": "3D Model",
+  "name": "Heritage 3D Model",
   "abstract": "A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects.",
   "status": "under-development",
   "dateTimeAddition": "2026-06-25T00:00:00Z",
@@ -28,7 +28,7 @@
   "isProfileOf": [
     "ogc.heritage.digital-representation"
   ],
-  "dateOfLastChange": "2026-09-16",
+  "dateOfLastChange": "2026-11-04",
   "shaclShapes": {
     "ogc.heritage.three-d-model": [
       "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/shapes.shacl"
@@ -53,7 +53,7 @@
   "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/three-d-model/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/three-d-model/",
-  "description": "## 3D Model\n\nA `ThreeDModel` is a [`digital-representation`](../digital-representation) constrained to\nreal-time 3D model formats \u2014 glTF, OBJ, or an OGC 3D Tiles tileset \u2014 covering D8.2 profile B\n(3D documentation and web rendering of heritage objects, gardens and building elements).\n\nIt inherits everything from `digital-representation` (`isAbout`, PROV provenance chain,\npersistent identifier) and only adds a constrained `mediaType`.\n\n## HDTO alignment\n\n`hdtoType` (required, inherited from `digital-representation`) is narrowed to a fixed `const` of\n`hdto:HC8_3D_Model` (\u2291 `hdto:HC5_Digital_Representation`), asserted via context on a plain JSON-LD\nparse. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required. See\n[`digital-representation`](../digital-representation)'s description for the shared HC5-family\nrationale. This block also gained its first `shapes.shacl` in this session (it previously had\nnone) \u2014 see the companion `HC83DModelShape` validation there.\n",
+  "description": "## Heritage 3D Model\n\nA `ThreeDModel` is a [`digital-representation`](../digital-representation) constrained to\nreal-time 3D model formats \u2014 glTF, OBJ, or an OGC 3D Tiles tileset \u2014 covering D8.2 profile B\n(3D documentation and web rendering of heritage objects, gardens and building elements).\n\nIt inherits everything from `digital-representation` (`isAbout`, PROV provenance chain,\npersistent identifier) and only adds a constrained `mediaType`.\n\n## HDTO alignment\n\n`hdtoType` (required, inherited from `digital-representation`) is narrowed to a fixed `const` of\n`hdto:HC8_3D_Model` (\u2291 `hdto:HC5_Digital_Representation`), asserted via context on a plain JSON-LD\nparse. `crmdigType` (`crmdig:D9_Data_Object`) is also inherited and required. See\n[`digital-representation`](../digital-representation)'s description for the shared HC5-family\nrationale. This block also gained its first `shapes.shacl` in this session (it previously had\nnone) \u2014 see the companion `HC83DModelShape` validation there.\n",
   "examples": [
     {
       "title": "A glTF-binary 3D model of a painting's frame",
@@ -106,7 +106,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: 3D Model\ndescription: 'A `digital-representation` constrained to real-time 3D model formats:\n  glTF (binary or JSON),\n\n  Wavefront OBJ, or an OGC 3D Tiles tileset (D8.2 profile B).\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  properties:\n    hdtoType:\n      const: hdto:HC8_3D_Model\n      description: \"Narrows the inherited hdtoType (from digital-representation) to\n        HC8 \\u2014 this block's own specific HDTO class (HC8 \\u2291 HC5 per D7.1).\"\n    mediaType:\n      type: string\n      enum:\n      - model/gltf-binary\n      - model/gltf+json\n      - model/obj\n      - application/json\n      description: '`model/gltf-binary` (.glb) or `model/gltf+json` (.gltf) for glTF\n        2.0, `model/obj` for Wavefront OBJ, or `application/json` for an OGC 3D Tiles\n        tileset.'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: Heritage 3D Model\ndescription: 'A `digital-representation` constrained to real-time 3D model formats:\n  glTF (binary or JSON),\n\n  Wavefront OBJ, or an OGC 3D Tiles tileset (D8.2 profile B).\n\n  '\nallOf:\n- $ref: https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation/schema.yaml\n- type: object\n  required:\n  - mediaType\n  properties:\n    hdtoType:\n      const: hdto:HC8_3D_Model\n      description: \"Narrows the inherited hdtoType (from digital-representation) to\n        HC8 \\u2014 this block's own specific HDTO class (HC8 \\u2291 HC5 per D7.1).\"\n    mediaType:\n      type: string\n      enum:\n      - model/gltf-binary\n      - model/gltf+json\n      - model/obj\n      - application/json\n      description: '`model/gltf-binary` (.glb) or `model/gltf+json` (.gltf) for glTF\n        2.0, `model/obj` for Wavefront OBJ, or `application/json` for an OGC 3D Tiles\n        tileset.'\nx-bblocks-metadata:\n  itemIdentifier: ogc.heritage.three-d-model\n  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json\n  version: '0.3'\n  dateOfLastChange: '2026-11-04'\n",
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
   "gitPath": "_sources/three-d-model"
 }

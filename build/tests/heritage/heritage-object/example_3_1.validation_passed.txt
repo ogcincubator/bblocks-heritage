@@ -1,5 +1,5 @@
 Validation report for ogc.heritage.heritage-object - Heritage Object
-Generated 2026-09-16T22:14:55.321446+00:00
+Generated 2026-11-04T11:23:27.153743+00:00
 === Files ===
 Using examples/wall-component.json from examples
 JSON-LD context is present - uplifting

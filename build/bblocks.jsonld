@@ -110,6 +110,14 @@
         "@id": "prof:isProfileOf",
         "@type": "@id"
       },
+      "hasFormat": {
+        "@id": "dct:hasFormat",
+        "@type": "@id"
+      },
+      "seeAlso": {
+        "@id": "rdfs:seeAlso",
+        "@type": "@id"
+      },
       "tags": "dcat:keyword",
       "shaclShapes": {
         "@id": "prof:hasResource",
@@ -201,15 +209,16 @@
       }
     }
   ],
+  "metaRegistry": "https://w3id.org/ogc/bblocks/meta-register.json",
   "name": "Building Blocks - Cultural Heritage Building Blocks",
   "abstract": "Reusable OGC Building Blocks for modelling cultural heritage data, covering heritage objects,\ndigital representations, provenance, sensor observations and dataset metadata.\n",
   "description": "This register defines reusable, machine-readable specification components for the cultural\nheritage domain, building on CIDOC-CRM, PROV-O, SOSA/SSN, EDM and DCAT. It originated from the\nstandards profiling work of the [HERITALISE](https://heritalise.eu) project (deliverables D8.1\nand D8.2), but is intended as a general-purpose register usable beyond that project.\n",
-  "modified": "2026-09-16T22:14:35.948685",
+  "modified": "2026-11-04T11:23:11.068068",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"e9e9cb5c905d4e569b44b4816a663ec450322f6f",
-      "shortCommitId": "\"e9e9cb",
-      "date": "2026-09-14T10:12:51+00:00\""
+      "commitId": "\"373c26d1cdf143759ae2c602c0713e98e6af6fc9",
+      "shortCommitId": "\"373c26",
+      "date": "2026-11-03T13:31:34+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblocks-heritage",
@@ -256,7 +265,7 @@
   "hasConcepts": [
     {
       "itemIdentifier": "ogc.heritage.aggregation",
-      "name": "Aggregation",
+      "name": "Heritage Aggregation",
       "abstract": "An EDM/ORE aggregation wrapping a heritage object together with its digital representations and the provider/rights metadata required to publish it to Europeana / ECCCH, modelled as edm:Aggregation (ore:Aggregation).",
       "status": "under-development",
       "dateTimeAddition": "2026-06-25T00:00:00Z",
@@ -293,13 +302,13 @@
           "dct:conformsTo": "shacl:"
         }
       ],
+      "dateOfLastChange": "2026-11-04",
       "ldContext": {
         "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
-      "dateOfLastChange": "2026-06-25",
       "schema": [
         {
           "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/aggregation/schema.yaml",
@@ -341,7 +350,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Aggregation",
+      "skos:prefLabel": "Heritage Aggregation",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -359,7 +368,7 @@
       "dateTimeAddition": "2026-09-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "rdfType": [
         "http://isl.ics.forth.gr/ontology/echoes/HC2_Heritage_Digital_Twin"
       ],
@@ -482,7 +491,7 @@
         "object"
       ],
       "group": "Core",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "shaclShapes": [
         {
           "prof:hasArtifact": [
@@ -559,7 +568,7 @@
       "dateTimeAddition": "2026-09-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "rdfType": [
         "http://isl.ics.forth.gr/ontology/echoes/HC16_Heritage_Proposition_Set"
       ],
@@ -661,7 +670,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E13 Attribute Assignment",
@@ -763,13 +772,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.monitoring-threshold",
-      "name": "Monitoring Threshold",
+      "name": "Heritage Monitoring Threshold",
       "abstract": "A conservation threshold rule bounding an environmental parameter at a heritage monitoring point or zone, modelled as a SOSA ObservableProperty with QUDT unit and severity annotations (CRRS-011).",
       "status": "under-development",
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.2",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "W3C/OGC SOSA ObservableProperty",
@@ -855,7 +864,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Monitoring Threshold",
+      "skos:prefLabel": "Heritage Monitoring Threshold",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -873,7 +882,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E31 Document",
@@ -971,7 +980,7 @@
     },
     {
       "itemIdentifier": "ogc.heritage.event",
-      "name": "Event",
+      "name": "Heritage Event",
       "abstract": "An event in the history of a heritage object \u2014 production, restoration, modification, acquisition \u2014 modelled as a CIDOC-CRM E5 Event (generalising E12 Production and E11 Modification) and profiling the PROV-O Activity.",
       "status": "under-development",
       "dateTimeAddition": "2026-06-25T00:00:00Z",
@@ -1000,7 +1009,7 @@
       "isProfileOf": [
         "bblocks://ogc.ogc-utils.prov-activity"
       ],
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "shaclShapes": [
         {
           "prof:hasArtifact": [
@@ -1071,117 +1080,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Event",
-      "openAPIDocument": null,
-      "ontology": null,
-      "rdfData": [],
-      "skos:topConceptOf": {
-        "@id": "https://ogcincubator.github.io/bblocks-heritage/"
-      }
-    },
-    {
-      "itemIdentifier": "ogc.heritage.actor",
-      "name": "Actor",
-      "abstract": "A person or organization associated with cultural heritage objects, events or activities \u2014 creators, custodians, restorers \u2014 modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.",
-      "status": "under-development",
-      "dateTimeAddition": "2026-06-25T00:00:00Z",
-      "itemClass": "schema",
-      "version": "0.1",
-      "rdfType": [
-        "http://www.cidoc-crm.org/cidoc-crm/E39_Actor"
-      ],
-      "sources": [
-        {
-          "title": "CIDOC-CRM",
-          "link": "https://www.cidoc-crm.org/"
-        },
-        {
-          "title": "PROV-O",
-          "link": "https://www.w3.org/TR/prov-o/"
-        }
-      ],
-      "tags": [
-        "cidoc-crm",
-        "heritage",
-        "actor",
-        "prov"
-      ],
-      "group": "Core",
-      "isProfileOf": [
-        "bblocks://ogc.ogc-utils.prov-agent"
-      ],
-      "shaclShapes": [
-        {
-          "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.heritage.actor",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
-            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        }
-      ],
-      "dependsOn": [
-        "bblocks://ogc.ogc-utils.prov-agent"
-      ],
-      "ldContext": {
-        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
-        "prof:hasRole": "role:mapping",
-        "dct:format": "application/ld+json",
-        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
-      },
-      "dateOfLastChange": "2026-06-25",
-      "schema": [
-        {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml",
-          "prof:hasRole": "role:schema",
-          "dct:format": "application/yaml",
-          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
-        },
-        {
-          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json",
-          "prof:hasRole": "role:schema",
-          "dct:format": "application/json",
-          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
-        }
-      ],
-      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/schema.yaml",
-      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/context.jsonld",
-      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/resolvedProperties.json",
-      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/",
-      "validationPassed": true,
-      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/actor/",
-      "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/actor/index.md"
-        },
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/actor/index.json"
-        },
-        "bblocks-viewer": {
-          "mediatype": "text/html",
-          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.actor"
-        }
-      },
-      "@id": "bblocks://ogc.heritage.actor",
-      "@type": [
-        "bblocks:Schema",
-        "skos:Concept",
-        "dcat:Dataset",
-        "bblocks:BBlock"
-      ],
-      "skos:prefLabel": "Actor",
+      "skos:prefLabel": "Heritage Event",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -1191,7 +1090,7 @@
     },
     {
       "itemIdentifier": "ogc.heritage.digital-representation",
-      "name": "Digital Representation",
+      "name": "Heritage Digital Representation",
       "abstract": "A digital asset (image, 3D model, document...) representing or documenting a heritage object, modelled as a CIDOC-CRM E73 Information Object and profiling the PROV-O Entity.",
       "status": "under-development",
       "dateTimeAddition": "2026-06-25T00:00:00Z",
@@ -1220,7 +1119,7 @@
       "isProfileOf": [
         "bblocks://ogc.ogc-utils.prov-entity"
       ],
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "shaclShapes": [
         {
           "prof:hasArtifact": [
@@ -1291,7 +1190,117 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Digital Representation",
+      "skos:prefLabel": "Heritage Digital Representation",
+      "openAPIDocument": null,
+      "ontology": null,
+      "rdfData": [],
+      "skos:topConceptOf": {
+        "@id": "https://ogcincubator.github.io/bblocks-heritage/"
+      }
+    },
+    {
+      "itemIdentifier": "ogc.heritage.actor",
+      "name": "Heritage Actor",
+      "abstract": "A person or organization associated with cultural heritage objects, events or activities \u2014 creators, custodians, restorers \u2014 modelled as a CIDOC-CRM E39 Actor and profiling the PROV-O Agent.",
+      "status": "under-development",
+      "dateTimeAddition": "2026-06-25T00:00:00Z",
+      "itemClass": "schema",
+      "version": "0.1",
+      "rdfType": [
+        "http://www.cidoc-crm.org/cidoc-crm/E39_Actor"
+      ],
+      "sources": [
+        {
+          "title": "CIDOC-CRM",
+          "link": "https://www.cidoc-crm.org/"
+        },
+        {
+          "title": "PROV-O",
+          "link": "https://www.w3.org/TR/prov-o/"
+        }
+      ],
+      "tags": [
+        "cidoc-crm",
+        "heritage",
+        "actor",
+        "prov"
+      ],
+      "group": "Core",
+      "isProfileOf": [
+        "bblocks://ogc.ogc-utils.prov-agent"
+      ],
+      "shaclShapes": [
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.heritage.actor",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        }
+      ],
+      "dependsOn": [
+        "bblocks://ogc.ogc-utils.prov-agent"
+      ],
+      "dateOfLastChange": "2026-11-04",
+      "ldContext": {
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/context.jsonld",
+        "prof:hasRole": "role:mapping",
+        "dct:format": "application/ld+json",
+        "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
+      },
+      "schema": [
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.yaml",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/yaml",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        },
+        {
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/schema.json",
+          "prof:hasRole": "role:schema",
+          "dct:format": "application/json",
+          "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
+        }
+      ],
+      "sourceSchema": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/schema.yaml",
+      "sourceLdContext": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/actor/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblocks-heritage/_sources/actor/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/bblocks-heritage/blob/master/build/tests/heritage/actor/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/markdown/heritage/actor/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/build/generateddocs/json-full/heritage/actor/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblocks-heritage/bblock/ogc.heritage.actor"
+        }
+      },
+      "@id": "bblocks://ogc.heritage.actor",
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept",
+        "dcat:Dataset",
+        "bblocks:BBlock"
+      ],
+      "skos:prefLabel": "Heritage Actor",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -1301,7 +1310,7 @@
     },
     {
       "itemIdentifier": "ogc.heritage.place",
-      "name": "Place",
+      "name": "Heritage Place",
       "abstract": "A spatial location relevant to cultural heritage \u2014 a site, building, room or landscape feature \u2014 modelled as a CIDOC-CRM E53 Place and encoded as an OGC JSON-FG Feature.",
       "status": "under-development",
       "dateTimeAddition": "2026-06-25T00:00:00Z",
@@ -1353,13 +1362,13 @@
       "dependsOn": [
         "bblocks://ogc.geo.json-fg.feature-lenient"
       ],
+      "dateOfLastChange": "2026-11-04",
       "ldContext": {
         "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
-      "dateOfLastChange": "2026-06-25",
       "schema": [
         {
           "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/place/schema.yaml",
@@ -1401,7 +1410,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Place",
+      "skos:prefLabel": "Heritage Place",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -1437,7 +1446,7 @@
       "isProfileOf": [
         "bblocks://ogc.heritage.digital-representation"
       ],
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "shaclShapes": [
         {
           "prof:hasArtifact": [
@@ -1523,7 +1532,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.3",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "rdfType": [
         "http://www.cidoc-crm.org/extensions/crmdig/D9_Data_Object"
       ],
@@ -1650,7 +1659,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.2",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CRMdig D1 Digital Object / D7 Digital Machine Event",
@@ -1781,7 +1790,7 @@
       "dateTimeAddition": "2026-06-25T00:00:00Z",
       "itemClass": "schema",
       "version": "0.2",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "3MF",
@@ -1892,7 +1901,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.3",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E73 Information Object",
@@ -2014,7 +2023,7 @@
     },
     {
       "itemIdentifier": "ogc.heritage.three-d-model",
-      "name": "3D Model",
+      "name": "Heritage 3D Model",
       "abstract": "A digital-representation profile constrained to real-time 3D model formats (glTF, 3D Tiles, OBJ), for 3D documentation and web rendering of heritage objects.",
       "status": "under-development",
       "dateTimeAddition": "2026-06-25T00:00:00Z",
@@ -2040,7 +2049,7 @@
       "isProfileOf": [
         "bblocks://ogc.heritage.digital-representation"
       ],
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "shaclShapes": [
         {
           "prof:hasArtifact": [
@@ -2119,7 +2128,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "3D Model",
+      "skos:prefLabel": "Heritage 3D Model",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -2129,13 +2138,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.monitoring-point",
-      "name": "Monitoring Point",
+      "name": "Heritage Monitoring Point",
       "abstract": "A physical sensor or monitoring device installed at a heritage resource, modelled as a SOSA Sensor with a CIDOC-CRM E22 Man-Made Object identity layer. Profiles ogc.sosa.properties.sensor.",
       "status": "under-development",
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.2",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "rdfType": [
         "http://www.cidoc-crm.org/extensions/crmdig/D8_Digital_Device"
       ],
@@ -2226,7 +2235,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Monitoring Point",
+      "skos:prefLabel": "Heritage Monitoring Point",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -2236,13 +2245,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.observation",
-      "name": "Observation",
+      "name": "Heritage Observation",
       "abstract": "A scientific observation or measurement of a heritage object or place \u2014 environmental monitoring, condition assessment, conservation science \u2014 profiling the SOSA/SSN Observation. `hasFeatureOfInterest` ties the reading back to the heritage object or place being measured (CIDOC-CRM/CRMsci's scientific observation context); `madeBySensor` is expected to reference an ogc.heritage.monitoring-point (SOSA/SSN Sensor) record. Required HDTO co-type: crmsci:S4.",
       "status": "under-development",
       "dateTimeAddition": "2026-06-25T00:00:00Z",
       "itemClass": "schema",
       "version": "0.2",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "rdfType": [
         "http://www.w3.org/ns/sosa/Observation"
       ],
@@ -2349,7 +2358,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Observation",
+      "skos:prefLabel": "Heritage Observation",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -2365,7 +2374,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.3",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E27 Site",
@@ -2481,7 +2490,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E53 Place",
@@ -2596,13 +2605,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.route",
-      "name": "Route",
+      "name": "Heritage Route",
       "abstract": "A road, visitor path, internal track or circulation route within or between heritage zones, typed as CIDOC-CRM E26 Physical Feature. Profiles 'place', inheriting JSON-FG geometry and core CRM place attributes, and adding route type, surface, width, accessibility and permitted-use fields.",
       "status": "under-development",
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E26 Physical Feature",
@@ -2703,7 +2712,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Route",
+      "skos:prefLabel": "Heritage Route",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -2719,7 +2728,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CRMsci E14 Condition Assessment",
@@ -2754,10 +2763,28 @@
         },
         {
           "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -2774,15 +2801,6 @@
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
             "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.features.featureCollection",
@@ -2792,8 +2810,8 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.geo.topo.features.topo-feature",
-        "bblocks://ogc.geo.json-fg.feature-lenient"
+        "bblocks://ogc.geo.json-fg.feature-lenient",
+        "bblocks://ogc.geo.topo.features.topo-feature"
       ],
       "ldContext": {
         "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/condition-assessment/context.jsonld",
@@ -2853,13 +2871,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.digital-representation-feature",
-      "name": "Digital Representation Feature",
-      "abstract": "Feature-envelope wrapper for Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
+      "name": "Heritage Digital Representation Feature",
+      "abstract": "Feature-envelope wrapper for Heritage Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.",
       "status": "under-development",
       "dateTimeAddition": "2026-07-17T00:00:00Z",
       "itemClass": "schema",
       "version": "0.2",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "isProfileOf": [
         "bblocks://ogc.heritage.digital-representation"
       ],
@@ -2889,10 +2907,28 @@
       "shaclShapes": [
         {
           "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -2909,27 +2945,9 @@
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
             "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.features.featureCollection",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
-            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -2942,13 +2960,22 @@
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
         }
       ],
       "dependsOn": [
+        "bblocks://ogc.geo.json-fg.feature-lenient",
         "bblocks://ogc.geo.topo.features.topo-feature",
-        "bblocks://ogc.ogc-utils.prov-entity",
         "bblocks://ogc.heritage.digital-representation",
-        "bblocks://ogc.geo.json-fg.feature-lenient"
+        "bblocks://ogc.ogc-utils.prov-entity"
       ],
       "ldContext": {
         "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/digital-representation-feature/context.jsonld",
@@ -2997,7 +3024,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Digital Representation Feature",
+      "skos:prefLabel": "Heritage Digital Representation Feature",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -3013,7 +3040,7 @@
       "dateTimeAddition": "2026-07-17T00:00:00Z",
       "itemClass": "schema",
       "version": "0.3",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "isProfileOf": [
         "bblocks://ogc.heritage.heritage-object"
       ],
@@ -3038,6 +3065,15 @@
       "shaclShapes": [
         {
           "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
@@ -3048,19 +3084,19 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
-            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
+            "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature-collection",
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
+            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature-collection",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -3085,9 +3121,9 @@
         }
       ],
       "dependsOn": [
+        "bblocks://ogc.geo.json-fg.feature-lenient",
         "bblocks://ogc.geo.topo.features.topo-feature",
-        "bblocks://ogc.heritage.heritage-object",
-        "bblocks://ogc.geo.json-fg.feature-lenient"
+        "bblocks://ogc.heritage.heritage-object"
       ],
       "ldContext": {
         "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/heritage-object-feature/context.jsonld",
@@ -3146,13 +3182,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.surface",
-      "name": "Surface",
+      "name": "Heritage Surface",
       "abstract": "A material finish layer or physical surface feature recognised on an architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), documenting material, application technique, historical phase and spatial footprint (CRRS-005).",
       "status": "under-development",
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.1",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E25 Man-Made Feature",
@@ -3187,10 +3223,28 @@
         },
         {
           "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -3207,15 +3261,6 @@
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
             "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.features.featureCollection",
@@ -3225,8 +3270,8 @@
         }
       ],
       "dependsOn": [
-        "bblocks://ogc.geo.topo.features.topo-feature",
-        "bblocks://ogc.geo.json-fg.feature-lenient"
+        "bblocks://ogc.geo.json-fg.feature-lenient",
+        "bblocks://ogc.geo.topo.features.topo-feature"
       ],
       "ldContext": {
         "prof:hasArtifact": "https://ogcincubator.github.io/bblocks-heritage/build/annotated/heritage/surface/context.jsonld",
@@ -3275,7 +3320,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Surface",
+      "skos:prefLabel": "Heritage Surface",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -3286,13 +3331,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.survey-dataset",
-      "name": "Survey Dataset",
+      "name": "Heritage Survey Dataset",
       "abstract": "A geometric survey dataset (point cloud, photogrammetric model or similar) acquired from a heritage asset, modelled as a CRMdig D1 Digital Object with a CRMdig D7 acquisition event and a spatial coverage geometry. Profiles ogc.heritage.digital-representation, adding survey acquisition paradata (method, equipment, CRS, density, accuracy) and a mandatory coverage polygon.",
       "status": "under-development",
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.3",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "rdfType": [
         "http://www.cidoc-crm.org/extensions/crmdig/D1_Digital_Object"
       ],
@@ -3336,10 +3381,28 @@
         },
         {
           "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
+            "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -3356,15 +3419,6 @@
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
-          ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
-          "prof:hasRole": "role:validation",
-          "dct:format": "text/turtle",
-          "dct:conformsTo": "shacl:"
-        },
-        {
-          "prof:hasArtifact": [
             "https://opengeospatial.github.io/bblocks/registereditems/geo/features/featureCollection/shapes.shacl"
           ],
           "rdfs:seeAlso": "bblocks://ogc.geo.features.featureCollection",
@@ -3374,18 +3428,18 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+            "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
+          "rdfs:seeAlso": "bblocks://ogc.heritage.digital-representation",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/bblocks-heritage/_sources/digital-representation/shapes.shacl"
+            "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.heritage.digital-representation",
+          "rdfs:seeAlso": "bblocks://ogc.model.cross-domain.prov",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -3441,7 +3495,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Survey Dataset",
+      "skos:prefLabel": "Heritage Survey Dataset",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -3457,7 +3511,7 @@
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.2",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E22 Man-Made Object",
@@ -3491,6 +3545,15 @@
         },
         {
           "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
@@ -3501,19 +3564,19 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
-            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
+            "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature-collection",
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
+            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature-collection",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -3597,13 +3660,13 @@
     },
     {
       "itemIdentifier": "ogc.heritage.building",
-      "name": "Building",
-      "abstract": "A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.",
+      "name": "Heritage Building",
+      "abstract": "A principal heritage building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.",
       "status": "under-development",
       "dateTimeAddition": "2026-07-16T00:00:00Z",
       "itemClass": "schema",
       "version": "0.3",
-      "dateOfLastChange": "2026-09-16",
+      "dateOfLastChange": "2026-11-04",
       "sources": [
         {
           "title": "CIDOC-CRM E22 Man-Made Object",
@@ -3636,6 +3699,15 @@
         },
         {
           "prof:hasArtifact": [
+            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+          ],
+          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "prof:hasRole": "role:validation",
+          "dct:format": "text/turtle",
+          "dct:conformsTo": "shacl:"
+        },
+        {
+          "prof:hasArtifact": [
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
             "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
@@ -3646,19 +3718,19 @@
         },
         {
           "prof:hasArtifact": [
-            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
-            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
+            "https://ogcincubator.github.io/topo-feature/_sources/ontology/shapes.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature-collection",
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.ontology",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
         },
         {
           "prof:hasArtifact": [
-            "https://opengeospatial.github.io/bblocks/registereditems/geo/features/feature/shapes.shacl"
+            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature-collection/tests/topo-refs-exist.shacl",
+            "https://ogcincubator.github.io/topo-feature/_sources/features/topo-feature/tests/geometry-coordinates.shacl"
           ],
-          "rdfs:seeAlso": "bblocks://ogc.geo.features.feature",
+          "rdfs:seeAlso": "bblocks://ogc.geo.topo.features.topo-feature-collection",
           "prof:hasRole": "role:validation",
           "dct:format": "text/turtle",
           "dct:conformsTo": "shacl:"
@@ -3732,7 +3804,7 @@
         "dcat:Dataset",
         "bblocks:BBlock"
       ],
-      "skos:prefLabel": "Building",
+      "skos:prefLabel": "Heritage Building",
       "openAPIDocument": null,
       "ontology": null,
       "rdfData": [],
@@ -3767,10 +3839,10 @@
       "@id": "bblocks://ogc.heritage.event"
     },
     {
-      "@id": "bblocks://ogc.heritage.actor"
+      "@id": "bblocks://ogc.heritage.digital-representation"
     },
     {
-      "@id": "bblocks://ogc.heritage.digital-representation"
+      "@id": "bblocks://ogc.heritage.actor"
     },
     {
       "@id": "bblocks://ogc.heritage.place"

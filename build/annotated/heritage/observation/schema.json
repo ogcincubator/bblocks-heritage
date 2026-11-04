@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Observation",
+  "title": "Heritage Observation",
   "description": "A scientific observation or measurement, profiling the SOSA/SSN Observation rather than\nredefining it: `observedProperty`, `madeBySensor`, `hasFeatureOfInterest`,\n`hasResult`/`hasSimpleResult` and `resultTime`/`phenomenonTime` all come from\n`ogc.sosa.properties.observation`. This block only narrows `hasFeatureOfInterest` from\noptional to required, since every reading in this register is expected to reference the\n`heritage-object` or `place` it was taken of/at by URI (the CIDOC-CRM/CRMsci \"scientific\nobservation context\"), and sets `type` so the uplifted graph is actually typed\n`sosa:Observation` (the profiled block's own examples never set it). For observations that\nneed their own geometry independent of an existing `place`, compose the properties from this\nblock inside `ogc.sosa.features.observation` instead.\n",
   "allOf": [
     {
@@ -31,5 +31,11 @@
   "x-jsonld-prefixes": {
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "crmsci": "http://www.cidoc-crm.org/extensions/crmsci/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.observation",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.2",
+    "dateOfLastChange": "2026-11-04"
   }
 }

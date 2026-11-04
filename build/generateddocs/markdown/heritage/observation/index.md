@@ -1,5 +1,5 @@
 
-# Observation (Schema)
+# Heritage Observation (Schema)
 
 `ogc.heritage.observation` *v0.2*
 
@@ -9,7 +9,7 @@ A scientific observation or measurement of a heritage object or place — enviro
 
 ## Description
 
-## Observation
+## Heritage Observation
 
 An `Observation` is a scientific measurement or environmental reading taken of a heritage
 object or place — microclimate monitoring, condition assessment, conservation science — using
@@ -102,7 +102,7 @@ A humidity measurement of the Great Gallery, taken by an OGC SensorThings API `S
     sosa:hasSimpleResult 5.42e+01 ;
     sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/great-gallery-mp-01> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
-    sosa:resultTime "2024-03-04T12:00:00Z" .
+    sosa:resultTime "2024-03-04T12:00:00+00:00"^^xsd:dateTime .
 
 
 ```
@@ -141,7 +141,7 @@ Only `hasFeatureOfInterest` and one of `hasResult`/`hasSimpleResult` are require
 
 <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;
     sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
-    sosa:hasSimpleResult <file:///github/workspace/> ;
+    sosa:hasSimpleResult "RH within tolerance, see paper log" ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
 
 
@@ -192,7 +192,7 @@ A relative humidity reading taken by a monitoring point in the Reggia di Venaria
     sosa:hasSimpleResult 6.14e+01 ;
     sosa:madeBySensor <https://heritalise-eccch.eu/resource/monitoring-point/north-gallery-mp-01> ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300055680> ;
-    sosa:resultTime "2024-09-15T08:30:00Z" .
+    sosa:resultTime "2024-09-15T08:30:00+00:00"^^xsd:dateTime .
 
 
 ```
@@ -201,7 +201,7 @@ A relative humidity reading taken by a monitoring point in the Reggia di Venaria
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Observation
+title: Heritage Observation
 description: 'A scientific observation or measurement, profiling the SOSA/SSN Observation
   rather than
 
@@ -251,6 +251,11 @@ allOf:
 x-jsonld-prefixes:
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   crmsci: http://www.cidoc-crm.org/extensions/crmsci/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.observation
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'
 
 ```
 
@@ -654,10 +659,46 @@ Links to the schema:
       "@id": "ssn-system:qualityOfObservation",
       "@type": "@id"
     },
-    "resultTime": "sosa:resultTime",
+    "resultTime": {
+      "@id": "sosa:resultTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
     "phenomenonTime": {
+      "@context": {
+        "hasBeginning": "time:hasBeginning",
+        "hasEnd": "time:hasEnd",
+        "inXSDDateTime": {
+          "@id": "time:inXSDDateTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "inXSDDateTimeStamp": {
+          "@id": "time:inXSDDateTimeStamp",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+        },
+        "inXSDDate": {
+          "@id": "time:inXSDDate",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "Instant": "time:Instant",
+        "Interval": "time:Interval",
+        "ProperInterval": "time:ProperInterval",
+        "hasDuration": "time:hasDuration",
+        "hasXSDDuration": {
+          "@id": "time:hasXSDDuration",
+          "@type": "http://www.w3.org/2001/XMLSchema#duration"
+        },
+        "inTimePosition": "time:inTimePosition",
+        "inXSDgYear": {
+          "@id": "time:inXSDgYear",
+          "@type": "http://www.w3.org/2001/XMLSchema#gYear"
+        },
+        "inXSDgYearMonth": {
+          "@id": "time:inXSDgYearMonth",
+          "@type": "http://www.w3.org/2001/XMLSchema#gYearMonth"
+        }
+      },
       "@id": "sosa:phenomenonTime",
-      "@type": "@id"
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
     "hasFeatureOfInterest": {
       "@id": "sosa:hasFeatureOfInterest",
@@ -671,16 +712,19 @@ Links to the schema:
       "@id": "sosa:usedProcedure",
       "@type": "@id"
     },
-    "startTime": "sosa:startTime",
-    "endTime": "sosa:endTime",
+    "startTime": {
+      "@id": "sosa:startTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "endTime": {
+      "@id": "sosa:endTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
     "hasResult": {
       "@id": "sosa:hasResult",
       "@type": "@id"
     },
-    "hasSimpleResult": {
-      "@id": "sosa:hasSimpleResult",
-      "@type": "@id"
-    },
+    "hasSimpleResult": "sosa:hasSimpleResult",
     "hasInputValue": {
       "@id": "sosa:hasInputValue",
       "@type": "@id"
@@ -691,6 +735,7 @@ Links to the schema:
       "@type": "@id"
     },
     "sosa": "http://www.w3.org/ns/sosa/",
+    "time": "http://www.w3.org/2006/time#",
     "ssn-system": "ssn:systems/",
     "ssn": "http://www.w3.org/ns/ssn/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",

@@ -1,5 +1,5 @@
 
-# Actor (Schema)
+# Heritage Actor (Schema)
 
 `ogc.heritage.actor` *v0.1*
 
@@ -9,7 +9,7 @@ A person or organization associated with cultural heritage objects, events or ac
 
 ## Description
 
-## Actor
+## Heritage Actor
 
 An `Actor` is a person or organization associated with cultural heritage objects, events or
 activities — a creator, custodian, restorer, donor — modelled as a CIDOC-CRM `E39_Actor`.
@@ -114,7 +114,7 @@ A conservation staff member, typed as a `Person`, with a local staff identifier 
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Actor
+title: Heritage Actor
 description: 'A person or organization associated with cultural heritage objects,
   events or activities,
 
@@ -143,6 +143,11 @@ allOf:
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   owl: http://www.w3.org/2002/07/owl#
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.actor
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-06-25'
 
 ```
 

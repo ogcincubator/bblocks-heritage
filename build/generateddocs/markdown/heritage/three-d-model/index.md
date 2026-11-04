@@ -1,5 +1,5 @@
 
-# 3D Model (Schema)
+# Heritage 3D Model (Schema)
 
 `ogc.heritage.three-d-model` *v0.3*
 
@@ -9,7 +9,7 @@ A digital-representation profile constrained to real-time 3D model formats (glTF
 
 ## Description
 
-## 3D Model
+## Heritage 3D Model
 
 A `ThreeDModel` is a [`digital-representation`](../digital-representation) constrained to
 real-time 3D model formats — glTF, OBJ, or an OGC 3D Tiles tileset — covering D8.2 profile B
@@ -142,7 +142,7 @@ A 3D scan of the south balustrade at Villa Portelli (Malta pilot), exported as g
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: 3D Model
+title: Heritage 3D Model
 description: 'A `digital-representation` constrained to real-time 3D model formats:
   glTF (binary or JSON),
 
@@ -169,6 +169,11 @@ allOf:
       description: '`model/gltf-binary` (.glb) or `model/gltf+json` (.gltf) for glTF
         2.0, `model/obj` for Wavefront OBJ, or `application/json` for an OGC 3D Tiles
         tileset.'
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.three-d-model
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

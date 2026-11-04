@@ -360,6 +360,11 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   oa: http://www.w3.org/ns/oa#
   prov: http://www.w3.org/ns/prov#
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.historical-statement
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Monitoring Point
+title: Heritage Monitoring Point
 description: 'A physical sensor or monitoring device installed at a heritage resource.
   Profiles
 
@@ -86,3 +86,8 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   geojson: https://purl.org/geojson/vocab#
   sosa: http://www.w3.org/ns/sosa/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.monitoring-point
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'

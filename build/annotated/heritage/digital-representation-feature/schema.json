@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Digital Representation Feature",
+  "title": "Heritage Digital Representation Feature",
   "description": "Feature-envelope wrapper for ogc.heritage.digital-representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature when its geometry is defined by reference/topology rather than embedded coordinates. PROV-O's prov-entity (id, provType, wasAttributedTo, wasGeneratedBy, wasDerivedFrom, ...) is inherited flat at the top level, since prov-entity does not fix `type` to a specific class the way ogc.heritage.heritage-object does; digital-representation's own additions (isAbout, mediaType, persistentIdentifier, url) nest under `properties`, per GeoJSON convention. Like digital-representation itself, this block asserts no fixed CIDOC-CRM class of its own \u2014 `properties.choType` is required but left open (no `const`) for concrete profiles (e.g. ogc.heritage.survey-dataset) to pin to their own class, the same way digital-representation's other profiles (digital-surrogate, oral-history, derived-survey-product) each pin their own `type`.",
   "allOf": [
     {
@@ -81,5 +81,11 @@
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dct": "http://purl.org/dc/terms/",
     "dcat": "http://www.w3.org/ns/dcat#"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.digital-representation-feature",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.2",
+    "dateOfLastChange": "2026-11-04"
   }
 }

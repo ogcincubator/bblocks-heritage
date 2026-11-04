@@ -98,3 +98,8 @@ x-jsonld-extra-terms:
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.source-carrier
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-04'

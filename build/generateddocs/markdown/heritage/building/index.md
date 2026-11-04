@@ -1,15 +1,15 @@
 
-# Building (Schema)
+# Heritage Building (Schema)
 
 `ogc.heritage.building` *v0.3*
 
-A principal building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.
+A principal heritage building or architectural unit as a CIDOC-CRM E22 Man-Made Object with spatial footprint and optional IFC/BIM reference. Profile of heritage-object.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
 ## Description
 
-## Building
+## Heritage Building
 
 A `Building` is a principal building or architectural unit — a palace wing, chapel,
 outbuilding, or villa — modelled as CIDOC-CRM **E22 Man-Made Object**. It profiles
@@ -316,7 +316,7 @@ The main villa building at Villa Portelli, Malta: linked to the garden heritage 
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Building
+title: Heritage Building
 description: 'A principal building or architectural unit (palace wing, chapel, outbuilding,
   villa)
 
@@ -379,6 +379,11 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
   hdto: http://isl.ics.forth.gr/ontology/echoes/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.building
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'
 
 ```
 
@@ -486,12 +491,6 @@ Links to the schema:
           "@container": "@list"
         },
         "directed_references": {
-          "@context": {
-            "ref": {
-              "@type": "@id",
-              "@id": "topo:ref"
-            }
-          },
           "@id": "topo:directedReferences",
           "@container": "@list"
         },
@@ -571,13 +570,18 @@ Links to the schema:
     "arcLength": "geojson:arcLength",
     "startTangentVector": "geojson:startTangentVector",
     "endTangentVector": "geojson:endTangentVector",
-    "ref": "topo:ref",
+    "ref": {
+      "@id": "topo:ref",
+      "@type": "@id"
+    },
     "orientation": "topo:orientation",
     "Edge": "topo:Edge",
     "Face": "topo:Face",
     "Ring": "topo:Ring",
     "Shell": "topo:Shell",
     "Solid": "topo:Solid",
+    "AggregateSolid": "topo:AggregateSolid",
+    "AggregatePolygon": "topo:AggregatePolygon",
     "rings": {
       "@id": "topo:rings",
       "@container": "@list"

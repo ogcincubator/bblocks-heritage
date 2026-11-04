@@ -1,5 +1,5 @@
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Surface
+title: Heritage Surface
 description: 'A material finish layer or physical surface feature recognised on an
   architectural component or heritage object (CIDOC-CRM E25 Man-Made Feature), encoded
   as a GeoJSON/ JSON-FG Feature: CIDOC-CRM attributes nest under `properties` (GeoJSON
@@ -119,3 +119,8 @@ x-jsonld-extra-terms:
   Surface: http://www.cidoc-crm.org/cidoc-crm/E25_Man-Made_Feature
 x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.surface
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-04'

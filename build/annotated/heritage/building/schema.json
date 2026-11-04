@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Building",
+  "title": "Heritage Building",
   "description": "A principal building or architectural unit (palace wing, chapel, outbuilding, villa)\nmodelled as a CIDOC-CRM E22 Man-Made Object. Profiles ogc.heritage.heritage-object-feature\nand adds site containment, construction history, operational status and an optional IFC\ncross-reference. Geometry (footprint) is inherited from heritage-object-feature: embedded\ndirectly, given by reference/topology, or omitted entirely.\n\nInstances carry `properties.choType: \"HeritageObject\"` (inherited); the building category\nis conveyed through `objectType` pointing to a Getty AAT architectural concept.\n",
   "allOf": [
     {
@@ -55,5 +55,11 @@
     "crm": "http://www.cidoc-crm.org/cidoc-crm/",
     "dct": "http://purl.org/dc/terms/",
     "hdto": "http://isl.ics.forth.gr/ontology/echoes/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.building",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.3",
+    "dateOfLastChange": "2026-11-04"
   }
 }

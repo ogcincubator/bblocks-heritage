@@ -1,5 +1,5 @@
 
-# Aggregation (Schema)
+# Heritage Aggregation (Schema)
 
 `ogc.heritage.aggregation` *v0.1*
 
@@ -9,7 +9,7 @@ An EDM/ORE aggregation wrapping a heritage object together with its digital repr
 
 ## Description
 
-## Aggregation
+## Heritage Aggregation
 
 An `Aggregation` is the EDM/ORE publishing wrapper that Europeana and ECCCH actually ingest:
 it pairs a [`heritage-object`](../heritage-object) (the *Cultural Heritage Object*) with the
@@ -128,7 +128,7 @@ Only `aggregatedCHO` is required — the rest can be filled in incrementally as 
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Aggregation
+title: Heritage Aggregation
 description: "An EDM/ORE aggregation: the wrapper Europeana/ECCCH actually ingests,
   pairing a\n`heritage-object` with the `digital-representation`(s) that depict it
   and the\nprovider/rights metadata needed for publishing (CIDOC-CRM and PROV-O don't
@@ -206,6 +206,11 @@ x-jsonld-extra-terms:
 x-jsonld-prefixes:
   ore: http://www.openarchives.org/ore/terms/
   edm: http://www.europeana.eu/schemas/edm/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.aggregation
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-06-25'
 
 ```
 

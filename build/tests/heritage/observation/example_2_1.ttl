@@ -3,6 +3,6 @@
 
 <https://heritalise-eccch.eu/resource/observation/legacy-rh-reading-001> a crmsci:S4 ;
     sosa:hasFeatureOfInterest <https://heritalise-eccch.eu/resource/place/great-gallery> ;
-    sosa:hasSimpleResult <file:///github/workspace/> ;
+    sosa:hasSimpleResult "RH within tolerance, see paper log" ;
     sosa:observedProperty <http://vocab.getty.edu/aat/300379098> .
 

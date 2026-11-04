@@ -355,6 +355,11 @@ x-jsonld-prefixes:
   crmdig: http://www.cidoc-crm.org/extensions/crmdig/
   dct: http://purl.org/dc/terms/
   prov: http://www.w3.org/ns/prov#
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.derived-survey-product
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

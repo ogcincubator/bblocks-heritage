@@ -1,9 +1,9 @@
 
-# Digital Representation Feature (Schema)
+# Heritage Digital Representation Feature (Schema)
 
 `ogc.heritage.digital-representation-feature` *v0.2*
 
-Feature-envelope wrapper for Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.
+Feature-envelope wrapper for Heritage Digital Representation: a spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as a topo-feature when geometry is defined by reference/topology.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -168,7 +168,7 @@ The same kind of photograph located by reference instead of embedded coordinates
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Digital Representation Feature
+title: Heritage Digital Representation Feature
 description: "Feature-envelope wrapper for ogc.heritage.digital-representation: a
   spatially located digital asset encoded as a GeoJSON/JSON-FG Feature, or as an ogc.geo.topo.features.topo-feature
   when its geometry is defined by reference/topology rather than embedded coordinates.
@@ -231,6 +231,11 @@ x-jsonld-prefixes:
   crm: http://www.cidoc-crm.org/cidoc-crm/
   dct: http://purl.org/dc/terms/
   dcat: http://www.w3.org/ns/dcat#
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.digital-representation-feature
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.2'
+  dateOfLastChange: '2026-11-04'
 
 ```
 
@@ -659,12 +664,6 @@ Links to the schema:
           "@container": "@list"
         },
         "directed_references": {
-          "@context": {
-            "ref": {
-              "@type": "@id",
-              "@id": "topo:ref"
-            }
-          },
           "@id": "topo:directedReferences",
           "@container": "@list"
         },
@@ -732,13 +731,18 @@ Links to the schema:
     "arcLength": "geojson:arcLength",
     "startTangentVector": "geojson:startTangentVector",
     "endTangentVector": "geojson:endTangentVector",
-    "ref": "topo:ref",
+    "ref": {
+      "@id": "topo:ref",
+      "@type": "@id"
+    },
     "orientation": "topo:orientation",
     "Edge": "topo:Edge",
     "Face": "topo:Face",
     "Ring": "topo:Ring",
     "Shell": "topo:Shell",
     "Solid": "topo:Solid",
+    "AggregateSolid": "topo:AggregateSolid",
+    "AggregatePolygon": "topo:AggregatePolygon",
     "rings": {
       "@id": "topo:rings",
       "@container": "@list"

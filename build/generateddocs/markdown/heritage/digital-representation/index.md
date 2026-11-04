@@ -1,5 +1,5 @@
 
-# Digital Representation (Schema)
+# Heritage Digital Representation (Schema)
 
 `ogc.heritage.digital-representation` *v0.3*
 
@@ -9,7 +9,7 @@ A digital asset (image, 3D model, document...) representing or documenting a her
 
 ## Description
 
-## Digital Representation
+## Heritage Digital Representation
 
 A `DigitalRepresentation` is a digital asset — an image, a 3D model, a scanned document — that
 represents or documents a heritage object, modelled as a CIDOC-CRM `E73_Information_Object`.
@@ -158,7 +158,7 @@ Only `id` and `isAbout` are required — media type, attribution and persistent 
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-title: Digital Representation
+title: Heritage Digital Representation
 description: 'A digital asset (image, 3D model, document...) representing or documenting
   a heritage object,
 
@@ -242,6 +242,11 @@ x-jsonld-prefixes:
   dcat: http://www.w3.org/ns/dcat#
   crmdig: http://www.cidoc-crm.org/extensions/crmdig/
   hdto: http://isl.ics.forth.gr/ontology/echoes/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.digital-representation
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'
 
 ```
 

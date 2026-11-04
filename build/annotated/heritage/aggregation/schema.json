@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Aggregation",
+  "title": "Heritage Aggregation",
   "description": "An EDM/ORE aggregation: the wrapper Europeana/ECCCH actually ingests, pairing a\n`heritage-object` with the `digital-representation`(s) that depict it and the\nprovider/rights metadata needed for publishing (CIDOC-CRM and PROV-O don't model this \u2014\nit's an EDM/ORE-specific layer over the heritage object and digital representation blocks).\n",
   "type": "object",
   "properties": {
@@ -81,5 +81,11 @@
   "x-jsonld-prefixes": {
     "ore": "http://www.openarchives.org/ore/terms/",
     "edm": "http://www.europeana.eu/schemas/edm/"
+  },
+  "x-bblocks-metadata": {
+    "itemIdentifier": "ogc.heritage.aggregation",
+    "register": "https://ogcincubator.github.io/bblocks-heritage/build/register.json",
+    "version": "0.1",
+    "dateOfLastChange": "2026-06-25"
   }
 }

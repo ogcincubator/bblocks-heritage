@@ -422,6 +422,11 @@ x-jsonld-prefixes:
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
   prov: http://www.w3.org/ns/prov#
   hdto: http://isl.ics.forth.gr/ontology/echoes/
+x-bblocks-metadata:
+  itemIdentifier: ogc.heritage.heritage-object
+  register: https://ogcincubator.github.io/bblocks-heritage/build/register.json
+  version: '0.3'
+  dateOfLastChange: '2026-11-04'
 
 ```
 
